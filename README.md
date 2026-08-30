@@ -510,14 +510,15 @@ The src value identifies the resource.
 
 The actual resource may be stored:
 
-externally;
-locally;
-inside an OVMZ container;
-in a project library;
-in a compatible cloud storage system.
-Word-by-word presentation
+ - externally;
+ - locally;
+ - inside an OVMZ container;
+ - in a project library;
+ - in a compatible cloud storage system.
 
-OVML supports synchronized word presentation.
+## Word-by-word presentation
+
+## OVML supports synchronized word presentation.
 
 Example:
 
@@ -537,16 +538,16 @@ Example:
 ```
 
 This can be used for:
-```
-karaoke-style presentation;
-language learning;
-subtitles;
-reading assistance;
-synchronized narration;
-accessibility.
-Declarative format
-```
-OVML is a declarative format.
+
+ - karaoke-style presentation;
+ - language learning;
+ - subtitles;
+ - reading assistance;
+ - synchronized narration;
+ - accessibility.
+ - Declarative format
+
+## OVML is a declarative format.
 
 An OVML document describes the desired structure and timing of an audiovisual experience.
 
@@ -559,17 +560,17 @@ For example, the following:
 does not require a specific video library.
 
 A Player may use:
-```
-HTML5 video;
-native video APIs;
-FFmpeg;
-platform media frameworks;
-WebAssembly;
-another compatible implementation.
-```
+
+ - HTML5 video;
+ - native video APIs;
+ - FFmpeg;
+ - platform media frameworks;
+ - WebAssembly;
+ - another compatible implementation.
+
 The same principle applies to audio and TTS.
 
-OpenVML architecture
+## OpenVML architecture
 
 The OpenVML ecosystem separates description from execution.
 ```
@@ -598,7 +599,7 @@ The Studio is responsible for authoring and project preparation.
 
 Cloud services are optional infrastructure around the format.
 
-AI-assisted authoring
+## AI-assisted authoring
 
 OVML is particularly suitable for AI-assisted media production.
 
@@ -631,27 +632,27 @@ project.
 
 For example, changing:
 
-a character's voice;
-a dialogue line;
-a scene atmosphere;
-an image;
-a video asset;
-timing;
-subtitles;
-camera direction
+ - a character's voice;
+ - a dialogue line;
+ - a scene atmosphere;
+ - an image;
+ - a video asset;
+ - timing;
+ - subtitles;
+ - camera direction
 
 does not require treating the entire work as an opaque binary file.
 
-Compatibility
+## Compatibility
 
 A conforming OVML implementation should:
 
-correctly parse the document structure;
-validate required elements and attributes;
-preserve unknown information where appropriate;
-correctly interpret supported timing semantics;
-resolve referenced characters and resources;
-respect the semantics defined by the specification.
+ - correctly parse the document structure;
+ - validate required elements and attributes;
+ - preserve unknown information where appropriate;
+ - correctly interpret supported timing semantics;
+ - resolve referenced characters and resources;
+ - respect the semantics defined by the specification.
 
 The parser/validator is responsible for determining whether an OVML document is structurally valid.
 
@@ -667,7 +668,7 @@ is correctly formed and properly closed.
 
 Whether the scene itself is artistically appropriate is outside the responsibility of the parser.
 
-Versioning
+## Versioning
 
 The current standard is:
 
@@ -681,17 +682,17 @@ Implementations should use the declared version to determine which vocabulary an
 
 Future versions may introduce new:
 
-elements;
-attributes;
-media types;
-timing mechanisms;
-camera controls;
-processing hints;
-extension mechanisms.
+ - elements;
+ - attributes;
+ - media types;
+ - timing mechanisms;
+ - camera controls;
+ - processing hints;
+ - extension mechanisms.
 
 Backward compatibility will be considered when evolving the standard.
 
-Specification
+## Specification
 
 The normative specification is located in:
 
@@ -743,16 +744,16 @@ examples/
 
 They demonstrate different types of content, including:
 
-minimal projects;
-lectures;
-presentations;
-audiobooks;
-short-form video;
-voiceover projects.
+ - minimal projects;
+ - lectures;
+ - presentations;
+ - audiobooks;
+ - short-form video;
+ - voiceover projects.
 
 Examples are intended to be both documentation and compatibility tests for implementations.
 
-Implementations
+## Implementations
 
 OpenVML is designed to support multiple independent implementations.
 
@@ -792,27 +793,27 @@ The OVML standard is intended to evolve through discussion and implementation ex
 
 Contributions are welcome in areas including:
 
-specification improvements;
-clarification of semantics;
-examples;
-interoperability;
-validation rules;
-documentation;
-implementation feedback;
-new use cases.
+ - specification improvements;
+ - clarification of semantics;
+ - examples;
+ - interoperability;
+ - validation rules;
+ - documentation;
+ - implementation feedback;
+ - new use cases.
 
 When proposing a change to the standard, explain:
 
-the problem;
-the proposed solution;
-compatibility implications;
-example OVML;
-impact on existing implementations.
+ - the problem;
+ - the proposed solution;
+ - compatibility implications;
+ - example OVML;
+ - impact on existing implementations.
 
 Changes to the normative specification should be made deliberately because the standard is a public contract between
 independent implementations.
 
-License
+## License
 
 The OpenVML Standard specification is released under the Apache License 2.0.
 
