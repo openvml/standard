@@ -307,7 +307,7 @@ A basic OVML document has the following structure:
    </script>
 
 </ovml>
-```
+`` `
 
 The major sections are:
 ``text`
@@ -334,7 +334,7 @@ A scene can contain visual and narrative information such as:
    ...
 
 </scene>
-```
+`` `
 
 The color attribute can be used as a visual hint for UI presentation and processing presets.
 
