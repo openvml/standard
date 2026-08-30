@@ -69,10 +69,8 @@ Versioning is part of extensibility.
 
 The current standard is OVML 2.2, declared in the root element:
 
-```
-<ovml version="2.2" lang="en">
-```
-
+`` `<ovml version="2.2" lang="en">
+`` `
 Implementations use the declared version to determine which vocabulary and semantics are supported. Future versions may introduce new elements, attributes, media types, timing mechanisms, camera controls, processing hints, and extension mechanisms. Backward compatibility will be considered when evolving the standard.
 
 Processing vocabulary is versioned in the same spirit. The current audio vocabulary is eq, compressor, delay, reverb, chorus, gain, and convert; the current video vocabulary includes color, blur, sharpen, grayscale, sepia, grain, vignette, invert, glow, lens flare, fade, overlay, and convert. Additional operations may be added when their XML representation and semantics are formally established.
@@ -91,16 +89,14 @@ OVML stays extensible through a few consistent decisions.
 
     The uniform section rule lets any kind of canonical entity be added without changing the parser.
 
-```
-The <world> canon is a generic container with free sections.
+`` `The <world> canon is a generic container with free sections.
 
 Forward compatibility preserves unknown elements and warns without rejecting documents.
 
 Versioning (currently 2.2) lets the language grow deliberately.
 
 Project types are deliberately absent, so the language serves any audiovisual work.
-```
-
+`` `
 Each of these keeps OVML an open format that can grow through discussion and implementation experience without breaking the documents that already exist.
 
 See: reference/world.md

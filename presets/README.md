@@ -30,31 +30,26 @@ It is not an XML fragment intended to be inserted into the main OVML document.
 
 For example:
 
-```
-<audio_processing id="narrator_classic" name="Narrator Classic Warm">
+`` `<audio_processing id="narrator_classic" name="Narrator Classic Warm">
     ...
 </audio_processing>
-```
-
+`` `
 The file normally uses the `.ovml` extension.
 
 ## Preset Directory Structure
 
 Presets included in an OVMZ project may be organized as:
 
-```text
-project.ovmz/
+```project.ovmz/
 └── presets/
     ├── audio/
     │   └── <preset-id>.ovml
     └── video/
         └── <preset-id>.ovml
-```
-
+`` `
 For example:
 
-```text
-presets/
+```presets/
 ├── audio/
 │   ├── baron_officer_crisp.ovml
 │   ├── narrator_classic.ovml
@@ -63,20 +58,17 @@ presets/
     ├── video_background_soft_blur_light.ovml
     ├── video_guard_torch.ovml
     └── video_mystic_veil.ovml
-```
-
+`` `
 ## Preset Identity
 
 Every preset has an `id` and a human-readable `name`.
 
 Example:
 
-```
-<audio_processing
+`` `<audio_processing
     id="baron_officer_crisp"
     name="Baron Guard Officer">
-```
-
+`` `
 ### `id`
 
 Machine-readable identifier of the preset.
@@ -93,8 +85,7 @@ Operations are normally evaluated in document order.
 
 For example:
 
-```
-<audio_processing id="example" name="Example">
+`` `<audio_processing id="example" name="Example">
     <eq enabled="true">
         ...
     </eq>
@@ -111,12 +102,10 @@ For example:
         ...
     </convert>
 </audio_processing>
-```
-
+`` `
 The conceptual processing chain is:
 
-```text
-Source
+```Source
   ↓
 EQ
   ↓
@@ -127,34 +116,27 @@ Gain
 Convert
   ↓
 Output
-```
-
+`` `
 The exact runtime implementation is determined by the Player.
 
 ## Enabled Operations
 
 Processing operations that support optional activation use:
 
-```
-enabled="true"
-```
-
+`` `enabled="true"
+`` `
 or:
 
-```
-enabled="false"
-```
-
+`` `enabled="false"
+`` `
 An operation with `enabled="false"` is disabled and does not participate in processing.
 
 Example:
 
-```
-<sharpen enabled="false">
+`` `<sharpen enabled="false">
     <amount>0</amount>
 </sharpen>
-```
-
+`` `
 ## Audio Processing
 
 The currently established OVML 2.2 audio preset vocabulary is documented in [`audio.md`](audio.md).
@@ -201,30 +183,26 @@ The reference identifies the processing configuration while the preset remains a
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Вестфаль"
     audioProcessorId="narrator_classic"
     audioProcessorFile="presets/audio/narrator_classic.ovml" />
-```
-
+`` `
 The exact reference attributes belong to the corresponding content model.
 
 ## Presets and OVMZ
 
 An OVMZ package may contain the presets required by the project:
 
-```text
-project.ovmz/
+```project.ovmz/
 ├── content.ovml
 ├── resources/
 ├── presets/
 │   ├── audio/
 │   └── video/
 └── ...
-```
-
+`` `
 This allows processing definitions to travel together with the project.
 
 ## External Presets

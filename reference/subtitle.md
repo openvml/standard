@@ -51,13 +51,11 @@ A subtitle may also be declared as a resource identified by id and src.
 Example:
 
 <subtitle
-```
-id="subs_ru"
+`` `id="subs_ru"
 type="srt"
 name="Russian subtitles">
 <src>gdrive:subtitles/video_ru.srt</src>
-```
-</subtitle>
+`` `</subtitle>
 
 Common subtitle resource formats include:
 
@@ -75,10 +73,8 @@ A video or another media element may attach subtitle tracks through a `<subtitle
 
 <video src="intro">
 
-```
-<subtitles src="subs_en" language="en-US" />
-```
-
+`` `<subtitles src="subs_en" language="en-US" />
+`` `
 </video>
 
 Attributes:
@@ -96,14 +92,12 @@ The Player determines how the tracks are synchronized, selected, and presented.
 Project-level subtitle presentation preferences are defined in the `<preferences>` element of `<meta>`.
 
 <meta>
-```
-<preferences
+`` `<preferences
     showSubtitles="true"
     subtitleFontSize="16"
     subtitleBg="rgba(0,0,0,0.7)"
     subtitleColor="#ffffff" />
-```
-</meta>
+`` `</meta>
 
 The preferences attributes:
 

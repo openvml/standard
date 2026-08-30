@@ -22,8 +22,7 @@ Example:
 
 <p>
 
-```
-<line char="narrator">
+`` `<line char="narrator">
     The room was silent.
 </line>
 
@@ -34,8 +33,7 @@ Example:
 <line char="narrator">
     No one answered.
 </line>
-```
-
+`` `
 </p>
 
 ## 2. Narration and Dialogue
@@ -50,22 +48,18 @@ In OVML 2.2 both roles are represented by the same mechanism: `<line>` elements 
 Narration:
 
 <p>
-```
-<line char="narrator">
+`` `<line char="narrator">
     The sun rose over the horizon.
 </line>
-```
-</p>
+`` `</p>
 
 Dialogue:
 
 <p>
-```
-<line char="hero" emotion="happy">
+`` `<line char="hero" emotion="happy">
     What a wonderful day!
 </line>
-```
-</p>
+`` `</p>
 
 The narrator is the default character.
 
@@ -99,16 +93,14 @@ A `<line>` that does not specify its own char inherits the paragraph's character
 
 <p char="hero">
 
-```
-<line>
+`` `<line>
     I said it once.
 </line>
 
 <line char="narrator">
     He said it again.
 </line>
-```
-
+`` `
 </p>
 
 The first line is assigned to hero by inheritance.
@@ -136,8 +128,7 @@ marker	string	implementation-defined	Navigation marker
 Example:
 
 <p
-```
-char="hero"
+`` `char="hero"
 emotion="angry"
 rate="1.2"
 emphasis="sentence"
@@ -146,8 +137,7 @@ emphasis_level="medium">
 <line>
     Get out of my house!
 </line>
-```
-
+`` `
 </p>
 
 These attributes provide direction for speech synthesis and presentation.
@@ -170,8 +160,7 @@ Example:
 
 <p>
 
-```
-<line char="alex">
+`` `<line char="alex">
     Hello.
 </line>
 
@@ -182,8 +171,7 @@ Example:
 <line char="alex">
     How are you?
 </line>
-```
-
+`` `
 </p>
 
 The intended sequence is:
@@ -204,8 +192,7 @@ For example:
 
 <p>
 
-```
-<line
+`` `<line
     char="narrator"
     startMode="absolute"
     startTime="0">
@@ -217,8 +204,7 @@ For example:
     startMode="absolute"
     startTime="0"
     loop="true" />
-```
-
+`` `
 </p>
 
 Both elements begin at the same timeline position.
@@ -245,8 +231,7 @@ A paragraph normally occurs inside a scene.
 
 <scene atmosphere="quiet forest">
 
-```
-<p>
+`` `<p>
 
     <line char="narrator">
         The forest was unusually quiet.
@@ -259,8 +244,7 @@ A paragraph normally occurs inside a scene.
     </line>
 
 </p>
-```
-
+`` `
 </scene>
 
 The scene provides the dramatic and visual context.
@@ -273,8 +257,7 @@ The following example shows a paragraph with multiple lines, alternating speaker
 
 <p>
 
-```
-<line
+`` `<line
     char="vestfal"
     emotion="calm"
     rate="1.0"
@@ -332,8 +315,7 @@ The following example shows a paragraph with multiple lines, alternating speaker
     — с нотками знатока добавил он.
 
 </line>
-```
-
+`` `
 </p>
 
 ## 11. Validation

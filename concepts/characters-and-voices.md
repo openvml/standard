@@ -10,20 +10,16 @@ Understanding this separation is central to OpenVML. It is what allows the same 
 
 A character is a named semantic entity declared in the <cast> section. A character has a stable id and a human-readable name:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal" />
-```
-
+`` `
 The script references the character by id through the char attribute of a line:
 
-```
-<line char="vestfal">
+`` `<line char="vestfal">
     — Это ракеты.
 </line>
-```
-
+`` `
 The character's id is the canonical identity. It remains stable within the document, and the script refers to it rather than duplicating the character's definition in every line.
 
 The id is held in the original script's language. A character id is not transliterated or freely translated; it retains the value from the source script, whether that is Cyrillic, Latin, or any other writing system.
@@ -32,8 +28,7 @@ The id is held in the original script's language. A character id is not translit
 
 A character carries a display name and, optionally, aliases:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal">
 
@@ -43,8 +38,7 @@ A character carries a display name and, optionally, aliases:
     </aliases>
 
 </character>
-```
-
+`` `
 Aliases provide alternative names by which a character may be known. They are intended for authoring tools, search, indexing, and AI-assisted workflows. Aliases do not create additional characters — the canonical identity remains the character's id.
 
 3. Descriptive Information
@@ -57,8 +51,7 @@ This descriptive metadata is informational. It does not prescribe a particular v
 
 A character may bind a voice through voice attributes. The binding is a reference to a TTS resource, not the audio itself:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     voiceEngine="edge-tts"
@@ -67,8 +60,7 @@ A character may bind a voice through voice attributes. The binding is a referenc
     voiceLang="en-US"
     pitch="1.0"
     rate="1.0" />
-```
-
+`` `
 The voice binding declares:
 
     voiceEngine — the TTS or voice engine associated with the voice;
@@ -143,12 +135,10 @@ A word may receive:
 
 For example:
 
-```
-<p char="narrator">
+`` `<p char="narrator">
     Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
 </p>
-```
-
+`` `
 Pronunciation is part of the voice's rendering intent. It does not create or change a character; it refines how a particular word is synthesized.
 
 9. Summary

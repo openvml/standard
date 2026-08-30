@@ -29,12 +29,10 @@ Example:
 A scene may describe the emotion of a participating character:
 
 <scene id="ch1_tavern_night" time="night" mood="tense">
-```
-<characters>
+`` `<characters>
     <char ref="heroine" emotion="cautious"/>
 </characters>
-```
-</scene>
+`` `</scene>
 
 ## 3. Emotion Values
 
@@ -74,12 +72,10 @@ A Player MAY ignore the emotion attribute during playback.
 The `emotion` attribute may appear on a spoken line.
 
 <line
-```
-char="anna"
+`` `char="anna"
 emotion="happy">
 What a wonderful day!
-```
-</line>
+`` `</line>
 
 A line-level emotion applies to that particular line.
 
@@ -106,12 +102,10 @@ shout	Shout
 The `intonation` attribute may appear on a spoken line.
 
 <line
-```
-char="heavy"
+`` `char="heavy"
 intonation="command">
 Halt! Do not move.
-```
-</line>
+`` `</line>
 
 Intonation describes how the line is delivered.
 
@@ -132,13 +126,11 @@ Describes the prosodic delivery pattern.
 They may be combined:
 
 <line
-```
-char="alex"
+`` `char="alex"
 emotion="angry"
 intonation="command">
 Stop right now.
-```
-</line>
+`` `</line>
 
 Both attributes are optional.
 
@@ -149,12 +141,10 @@ A scene may use an explicit `mood` attribute as well as per-character emotion.
 Example:
 
 <scene id="ch1_tavern_night" time="night" mood="tense">
-```
-<characters>
+`` `<characters>
     <char ref="heroine" emotion="cautious"/>
 </characters>
-```
-</scene>
+`` `</scene>
 
 The scene `mood` is a vocabulary value such as calm, tense, mysterious, romantic, or dramatic.
 

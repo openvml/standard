@@ -40,8 +40,7 @@ The value version="2.2" identifies the document as using the model and rules def
 
 A typical OVML document has the following structure:
 
-```
-<ovml version="2.2" lang="en">
+`` `<ovml version="2.2" lang="en">
 
     <meta>
         ...
@@ -64,8 +63,7 @@ A typical OVML document has the following structure:
     </script>
 
 </ovml>
-```
-
+`` `
 The primary sections have different responsibilities:
 
 <ovml>
@@ -85,8 +83,7 @@ The <meta> element contains information about the project itself.
 
 Example:
 
-```
-<meta>
+`` `<meta>
     <title>The Last Summer Day</title>
     <author>OpenVML Example</author>
 
@@ -96,8 +93,7 @@ Example:
         subtitleBg="rgba(0,0,0,0.7)"
         subtitleColor="#ffffff" />
 </meta>
-```
-
+`` `
 Metadata is not part of the script itself.
 
 It describes the project and its general presentation preferences.
@@ -111,8 +107,7 @@ The <cast> element contains the characters used by the project.
 
 Example:
 
-```
-<cast>
+`` `<cast>
 
     <character
         id="alex"
@@ -137,8 +132,7 @@ Example:
         voiceEngine="edge-tts" />
 
 </cast>
-```
-
+`` `
 The character ID is referenced by dialogue:
 
 <line char="alex">
@@ -167,8 +161,7 @@ OVML can use referenced external resources.
 
 For example:
 
-```
-<assets>
+`` `<assets>
 
     <asset
         id="sunset"
@@ -181,20 +174,17 @@ For example:
         src="https://example.com/assets/rain.mp3" />
 
 </assets>
-```
-
+`` `
 Resources may also be included in an OVMZ container:
 
-```text
-project.ovmz
+```project.ovmz
 │
 ├── content.ovml
 └── resources/
     ├── images/
     ├── audio/
     └── video/
-```
-The script can then reference those resources by ID.
+`` `The script can then reference those resources by ID.
 
 See:
 
@@ -220,8 +210,7 @@ an entity is referenced from script content by ref.
 
 Example — a story-geared canon:
 
-```
-<world>
+`` `<world>
 
     <locations>
 
@@ -241,12 +230,10 @@ Example — a story-geared canon:
     </locations>
 
 </world>
-```
-
+`` `
 Example — a knowledge-geared canon (lecture, documentation):
 
-```
-<world>
+`` `<world>
 
     <terms>
 
@@ -261,15 +248,13 @@ Example — a knowledge-geared canon (lecture, documentation):
     </terms>
 
 </world>
-```
-
+`` `
 The world canon holds the permanent properties of its entities.
 
 Scenes reference a canonical entity by its id rather than
 duplicating the full description:
 
-```
-<scene>
+`` `<scene>
 
     <location ref="rusty_anchor">
         <variation>
@@ -280,8 +265,7 @@ duplicating the full description:
     ...
 
 </scene>
-```
-
+`` `
 This keeps long-form projects consistent across many scenes and
 chapters.
 
@@ -329,8 +313,7 @@ It organizes the project into navigable sections and contains scenes and content
 
 Example:
 
-```
-<script>
+`` `<script>
 
     <chapter id="chapter-1" title="Beginning">
 
@@ -341,8 +324,7 @@ Example:
     </chapter>
 
 </script>
-```
-
+`` `
 The complete chapter model is defined in:
 
 reference/chapter.md
@@ -355,16 +337,14 @@ It groups elements that occur within the same visual and dramatic context.
 
 Example:
 
-```
-<scene
+`` `<scene
     color="#1a1a2e"
     atmosphere="warm sunset, silence, tranquility">
 
     ...
 
 </scene>
-```
-
+`` `
 The scene model — including its attributes, child elements, location references, camera direction, and scene boundaries — is defined in:
 
 reference/scene.md
@@ -379,8 +359,7 @@ It describes how the visual content is intended to be presented.
 
 Example:
 
-```
-<scene>
+`` `<scene>
 
     <camera
         shot="medium"
@@ -391,8 +370,7 @@ Example:
     ...
 
 </scene>
-```
-
+`` `
 The camera model is defined in:
 
 reference/scene.md
@@ -404,16 +382,14 @@ The primary element for dialogue and textual content is <line>.
 
 It is commonly contained within a <p> block:
 
-```
-<p>
+`` `<p>
 
     <line char="alex">
         Hello!
     </line>
 
 </p>
-```
-
+`` `
 A <line> may contain:
 
 dialogue text;
@@ -424,8 +400,7 @@ word-by-word markup.
 
 Example:
 
-```
-<line
+`` `<line
     char="alex"
     startMode="afterPrevious"
     wordByWord="true"
@@ -435,13 +410,11 @@ Example:
     Hello, Maria!
 
 </line>
-```
-13. Word-by-Word Markup
+`` `13. Word-by-Word Markup
 
 Text may contain additional word-level markup:
 
-```
-<line
+`` `<line
     wordByWord="true"
     wordByWordMode="cumulative">
 
@@ -452,14 +425,12 @@ Text may contain additional word-level markup:
     <w group="2">you</w>
 
 </line>
-```
-
+`` `
 This allows a Player or renderer to implement different synchronized text-display modes.
 
 For example:
 
-```text
-Hello
+```Hello
 
 Hello world
 
@@ -468,26 +439,22 @@ Hello world how are you
 or:
 
 Hello → world → how → are → you
-```
-
+`` `
 The exact visual behavior is determined by wordByWordMode and the Player implementation.
 
 14. Media Elements
 
 OVML supports different types of media:
 
-```
-<img src="background" />
+`` `<img src="background" />
 
 <video src="intro-video" />
 
 <audio src="rain" />
-```
-
+`` `
 Media elements may have timing and presentation attributes:
 
-```
-<video
+`` `<video
     src="background-video"
     layer="background"
     volume="1"
@@ -495,24 +462,20 @@ Media elements may have timing and presentation attributes:
     startMode="absolute"
     startTime="0"
     loop="true" />
-```
-
+`` `
 Media is therefore part of the project's timeline rather than merely being a collection of attached files.
 
 15. <break>
 
 The <break> element represents a pause.
 
-```
-<break time="1000" />
-```
-
+`` `<break time="1000" />
+`` `
 The time value is specified in milliseconds.
 
 Example:
 
-```
-<line char="alex">
+`` `<line char="alex">
     I wanted to say...
 </line>
 
@@ -521,8 +484,7 @@ Example:
 <line char="alex">
     ...that we're late.
 </line>
-```
-16. Timing Model
+`` `16. Timing Model
 
 Script elements may use the common OVML timing model.
 
@@ -535,36 +497,30 @@ afterPrevious
 
 The element starts after the preceding applicable block has finished.
 
-```
-<line char="alex">
+`` `<line char="alex">
     Hello!
 </line>
 
 <line char="maria" startMode="afterPrevious">
     Hello!
 </line>
-```
-duringCurrent
+`` `duringCurrent
 
 The element starts at the specified time relative to the current block.
 
-```
-<video
+`` `<video
     src="rain"
     startMode="duringCurrent"
     startTime="2" />
-```
-absolute
+`` `absolute
 
 The element is positioned at an absolute point on the project timeline.
 
-```
-<video
+`` `<video
     src="intro"
     startMode="absolute"
     startTime="10" />
-```
-
+`` `
 The complete timing model is described in:
 
 concepts/timeline-and-blocks.md
@@ -626,8 +582,7 @@ This is a conceptual model. Not every element is required in every document.
 
 The simplest document can contain only the root element and a script:
 
-```
-<ovml version="2.2" lang="en">
+`` `<ovml version="2.2" lang="en">
 
     <script>
 
@@ -646,16 +601,14 @@ The simplest document can contain only the root element and a script:
     </script>
 
 </ovml>
-```
-
+`` `
 This is already a valid conceptual OVML project.
 
 19. Example Multimedia Document
 
 A more complete project may look like this:
 
-```
-<ovml version="2.2" lang="en">
+`` `<ovml version="2.2" lang="en">
 
     <meta>
         <title>The Last Evening</title>
@@ -906,8 +859,7 @@ cloud service.
 
 For example, one Player may use:
 
-```text
-Howler + WebAudio
+```Howler + WebAudio
 
 another:
 
@@ -916,8 +868,7 @@ native audio APIs
 and a renderer:
 
 FFmpeg + GPU
-```
-
+`` `
 All of them can work with the same OVML document.
 
 24. Related Documents

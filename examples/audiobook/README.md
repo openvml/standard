@@ -30,13 +30,11 @@ OVML distinguishes narration from dialogue through the `char` attribute on
 * Narration is assigned to `narrator`;
 * Dialogue is assigned to a named character.
 
-```
-<p>
+`` `<p>
   <line char="narrator">The old man studied her for a long moment.</line>
   <line char="jonas" intonation="statement">That bell isn't mine to ring.</line>
 </p>
-```
-
+`` `
 Speech directions such as `emotion` and `intonation` may be added sparingly to
 dialogue lines as a hint to the synthesis engine.
 
@@ -44,38 +42,32 @@ dialogue lines as a hint to the synthesis engine.
 
 Pauses are expressed with the `<break>` element between paragraphs or lines:
 
-```
-<p>
+`` `<p>
   <line char="narrator">Every evening at dusk he climbed the iron stairs...</line>
 </p>
 <break duration="600"/>
 <p>
   <line char="narrator">One autumn night...</line>
 </p>
-```
-
+`` `
 Ambient music and sound effects are placed on the same timeline as `<audio>`
 blocks:
 
-```
-<audio src="#music" action="background" volume="0.2"/>
+`` `<audio src="#music" action="background" volume="0.2"/>
 <audio src="#chapel_bell" action="sfx" volume="0.5"/>
-```
-
+`` `
 ## TTS Voice References (no embedded audio)
 
 The cast declares the voices, but no spoken audio is embedded in the document.
 Each character references a voice engine, voice name, and language:
 
-```
-<character id="jonas" name="Jonas" color="#d2691e"
+`` `<character id="jonas" name="Jonas" color="#d2691e"
   role="major" gender="male" age="elderly"
   voiceEngine="edge_tts"
   voiceName="Deep, rumbling, and weathered."
   voiceLang="en-US"
   pitch="0.9" rate="0.95"/>
-```
-
+`` `
 The Player synthesizes the speech from the line text at runtime, so the same
 script can be spoken by any TTS engine that can supply the requested voices.
 
@@ -94,10 +86,8 @@ This directory is an informative example. It does not redefine the OpenVML
 language. Normative definitions of the elements, attributes, timing rules,
 media behavior, cast properties, and processing presets are specified under:
 
-```text
-docs/standard/concepts/
+```docs/standard/concepts/
 docs/standard/reference/
 docs/standard/presets/
-```
-
+`` `
 The example should be read together with those reference documents.

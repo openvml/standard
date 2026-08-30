@@ -31,8 +31,7 @@ See: reference/cast.md
 
 The general structure is:
 
-```text
-<cast>
+```<cast>
 
     <character
         id="vestfal"
@@ -62,8 +61,7 @@ The general structure is:
     </character>
 
 </cast>
-```
-
+`` `
 Each `<character>` MUST have a unique id within the OVML document.
 
 3. Required Attributes
@@ -76,20 +74,16 @@ name	string	Human-readable character name
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal" />
-```
-
+`` `
 The id is used to reference the character from script content:
 
-```
-<line char="vestfal">
+`` `<line char="vestfal">
     — Это ракеты.
 </line>
-```
-
+`` `
 The value of line/@char MUST correspond to an existing character/@id.
 
 4. Character Attributes
@@ -106,19 +100,15 @@ color
 
 Defines the visual color associated with the character.
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     color="#4f46e5" />
-```
-
+`` `
 The value MUST use hexadecimal RGB notation:
 
-```
-#RRGGBB
-```
-
+`` `#RRGGBB
+`` `
 The color is a presentation hint and does not define the color of generated media.
 
 gender
@@ -134,13 +124,11 @@ neutral	Neutral or unspecified gender
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     gender="male" />
-```
-
+`` `
 This value is descriptive.
 
 The OVML Standard does not prescribe how a Player or TTS engine must interpret gender.
@@ -161,13 +149,11 @@ senior	Senior / pensioner
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     age="adult" />
-```
-
+`` `
 The age category is descriptive metadata.
 
 It does not prescribe a particular voice, pitch, TTS engine, or processing method.
@@ -186,13 +172,11 @@ narrator	Narrator or narrative voice
 
 Example:
 
-```
-<character
+`` `<character
     id="narrator"
     name="Narrator"
     role="narrator" />
-```
-
+`` `
 The role is descriptive and does not determine playback behavior.
 
 5. Aliases
@@ -203,8 +187,7 @@ Aliases provide alternative names or references by which a character may be know
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal">
 
@@ -215,8 +198,7 @@ Example:
     </aliases>
 
 </character>
-```
-
+`` `
 Each `<alias>` contains a text value.
 
 Aliases are primarily intended for authoring tools, search, indexing, and AI-assisted workflows.
@@ -233,13 +215,11 @@ It describes the character's personality, behavioral traits, temperament, and ot
 
 Example:
 
-```
-<personality>
+`` `<personality>
     Calm, intelligent and slightly sarcastic.
     Usually hides his emotions behind humor.
 </personality>
-```
-
+`` `
 The content is descriptive.
 
 The OVML Standard does not prescribe how an application must use personality information.
@@ -263,13 +243,11 @@ It contains background information about the character.
 
 Example:
 
-```
-<backstory>
+`` `<backstory>
     Vestfal is an ancient dragon who has accompanied
     the protagonist for many years.
 </backstory>
-```
-
+`` `
 The backstory may contain arbitrary descriptive text.
 
 It is intended primarily for authoring, editing, indexing, and AI-assisted workflows.
@@ -294,8 +272,7 @@ rate	float	1.0	Base speech-rate multiplier
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     voiceEngine="edge-tts"
@@ -304,16 +281,13 @@ Example:
     voiceLang="en-US"
     pitch="1.0"
     rate="1.0" />
-```
-
+`` `
 voiceId
 
 Identifies the requested voice.
 
-```
-voiceId="en-US-GuyNeural"
-```
-
+`` `voiceId="en-US-GuyNeural"
+`` `
 The meaning of voiceId depends on voiceEngine.
 
 The OVML Standard does not define a global namespace for voice identifiers.
@@ -326,10 +300,8 @@ voiceName
 
 Provides a human-readable name for the voice.
 
-```
-voiceName="Guy"
-```
-
+`` `voiceName="Guy"
+`` `
 voiceName is informational and MUST NOT be treated as a unique voice identifier.
 
 voiceLang
@@ -377,32 +349,26 @@ Timbre describes the desired acoustic character of the voice.
 
 Example:
 
-```
-<timbre>
+`` `<timbre>
     Deep, warm and slightly rough male voice.
 </timbre>
-```
-
+`` `
 Timbre is intentionally represented as descriptive text rather than a fixed enumeration.
 
 This allows the description to be used with different voice systems and AI-assisted workflows.
 
 Examples:
 
-```
-<timbre>
+`` `<timbre>
     Warm, deep, slightly rough.
 </timbre>
-```
-
+`` `
 or:
 
-```
-<timbre>
+`` `<timbre>
     Soft female voice with a clear tone and restrained warmth.
 </timbre>
-```
-
+`` `
 The OVML Standard does not require a particular TTS engine to interpret timbre.
 
 A compatible application MAY use the value as a voice-selection or voice-generation hint.
@@ -421,13 +387,11 @@ Recommended range:
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     pitch="1.1" />
-```
-
+`` `
 The exact interpretation depends on the selected voice engine.
 
 11. Rate
@@ -444,13 +408,11 @@ Recommended range:
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     rate="0.9" />
-```
-
+`` `
 This value represents the character's base speech rate.
 
 A `<line>` MAY specify its own speech rate, which takes precedence for that particular line.
@@ -465,12 +427,10 @@ If a portable reference is required, an implementation MAY represent it using a 
 
 For example:
 
-```
-<voicePreset
+`` `<voicePreset
     id="preset_21"
     name="Warm Cinematic Male" />
-```
-
+`` `
 The exact structure and semantics of voice presets are implementation-dependent unless explicitly defined by a future OVML specification.
 
 13. Audio Processing
@@ -484,15 +444,13 @@ audioProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     audioProcessorId="preset_1"
     audioProcessorName="Warm Voice"
     audioProcessorFile="presets/audio/WarmVoice.ovml" />
-```
-
+`` `
 audioProcessorFile provides a portable reference when the preset is included in an OVMZ container.
 
 See: reference/audio-processing.md
@@ -508,15 +466,13 @@ videoProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     videoProcessorId="video_01"
     videoProcessorName="Cinematic"
     videoProcessorFile="presets/video/Cinematic.ovml" />
-```
-
+`` `
 See: reference/video-processing.md
 
 15. Image Processing
@@ -530,15 +486,13 @@ imageProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     imageProcessorId="image_01"
     imageProcessorName="Dark Fantasy"
     imageProcessorFile="presets/image/DarkFantasy.ovml" />
-```
-
+`` `
 See: reference/image-processing.md
 
 16. Character References in Script
@@ -547,8 +501,7 @@ Characters are referenced by their id.
 
 Example:
 
-```
-<cast>
+`` `<cast>
 
     <character
         id="vestfal"
@@ -565,12 +518,10 @@ Example:
         role="narrator" />
 
 </cast>
-```
-
+`` `
 The script may then contain:
 
-```
-<p>
+`` `<p>
 
     <line char="vestfal">
         — Это ракеты,
@@ -590,8 +541,7 @@ The script may then contain:
     </line>
 
 </p>
-```
-
+`` `
 The char attribute identifies the character or voice assigned to the individual line.
 
 A `<p>` MAY contain multiple `<line>` elements assigned to different characters.
@@ -604,8 +554,7 @@ A scene MAY list the characters participating in that scene.
 
 Each `<char>` entry references a character id declared in the `<cast>` element:
 
-```
-<scene>
+`` `<scene>
 
     <characters>
         <char ref="vestfal" emotion="thoughtful" />
@@ -613,8 +562,7 @@ Each `<char>` entry references a character id declared in the `<cast>` element:
     </characters>
 
 </scene>
-```
-
+`` `
 Scene participation references existing characters.
 
 It does not define new characters.
@@ -646,31 +594,25 @@ Changing a voice does not create a new character.
 
 For example, changing:
 
-```
-voiceId="voice-A"
-```
-
+`` `voiceId="voice-A"
+`` `
 to:
 
-```
-voiceId="voice-B"
-```
-
+`` `voiceId="voice-B"
+`` `
 does not change the character's identity.
 
 19. Unspecified Voices
 
 A character MAY be defined without voice information:
 
-```
-<character
+`` `<character
     id="alex"
     name="Alex"
     gender="male"
     age="adult"
     role="main" />
-```
-
+`` `
 Such a document is valid.
 
 The OVML Standard does not prescribe a default TTS provider or default voice.

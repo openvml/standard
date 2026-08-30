@@ -64,12 +64,10 @@ Recommended range:
 Example:
 
 <character
-```
-id="vestfal"
+`` `id="vestfal"
 name="Vestfal"
 rate="0.9" />
-```
-
+`` `
 This value represents the character's base speech rate.
 
 A line MAY specify its own speech rate, which takes precedence for that particular line.
@@ -102,12 +100,10 @@ whispering	Whispering
 Example line-level use:
 
 <line
-```
-char="hero"
+`` `char="hero"
 timbre="rough">
 Where have you been?
-```
-</line>
+`` `</line>
 
 ## 7. Timbre as Descriptive Text
 
@@ -187,10 +183,8 @@ The syllable marked with `+` receives the stress.
 Example:
 
 <p char="hero">
-```
-Он жил в <w stress="зáмок">замок</w> и думал о <w stress="зáмок">замок</w>.
-```
-</p>
+`` `Он жил в <w stress="зáмок">замок</w> и думал о <w stress="зáмок">замок</w>.
+`` `</p>
 
 ## 12. Abbreviation Aliases
 
@@ -201,11 +195,9 @@ This is useful for abbreviations and initialisms.
 Example:
 
 <p char="narrator">
-```
-Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
+`` `Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
 <w alias="США">USA</w> — великая страна.
-```
-</p>
+`` `</p>
 
 ## 13. Phonetic Transcription
 
@@ -214,10 +206,8 @@ The `ph` attribute provides a phonetic transcription, which may use IPA or the S
 Example:
 
 <p char="hero">
-```
-Сложное слово: <w ph="kʲɪˈtaj">китай</w>
-```
-</p>
+`` `Сложное слово: <w ph="kʲɪˈtaj">китай</w>
+`` `</p>
 
 ## 14. Ignoring Words During TTS
 
@@ -226,10 +216,8 @@ An empty alias may be used to skip a word during TTS.
 Example:
 
 <p char="hero">
-```
-Кодекс: <w alias="">{code_123}</w>
-```
-</p>
+`` `Кодекс: <w alias="">{code_123}</w>
+`` `</p>
 
 ## 15. Word Element Attributes
 
@@ -255,14 +243,12 @@ emphasis.
 Example:
 
 <line
-```
-char="anna"
+`` `char="anna"
 emotion="excited"
 pitch="1.2"
 rate="1.1">
 We won!
-```
-</line>
+`` `</line>
 
 ## 17. Narrative Voice
 

@@ -26,8 +26,7 @@ Example:
 
 <world>
 
-```
-<locations>
+`` `<locations>
 
     <location
         id="rusty_anchor"
@@ -43,8 +42,7 @@ Example:
     </location>
 
 </locations>
-```
-
+`` `
 </world>
 
 The canon holds the permanent properties of each location.
@@ -61,14 +59,12 @@ type	string	No	Location type: tavern, forest, cave, palace, street, interior, ex
 Example:
 
 <location
-```
-id="rusty_anchor"
+`` `id="rusty_anchor"
 name="The Rusty Anchor"
 type="tavern">
 
 ...
-```
-
+`` `
 </location>
 
 The `id` is the stable key used by scene references.
@@ -111,8 +107,7 @@ The world canon solves this by describing each location once and letting scenes 
 A scene references a canonical location through a child <location> element with a ref attribute.
 
 <scene
-```
-color="#1a1a2e"
+`` `color="#1a1a2e"
 atmosphere="tense, night">
 
 <location ref="rusty_anchor">
@@ -122,8 +117,7 @@ atmosphere="tense, night">
 </location>
 
 ...
-```
-</scene>
+`` `</scene>
 
 Attribute	Type	Description
 ref	string	The id of a location in the <locations> section of <world>
@@ -137,14 +131,12 @@ It points to the canon and adds only what is different in this scene.
 A scene may specify how a referenced location differs from its canon in this particular scene.
 
 <location ref="rusty_anchor">
-```
-<variation>
+`` `<variation>
     <time>night</time>
     <weather>foggy</weather>
     <changes>Chairs stacked, a fire in the hearth</changes>
 </variation>
-```
-</location>
+`` `</location>
 
 Common variation fields:
 
@@ -163,11 +155,9 @@ The canon remains the permanent description; the variation describes the transie
 A plain-text <location> without ref remains valid.
 
 <scene>
-```
-<location>A dark forest. Mist between the trees.</location>
+`` `<location>A dark forest. Mist between the trees.</location>
 ...
-```
-</scene>
+`` `</scene>
 
 Such a description is a free-form scene-local location without a canonical binding.
 
@@ -179,8 +169,7 @@ A scene may combine a location reference with an image or video that depicts it.
 
 <scene>
 
-```
-<location ref="rusty_anchor" />
+`` `<location ref="rusty_anchor" />
 
 <img
     src="tavern-interior"
@@ -190,8 +179,7 @@ A scene may combine a location reference with an image or video that depicts it.
     src="tavern-ambience"
     volume="0.4"
     loop="true" />
-```
-
+`` `
 </scene>
 
 The canon describes the location semantically.

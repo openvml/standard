@@ -8,12 +8,10 @@ This document defines the currently established audio processing preset format i
 
 An audio processing preset uses `<audio_processing>` as its root element.
 
-```
-<audio_processing id="preset_id" name="Preset Name">
+`` `<audio_processing id="preset_id" name="Preset Name">
     ...
 </audio_processing>
-```
-
+`` `
 ### Attributes
 
 | Attribute | Description                        |
@@ -27,8 +25,7 @@ Audio operations are normally evaluated in the order in which they appear in the
 
 For example:
 
-```
-<audio_processing id="example" name="Example">
+`` `<audio_processing id="example" name="Example">
     <eq enabled="true">
         ...
     </eq>
@@ -45,12 +42,10 @@ For example:
         ...
     </convert>
 </audio_processing>
-```
-
+`` `
 represents the conceptual chain:
 
-```text
-Source
+```Source
   ↓
 EQ
   ↓
@@ -59,26 +54,21 @@ Compressor
 Gain
   ↓
 Convert
-```
-
+`` `
 ## `enabled`
 
 Processing operations that can be switched on or off use the `enabled` attribute.
 
-```
-<eq enabled="true">
-```
-<eq enabled="false">
-```
-
+`` `<eq enabled="true">
+`` `<eq enabled="false">
+`` `
 An operation with `enabled="false"` is inactive.
 
 ## EQ
 
 The `<eq>` element defines frequency-band equalization.
 
-```
-<eq enabled="true">
+`` `<eq enabled="true">
     <band hz="60" gain_db="1"/>
     <band hz="170" gain_db="0.5"/>
     <band hz="310" gain_db="0"/>
@@ -88,8 +78,7 @@ The `<eq>` element defines frequency-band equalization.
     <band hz="6k" gain_db="1"/>
     <band hz="12k" gain_db="0.5"/>
 </eq>
-```
-
+`` `
 ### `<band>`
 
 | Attribute | Description                          |
@@ -99,8 +88,7 @@ The `<eq>` element defines frequency-band equalization.
 
 The `hz` value may use compact frequency notation such as:
 
-```text
-60
+```60
 170
 310
 600
@@ -108,14 +96,12 @@ The `hz` value may use compact frequency notation such as:
 3k
 6k
 12k
-```
-
+`` `
 ## Compressor
 
 The `<compressor>` element controls dynamic range compression.
 
-```
-<compressor enabled="true">
+`` `<compressor enabled="true">
     <threshold>-18</threshold>
     <ratio>3.5</ratio>
     <attack>5</attack>
@@ -123,8 +109,7 @@ The `<compressor>` element controls dynamic range compression.
     <knee>4</knee>
     <makeup_gain>1.2</makeup_gain>
 </compressor>
-```
-
+`` `
 ### Parameters
 
 | Element         | Description           |
@@ -142,14 +127,12 @@ The exact unit interpretation is determined by the operation definition and Play
 
 The `<delay>` element applies a delay effect.
 
-```
-<delay enabled="true">
+`` `<delay enabled="true">
     <time>0.12</time>
     <feedback>0.1</feedback>
     <wet>0.08</wet>
 </delay>
-```
-
+`` `
 ### Parameters
 
 | Element      | Description                |
@@ -162,15 +145,13 @@ The `<delay>` element applies a delay effect.
 
 The `<reverb>` element applies reverberation.
 
-```
-<reverb enabled="true">
+`` `<reverb enabled="true">
     <room_size>0.25</room_size>
     <damping>0.4</damping>
     <wet>0.12</wet>
     <dry>0.9</dry>
 </reverb>
-```
-
+`` `
 ### Parameters
 
 | Element       | Description                |
@@ -184,14 +165,12 @@ The `<reverb>` element applies reverberation.
 
 The `<chorus>` element applies a chorus/modulation effect.
 
-```
-<chorus enabled="true">
+`` `<chorus enabled="true">
     <rate>5.5</rate>
     <depth>0.6</depth>
     <mix>0.4</mix>
 </chorus>
-```
-
+`` `
 ### Parameters
 
 | Element   | Description      |
@@ -204,12 +183,10 @@ The `<chorus>` element applies a chorus/modulation effect.
 
 The `<gain>` element adjusts signal level.
 
-```
-<gain enabled="true">
+`` `<gain enabled="true">
     <db>1.5</db>
 </gain>
-```
-
+`` `
 ### `<db>`
 
 Gain adjustment in decibels.
@@ -218,15 +195,13 @@ Gain adjustment in decibels.
 
 The `<convert>` element defines the output conversion parameters.
 
-```
-<convert>
+`` `<convert>
     <format>mp3</format>
     <bitrate>192</bitrate>
     <sample_rate>44100</sample_rate>
     <channels>2</channels>
 </convert>
-```
-
+`` `
 ### Parameters
 
 | Element         | Description               |
@@ -240,8 +215,7 @@ The `convert` operation is part of the actual OVML preset format and is intentio
 
 ## Complete Example: Baron Guard Officer
 
-```
-<audio_processing id="baron_officer_crisp" name="Baron Guard Officer">
+`` `<audio_processing id="baron_officer_crisp" name="Baron Guard Officer">
     <eq enabled="true">
         <band hz="60" gain_db="1"/>
         <band hz="170" gain_db="0.5"/>
@@ -279,12 +253,10 @@ The `convert` operation is part of the actual OVML preset format and is intentio
         <channels>2</channels>
     </convert>
 </audio_processing>
-```
-
+`` `
 ## Complete Example: Narrator Classic Warm
 
-```
-<audio_processing id="narrator_classic" name="Narrator Classic Warm">
+`` `<audio_processing id="narrator_classic" name="Narrator Classic Warm">
     <eq enabled="true">
         <band hz="60" gain_db="1"/>
         <band hz="170" gain_db="2"/>
@@ -323,12 +295,10 @@ The `convert` operation is part of the actual OVML preset format and is intentio
         <channels>2</channels>
     </convert>
 </audio_processing>
-```
-
+`` `
 ## Complete Example: Husky Drunkard
 
-```
-<audio_processing id="voice_husky_drunk" name="Husky Drunkard">
+`` `<audio_processing id="voice_husky_drunk" name="Husky Drunkard">
     <eq enabled="true">
         <band hz="60" gain_db="-10"/>
         <band hz="170" gain_db="-5"/>
@@ -366,8 +336,7 @@ The `convert` operation is part of the actual OVML preset format and is intentio
         <channels>2</channels>
     </convert>
 </audio_processing>
-```
-
+`` `
 ## Current Audio Vocabulary
 
 The following audio operations have a concrete XML representation in the current OVML 2.2 preset examples:

@@ -38,24 +38,20 @@ Visual processing can be associated with a project at several levels.
 
     Element — a particular media element's processing, referenced through the processing attribute of a media element:
 
-```
-<video
+`` `<video
     src="forest"
     processing="cinematic-dark" />
-```
-
+`` `
 The processing preset is separate from the media asset, so the same asset can carry different looks in different uses.
 
 4. Processing Presets
 
 A preset is a standalone XML document describing a sequence of processing operations. For video, a preset uses <video_processing> as its root element and carries an id and a name:
 
-```
-<video_processing id="video_guard_torch" name="Gate Guard Torchlight">
+`` `<video_processing id="video_guard_torch" name="Gate Guard Torchlight">
     ...
 </video_processing>
-```
-
+`` `
 The standard reserves the concept of image-processing presets, but no normative image preset format is currently documented in OVML 2.2. When a concrete format is established, it will follow the same model.
 
 A preset may be included in an OVMZ package under presets/video/ (and presets/image/ when defined), or referenced externally. The Standard defines the preset document format; the Player determines how an external preset is located, retrieved, validated, and executed.
@@ -66,8 +62,7 @@ As with audio, a visual preset contains a list of operations evaluated in docume
 
 For example:
 
-```
-<video_processing id="example" name="Example">
+`` `<video_processing id="example" name="Example">
     <color enabled="true">
         ...
     </color>
@@ -84,8 +79,7 @@ For example:
         ...
     </convert>
 </video_processing>
-```
-
+`` `
 This represents a chain:
 
     Source

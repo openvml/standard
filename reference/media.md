@@ -12,8 +12,7 @@ OVML media elements describe how audiovisual resources are used at a particular 
 
 The standard defines three primary media elements:
 
-```
-<video />
+`` `<video />
 <img />
 <audio />
 

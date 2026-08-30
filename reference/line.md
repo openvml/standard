@@ -24,8 +24,7 @@ A `<p>` may contain multiple `<line>` elements and may alternate between differe
 
 For example:
 
-```
-<p>
+`` `<p>
     <line char="vestfal">
         — Это ракеты,
     </line>

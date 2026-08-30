@@ -216,8 +216,7 @@ OpenVML uses different representations for different stages of the media lifecyc
 
 It contains the structured description of the work:
 
-```text
-characters
+```characters
 scenes
 chapters
 dialogue
@@ -225,8 +224,7 @@ media
 timing
 camera
 presentation
-```
-
+`` `
 OVML is editable and intended to remain human- and machine-readable.
 
 OVMZ
@@ -274,8 +272,7 @@ OVML document structure
 
 A basic OVML document has the following structure:
 
-```
-<ovml version="2.2" lang="en">
+`` `<ovml version="2.2" lang="en">
 
     <meta>
         ...
@@ -294,8 +291,7 @@ A basic OVML document has the following structure:
     </script>
 
 </ovml>
-```
-
+`` `
 The major sections are:
 
 Section	Purpose
@@ -313,16 +309,14 @@ OVML supports explicit scene descriptions using the <scene> element.
 
 A scene can contain visual and narrative information such as:
 
-```
-<scene
+`` `<scene
     color="#1a1a2e"
     atmosphere="warm sunset, silence, tranquility">
 
     ...
 
 </scene>
-```
-
+`` `
 The color attribute can be used as a visual hint for UI presentation and processing presets.
 
 The atmosphere attribute provides a semantic description of the scene.
@@ -368,8 +362,7 @@ Characters are declared in the <cast> section.
 
 Example:
 
-```
-<cast>
+`` `<cast>
 
     <character
         id="alex"
@@ -385,8 +378,7 @@ Example:
         rate="1" />
 
 </cast>
-```
-
+`` `
 A character can contain information about:
 
 identity;
@@ -426,8 +418,7 @@ synchronized word groups.
 
 Example:
 
-```
-<line
+`` `<line
     char="alex"
     startMode="afterPrevious"
     startDelay="0"
@@ -438,8 +429,7 @@ Example:
     Hello, world!
 
 </line>
-```
-Timing
+`` `Timing
 
 Timing is an important part of OVML.
 
@@ -459,14 +449,12 @@ The block starts at an absolute position on the timeline.
 
 Example:
 
-```
-<video
+`` `<video
     src="background-video"
     startMode="absolute"
     startTime="10"
     duration="20" />
-```
-
+`` `
 This allows an OVML document to describe complex synchronization without embedding a particular playback engine into the format.
 
 Media
@@ -481,16 +469,14 @@ other resources supported by a compatible implementation.
 
 Example:
 
-```
-<video
+`` `<video
     src="asset_id"
     layer="background"
     volume="1"
     duration="10"
     startTime="0"
     startMode="absolute" />
-```
-
+`` `
 The src value identifies the resource.
 
 The actual resource may be stored:
@@ -506,8 +492,7 @@ OVML supports synchronized word presentation.
 
 Example:
 
-```
-<line
+`` `<line
     wordByWord="true"
     wordByWordMode="cumulative"
     wordDisplayDuration="500">
@@ -519,8 +504,7 @@ Example:
     <w group="2">you?</w>
 
 </line>
-```
-
+`` `
 This can be used for:
 
 karaoke-style presentation;
@@ -539,10 +523,8 @@ It does not prescribe how a particular application must implement it.
 
 For example, the following:
 
-```
-<video src="background" duration="10" />
-```
-
+`` `<video src="background" duration="10" />
+`` `
 does not require a specific video library.
 
 A Player may use:
@@ -826,8 +808,7 @@ The implementation brings it to life.
 
 ## Repository Structure
 
-```
-docs/standard/
+`` `docs/standard/
 ├── README.md
 ├── LICENSE
 ├── CHANGELOG.md
@@ -894,6 +875,5 @@ docs/standard/
     ├── README.md
     └── source/
         └── ner_test.md
-```
-
+`` `
 The `spec/` folder holds the normative specification (`OVML-2.2.md`). The `reference/` folder contains the normative element/attribute reference for each element. The `concepts/` folder explains the design principles and mental models. The `presets/` folder documents processing presets. The `schema/` folder holds the XSD. The `examples/` folder contains example OVML projects.

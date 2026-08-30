@@ -34,8 +34,7 @@ Audio processing can be associated with a project at several levels. The standar
 
     Character — the voice of a character. A character may reference an audio-processing preset through audioProcessorId, audioProcessorName, and audioProcessorFile:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     audioProcessorId="preset_1"
@@ -43,8 +42,7 @@ Audio processing can be associated with a project at several levels. The standar
     audioProcessorFile="presets/audio/WarmVoice.ovml" />
 
 k — a particular media element, such as a background ambience loop or a sound effect.
-```
-
+`` `
 The processing preset is separate from the voice declaration. A character's voice and its processing are described independently, so either can change without the other.
 
 4. Processing Presets
@@ -53,12 +51,10 @@ A preset is a standalone XML document that describes a sequence of processing op
 
 For audio, a preset uses <audio_processing> as its root element and carries an id and a name:
 
-```
-<audio_processing id="narrator_classic" name="Narrator Classic Warm">
+`` `<audio_processing id="narrator_classic" name="Narrator Classic Warm">
     ...
 </audio_processing>
-```
-
+`` `
 A preset may be included in an OVMZ package under presets/audio/, or referenced externally where the Player supports it. The Standard defines the preset document format; the Player determines how an external preset is located, retrieved, validated, and executed.
 
 5. Chaining Operations
@@ -67,8 +63,7 @@ A preset contains a list of operations. Operations are normally evaluated in the
 
 For example:
 
-```
-<audio_processing id="example" name="Example">
+`` `<audio_processing id="example" name="Example">
     <eq enabled="true">
         ...
     </eq>
@@ -85,8 +80,7 @@ For example:
         ...
     </convert>
 </audio_processing>
-```
-
+`` `
 This represents a chain:
 
     Source

@@ -36,8 +36,7 @@ The world canon solves this by describing each entity once and letting scenes re
 
 A document declares the sections that its content requires.
 
-```
-world
+`` `world
 │
 ├── locations
 │   └── location
@@ -52,8 +51,7 @@ world
 │   └── term
 │
 └── ... (any other section)
-```
-
+`` `
 Every section follows the same structural rule.
 
 ## 4. The Uniform Section Rule
@@ -75,8 +73,7 @@ This makes the language self-describing. No project-type declaration is required
 
 The `<world>` element is placed at the top of the document, before `<script>`:
 
-```
-<ovml version="2.2" lang="en">
+`` `<ovml version="2.2" lang="en">
 
     <meta>
         ...
@@ -99,8 +96,7 @@ The `<world>` element is placed at the top of the document, before `<script>`:
     </script>
 
 </ovml>
-```
-
+`` `
 The `<world>` element is optional.
 
 A document without a world canon is valid.
@@ -117,8 +113,7 @@ Attribute	Type	Required	Description
 
 ### Example — locations section
 
-```
-<world>
+`` `<world>
     <locations>
         <location
             id="rusty_anchor"
@@ -134,12 +129,10 @@ Attribute	Type	Required	Description
         </location>
     </locations>
 </world>
-```
-
+`` `
 ### Example — terms section (lecture, documentation)
 
-```
-<world>
+`` `<world>
     <terms>
         <term
             id="photosynthesis"
@@ -151,8 +144,7 @@ Attribute	Type	Required	Description
         </term>
     </terms>
 </world>
-```
-
+`` `
 The child elements of an entity are free-form and project-specific. The standard only requires `id` and `name`.
 
 The complete model for the locations section is defined in:
@@ -163,8 +155,7 @@ reference/locations.md
 
 A scene references a canonical entity via a child element with a `ref` attribute.
 
-```
-<scene
+`` `<scene
     color="#1a1a2e"
     atmosphere="tense, night">
 
@@ -176,8 +167,7 @@ A scene references a canonical entity via a child element with a `ref` attribute
 
     ...
 </scene>
-```
-
+`` `
 The `ref` value is the `id` of an entity declared in the corresponding section of `<world>`.
 
 The location-specific reference model is defined in:
@@ -186,27 +176,23 @@ reference/locations.md
 
 The mechanism is identical for every section:
 
-```
-<scene>
+`` `<scene>
     <term ref="photosynthesis" />
     ...
 </scene>
-```
-
+`` `
 ## 8. `<variation>`
 
 A scene may specify how a referenced entity differs from its canon in this particular scene.
 
-```
-<location ref="rusty_anchor">
+`` `<location ref="rusty_anchor">
     <variation>
         <time>night</time>
         <weather>foggy</weather>
         <changes>Chairs stacked, a fire in the hearth</changes>
     </variation>
 </location>
-```
-
+`` `
 Variation never modifies the canon.
 
 Location-specific variation fields are defined in:
@@ -219,13 +205,11 @@ A plain-text entity reference without `ref` remains valid.
 
 For example:
 
-```
-<scene>
+`` `<scene>
     <location>A dark forest. Mist between the trees.</location>
     ...
 </scene>
-```
-
+`` `
 Existing documents therefore remain valid.
 
 ## 10. The Canon and the AI Assistant

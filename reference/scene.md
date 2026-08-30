@@ -59,8 +59,7 @@ A scene is represented by the `<scene>` element.
 Example:
 
 <scene>
-```
-<line char="narrator">
+`` `<line char="narrator">
     The sun was setting over the city.
 </line>
 
@@ -69,8 +68,7 @@ Example:
     startMode="absolute"
     startTime="0"
     duration="10" />
-```
-</scene>
+`` `</scene>
 
 A scene may contain multiple blocks.
 
@@ -159,11 +157,9 @@ The atmosphere attribute describes the atmosphere, mood, or emotional context of
 Example:
 
 <scene
-```
-atmosphere="warm sunset, silence, tranquility">
+`` `atmosphere="warm sunset, silence, tranquility">
 ...
-```
-</scene>
+`` `</scene>
 
 The value is a free-form string.
 
@@ -208,11 +204,9 @@ One important purpose of atmosphere is AI-assisted asset selection.
 For example:
 
 <scene
-```
-color="#1a1a2e"
+`` `color="#1a1a2e"
 atmosphere="warm sunset, silence, tranquility">
-```
-
+`` `
 An AI Assistant may interpret this as a request for assets such as:
 
 Images:
@@ -248,8 +242,7 @@ transition	enum	Transition to the next scene: fade, cut, dissolve, wipe
 Example:
 
 <scene
-```
-id="ch02_forest"
+`` `id="ch02_forest"
 title="The Forest"
 time="morning"
 weather="foggy"
@@ -257,8 +250,7 @@ mood="mysterious"
 color="#1a1a2e">
 
 ...
-```
-
+`` `
 </scene>
 
 These attributes carry useful structural metadata.
@@ -298,8 +290,7 @@ Instead, the temporal behavior is determined by its child blocks.
 For example:
 
 <scene>
-```
-<line char="alex">
+`` `<line char="alex">
     Hello.
 </line>
 
@@ -308,8 +299,7 @@ For example:
     startMode="absolute"
     startTime="0"
     duration="15" />
-```
-</scene>
+`` `</scene>
 
 The video has an explicit temporal position.
 
@@ -340,8 +330,7 @@ Element	Purpose
 A scene references a canonical location from the project's world canon through a child <location> element with a ref attribute.
 
 <scene
-```
-color="#1a1a2e"
+`` `color="#1a1a2e"
 atmosphere="tense, night">
 
 <location ref="rusty_anchor">
@@ -351,22 +340,19 @@ atmosphere="tense, night">
 </location>
 
 ...
-```
-</scene>
+`` `</scene>
 
 The ref value is the id of a location declared in the <locations> section of <world>.
 
 Scene-specific change is expressed by a <variation> inside the scene, never by editing the canon:
 
 <location ref="rusty_anchor">
-```
-<variation>
+`` `<variation>
     <time>night</time>
     <weather>foggy</weather>
     <changes>Chairs stacked, a fire in the hearth</changes>
 </variation>
-```
-</location>
+`` `</location>
 
 A plain-text <location> without ref remains valid as a free-form description.
 
@@ -381,11 +367,9 @@ The <characters> element lists the characters participating in a scene.
 Example:
 
 <characters>
-```
-<char ref="hero" emotion="thoughtful" />
+`` `<char ref="hero" emotion="thoughtful" />
 <char ref="heroine" emotion="curious" />
-```
-</characters>
+`` `</characters>
 
 Each <char> entry references a character id declared in the <cast> element.
 
@@ -400,11 +384,9 @@ The <blocking> element describes the semantic relationships between the characte
 Example:
 
 <blocking>
-```
-<character ref="anna" position="left" look_at="ivan" enters="true" />
+`` `<character ref="anna" position="left" look_at="ivan" enters="true" />
 <character ref="ivan" position="right" addresses="anna" />
-```
-</blocking>
+`` `</blocking>
 
 Blocking records intend and spatial relations rather than absolute coordinates:
 
@@ -440,16 +422,14 @@ Example:
 
 <scene>
 
-```
-<camera
+`` `<camera
     shot="medium"
     framing="center"
     target="alex"
     movement="static" />
 
 ...
-```
-</scene>
+`` `</scene>
 
 A camera is not a media file.
 
@@ -493,8 +473,7 @@ A scene may contain text blocks and media elements as direct children.
 
 <scene color="#182033">
 
-```
-<video
+`` `<video
     src="background"
     layer="background"
     startMode="absolute"
@@ -513,8 +492,7 @@ A scene may contain text blocks and media elements as direct children.
         Welcome to the city.
     </line>
 </p>
-```
-
+`` `
 </scene>
 
 This allows a single scene to describe a complete audiovisual composition.
@@ -634,11 +612,9 @@ checking continuity.
 For example:
 
 <scene
-```
-color="#243447"
+`` `color="#243447"
 atmosphere="ночь, дождь, напряжение">
-```
-
+`` `
 provides substantially more context than an isolated media block.
 
 The Assistant may use this information without changing the underlying OVML semantics.
@@ -689,12 +665,10 @@ The same <scene> element therefore serves multiple project forms.
 The smallest useful scene can be:
 
 <scene>
-```
-<line char="narrator">
+`` `<line char="narrator">
     Hello.
 </line>
-```
-</scene>
+`` `</scene>
 
 No additional metadata is required.
 
@@ -703,8 +677,7 @@ No additional metadata is required.
 A more expressive scene can combine semantic metadata, media, dialogue, and camera direction:
 
 <scene
-```
-color="#1a1a2e"
+`` `color="#1a1a2e"
 atmosphere="warm sunset, silence, tranquility">
 
 <camera
@@ -729,8 +702,7 @@ atmosphere="warm sunset, silence, tranquility">
 <line char="narrator">
     The sun slowly disappeared beyond the horizon.
 </line>
-```
-
+`` `
 </scene>
 
 This example demonstrates the intended relationship between:

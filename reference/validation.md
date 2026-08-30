@@ -178,8 +178,7 @@ The simplified XSD defines the root element and its main children.
 The root element:
 
 <xs:element name="ovml">
-```
-<xs:complexType>
+`` `<xs:complexType>
     <xs:sequence>
         <xs:element ref="meta" minOccurs="0"/>
         <xs:element ref="settings" minOccurs="0"/>
@@ -190,8 +189,7 @@ The root element:
     <xs:attribute name="version" type="xs:string"/>
     <xs:attribute name="lang" type="xs:language"/>
 </xs:complexType>
-```
-</xs:element>
+`` `</xs:element>
 
 The simplified XSD defines elements such as:
 
@@ -216,8 +214,7 @@ break.
 The character element in the simplified XSD:
 
 <xs:element name="character">
-```
-<xs:complexType>
+`` `<xs:complexType>
     <xs:sequence>
         <xs:element ref="voice" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="voice_params" minOccurs="0"/>
@@ -229,8 +226,7 @@ The character element in the simplified XSD:
     <xs:attribute name="role" type="xs:string"/>
     <xs:attribute name="color" type="xs:string"/>
 </xs:complexType>
-```
-</xs:element>
+`` `</xs:element>
 
 The simplified XSD is informational. The full OVML 2.2 conformance rules are described by the individual reference documents and the normative specification.
 

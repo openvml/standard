@@ -12,18 +12,14 @@ An identifier is a key that names a reusable entity. A reference is an attribute
 
 For example, a character is declared in <cast>:
 
-```
-<character id="alex" name="Alex" />
-```
-
+`` `<character id="alex" name="Alex" />
+`` `
 The script then references that character through the char attribute:
 
-```
-<line char="alex">
+`` `<line char="alex">
     Welcome.
 </line>
-```
-
+`` `
 The same pattern recurs for every kind of entity in the document.
 
 2. What Carries an Id
@@ -59,10 +55,8 @@ These references are the edges of the document's graph. They connect the places 
 
 Assets are referenced through src:
 
-```
-<video src="forest-video" />
-```
-
+`` `<video src="forest-video" />
+`` `
 The value may be:
 
     a logical asset id;
@@ -76,16 +70,14 @@ A project SHOULD prefer logical asset identifiers when it has an asset catalog, 
 
 A scene references a canonical world entity through a child element with a ref attribute:
 
-```
-<scene>
+`` `<scene>
     <location ref="rusty_anchor">
         <variation>
             <weather>rainy</weather>
         </variation>
     </location>
 </scene>
-```
-
+`` `
 The ref value is the id of an entity declared in the corresponding section of <world>. The mechanism is identical for every section — a location, a term, a faction all follow the same rule.
 
 Some references permit a plain-text form without ref for backward compatibility; for example, <location>A dark forest.</location> remains valid.
@@ -94,13 +86,11 @@ Some references permit a plain-text form without ref for backward compatibility;
 
 The camera target identifies the intended subject of the camera:
 
-```
-<camera
+`` `<camera
     shot="close"
     framing="center"
     target="alex" />
-```
-
+`` `
 The target may refer to a character id, a visual object, an element id, or another addressable object defined by the implementation. For a character, the value should correspond to the character's id in <cast>. The exact target namespace depends on the project structure.
 
 7. Resolution Scope

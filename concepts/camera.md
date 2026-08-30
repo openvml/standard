@@ -35,12 +35,10 @@ It is a directorial instruction.
 For example:
 
 <camera
-```
-shot="close-up"
+`` `shot="close-up"
 framing="center"
 movement="static" />
-```
-
+`` `
 does not mean that OpenVML must use a particular camera API.
 
 It means:
@@ -125,12 +123,10 @@ Future OpenVML versions may add more advanced camera capabilities without changi
 The simplest camera instruction is:
 
 <camera
-```
-shot="medium"
+`` `shot="medium"
 framing="center"
 movement="static" />
-```
-
+`` `
 This describes:
 
 a medium shot;
@@ -173,11 +169,9 @@ bottom	Subject positioned toward the lower part of the frame
 Example:
 
 <camera
-```
-shot="medium"
+`` `shot="medium"
 framing="left" />
-```
-
+`` `
 This may be used to create visual space on the right side of the frame for another character, subtitles, graphics, or other content.
 
 9. movement
@@ -200,11 +194,9 @@ dolly-out	Movement away from the subject
 Example:
 
 <camera
-```
-shot="wide"
+`` `shot="wide"
 movement="zoom-in" />
-```
-
+`` `
 The distinction between zoom and dolly is intentional.
 
 A zoom changes the apparent framing through the camera's optical or rendering parameters.
@@ -220,12 +212,10 @@ The target attribute identifies the intended subject of the camera.
 Example:
 
 <camera
-```
-shot="close"
+`` `shot="close"
 framing="center"
 target="alex" />
-```
-
+`` `
 The target may refer to:
 
 a character ID;
@@ -244,11 +234,9 @@ Example:
 followed by:
 
 <camera
-```
-shot="close"
+`` `shot="close"
 target="alex" />
-```
-11. Camera Transitions
+`` `11. Camera Transitions
 
 A camera change may require a transition.
 
@@ -265,12 +253,10 @@ smooth	Smooth interpolation of camera parameters
 Example:
 
 <camera
-```
-shot="close"
+`` `shot="close"
 target="alex"
 transition="smooth" />
-```
-
+`` `
 If no transition is specified, the implementation may use an appropriate default.
 
 For deterministic production workflows, authors should specify the transition explicitly when it matters.
@@ -282,12 +268,10 @@ Camera instructions may have a duration when they represent a temporal camera st
 Example:
 
 <camera
-```
-shot="wide"
+`` `shot="wide"
 movement="zoom-in"
 duration="5" />
-```
-
+`` `
 This describes a five-second camera movement.
 
 The temporal semantics follow the general OpenVML timing model.
@@ -304,14 +288,12 @@ A camera instruction may use the standard timing attributes.
 Example:
 
 <camera
-```
-shot="close"
+`` `shot="close"
 target="alex"
 startMode="absolute"
 startTime="12"
 duration="4" />
-```
-
+`` `
 This requests:
 
 12s ─────────────── 16s
@@ -328,8 +310,7 @@ Example:
 
 <scene>
 
-```
-<camera
+`` `<camera
     shot="wide"
     framing="center"
     movement="static"
@@ -352,8 +333,7 @@ Example:
     startMode="absolute"
     startTime="9"
     duration="3" />
-```
-
+`` `
 </scene>
 
 Conceptually:
@@ -372,8 +352,7 @@ Camera direction may complement the semantic information of a scene.
 Example:
 
 <scene
-```
-color="#1a1a2e"
+`` `color="#1a1a2e"
 atmosphere="ночь, тревога, опасность">
 
 <camera
@@ -381,8 +360,7 @@ atmosphere="ночь, тревога, опасность">
     movement="static" />
 
 ...
-```
-</scene>
+`` `</scene>
 
 An AI Assistant may interpret the combination as:
 
@@ -410,16 +388,13 @@ Characters are natural camera targets.
 Example:
 
 <cast>
-```
-<character id="alex" name="Alex" />
+`` `<character id="alex" name="Alex" />
 <character id="maria" name="Maria" />
-```
-</cast>
+`` `</cast>
 
 <scene>
 
-```
-<camera
+`` `<camera
     shot="medium"
     target="alex" />
 
@@ -434,8 +409,7 @@ Example:
 <line char="maria">
     Now?
 </line>
-```
-
+`` `
 </scene>
 
 This provides a simple dialogue shot structure.
@@ -494,11 +468,9 @@ For video content, camera instructions may describe how the video should be pres
 For example:
 
 <camera
-```
-shot="wide"
+`` `shot="wide"
 framing="center" />
-```
-
+`` `
 <video src="scene.mp4" />
 
 A Player or renderer may interpret this as a viewport or crop operation.
@@ -514,18 +486,14 @@ Camera instructions are particularly useful with large images.
 For example:
 
 <camera
-```
-shot="wide"
+`` `shot="wide"
 movement="zoom-in"
 duration="8" />
-```
-
+`` `
 <img
-```
-src="landscape"
+`` `src="landscape"
 duration="8" />
-```
-
+`` `
 This can describe a classic documentary-style image movement:
 
 wide
@@ -544,16 +512,14 @@ For example:
 
 <scene atmosphere="dramatic confrontation">
 
-```
-<camera
+`` `<camera
     shot="medium-close"
     framing="center"
     movement="dolly-in"
     target="alex" />
 
 ...
-```
-</scene>
+`` `</scene>
 
 An AI-assisted workflow may use this information when generating or selecting visual assets.
 
@@ -715,12 +681,10 @@ The validator does not judge the artistic quality of the camera direction.
 For example:
 
 <camera
-```
-shot="extreme-close"
+`` `shot="extreme-close"
 movement="zoom-out"
 duration="0.5" />
-```
-
+`` `
 may be an unusual creative decision, but it is not necessarily invalid.
 
 30. Future Extensibility

@@ -21,8 +21,7 @@ A minimal OVML document may therefore omit <meta> entirely.
 The general structure is:
 
 <meta>
-```
-<title>Project title</title>
+`` `<title>Project title</title>
 <author>Project author</author>
 
 <preferences
@@ -30,8 +29,7 @@ The general structure is:
     subtitleFontSize="14"
     subtitleBg="rgba(0,0,0,0.7)"
     subtitleColor="#ffffff" />
-```
-</meta>
+`` `</meta>
 
 All child elements of <meta> are optional.
 
@@ -75,13 +73,11 @@ The optional <preferences> element defines general presentation preferences for 
 Example:
 
 <preferences
-```
-showSubtitles="true"
+`` `showSubtitles="true"
 subtitleFontSize="16"
 subtitleBg="rgba(0,0,0,0.7)"
 subtitleColor="#ffffff" />
-```
-
+`` `
 These preferences provide hints to the Player.
 
 They do not require a particular rendering implementation.
@@ -143,17 +139,13 @@ The value uses a CSS-compatible color representation.
 Example:
 
 <preferences
-```
-subtitleBg="rgba(0,0,0,0.7)" />
-```
-
+`` `subtitleBg="rgba(0,0,0,0.7)" />
+`` `
 Another valid example:
 
 <preferences
-```
-subtitleBg="#000000" />
-```
-
+`` `subtitleBg="#000000" />
+`` `
 The Player is responsible for interpreting the value.
 
 subtitleColor
@@ -168,10 +160,8 @@ Default	#ffffff
 Example:
 
 <preferences
-```
-subtitleColor="#ffffff" />
-```
-
+`` `subtitleColor="#ffffff" />
+`` `
 The value uses a CSS-compatible color representation.
 
 7. Default Values
@@ -187,29 +177,24 @@ subtitleColor	#ffffff
 Therefore:
 
 <meta>
-```
-<title>Example</title>
-```
-</meta>
+`` `<title>Example</title>
+`` `</meta>
 
 is equivalent, with respect to these preferences, to:
 
 <meta>
-```
-<title>Example</title>
+`` `<title>Example</title>
 
 <preferences
     showSubtitles="true"
     subtitleFontSize="14"
     subtitleBg="rgba(0,0,0,0.7)"
     subtitleColor="#ffffff" />
-```
-</meta>
+`` `</meta>
 8. Complete Example
 <meta>
 
-```
-<title>The Last Evening</title>
+`` `<title>The Last Evening</title>
 
 <author>OpenVML Example</author>
 
@@ -218,29 +203,24 @@ is equivalent, with respect to these preferences, to:
     subtitleFontSize="16"
     subtitleBg="rgba(0,0,0,0.7)"
     subtitleColor="#ffffff" />
-```
-
+`` `
 </meta>
 9. Minimal Example
 
 The smallest useful metadata section may contain only a title:
 
 <meta>
-```
-<title>My Project</title>
-```
-</meta>
+`` `<title>My Project</title>
+`` `</meta>
 
 It is also valid to omit the entire <meta> section:
 
 <ovml version="2.2" lang="en">
 
-```
-<script>
+`` `<script>
     ...
 </script>
-```
-
+`` `
 </ovml>
 10. Metadata and Player Behavior
 
@@ -272,8 +252,7 @@ For example:
 
 OVML project
     │
-```
-└── showSubtitles = true
+`` `└── showSubtitles = true
          │
          ▼
    Player default
@@ -283,8 +262,7 @@ OVML project
          │
          ▼
    Actual presentation
-```
-
+`` `
 This allows an OVML project to provide sensible defaults without preventing the Player from adapting the experience to the user's environment.
 
 For example, a user may disable subtitles even when:
@@ -304,12 +282,10 @@ An implementation encountering an unknown metadata element or attribute should n
 For example, a future version may introduce:
 
 <meta>
-```
-<title>Example</title>
+`` `<title>Example</title>
 
 <futurePreference value="..." />
-```
-</meta>
+`` `</meta>
 
 An OVML 2.2 implementation that does not understand futurePreference should ignore it rather than treating it as a playback instruction.
 

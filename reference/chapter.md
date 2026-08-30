@@ -38,8 +38,7 @@ Example:
 
 <script>
 
-```
-<chapter id="chapter-1" title="Beginning">
+`` `<chapter id="chapter-1" title="Beginning">
 
     <scene>
         ...
@@ -54,16 +53,14 @@ Example:
     </scene>
 
 </chapter>
-```
-
+`` `
 </script>
 
 Conceptually:
 
 <script>
     │
-```
-└── <chapter>
+`` `└── <chapter>
     │
     ├── <scene>
     │   ├── <camera>
@@ -72,8 +69,7 @@ Conceptually:
     │   └── ...
     │
     └── <scene>
-```
-
+`` `
 A script MAY contain one or more chapters.
 
 Different project types may contain different numbers of chapters and scenes.
@@ -111,8 +107,7 @@ Implementations MAY also support additional attributes such as order_index, stat
 Example:
 
 <chapter
-```
-id="ch_01"
+`` `id="ch_01"
 title="Chapter 1: The Beginning"
 order_index="0"
 status="draft">
@@ -122,8 +117,7 @@ status="draft">
 <scene>
     ...
 </scene>
-```
-
+`` `
 </chapter>
 
 ## 4. Chapters and Scenes
@@ -134,8 +128,7 @@ A scene represents a continuous logical audiovisual context.
 
 <chapter>
 
-```
-<scene color="#1a1a2e" atmosphere="quiet evening">
+`` `<scene color="#1a1a2e" atmosphere="quiet evening">
 
     ...
 
@@ -146,8 +139,7 @@ A scene represents a continuous logical audiovisual context.
     ...
 
 </scene>
-```
-
+`` `
 </chapter>
 
 Chapters provide the outer structure; scenes provide the internal dramatic and visual boundaries.
@@ -166,8 +158,7 @@ The simplest valid project can contain a single chapter:
 
 <script>
 
-```
-<chapter title="Greeting">
+`` `<chapter title="Greeting">
 
     <scene>
 
@@ -178,8 +169,7 @@ The simplest valid project can contain a single chapter:
     </scene>
 
 </chapter>
-```
-
+`` `
 </script>
 
 ## 6. Chapter Boundaries and Navigation

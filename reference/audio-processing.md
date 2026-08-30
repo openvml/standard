@@ -20,8 +20,7 @@ The document describes the intended processing. The Player or processing impleme
 
 The general structure is:
 
-```text
-<audio_processing id="my_processor" name="Heavy Bass">
+```<audio_processing id="my_processor" name="Heavy Bass">
 
     <eq enabled="true">
         <band hz="60" gain_db="3.0" />
@@ -48,8 +47,7 @@ The general structure is:
     </gain>
 
 </audio_processing>
-```
-
+`` `
 Each child element is a processing directive.
 
 The `<audio_processing>` element itself is the container.
@@ -63,12 +61,10 @@ enabled	boolean	Enables or disables the whole processing definition
 
 Example:
 
-```
-<audio_processing id="my_processor" name="Heavy Bass">
+`` `<audio_processing id="my_processor" name="Heavy Bass">
     ...
 </audio_processing>
-```
-
+`` `
 When `enabled` is present and false, the processing definition does not participate in the processing chain.
 
 4. Processing Directives
@@ -158,13 +154,11 @@ The eq directive applies a multi-band equalizer.
 
 Band parameters:
 
-```
-<eq enabled="true">
+`` `<eq enabled="true">
     <band hz="60" gain_db="5.0" />
     <band hz="10000" gain_db="-3.0" />
 </eq>
-```
-
+`` `
 Parameter	Description	Range
 hz	Band center frequency	20 — 20000 Hz
 gain_db	Band gain	-24 — +24 dB
@@ -173,8 +167,7 @@ gain_db	Band gain	-24 — +24 dB
 
 The compressor directive compresses the dynamic range.
 
-```
-<compressor enabled="true">
+`` `<compressor enabled="true">
     <threshold>-20</threshold>
     <ratio>4.0</ratio>
     <attack>50</attack>
@@ -182,8 +175,7 @@ The compressor directive compresses the dynamic range.
     <knee>10</knee>
     <makeup_gain>3.0</makeup_gain>
 </compressor>
-```
-
+`` `
 Parameter	Description	Range
 threshold	Compression threshold	-60 — 0 dB
 ratio	Compression ratio	1 — 20
@@ -196,13 +188,11 @@ makeup_gain	Gain applied after compression	-12 — +12 dB
 
 The limiter directive prevents the signal from exceeding a ceiling.
 
-```
-<limiter enabled="true">
+`` `<limiter enabled="true">
     <threshold>-0.3</threshold>
     <release>50</release>
 </limiter>
-```
-
+`` `
 Parameter	Description	Range
 threshold	Output ceiling	-20 — 0 dB
 release	Release time	10 — 500 ms
@@ -211,12 +201,10 @@ release	Release time	10 — 500 ms
 
 The normalizer directive adjusts the overall level to a target.
 
-```
-<normalizer enabled="true">
+`` `<normalizer enabled="true">
     <level>-3.0</level>
 </normalizer>
-```
-
+`` `
 Parameter	Description	Range
 level	Target level	-12 — 0 dB
 
@@ -224,13 +212,11 @@ level	Target level	-12 — 0 dB
 
 The noise_reduction directive reduces background noise.
 
-```
-<noise_reduction enabled="true">
+`` `<noise_reduction enabled="true">
     <strength>0.7</strength>
     <method>spectral_subtraction</method>
 </noise_reduction>
-```
-
+`` `
 Parameter	Description	Range
 strength	Reduction strength	0 — 1
 method	Reduction method	spectral_subtraction, wiener_filter, noise_gate
@@ -239,16 +225,14 @@ method	Reduction method	spectral_subtraction, wiener_filter, noise_gate
 
 The reverb directive adds reverberation.
 
-```
-<reverb enabled="true">
+`` `<reverb enabled="true">
     <room_size>0.7</room_size>
     <damping>0.5</damping>
     <wet>0.3</wet>
     <dry>0.7</dry>
     <width>1.0</width>
 </reverb>
-```
-
+`` `
 Parameter	Description	Range
 room_size	Room size	0 — 1
 damping	High-frequency damping	0 — 1
@@ -260,14 +244,12 @@ width	Stereo width	0 — 1
 
 The delay directive adds an echo.
 
-```
-<delay enabled="true">
+`` `<delay enabled="true">
     <time>0.5</time>
     <feedback>0.3</feedback>
     <wet>0.3</wet>
 </delay>
-```
-
+`` `
 Parameter	Description	Range
 time	Delay time	0.01 — 2 s
 feedback	Feedback amount	0 — 0.95
@@ -277,14 +259,12 @@ wet	Wet signal mix	0 — 1
 
 The chorus directive applies chorus modulation.
 
-```
-<chorus enabled="false">
+`` `<chorus enabled="false">
     <rate>1.5</rate>
     <depth>0.5</depth>
     <mix>0.5</mix>
 </chorus>
-```
-
+`` `
 Parameter	Description	Range
 rate	Modulation rate	0.1 — 10 Hz
 depth	Modulation depth	0 — 1
@@ -294,14 +274,12 @@ mix	Dry/wet mix	0 — 1
 
 The phaser directive applies phase modulation.
 
-```
-<phaser enabled="false">
+`` `<phaser enabled="false">
     <rate>1.0</rate>
     <depth>0.5</depth>
     <mix>0.5</mix>
 </phaser>
-```
-
+`` `
 Parameter	Description	Range
 rate	Modulation rate	0.1 — 10 Hz
 depth	Modulation depth	0 — 1
@@ -311,14 +289,12 @@ mix	Dry/wet mix	0 — 1
 
 The flanger directive applies flanging.
 
-```
-<flanger enabled="false">
+`` `<flanger enabled="false">
     <rate>1.0</rate>
     <depth>0.5</depth>
     <mix>0.5</mix>
 </flanger>
-```
-
+`` `
 Parameter	Description	Range
 rate	Modulation rate	0.1 — 10 Hz
 depth	Modulation depth	0 — 1
@@ -328,12 +304,10 @@ mix	Dry/wet mix	0 — 1
 
 The gain directive applies a fixed level adjustment.
 
-```
-<gain enabled="false">
+`` `<gain enabled="false">
     <db>0.0</db>
 </gain>
-```
-
+`` `
 Parameter	Description	Range
 db	Gain amount	-24 — +24 dB
 
@@ -341,12 +315,10 @@ db	Gain amount	-24 — +24 dB
 
 The pan directive positions the signal in the stereo field.
 
-```
-<pan enabled="false">
+`` `<pan enabled="false">
     <position>0.0</position>
 </pan>
-```
-
+`` `
 Parameter	Description	Range
 position	Pan position	-1 (left) — +1 (right)
 
@@ -354,14 +326,12 @@ position	Pan position	-1 (left) — +1 (right)
 
 The fade directive applies fade in and fade out.
 
-```
-<fade enabled="false">
+`` `<fade enabled="false">
     <in_duration>0.0</in_duration>
     <out_duration>2.0</out_duration>
     <out_start>300</out_start>
 </fade>
-```
-
+`` `
 Parameter	Description	Range
 in_duration	Fade-in duration	0 — 10 s
 out_duration	Fade-out duration	0 — 10 s
@@ -371,13 +341,11 @@ out_start	Position where fade-out begins	0 — 600 s
 
 The trim directive cuts the material to a time window.
 
-```
-<trim enabled="false">
+`` `<trim enabled="false">
     <start>0.0</start>
     <end>600.0</end>
 </trim>
-```
-
+`` `
 Parameter	Description	Range
 start	Start time	0 — 600 s
 end	End time	0 — 600 s
@@ -386,13 +354,11 @@ end	End time	0 — 600 s
 
 The deesser directive reduces sibilance.
 
-```
-<deesser enabled="false">
+`` `<deesser enabled="false">
     <threshold>-20</threshold>
     <frequency>7000</frequency>
 </deesser>
-```
-
+`` `
 Parameter	Description	Range
 threshold	De-essing threshold	-40 — 0 dB
 frequency	Target frequency	1000 — 16000 Hz
@@ -401,12 +367,10 @@ frequency	Target frequency	1000 — 16000 Hz
 
 The declicker directive removes clicks and pops.
 
-```
-<declicker enabled="false">
+`` `<declicker enabled="false">
     <sensitivity>0.5</sensitivity>
 </declicker>
-```
-
+`` `
 Parameter	Description	Range
 sensitivity	Removal sensitivity	0 — 1
 
@@ -414,12 +378,10 @@ sensitivity	Removal sensitivity	0 — 1
 
 The pitch_shift directive changes the pitch without changing the duration.
 
-```
-<pitch_shift enabled="true">
+`` `<pitch_shift enabled="true">
     <semitones>2.0</semitones>
 </pitch_shift>
-```
-
+`` `
 Parameter	Description	Unit
 semitones	Semitone shift	semitones
 
@@ -429,12 +391,10 @@ The time_stretch directive changes the speed without changing the pitch.
 
 It corresponds to the speed type.
 
-```
-<time_stretch enabled="true">
+`` `<time_stretch enabled="true">
     <factor>1.0</factor>
 </time_stretch>
-```
-
+`` `
 Parameter	Description	Range
 factor	Speed factor	0.5 — 2.0
 
@@ -442,15 +402,13 @@ factor	Speed factor	0.5 — 2.0
 
 The convert directive describes the requested output format.
 
-```
-<convert>
+`` `<convert>
     <format>mp3</format>
     <bitrate>192</bitrate>
     <sample_rate>44100</sample_rate>
     <channels>2</channels>
 </convert>
-```
-
+`` `
 Parameter	Description	Allowed values
 format	Container format	mp3, wav, flac, ogg, aac, m4a
 bitrate	Bitrate	32 — 320 kbps
@@ -463,14 +421,12 @@ Processing may be declared at several scopes.
 
 The scopes form an inheritance chain:
 
-```
-Project (<settings>)
+`` `Project (<settings>)
           ↓
     Character
           ↓
 Scene / block / media element
-```
-
+`` `
 A more specific declaration overrides or supplements the more general one.
 
 26. Project-Level Declaration
@@ -479,8 +435,7 @@ A project MAY declare default processing in its `<settings>` section.
 
 For example:
 
-```
-<settings>
+`` `<settings>
 
     <audio_processing>
         <reverb enabled="true">
@@ -490,23 +445,20 @@ For example:
     </audio_processing>
 
 </settings>
-```
-
+`` `
 Project-level processing applies as the default to the project's audio material unless a more specific declaration overrides it.
 
 27. Character-Level Declaration
 
 A character MAY reference an audio-processing preset.
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Vestfal"
     audioProcessorId="preset_1"
     audioProcessorName="Warm Voice"
     audioProcessorFile="presets/audio/WarmVoice.ovml" />
-```
-
+`` `
 The referenced preset is applied to the character's voice.
 
 See: reference/character.md
@@ -517,17 +469,14 @@ With the `input` model, character-level processing uses input="character".
 
 A media element MAY reference a processing preset by the `processing` attribute:
 
-```
-<audio
+`` `<audio
     src="voice_chapter_1"
     action="play"
     processing="my_processor" />
-```
-
+`` `
 Processing may also be declared inline as child directives of the media element:
 
-```
-<audio src="music_theme" action="play" volume="0.5">
+`` `<audio src="music_theme" action="play" volume="0.5">
 
     <eq>
         <band hz="60" gain_db="5.0" />
@@ -540,8 +489,7 @@ Processing may also be declared inline as child directives of the media element:
     </compressor>
 
 </audio>
-```
-
+`` `
 Inline directives apply only to that media element.
 
 With the `input` model, element-level processing uses input="track".

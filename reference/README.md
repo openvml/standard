@@ -10,8 +10,7 @@ While the [`concepts/`](../concepts/) section explains why OVML works the way it
 
 An OVML document has the following high-level structure:
 
-```
-<ovml version="2.2" lang="en">
+`` `<ovml version="2.2" lang="en">
     <meta>
         ...
     </meta>
@@ -32,8 +31,7 @@ An OVML document has the following high-level structure:
         ...
     </script>
 </ovml>
-```
-
+`` `
 The main document sections are:
 
 | Element       | Purpose                                            |
@@ -282,8 +280,7 @@ Describes structural validation, conformance levels, XSD reference, and forward 
 
 A typical script may be organized approximately as:
 
-```text
-<ovml>
+```<ovml>
 └── <script>
     └── chapter
         └── scene
@@ -297,8 +294,7 @@ A typical script may be organized approximately as:
             ├── img
             ├── break
             └── camera
-```
-
+`` `
 The exact structure and allowed relationships are defined by the individual reference documents.
 
 ## Timing Is Independent of Visual Position
@@ -307,8 +303,7 @@ OVML separates temporal behavior from visual positioning.
 
 For example, a background video may occupy the entire composition while a spoken line plays over it:
 
-```
-<video
+`` `<video
     src="background"
     layer="background"
     startMode="absolute"
@@ -321,20 +316,17 @@ For example, a background video may occupy the entire composition while a spoken
     startTime="2">
     The story begins here.
 </line>
-```
-
+`` `
 A foreground media element may then start while the line is still playing:
 
-```
-<img
+`` `<img
     src="character"
     layer="foreground"
     startMode="absolute"
     startTime="4"
     gridRow="2"
     gridCol="3" />
-```
-
+`` `
 The elements do not have to form a single sequential chain.
 
 ## Processing Presets
@@ -343,15 +335,13 @@ OVML may reference standalone processing preset documents.
 
 For example:
 
-```
-<character
+`` `<character
     id="vestfal"
     name="Вестфаль"
     audioProcessorId="dmitry_low_husky"
     audioProcessorName="Low & Husky (Extreme)"
     audioProcessorFile="presets/audio/dmitry_low_husky.ovml" />
-```
-
+`` `
 Preset definitions are documented separately under:
 
 [`../presets/`](../presets/)
@@ -389,10 +379,8 @@ This reference describes **OVML 2.2**.
 
 The version is declared by the root element:
 
-```
-<ovml version="2.2" lang="en">
-```
-
+`` `<ovml version="2.2" lang="en">
+`` `
 Future versions may extend the language while maintaining explicit version identification.
 
 ## Reading the Reference

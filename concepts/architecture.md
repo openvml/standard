@@ -31,13 +31,11 @@ None of these statements are coordinates. They are declarative instructions. The
 
 For example:
 
-```
-<video
+`` `<video
     src="background"
     layer="background"
     duration="10" />
-```
-
+`` `
 does not require a specific video library. One Player may use HTML5 video, another FFmpeg, another a platform media framework. All of them can honor the same instruction.
 
 This is the reason OVML is well suited to content that is continuously edited, regenerated, translated, re-voiced, or rendered into different target formats: the creative work lives in the description, not in a one-time binary output.
@@ -105,10 +103,8 @@ OVML is deliberately language-agnostic.
 
 The document declares its primary language in the root element:
 
-```
-<ovml version="2.2" lang="en">
-```
-
+`` `<ovml version="2.2" lang="en">
+`` `
 The textual content of a project — dialogue, narration, subtitles, scene atmosphere — is written in the language of the work. OVML does not hardcode a particular human language, and no vocabulary of the language presumes one.
 
 Identifiers are also language-agnostic in a specific sense. Character identifiers and other stable ids are held in the original script, not transliterated or translated freely. This lets the same document model serve a Ukrainian audiobook, an English lecture, or a Russian presentation without changing the format.
