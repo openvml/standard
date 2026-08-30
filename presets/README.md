@@ -30,7 +30,7 @@ It is not an XML fragment intended to be inserted into the main OVML document.
 
 For example:
 
-``xml`
+```
 <audio_processing id="narrator_classic" name="Narrator Classic Warm">
     ...
 </audio_processing>
@@ -42,7 +42,7 @@ The file normally uses the `.ovml` extension.
 
 Presets included in an OVMZ project may be organized as:
 
-``text`
+```
 project.ovmz/
 └── presets/
     ├── audio/
@@ -53,7 +53,7 @@ project.ovmz/
 
 For example:
 
-``text`
+```
 presets/
 ├── audio/
 │   ├── baron_officer_crisp.ovml
@@ -71,7 +71,7 @@ Every preset has an `id` and a human-readable `name`.
 
 Example:
 
-``xml`
+```
 <audio_processing
     id="baron_officer_crisp"
     name="Baron Guard Officer">
@@ -93,7 +93,7 @@ Operations are normally evaluated in document order.
 
 For example:
 
-``xml`
+```
 <audio_processing id="example" name="Example">
     <eq enabled="true">
         ...
@@ -115,7 +115,7 @@ For example:
 
 The conceptual processing chain is:
 
-``text`
+```
 Source
   ↓
 EQ
@@ -135,13 +135,13 @@ The exact runtime implementation is determined by the Player.
 
 Processing operations that support optional activation use:
 
-``xml`
+```
 enabled="true"
 ```
 
 or:
 
-``xml`
+```
 enabled="false"
 ```
 
@@ -149,7 +149,7 @@ An operation with `enabled="false"` is disabled and does not participate in proc
 
 Example:
 
-``xml`
+```
 <sharpen enabled="false">
     <amount>0</amount>
 </sharpen>
@@ -201,7 +201,7 @@ The reference identifies the processing configuration while the preset remains a
 
 Example:
 
-``xml`
+```
 <character
     id="vestfal"
     name="Вестфаль"
@@ -215,7 +215,7 @@ The exact reference attributes belong to the corresponding content model.
 
 An OVMZ package may contain the presets required by the project:
 
-``text`
+```
 project.ovmz/
 ├── content.ovml
 ├── resources/

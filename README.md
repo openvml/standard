@@ -223,7 +223,7 @@ OpenVML uses different representations for different stages of the media lifecyc
 
 It contains the structured description of the work:
 
-``text`
+```
 characters
 scenes
 chapters
@@ -242,7 +242,7 @@ OVMZ is a project container.
 
 An OVMZ package can contain:
 
-``text`
+```
 project
 ├── content.ovml
 ├── project metadata
@@ -262,23 +262,23 @@ When a project is rendered into a final video, the OVML description is converted
 
 Conceptually:
 
-``text`
+```
 OVML
   │
   │ render
   ▼
 OVMV
-`` `
+```
 
 Whereas:
 
-``text`
+```
 OVML
   │
   │ package
   ▼
 OVMZ
-`` `
+```
 
 preserves the structured project.
 
@@ -286,7 +286,7 @@ OVML document structure
 
 A basic OVML document has the following structure:
 
-``xml`
+```
 <ovml version="2.2" lang="en">
 
 
@@ -307,10 +307,10 @@ A basic OVML document has the following structure:
    </script>
 
 </ovml>
-`` `
+```
 
 The major sections are:
-``text`
+```
 Section	Purpose
 <ovml>	Root document
 <meta>	Project metadata and presentation preferences
@@ -322,10 +322,10 @@ Additional structural elements are defined by the specification.
 
 Scenes
 
-OVML supports explicit scene descriptions using the <scene> element.
+OVML supports explicit scene descriptions using the ```<scene>``` element.
 
 A scene can contain visual and narrative information such as:
-``xml`
+```
 <scene
 
    color="#1a1a2e"
@@ -334,7 +334,7 @@ A scene can contain visual and narrative information such as:
    ...
 
 </scene>
-`` `
+```
 
 The color attribute can be used as a visual hint for UI presentation and processing presets.
 
@@ -354,10 +354,10 @@ Camera
 
 Starting with OVML 2.2, the standard also introduces the <camera> element.
 
-<camera> describes visual direction independently from the physical rendering implementation.
+```<camera>``` describes visual direction independently from the physical rendering implementation.
 
 The purpose is to allow an OVML document to express cinematic intent such as:
-``text`
+```
 camera position;
 framing;
 shot type;
@@ -367,7 +367,7 @@ focus;
 duration;
 visual emphasis.
 ```
-The exact <camera> vocabulary is defined in the OVML 2.2 specification.
+The exact ```<camera>``` vocabulary is defined in the OVML 2.2 specification.
 
 The important architectural principle is:
 
@@ -377,11 +377,11 @@ This allows different renderers to implement the same OVML project using differe
 
 Characters and voices
 
-Characters are declared in the <cast> section.
+Characters are declared in the ```<cast>``` section.
 
 Example:
 
-``xml`
+```
 <cast>
 
    <character
@@ -401,7 +401,7 @@ Example:
 ```
 
 A character can contain information about:
-``text`
+```
 identity;
 display name;
 gender;
@@ -418,7 +418,7 @@ image processing.
 The standard does not require one specific TTS engine.
 
 A compatible implementation may use:
-``text`
+```
 local TTS;
 cloud TTS;
 operating-system TTS;
@@ -426,7 +426,7 @@ AI voice providers;
 user-provided voice engines.
 Script
 ```
-The <script> section contains the actual content of the work.
+The ```<script>``` section contains the actual content of the work.
 
 Content is organized into structural units such as:
 
@@ -439,7 +439,7 @@ synchronized word groups.
 
 Example:
 
-``xml`
+```
 <line
 
    char="alex"
@@ -452,7 +452,7 @@ Example:
    Hello, world!
 
 </line>
-`` `
+```
 Timing
 
 Timing is an important part of OVML.
@@ -473,30 +473,30 @@ The block starts at an absolute position on the timeline.
 
 Example:
 
-``xml`
+```
 <video
 
    src="background-video"
    startMode="absolute"
    startTime="10"
    duration="20" />
-`` `
+```
 This allows an OVML document to describe complex synchronization without embedding a particular playback engine into the
 format.
 
 Media
 
 OVML can reference different types of media:
-``text`
+```
 audio;
 video;
 images;
 speech/TTS;
 other resources supported by a compatible implementation.
-`` `
+```
 Example:
 
-``xml`
+```
 <video
 
    src="asset_id"
@@ -505,7 +505,7 @@ Example:
    duration="10"
    startTime="0"
    startMode="absolute" />
-`` `
+```
 The src value identifies the resource.
 
 The actual resource may be stored:
@@ -521,7 +521,7 @@ OVML supports synchronized word presentation.
 
 Example:
 
-``xml`
+```
 <line
 
    wordByWord="true"
@@ -535,10 +535,10 @@ Example:
    <w group="2">you?</w>
 
 </line>
-`` `
+```
 
 This can be used for:
-``text`
+```
 karaoke-style presentation;
 language learning;
 subtitles;
@@ -546,7 +546,7 @@ reading assistance;
 synchronized narration;
 accessibility.
 Declarative format
-`` `
+```
 OVML is a declarative format.
 
 An OVML document describes the desired structure and timing of an audiovisual experience.
@@ -554,26 +554,26 @@ An OVML document describes the desired structure and timing of an audiovisual ex
 It does not prescribe how a particular application must implement it.
 
 For example, the following:
-``xml`
+```
 <video src="background" duration="10" />
-`` `
+```
 does not require a specific video library.
 
 A Player may use:
-``text`
+```
 HTML5 video;
 native video APIs;
 FFmpeg;
 platform media frameworks;
 WebAssembly;
 another compatible implementation.
-`` `
+```
 The same principle applies to audio and TTS.
 
 OpenVML architecture
 
 The OpenVML ecosystem separates description from execution.
-``text`
+```
                  OVML Standard
                       │
                       │ describes
@@ -590,7 +590,7 @@ The OpenVML ecosystem separates description from execution.
           │
           ▼
        Runtime
-`` `
+```
 The standard defines the portable representation.
 
 The Player is responsible for execution.
@@ -606,7 +606,7 @@ OVML is particularly suitable for AI-assisted media production.
 An AI assistant can work with the structured document rather than directly manipulating rendered media.
 
 For example:
-``text`
+```
 idea
   ↓
 story
@@ -626,7 +626,7 @@ timing
 OVML
   ↓
 OVMZ / OVMV
-`` `
+```
 Because the content is structured, an AI system can modify individual elements without having to regenerate the entire
 project.
 
@@ -659,11 +659,11 @@ The parser/validator is responsible for determining whether an OVML document is 
 Creative or directorial decisions are not validation errors.
 
 For example, the standard can determine that:
-``xml`
+```
 <scene>
     ...
 </scene>
-`` `
+```
 is correctly formed and properly closed.
 
 Whether the scene itself is artistically appropriate is outside the responsibility of the parser.
@@ -675,9 +675,9 @@ The current standard is:
 OVML 2.2
 
 The version is declared in the root element:
-``xml`
+```
 <ovml version="2.2" lang="en">
-`` `
+```
 Implementations should use the declared version to determine which vocabulary and semantics are supported.
 
 Future versions may introduce new:
@@ -844,7 +844,7 @@ The implementation brings it to life.
 
 ## Repository Structure
 
-``text`
+```
 docs/standard/
 ├── README.md
 ├── LICENSE
@@ -904,7 +904,7 @@ docs/standard/
 ├── schema/
 │   └── ovml-2.2.xsd
 └── examples/
-``xml`
+```
    ├── audiobook/
    │   ├── README.md
    │   ├── source.txt

@@ -22,7 +22,7 @@ A break does not contain content and does not reference an asset.
 
 Example:
 
-``xml`
+```
 <break time="1000" />
 
 This introduces a pause of 1000 milliseconds.

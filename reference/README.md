@@ -10,7 +10,7 @@ While the [`concepts/`](../concepts/) section explains why OVML works the way it
 
 An OVML document has the following high-level structure:
 
-``xml`
+```
 <ovml version="2.2" lang="en">
     <meta>
         ...
@@ -282,7 +282,7 @@ Describes structural validation, conformance levels, XSD reference, and forward 
 
 A typical script may be organized approximately as:
 
-``text`
+```
 <ovml>
 └── <script>
     └── chapter
@@ -307,7 +307,7 @@ OVML separates temporal behavior from visual positioning.
 
 For example, a background video may occupy the entire composition while a spoken line plays over it:
 
-``xml`
+```
 <video
     src="background"
     layer="background"
@@ -325,7 +325,7 @@ For example, a background video may occupy the entire composition while a spoken
 
 A foreground media element may then start while the line is still playing:
 
-``xml`
+```
 <img
     src="character"
     layer="foreground"
@@ -343,7 +343,7 @@ OVML may reference standalone processing preset documents.
 
 For example:
 
-``xml`
+```
 <character
     id="vestfal"
     name="Вестфаль"
@@ -389,7 +389,7 @@ This reference describes **OVML 2.2**.
 
 The version is declared by the root element:
 
-``xml`
+```
 <ovml version="2.2" lang="en">
 ```
 
