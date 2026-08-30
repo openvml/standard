@@ -46,7 +46,7 @@ Each `<character>` MUST have a unique id within the OVML document.
 
 Script content references a character by its id:
 
-```xml
+```
 <line char="vestfal">
     — Это ракеты.
 </line>
@@ -60,7 +60,7 @@ The script may contain paragraphs with lines assigned to different characters.
 
 Example (detailed in reference/character.md):
 
-```xml
+```
 <p>
 
     <line char="vestfal">
@@ -85,7 +85,7 @@ A scene MAY list the characters participating in that scene.
 
 Each `<char>` entry references a character id declared in the `<cast>` element:
 
-```xml
+```
 <scene>
 
     <characters>
@@ -108,7 +108,7 @@ Pronunciation guidance for spoken content lives in the voice and pronunciation m
 
 Word-level pronunciation control is provided by the `<w>` element:
 
-```xml
+```
 <p char="narrator">
     Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
 </p>
@@ -124,7 +124,7 @@ A project MAY apply processing to the voices and media of its characters through
 
 Processing presets are referenced from character configuration:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"

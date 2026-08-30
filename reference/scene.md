@@ -59,7 +59,7 @@ A scene is represented by the `<scene>` element.
 Example:
 
 <scene>
-```xml
+```
 <line char="narrator">
     The sun was setting over the city.
 </line>
@@ -159,7 +159,7 @@ The atmosphere attribute describes the atmosphere, mood, or emotional context of
 Example:
 
 <scene
-```xml
+```
 atmosphere="warm sunset, silence, tranquility">
 ...
 ```
@@ -208,7 +208,7 @@ One important purpose of atmosphere is AI-assisted asset selection.
 For example:
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="warm sunset, silence, tranquility">
 ```
@@ -248,7 +248,7 @@ transition	enum	Transition to the next scene: fade, cut, dissolve, wipe
 Example:
 
 <scene
-```xml
+```
 id="ch02_forest"
 title="The Forest"
 time="morning"
@@ -298,7 +298,7 @@ Instead, the temporal behavior is determined by its child blocks.
 For example:
 
 <scene>
-```xml
+```
 <line char="alex">
     Hello.
 </line>
@@ -340,7 +340,7 @@ Element	Purpose
 A scene references a canonical location from the project's world canon through a child <location> element with a ref attribute.
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="tense, night">
 
@@ -359,7 +359,7 @@ The ref value is the id of a location declared in the <locations> section of <wo
 Scene-specific change is expressed by a <variation> inside the scene, never by editing the canon:
 
 <location ref="rusty_anchor">
-```xml
+```
 <variation>
     <time>night</time>
     <weather>foggy</weather>
@@ -381,7 +381,7 @@ The <characters> element lists the characters participating in a scene.
 Example:
 
 <characters>
-```xml
+```
 <char ref="hero" emotion="thoughtful" />
 <char ref="heroine" emotion="curious" />
 ```
@@ -400,7 +400,7 @@ The <blocking> element describes the semantic relationships between the characte
 Example:
 
 <blocking>
-```xml
+```
 <character ref="anna" position="left" look_at="ivan" enters="true" />
 <character ref="ivan" position="right" addresses="anna" />
 ```
@@ -440,7 +440,7 @@ Example:
 
 <scene>
 
-```xml
+```
 <camera
     shot="medium"
     framing="center"
@@ -493,7 +493,7 @@ A scene may contain text blocks and media elements as direct children.
 
 <scene color="#182033">
 
-```xml
+```
 <video
     src="background"
     layer="background"
@@ -634,7 +634,7 @@ checking continuity.
 For example:
 
 <scene
-```xml
+```
 color="#243447"
 atmosphere="ночь, дождь, напряжение">
 ```
@@ -689,7 +689,7 @@ The same <scene> element therefore serves multiple project forms.
 The smallest useful scene can be:
 
 <scene>
-```xml
+```
 <line char="narrator">
     Hello.
 </line>
@@ -703,7 +703,7 @@ No additional metadata is required.
 A more expressive scene can combine semantic metadata, media, dialogue, and camera direction:
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="warm sunset, silence, tranquility">
 

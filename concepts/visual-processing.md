@@ -38,7 +38,7 @@ Visual processing can be associated with a project at several levels.
 
     Element — a particular media element's processing, referenced through the processing attribute of a media element:
 
-```xml
+```
 <video
     src="forest"
     processing="cinematic-dark" />
@@ -50,7 +50,7 @@ The processing preset is separate from the media asset, so the same asset can ca
 
 A preset is a standalone XML document describing a sequence of processing operations. For video, a preset uses <video_processing> as its root element and carries an id and a name:
 
-```xml
+```
 <video_processing id="video_guard_torch" name="Gate Guard Torchlight">
     ...
 </video_processing>
@@ -66,7 +66,7 @@ As with audio, a visual preset contains a list of operations evaluated in docume
 
 For example:
 
-```xml
+```
 <video_processing id="example" name="Example">
     <color enabled="true">
         ...

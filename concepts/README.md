@@ -96,7 +96,7 @@ OVML solves this with a **world canon**.
 
 The document declares its canonical entities once, in a `<world>` container at the top of the document:
 
-```xml
+```
 <world>
     <locations>
         <location id="rusty_anchor" name="The Rusty Anchor" type="tavern">
@@ -112,7 +112,7 @@ The document declares its canonical entities once, in a `<world>` container at t
 
 A scene then references the canon by id instead of duplicating it:
 
-```xml
+```
 <scene>
     <location ref="rusty_anchor">
         <variation>

@@ -30,7 +30,7 @@ OVML distinguishes narration from dialogue through the `char` attribute on
 * Narration is assigned to `narrator`;
 * Dialogue is assigned to a named character.
 
-```xml
+```
 <p>
   <line char="narrator">The old man studied her for a long moment.</line>
   <line char="jonas" intonation="statement">That bell isn't mine to ring.</line>
@@ -44,7 +44,7 @@ dialogue lines as a hint to the synthesis engine.
 
 Pauses are expressed with the `<break>` element between paragraphs or lines:
 
-```xml
+```
 <p>
   <line char="narrator">Every evening at dusk he climbed the iron stairs...</line>
 </p>
@@ -57,7 +57,7 @@ Pauses are expressed with the `<break>` element between paragraphs or lines:
 Ambient music and sound effects are placed on the same timeline as `<audio>`
 blocks:
 
-```xml
+```
 <audio src="#music" action="background" volume="0.2"/>
 <audio src="#chapel_bell" action="sfx" volume="0.5"/>
 ```
@@ -67,7 +67,7 @@ blocks:
 The cast declares the voices, but no spoken audio is embedded in the document.
 Each character references a voice engine, voice name, and language:
 
-```xml
+```
 <character id="jonas" name="Jonas" color="#d2691e"
   role="major" gender="male" age="elderly"
   voiceEngine="edge_tts"

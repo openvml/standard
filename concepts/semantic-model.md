@@ -28,7 +28,7 @@ Meaning in OVML is expressed at several levels. These levels are not competing; 
 
 At the literal level, a scene contains <line> elements that carry dialogue or narration:
 
-```xml
+```
 <scene atmosphere="night city">
 
     <line char="alex">
@@ -46,7 +46,7 @@ At the semantic level, a scene may describe the intended relationships between t
 
 Blocking records who is where, who looks at whom, who addresses whom, and who enters or exits the scene:
 
-```xml
+```
 <scene>
     <blocking>
         <character ref="anna" position="left" look_at="ivan" enters="true" />
@@ -75,7 +75,7 @@ This is semantic information, not a rendering command. It does not mean the Play
 
 On a line, the emotion attribute describes the emotional state of the speaker:
 
-```xml
+```
 <line char="alex" emotion="angry">
     Get out of here!
 </line>
@@ -87,7 +87,7 @@ As with atmosphere, emotion is a hint about intended delivery. The TTS engine or
 
 Camera instructions extend the same model to visual direction. A <camera> element is a directorial instruction, not a resource:
 
-```xml
+```
 <camera
     shot="close"
     framing="center"
@@ -102,7 +102,7 @@ The camera participates in the same intent-driven model as everything else: OVML
 
 The procedural level is where concrete resources appear. Media elements are still instructions, not files:
 
-```xml
+```
 <video
     src="background"
     layer="background"

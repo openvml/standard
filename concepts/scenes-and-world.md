@@ -62,7 +62,7 @@ A scene is represented by the <scene> element.
 Example:
 
 <scene>
-```xml
+```
 <line char="narrator">
     The sun was setting over the city.
 </line>
@@ -181,7 +181,7 @@ The scene color may be used as a hint when selecting visual processing presets.
 For example:
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="warm sunset, silence, calm">
 ```
@@ -205,7 +205,7 @@ The atmosphere attribute describes the atmosphere, mood, or emotional context of
 Example:
 
 <scene
-```xml
+```
 atmosphere="warm sunset, silence, tranquility">
 ...
 ```
@@ -257,7 +257,7 @@ One important purpose of atmosphere is AI-assisted asset selection.
 For example:
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="тёплый закат, тишина, умиротворение">
 ```
@@ -291,7 +291,7 @@ For example:
 
 <scene atmosphere="ночной город, дождь">
 
-```xml
+```
 <line char="narrator">
     The city never slept.
 </line>
@@ -324,7 +324,7 @@ The canonical entities are declared once in the project-level
 Example — a location reference:
 
 <scene>
-```xml
+```
 <location ref="rusty_anchor">
     <variation>
         <weather>rainy</weather>
@@ -347,7 +347,7 @@ reference a term the same way:
 Scene-specific change is expressed by <variation>:
 
 <location ref="rusty_anchor">
-```xml
+```
 <variation>
     <time>night</time>
     <changes>Broken bottle by the door</changes>
@@ -373,7 +373,7 @@ Instead, the temporal behavior is determined by its child blocks.
 For example:
 
 <scene>
-```xml
+```
 <line char="alex">
     Hello.
 </line>
@@ -403,7 +403,7 @@ Example:
 
 <scene atmosphere="quiet conversation">
 
-```xml
+```
 <line char="alex">
     Are you coming?
 </line>
@@ -437,7 +437,7 @@ Example:
 
 <scene color="#182033">
 
-```xml
+```
 <video
     src="background"
     layer="background"
@@ -469,7 +469,7 @@ For example:
 
 <scene atmosphere="dramatic">
 
-```xml
+```
 <camera>
     ...
 </camera>
@@ -570,7 +570,7 @@ or:
 or together:
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="quiet evening, warm sunset">
 ```
@@ -614,7 +614,7 @@ checking continuity.
 For example:
 
 <scene
-```xml
+```
 color="#243447"
 atmosphere="ночь, дождь, напряжение">
 ```
@@ -746,7 +746,7 @@ The Player executes the resulting description.
 The smallest useful scene can be:
 
 <scene>
-```xml
+```
 <line char="narrator">
     Hello.
 </line>
@@ -760,7 +760,7 @@ No additional metadata is required.
 A more expressive scene can combine semantic metadata, media, dialogue, and camera direction:
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="warm sunset, silence, tranquility">
 

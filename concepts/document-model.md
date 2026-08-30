@@ -26,7 +26,7 @@ This is the key idea: an entity is declared once, and every use of it is a refer
 
 The root element contains several major sections, each with a distinct responsibility:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 
     <meta>
@@ -58,7 +58,7 @@ The root element contains several major sections, each with a distinct responsib
 
 The primary sections are:
 
-```xml
+```
 <meta> — project metadata and presentation preferences;
 <settings> — general document-level settings;
 <cast> — characters, voices, and character-related processing;
@@ -85,7 +85,7 @@ The <cast> element defines the characters used by the project. Each character is
 
 The script references a character by id through the char attribute of a line:
 
-```xml
+```
 <line char="alex">
     We have to go.
 </line>
@@ -102,7 +102,7 @@ The <assets> element describes the resources used by the project. A resource may
 
 The script references an asset through the src attribute of a media element:
 
-```xml
+```
 <video src="background-video" />
 ```
 
@@ -115,7 +115,7 @@ See: concepts/media-layers.md
 
 The <world> element declares the canonical entities of the project's world: locations, terms, factions, timelines, or any other section the project requires. It uses the same mechanism everywhere: a section is a container of named entities, each entity has a stable id and a name, and a scene references an entity by ref instead of duplicating its description.
 
-```xml
+```
 <world>
     <locations>
         <location
@@ -129,7 +129,7 @@ The <world> element declares the canonical entities of the project's world: loca
 
 A scene references the canonical entity and expresses scene-specific change with a <variation>:
 
-```xml
+```
 <scene>
     <location ref="rusty_anchor">
         <variation>
@@ -174,7 +174,7 @@ The exact set of allowed children is defined by the individual element specifica
 
 All of the document's named entities share one model:
 
-```xml
+```
 <meta> tags, characters, assets, world entities, scenes, and chapters are identified by stable ids;
 the places that use them carry a reference.
 
@@ -192,7 +192,7 @@ The conceptual hierarchy is not a checklist. Every element is optional where its
 
 The smallest useful document contains only the root and a script with a single chapter, scene, and line:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 
     <script>

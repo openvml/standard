@@ -10,7 +10,7 @@ Understanding this separation is central to OpenVML. It is what allows the same 
 
 A character is a named semantic entity declared in the <cast> section. A character has a stable id and a human-readable name:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal" />
@@ -18,7 +18,7 @@ A character is a named semantic entity declared in the <cast> section. A charact
 
 The script references the character by id through the char attribute of a line:
 
-```xml
+```
 <line char="vestfal">
     — Это ракеты.
 </line>
@@ -32,7 +32,7 @@ The id is held in the original script's language. A character id is not translit
 
 A character carries a display name and, optionally, aliases:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal">
@@ -57,7 +57,7 @@ This descriptive metadata is informational. It does not prescribe a particular v
 
 A character may bind a voice through voice attributes. The binding is a reference to a TTS resource, not the audio itself:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -143,7 +143,7 @@ A word may receive:
 
 For example:
 
-```xml
+```
 <p char="narrator">
     Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
 </p>

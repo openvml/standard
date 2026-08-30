@@ -121,7 +121,7 @@ application.
 
 An OVML document consists of four primary areas:
 
-```xml
+```
 <ovml>
     <meta>
         ...

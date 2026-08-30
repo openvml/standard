@@ -57,7 +57,7 @@ Each character may contain information such as:
 
 For example, a character can have several aliases:
 
-```xml
+```
 <character
     id="mira"
     name="Mira"
@@ -70,13 +70,13 @@ The aliases identify different textual descriptions that refer to the same chara
 
 When the character speaks, the canonical character identifier is used:
 
-```xml
+```
 <line char="mira">...</line>
 ```
 
 A descriptive reference to the same character may instead occur as part of narration:
 
-```xml
+```
 <line char="narrator">
     — squeaked the little singer...
 </line>
@@ -90,7 +90,7 @@ OpenVML allows narration and dialogue to coexist within the same paragraph.
 
 For example:
 
-```xml
+```
 <p>
     <line char="mira">— If we don't start the show...</line>
     <line char="narrator">— squeaked the little singer...</line>
@@ -99,7 +99,7 @@ For example:
 
 A paragraph may contain several alternating speakers:
 
-```xml
+```
 <p>
     <line char="bran">— Stop whining.</line>
     <line char="narrator">— growled the tattooed bruiser.</line>
@@ -121,7 +121,7 @@ The example contains:
 
 The dialogue chapter also contains scene metadata:
 
-```xml
+```
 <scene title="Tensions in the Rusty Anchor" mood="Tense">
     <location>The Rusty Anchor Tavern</location>
 </scene>
@@ -142,7 +142,7 @@ The document uses:
 
 For example:
 
-```xml
+```
 <video
     src="..."
     layer="background"
@@ -153,7 +153,7 @@ For example:
 
 A foreground video can have its own duration and start relationship:
 
-```xml
+```
 <video
     src="..."
     layer="foreground"
@@ -193,7 +193,7 @@ The Player is responsible for implementing buffering, streaming, synthesis, deco
 
 Reusable media can be declared in the document's asset collection:
 
-```xml
+```
 <assets>
     <asset id="..." type="image" src="..."/>
     <asset id="..." type="video" src="..."/>
@@ -208,7 +208,7 @@ This separates resource identification from the content blocks that use those re
 
 Characters may reference audio processing presets:
 
-```xml
+```
 audioProcessorId="..."
 audioProcessorName="..."
 ```

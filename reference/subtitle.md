@@ -51,7 +51,7 @@ A subtitle may also be declared as a resource identified by id and src.
 Example:
 
 <subtitle
-```xml
+```
 id="subs_ru"
 type="srt"
 name="Russian subtitles">
@@ -75,7 +75,7 @@ A video or another media element may attach subtitle tracks through a `<subtitle
 
 <video src="intro">
 
-```xml
+```
 <subtitles src="subs_en" language="en-US" />
 ```
 
@@ -96,7 +96,7 @@ The Player determines how the tracks are synchronized, selected, and presented.
 Project-level subtitle presentation preferences are defined in the `<preferences>` element of `<meta>`.
 
 <meta>
-```xml
+```
 <preferences
     showSubtitles="true"
     subtitleFontSize="16"

@@ -178,7 +178,7 @@ The simplified XSD defines the root element and its main children.
 The root element:
 
 <xs:element name="ovml">
-```xml
+```
 <xs:complexType>
     <xs:sequence>
         <xs:element ref="meta" minOccurs="0"/>
@@ -216,7 +216,7 @@ break.
 The character element in the simplified XSD:
 
 <xs:element name="character">
-```xml
+```
 <xs:complexType>
     <xs:sequence>
         <xs:element ref="voice" minOccurs="0" maxOccurs="unbounded"/>

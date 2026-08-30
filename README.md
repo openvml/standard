@@ -274,7 +274,7 @@ OVML document structure
 
 A basic OVML document has the following structure:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 
     <meta>
@@ -313,7 +313,7 @@ OVML supports explicit scene descriptions using the <scene> element.
 
 A scene can contain visual and narrative information such as:
 
-```xml
+```
 <scene
     color="#1a1a2e"
     atmosphere="warm sunset, silence, tranquility">
@@ -368,7 +368,7 @@ Characters are declared in the <cast> section.
 
 Example:
 
-```xml
+```
 <cast>
 
     <character
@@ -426,7 +426,7 @@ synchronized word groups.
 
 Example:
 
-```xml
+```
 <line
     char="alex"
     startMode="afterPrevious"
@@ -459,7 +459,7 @@ The block starts at an absolute position on the timeline.
 
 Example:
 
-```xml
+```
 <video
     src="background-video"
     startMode="absolute"
@@ -481,7 +481,7 @@ other resources supported by a compatible implementation.
 
 Example:
 
-```xml
+```
 <video
     src="asset_id"
     layer="background"
@@ -506,7 +506,7 @@ OVML supports synchronized word presentation.
 
 Example:
 
-```xml
+```
 <line
     wordByWord="true"
     wordByWordMode="cumulative"
@@ -539,7 +539,7 @@ It does not prescribe how a particular application must implement it.
 
 For example, the following:
 
-```xml
+```
 <video src="background" duration="10" />
 ```
 

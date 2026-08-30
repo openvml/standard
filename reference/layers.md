@@ -48,13 +48,13 @@ overlay	Content composited above the foreground layer
 Example:
 
 <video
-```xml
+```
 src="city-background"
 layer="background" />
 ```
 
 <img
-```xml
+```
 src="character"
 layer="foreground"
 sizePercent="60" />
@@ -72,7 +72,7 @@ For example:
 
 <scene atmosphere="night city">
 
-```xml
+```
 <video
     src="city-background"
     layer="background" />
@@ -121,7 +121,7 @@ Several media elements may share the same layer.
 For example, multiple audio elements may use the background layer to form an ambience bed:
 
 <audio
-```xml
+```
 src="rain"
 layer="background"
 volume="0.3"
@@ -129,7 +129,7 @@ loop="true" />
 ```
 
 <audio
-```xml
+```
 src="wind"
 layer="background"
 volume="0.2"
@@ -150,7 +150,7 @@ where it is placed (layer).
 For example:
 
 <video
-```xml
+```
 src="background.mp4"
 layer="background"
 startMode="absolute"
@@ -159,7 +159,7 @@ duration="30" />
 ```
 
 <img
-```xml
+```
 src="character.png"
 layer="foreground"
 startMode="absolute"
@@ -180,14 +180,14 @@ Timing determines temporal composition.
 The same asset may be used on different layers with different presentation settings.
 
 <img
-```xml
+```
 src="castle"
 layer="background"
 sizePercent="100" />
 ```
 
 <img
-```xml
+```
 src="castle"
 layer="foreground"
 sizePercent="40" />

@@ -35,7 +35,7 @@ It is a directorial instruction.
 For example:
 
 <camera
-```xml
+```
 shot="close-up"
 framing="center"
 movement="static" />
@@ -125,7 +125,7 @@ Future OpenVML versions may add more advanced camera capabilities without changi
 The simplest camera instruction is:
 
 <camera
-```xml
+```
 shot="medium"
 framing="center"
 movement="static" />
@@ -173,7 +173,7 @@ bottom	Subject positioned toward the lower part of the frame
 Example:
 
 <camera
-```xml
+```
 shot="medium"
 framing="left" />
 ```
@@ -200,7 +200,7 @@ dolly-out	Movement away from the subject
 Example:
 
 <camera
-```xml
+```
 shot="wide"
 movement="zoom-in" />
 ```
@@ -220,7 +220,7 @@ The target attribute identifies the intended subject of the camera.
 Example:
 
 <camera
-```xml
+```
 shot="close"
 framing="center"
 target="alex" />
@@ -244,7 +244,7 @@ Example:
 followed by:
 
 <camera
-```xml
+```
 shot="close"
 target="alex" />
 ```
@@ -265,7 +265,7 @@ smooth	Smooth interpolation of camera parameters
 Example:
 
 <camera
-```xml
+```
 shot="close"
 target="alex"
 transition="smooth" />
@@ -282,7 +282,7 @@ Camera instructions may have a duration when they represent a temporal camera st
 Example:
 
 <camera
-```xml
+```
 shot="wide"
 movement="zoom-in"
 duration="5" />
@@ -304,7 +304,7 @@ A camera instruction may use the standard timing attributes.
 Example:
 
 <camera
-```xml
+```
 shot="close"
 target="alex"
 startMode="absolute"
@@ -328,7 +328,7 @@ Example:
 
 <scene>
 
-```xml
+```
 <camera
     shot="wide"
     framing="center"
@@ -372,7 +372,7 @@ Camera direction may complement the semantic information of a scene.
 Example:
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="ночь, тревога, опасность">
 
@@ -410,7 +410,7 @@ Characters are natural camera targets.
 Example:
 
 <cast>
-```xml
+```
 <character id="alex" name="Alex" />
 <character id="maria" name="Maria" />
 ```
@@ -418,7 +418,7 @@ Example:
 
 <scene>
 
-```xml
+```
 <camera
     shot="medium"
     target="alex" />
@@ -494,7 +494,7 @@ For video content, camera instructions may describe how the video should be pres
 For example:
 
 <camera
-```xml
+```
 shot="wide"
 framing="center" />
 ```
@@ -514,14 +514,14 @@ Camera instructions are particularly useful with large images.
 For example:
 
 <camera
-```xml
+```
 shot="wide"
 movement="zoom-in"
 duration="8" />
 ```
 
 <img
-```xml
+```
 src="landscape"
 duration="8" />
 ```
@@ -544,7 +544,7 @@ For example:
 
 <scene atmosphere="dramatic confrontation">
 
-```xml
+```
 <camera
     shot="medium-close"
     framing="center"
@@ -715,7 +715,7 @@ The validator does not judge the artistic quality of the camera direction.
 For example:
 
 <camera
-```xml
+```
 shot="extreme-close"
 movement="zoom-out"
 duration="0.5" />

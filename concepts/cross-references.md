@@ -12,13 +12,13 @@ An identifier is a key that names a reusable entity. A reference is an attribute
 
 For example, a character is declared in <cast>:
 
-```xml
+```
 <character id="alex" name="Alex" />
 ```
 
 The script then references that character through the char attribute:
 
-```xml
+```
 <line char="alex">
     Welcome.
 </line>
@@ -59,7 +59,7 @@ These references are the edges of the document's graph. They connect the places 
 
 Assets are referenced through src:
 
-```xml
+```
 <video src="forest-video" />
 ```
 
@@ -76,7 +76,7 @@ A project SHOULD prefer logical asset identifiers when it has an asset catalog, 
 
 A scene references a canonical world entity through a child element with a ref attribute:
 
-```xml
+```
 <scene>
     <location ref="rusty_anchor">
         <variation>
@@ -94,7 +94,7 @@ Some references permit a plain-text form without ref for backward compatibility;
 
 The camera target identifies the intended subject of the camera:
 
-```xml
+```
 <camera
     shot="close"
     framing="center"

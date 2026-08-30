@@ -25,7 +25,7 @@ A plain OVML project may describe a character's voice without containing pre-ren
 Example:
 
 <character
-```xml
+```
 id="alex"
 name="Alex"
 voiceId="ru_RU-some-voice"
@@ -69,7 +69,7 @@ rate	float	1.0	Base speech-rate multiplier
 Example:
 
 <character
-```xml
+```
 id="vestfal"
 name="Vestfal"
 voiceEngine="edge-tts"
@@ -174,7 +174,7 @@ Availability depends on the Player implementation and target platform.
 When a voice belongs to a built-in provider, the OVML document only needs to identify the provider and voice.
 
 <character
-```xml
+```
 id="narrator"
 name="Narrator"
 voiceId="ru_RU-some-voice"
@@ -193,7 +193,7 @@ Examples include providers requiring user credentials or API keys.
 The OVML document may identify the required provider and voice:
 
 <character
-```xml
+```
 id="maria"
 name="Maria"
 voiceId="provider_voice_id"
@@ -217,7 +217,7 @@ authentication cookies.
 For example, the following is invalid as a project design:
 
 <character
-```xml
+```
 voiceEngine="elevenlabs"
 apiKey="secret-value" />
 ```
@@ -247,7 +247,7 @@ Voice availability is a runtime capability of the Player.
 A character MAY be defined without voice information:
 
 <character
-```xml
+```
 id="alex"
 name="Alex"
 gender="male"
@@ -328,7 +328,7 @@ A character may reference an audio-processing preset through its configuration.
 Example:
 
 <character
-```xml
+```
 id="vestfal"
 name="Vestfal"
 audioProcessorId="preset_1"

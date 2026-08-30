@@ -38,7 +38,7 @@ Example:
 
 <script>
 
-```xml
+```
 <chapter id="chapter-1" title="Beginning">
 
     <scene>
@@ -62,7 +62,7 @@ Conceptually:
 
 <script>
     │
-```xml
+```
 └── <chapter>
     │
     ├── <scene>
@@ -111,7 +111,7 @@ Implementations MAY also support additional attributes such as order_index, stat
 Example:
 
 <chapter
-```xml
+```
 id="ch_01"
 title="Chapter 1: The Beginning"
 order_index="0"
@@ -134,7 +134,7 @@ A scene represents a continuous logical audiovisual context.
 
 <chapter>
 
-```xml
+```
 <scene color="#1a1a2e" atmosphere="quiet evening">
 
     ...
@@ -166,7 +166,7 @@ The simplest valid project can contain a single chapter:
 
 <script>
 
-```xml
+```
 <chapter title="Greeting">
 
     <scene>

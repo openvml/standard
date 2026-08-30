@@ -34,7 +34,7 @@ Example:
 
 <scene id="ch1_office" time="evening" mood="dramatic">
 
-```xml
+```
 <blocking>
     <character ref="anna" position="left" look_at="ivan" enters="true"/>
     <character ref="ivan" position="right" addresses="anna"/>
@@ -117,7 +117,7 @@ A character may be marked as entering, exiting, or neither.
 ## 10. Example: Blocking
 
 <scene id="ch1_office" time="evening" mood="dramatic">
-```xml
+```
 <location>Офис, неоновая подсветка</location>
 <characters>
     <char ref="anna"/>
@@ -171,7 +171,7 @@ The `<characters>` element of a scene lists the characters participating in the 
 Example:
 
 <characters>
-```xml
+```
 <char ref="anna"/>
 <char ref="ivan"/>
 ```

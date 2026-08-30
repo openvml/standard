@@ -22,7 +22,7 @@ Example:
 
 <p>
 
-```xml
+```
 <line char="narrator">
     The room was silent.
 </line>
@@ -50,7 +50,7 @@ In OVML 2.2 both roles are represented by the same mechanism: `<line>` elements 
 Narration:
 
 <p>
-```xml
+```
 <line char="narrator">
     The sun rose over the horizon.
 </line>
@@ -60,7 +60,7 @@ Narration:
 Dialogue:
 
 <p>
-```xml
+```
 <line char="hero" emotion="happy">
     What a wonderful day!
 </line>
@@ -99,7 +99,7 @@ A `<line>` that does not specify its own char inherits the paragraph's character
 
 <p char="hero">
 
-```xml
+```
 <line>
     I said it once.
 </line>
@@ -136,7 +136,7 @@ marker	string	implementation-defined	Navigation marker
 Example:
 
 <p
-```xml
+```
 char="hero"
 emotion="angry"
 rate="1.2"
@@ -170,7 +170,7 @@ Example:
 
 <p>
 
-```xml
+```
 <line char="alex">
     Hello.
 </line>
@@ -204,7 +204,7 @@ For example:
 
 <p>
 
-```xml
+```
 <line
     char="narrator"
     startMode="absolute"
@@ -245,7 +245,7 @@ A paragraph normally occurs inside a scene.
 
 <scene atmosphere="quiet forest">
 
-```xml
+```
 <p>
 
     <line char="narrator">
@@ -273,7 +273,7 @@ The following example shows a paragraph with multiple lines, alternating speaker
 
 <p>
 
-```xml
+```
 <line
     char="vestfal"
     emotion="calm"

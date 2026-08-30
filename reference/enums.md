@@ -37,7 +37,7 @@ Example:
 The time may also be expressed in a `<variation>`:
 
 <variation>
-```xml
+```
 <time>night</time>
 ```
 </variation>
@@ -58,7 +58,7 @@ snowy	Snowy
 Example:
 
 <variation>
-```xml
+```
 <weather>rainy</weather>
 ```
 </variation>
@@ -158,7 +158,7 @@ An implementation MAY support additional internal layers.
 Example:
 
 <img
-```xml
+```
 src="character"
 layer="foreground" />
 ```
@@ -179,7 +179,7 @@ absolute	Start at an absolute timeline position
 Example:
 
 <video
-```xml
+```
 src="intro"
 startMode="absolute"
 startTime="0" />
@@ -262,7 +262,7 @@ villain
 Example:
 
 <character
-```xml
+```
 id="narrator"
 name="Narrator"
 role="narrator" />
@@ -299,7 +299,7 @@ senior	Senior / pensioner
 Example:
 
 <character
-```xml
+```
 id="vestfal"
 name="Vestfal"
 gender="male"

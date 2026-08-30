@@ -24,7 +24,7 @@ OVML separates the **resource itself** from the **instruction that uses the reso
 
 For example:
 
-```xml
+```
 <img src="forest" />
 
 forest identifies a resource.

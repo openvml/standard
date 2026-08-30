@@ -31,7 +31,7 @@ None of these statements are coordinates. They are declarative instructions. The
 
 For example:
 
-```xml
+```
 <video
     src="background"
     layer="background"
@@ -105,7 +105,7 @@ OVML is deliberately language-agnostic.
 
 The document declares its primary language in the root element:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 ```
 

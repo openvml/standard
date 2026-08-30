@@ -40,7 +40,7 @@ The value version="2.2" identifies the document as using the model and rules def
 
 A typical OVML document has the following structure:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 
     <meta>
@@ -85,7 +85,7 @@ The <meta> element contains information about the project itself.
 
 Example:
 
-```xml
+```
 <meta>
     <title>The Last Summer Day</title>
     <author>OpenVML Example</author>
@@ -111,7 +111,7 @@ The <cast> element contains the characters used by the project.
 
 Example:
 
-```xml
+```
 <cast>
 
     <character
@@ -167,7 +167,7 @@ OVML can use referenced external resources.
 
 For example:
 
-```xml
+```
 <assets>
 
     <asset
@@ -220,7 +220,7 @@ an entity is referenced from script content by ref.
 
 Example — a story-geared canon:
 
-```xml
+```
 <world>
 
     <locations>
@@ -245,7 +245,7 @@ Example — a story-geared canon:
 
 Example — a knowledge-geared canon (lecture, documentation):
 
-```xml
+```
 <world>
 
     <terms>
@@ -268,7 +268,7 @@ The world canon holds the permanent properties of its entities.
 Scenes reference a canonical entity by its id rather than
 duplicating the full description:
 
-```xml
+```
 <scene>
 
     <location ref="rusty_anchor">
@@ -329,7 +329,7 @@ It organizes the project into navigable sections and contains scenes and content
 
 Example:
 
-```xml
+```
 <script>
 
     <chapter id="chapter-1" title="Beginning">
@@ -355,7 +355,7 @@ It groups elements that occur within the same visual and dramatic context.
 
 Example:
 
-```xml
+```
 <scene
     color="#1a1a2e"
     atmosphere="warm sunset, silence, tranquility">
@@ -379,7 +379,7 @@ It describes how the visual content is intended to be presented.
 
 Example:
 
-```xml
+```
 <scene>
 
     <camera
@@ -404,7 +404,7 @@ The primary element for dialogue and textual content is <line>.
 
 It is commonly contained within a <p> block:
 
-```xml
+```
 <p>
 
     <line char="alex">
@@ -424,7 +424,7 @@ word-by-word markup.
 
 Example:
 
-```xml
+```
 <line
     char="alex"
     startMode="afterPrevious"
@@ -440,7 +440,7 @@ Example:
 
 Text may contain additional word-level markup:
 
-```xml
+```
 <line
     wordByWord="true"
     wordByWordMode="cumulative">
@@ -476,7 +476,7 @@ The exact visual behavior is determined by wordByWordMode and the Player impleme
 
 OVML supports different types of media:
 
-```xml
+```
 <img src="background" />
 
 <video src="intro-video" />
@@ -486,7 +486,7 @@ OVML supports different types of media:
 
 Media elements may have timing and presentation attributes:
 
-```xml
+```
 <video
     src="background-video"
     layer="background"
@@ -503,7 +503,7 @@ Media is therefore part of the project's timeline rather than merely being a col
 
 The <break> element represents a pause.
 
-```xml
+```
 <break time="1000" />
 ```
 
@@ -511,7 +511,7 @@ The time value is specified in milliseconds.
 
 Example:
 
-```xml
+```
 <line char="alex">
     I wanted to say...
 </line>
@@ -535,7 +535,7 @@ afterPrevious
 
 The element starts after the preceding applicable block has finished.
 
-```xml
+```
 <line char="alex">
     Hello!
 </line>
@@ -548,7 +548,7 @@ duringCurrent
 
 The element starts at the specified time relative to the current block.
 
-```xml
+```
 <video
     src="rain"
     startMode="duringCurrent"
@@ -558,7 +558,7 @@ absolute
 
 The element is positioned at an absolute point on the project timeline.
 
-```xml
+```
 <video
     src="intro"
     startMode="absolute"
@@ -626,7 +626,7 @@ This is a conceptual model. Not every element is required in every document.
 
 The simplest document can contain only the root element and a script:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 
     <script>
@@ -654,7 +654,7 @@ This is already a valid conceptual OVML project.
 
 A more complete project may look like this:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 
     <meta>

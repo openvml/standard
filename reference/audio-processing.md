@@ -63,7 +63,7 @@ enabled	boolean	Enables or disables the whole processing definition
 
 Example:
 
-```xml
+```
 <audio_processing id="my_processor" name="Heavy Bass">
     ...
 </audio_processing>
@@ -158,7 +158,7 @@ The eq directive applies a multi-band equalizer.
 
 Band parameters:
 
-```xml
+```
 <eq enabled="true">
     <band hz="60" gain_db="5.0" />
     <band hz="10000" gain_db="-3.0" />
@@ -173,7 +173,7 @@ gain_db	Band gain	-24 — +24 dB
 
 The compressor directive compresses the dynamic range.
 
-```xml
+```
 <compressor enabled="true">
     <threshold>-20</threshold>
     <ratio>4.0</ratio>
@@ -196,7 +196,7 @@ makeup_gain	Gain applied after compression	-12 — +12 dB
 
 The limiter directive prevents the signal from exceeding a ceiling.
 
-```xml
+```
 <limiter enabled="true">
     <threshold>-0.3</threshold>
     <release>50</release>
@@ -211,7 +211,7 @@ release	Release time	10 — 500 ms
 
 The normalizer directive adjusts the overall level to a target.
 
-```xml
+```
 <normalizer enabled="true">
     <level>-3.0</level>
 </normalizer>
@@ -224,7 +224,7 @@ level	Target level	-12 — 0 dB
 
 The noise_reduction directive reduces background noise.
 
-```xml
+```
 <noise_reduction enabled="true">
     <strength>0.7</strength>
     <method>spectral_subtraction</method>
@@ -239,7 +239,7 @@ method	Reduction method	spectral_subtraction, wiener_filter, noise_gate
 
 The reverb directive adds reverberation.
 
-```xml
+```
 <reverb enabled="true">
     <room_size>0.7</room_size>
     <damping>0.5</damping>
@@ -260,7 +260,7 @@ width	Stereo width	0 — 1
 
 The delay directive adds an echo.
 
-```xml
+```
 <delay enabled="true">
     <time>0.5</time>
     <feedback>0.3</feedback>
@@ -277,7 +277,7 @@ wet	Wet signal mix	0 — 1
 
 The chorus directive applies chorus modulation.
 
-```xml
+```
 <chorus enabled="false">
     <rate>1.5</rate>
     <depth>0.5</depth>
@@ -294,7 +294,7 @@ mix	Dry/wet mix	0 — 1
 
 The phaser directive applies phase modulation.
 
-```xml
+```
 <phaser enabled="false">
     <rate>1.0</rate>
     <depth>0.5</depth>
@@ -311,7 +311,7 @@ mix	Dry/wet mix	0 — 1
 
 The flanger directive applies flanging.
 
-```xml
+```
 <flanger enabled="false">
     <rate>1.0</rate>
     <depth>0.5</depth>
@@ -328,7 +328,7 @@ mix	Dry/wet mix	0 — 1
 
 The gain directive applies a fixed level adjustment.
 
-```xml
+```
 <gain enabled="false">
     <db>0.0</db>
 </gain>
@@ -341,7 +341,7 @@ db	Gain amount	-24 — +24 dB
 
 The pan directive positions the signal in the stereo field.
 
-```xml
+```
 <pan enabled="false">
     <position>0.0</position>
 </pan>
@@ -354,7 +354,7 @@ position	Pan position	-1 (left) — +1 (right)
 
 The fade directive applies fade in and fade out.
 
-```xml
+```
 <fade enabled="false">
     <in_duration>0.0</in_duration>
     <out_duration>2.0</out_duration>
@@ -371,7 +371,7 @@ out_start	Position where fade-out begins	0 — 600 s
 
 The trim directive cuts the material to a time window.
 
-```xml
+```
 <trim enabled="false">
     <start>0.0</start>
     <end>600.0</end>
@@ -386,7 +386,7 @@ end	End time	0 — 600 s
 
 The deesser directive reduces sibilance.
 
-```xml
+```
 <deesser enabled="false">
     <threshold>-20</threshold>
     <frequency>7000</frequency>
@@ -401,7 +401,7 @@ frequency	Target frequency	1000 — 16000 Hz
 
 The declicker directive removes clicks and pops.
 
-```xml
+```
 <declicker enabled="false">
     <sensitivity>0.5</sensitivity>
 </declicker>
@@ -414,7 +414,7 @@ sensitivity	Removal sensitivity	0 — 1
 
 The pitch_shift directive changes the pitch without changing the duration.
 
-```xml
+```
 <pitch_shift enabled="true">
     <semitones>2.0</semitones>
 </pitch_shift>
@@ -429,7 +429,7 @@ The time_stretch directive changes the speed without changing the pitch.
 
 It corresponds to the speed type.
 
-```xml
+```
 <time_stretch enabled="true">
     <factor>1.0</factor>
 </time_stretch>
@@ -442,7 +442,7 @@ factor	Speed factor	0.5 — 2.0
 
 The convert directive describes the requested output format.
 
-```xml
+```
 <convert>
     <format>mp3</format>
     <bitrate>192</bitrate>
@@ -463,7 +463,7 @@ Processing may be declared at several scopes.
 
 The scopes form an inheritance chain:
 
-```xml
+```
 Project (<settings>)
           ↓
     Character
@@ -479,7 +479,7 @@ A project MAY declare default processing in its `<settings>` section.
 
 For example:
 
-```xml
+```
 <settings>
 
     <audio_processing>
@@ -498,7 +498,7 @@ Project-level processing applies as the default to the project's audio material 
 
 A character MAY reference an audio-processing preset.
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -517,7 +517,7 @@ With the `input` model, character-level processing uses input="character".
 
 A media element MAY reference a processing preset by the `processing` attribute:
 
-```xml
+```
 <audio
     src="voice_chapter_1"
     action="play"
@@ -526,7 +526,7 @@ A media element MAY reference a processing preset by the `processing` attribute:
 
 Processing may also be declared inline as child directives of the media element:
 
-```xml
+```
 <audio src="music_theme" action="play" volume="0.5">
 
     <eq>

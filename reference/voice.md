@@ -64,7 +64,7 @@ Recommended range:
 Example:
 
 <character
-```xml
+```
 id="vestfal"
 name="Vestfal"
 rate="0.9" />
@@ -102,7 +102,7 @@ whispering	Whispering
 Example line-level use:
 
 <line
-```xml
+```
 char="hero"
 timbre="rough">
 Where have you been?
@@ -187,7 +187,7 @@ The syllable marked with `+` receives the stress.
 Example:
 
 <p char="hero">
-```xml
+```
 Он жил в <w stress="зáмок">замок</w> и думал о <w stress="зáмок">замок</w>.
 ```
 </p>
@@ -201,7 +201,7 @@ This is useful for abbreviations and initialisms.
 Example:
 
 <p char="narrator">
-```xml
+```
 Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
 <w alias="США">USA</w> — великая страна.
 ```
@@ -214,7 +214,7 @@ The `ph` attribute provides a phonetic transcription, which may use IPA or the S
 Example:
 
 <p char="hero">
-```xml
+```
 Сложное слово: <w ph="kʲɪˈtaj">китай</w>
 ```
 </p>
@@ -226,7 +226,7 @@ An empty alias may be used to skip a word during TTS.
 Example:
 
 <p char="hero">
-```xml
+```
 Кодекс: <w alias="">{code_123}</w>
 ```
 </p>
@@ -255,7 +255,7 @@ emphasis.
 Example:
 
 <line
-```xml
+```
 char="anna"
 emotion="excited"
 pitch="1.2"

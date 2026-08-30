@@ -117,7 +117,7 @@ See: reference/cast.md
 A scene references a canonical entity through a child element with a `ref` attribute.
 
 <scene>
-```xml
+```
 <location ref="rusty_anchor">
     <variation>
         <weather>rainy</weather>
@@ -131,7 +131,7 @@ The `ref` value is the `id` of an entity declared in the corresponding section o
 The mechanism is identical for every section:
 
 <scene>
-```xml
+```
 <term ref="photosynthesis" />
 ```
 </scene>
@@ -161,7 +161,7 @@ This makes the language self-describing.
 A location may be declared in the world canon and referenced from a scene.
 
 <world>
-```xml
+```
 <locations>
     <location
         id="rusty_anchor"

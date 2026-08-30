@@ -51,7 +51,7 @@ enabled	boolean	Enables or disables the whole processing definition
 
 Example:
 
-```xml
+```
 <image_processing id="preset_img_bw" name="Black and White">
     ...
 </image_processing>
@@ -137,7 +137,7 @@ Processing directives are declarative. The runtime interprets them.
 
 The color directive applies color correction.
 
-```xml
+```
 <color enabled="true">
     <brightness>0.1</brightness>
     <contrast>0.15</contrast>
@@ -160,7 +160,7 @@ brightness and contrast express the semantics of the same-named types.
 
 The grayscale directive converts the image to black and white.
 
-```xml
+```
 <grayscale enabled="true">
     <intensity>1</intensity>
 </grayscale>
@@ -173,7 +173,7 @@ intensity	Grayscale intensity	0 — 1
 
 The invert directive inverts the colors.
 
-```xml
+```
 <invert enabled="false">
     <intensity>1.0</intensity>
 </invert>
@@ -186,7 +186,7 @@ intensity	Inversion intensity	0 — 1
 
 The sepia directive applies a sepia tone.
 
-```xml
+```
 <sepia enabled="false">
     <intensity>0.7</intensity>
 </sepia>
@@ -199,7 +199,7 @@ intensity	Sepia intensity	0 — 1
 
 The blur directive applies a gaussian blur.
 
-```xml
+```
 <blur enabled="false">
     <radius>5</radius>
 </blur>
@@ -212,7 +212,7 @@ radius	Blur radius	0 — 50
 
 The sharpen directive increases perceived sharpness.
 
-```xml
+```
 <sharpen enabled="false">
     <amount>1.0</amount>
 </sharpen>
@@ -225,7 +225,7 @@ amount	Sharpening amount	0 — 5
 
 The rotate directive rotates the image.
 
-```xml
+```
 <rotate enabled="false">
     <angle>90</angle>
 </rotate>
@@ -240,7 +240,7 @@ angle	Rotation angle	-180 — +180 degrees
 
 The flip directive mirrors the image horizontally and/or vertically.
 
-```xml
+```
 <flip
     enabled="true"
     horizontal="true"
@@ -257,7 +257,7 @@ The crop directive crops the image to a region.
 
 Coordinates and sizes are expressed as fractions of the source dimensions.
 
-```xml
+```
 <crop enabled="false">
     <x>0.1</x>
     <y>0.1</y>
@@ -276,7 +276,7 @@ height	Crop height	0.1 — 1
 
 The resize directive changes the size of the image.
 
-```xml
+```
 <resize enabled="false">
     <width>1920</width>
     <height>1080</height>
@@ -299,7 +299,7 @@ The overlay directive composites another image over the base image.
 
 It may express a watermark or logo, and positions and sizes the composited image.
 
-```xml
+```
 <overlay enabled="true">
     <opacity>0.8</opacity>
     <x>0.05</x>
@@ -324,7 +324,7 @@ The overlay directive expresses the position_offsets and watermark semantics.
 
 The fade directive applies fade in and fade out.
 
-```xml
+```
 <fade enabled="false">
     <in_duration>0.5</in_duration>
     <out_duration>0.5</out_duration>
@@ -339,7 +339,7 @@ out_duration	Fade-out duration	0 — 10 s
 
 The convert directive describes the requested output format.
 
-```xml
+```
 <convert>
     <format>png</format>
     <quality>95</quality>
@@ -356,7 +356,7 @@ Processing for an image may be declared at several scopes.
 
 The scopes form an inheritance chain:
 
-```xml
+```
 Project (<settings>)
           ↓
     Character
@@ -376,7 +376,7 @@ Project-level processing applies as the default to the project's image material 
 
 A character MAY reference an image-processing preset.
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -391,7 +391,7 @@ See: reference/character.md
 
 An image media element MAY reference a processing preset by the `processing` attribute:
 
-```xml
+```
 <img
     src="portrait"
     processing="image_01" />

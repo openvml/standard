@@ -76,7 +76,7 @@ name	string	Human-readable character name
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal" />
@@ -84,7 +84,7 @@ Example:
 
 The id is used to reference the character from script content:
 
-```xml
+```
 <line char="vestfal">
     — Это ракеты.
 </line>
@@ -106,7 +106,7 @@ color
 
 Defines the visual color associated with the character.
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -115,7 +115,7 @@ Defines the visual color associated with the character.
 
 The value MUST use hexadecimal RGB notation:
 
-```xml
+```
 #RRGGBB
 ```
 
@@ -134,7 +134,7 @@ neutral	Neutral or unspecified gender
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -161,7 +161,7 @@ senior	Senior / pensioner
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -186,7 +186,7 @@ narrator	Narrator or narrative voice
 
 Example:
 
-```xml
+```
 <character
     id="narrator"
     name="Narrator"
@@ -203,7 +203,7 @@ Aliases provide alternative names or references by which a character may be know
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal">
@@ -233,7 +233,7 @@ It describes the character's personality, behavioral traits, temperament, and ot
 
 Example:
 
-```xml
+```
 <personality>
     Calm, intelligent and slightly sarcastic.
     Usually hides his emotions behind humor.
@@ -263,7 +263,7 @@ It contains background information about the character.
 
 Example:
 
-```xml
+```
 <backstory>
     Vestfal is an ancient dragon who has accompanied
     the protagonist for many years.
@@ -294,7 +294,7 @@ rate	float	1.0	Base speech-rate multiplier
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -310,7 +310,7 @@ voiceId
 
 Identifies the requested voice.
 
-```xml
+```
 voiceId="en-US-GuyNeural"
 ```
 
@@ -326,7 +326,7 @@ voiceName
 
 Provides a human-readable name for the voice.
 
-```xml
+```
 voiceName="Guy"
 ```
 
@@ -377,7 +377,7 @@ Timbre describes the desired acoustic character of the voice.
 
 Example:
 
-```xml
+```
 <timbre>
     Deep, warm and slightly rough male voice.
 </timbre>
@@ -389,7 +389,7 @@ This allows the description to be used with different voice systems and AI-assis
 
 Examples:
 
-```xml
+```
 <timbre>
     Warm, deep, slightly rough.
 </timbre>
@@ -397,7 +397,7 @@ Examples:
 
 or:
 
-```xml
+```
 <timbre>
     Soft female voice with a clear tone and restrained warmth.
 </timbre>
@@ -421,7 +421,7 @@ Recommended range:
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -444,7 +444,7 @@ Recommended range:
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -465,7 +465,7 @@ If a portable reference is required, an implementation MAY represent it using a 
 
 For example:
 
-```xml
+```
 <voicePreset
     id="preset_21"
     name="Warm Cinematic Male" />
@@ -484,7 +484,7 @@ audioProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -508,7 +508,7 @@ videoProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -530,7 +530,7 @@ imageProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -547,7 +547,7 @@ Characters are referenced by their id.
 
 Example:
 
-```xml
+```
 <cast>
 
     <character
@@ -569,7 +569,7 @@ Example:
 
 The script may then contain:
 
-```xml
+```
 <p>
 
     <line char="vestfal">
@@ -604,7 +604,7 @@ A scene MAY list the characters participating in that scene.
 
 Each `<char>` entry references a character id declared in the `<cast>` element:
 
-```xml
+```
 <scene>
 
     <characters>
@@ -646,13 +646,13 @@ Changing a voice does not create a new character.
 
 For example, changing:
 
-```xml
+```
 voiceId="voice-A"
 ```
 
 to:
 
-```xml
+```
 voiceId="voice-B"
 ```
 
@@ -662,7 +662,7 @@ does not change the character's identity.
 
 A character MAY be defined without voice information:
 
-```xml
+```
 <character
     id="alex"
     name="Alex"

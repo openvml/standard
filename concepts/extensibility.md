@@ -69,7 +69,7 @@ Versioning is part of extensibility.
 
 The current standard is OVML 2.2, declared in the root element:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 ```
 
@@ -91,7 +91,7 @@ OVML stays extensible through a few consistent decisions.
 
     The uniform section rule lets any kind of canonical entity be added without changing the parser.
 
-```xml
+```
 The <world> canon is a generic container with free sections.
 
 Forward compatibility preserves unknown elements and warns without rejecting documents.

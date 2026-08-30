@@ -64,7 +64,7 @@ enabled	boolean	Enables or disables the whole processing definition
 
 Example:
 
-```xml
+```
 <video_processing id="my_video_processor" name="Warm Vintage">
     ...
 </video_processing>
@@ -149,7 +149,7 @@ Processing directives are declarative. The runtime interprets them.
 
 The color directive applies color correction.
 
-```xml
+```
 <color enabled="true">
     <brightness>0.1</brightness>
     <contrast>0.15</contrast>
@@ -170,7 +170,7 @@ gamma	Gamma correction	0.1 — 3.0
 
 The grayscale directive converts the material to black and white.
 
-```xml
+```
 <grayscale enabled="false">
     <intensity>1.0</intensity>
 </grayscale>
@@ -183,7 +183,7 @@ intensity	Grayscale intensity	0 — 1
 
 The invert directive inverts the colors.
 
-```xml
+```
 <invert enabled="false">
     <intensity>1.0</intensity>
 </invert>
@@ -196,7 +196,7 @@ intensity	Inversion intensity	0 — 1
 
 The sepia directive applies a sepia tone.
 
-```xml
+```
 <sepia enabled="false">
     <intensity>0.7</intensity>
 </sepia>
@@ -209,7 +209,7 @@ intensity	Sepia intensity	0 — 1
 
 The blur directive applies a gaussian blur.
 
-```xml
+```
 <blur enabled="false">
     <radius>5</radius>
 </blur>
@@ -222,7 +222,7 @@ radius	Blur radius	0 — 50
 
 The sharpen directive increases perceived sharpness.
 
-```xml
+```
 <sharpen enabled="false">
     <amount>1.5</amount>
 </sharpen>
@@ -235,7 +235,7 @@ amount	Sharpening amount	0 — 5
 
 The rotate directive rotates the material.
 
-```xml
+```
 <rotate enabled="false">
     <angle>90</angle>
 </rotate>
@@ -250,7 +250,7 @@ angle	Rotation angle	-180 — +180 degrees
 
 The flip directive mirrors the material horizontally and/or vertically.
 
-```xml
+```
 <flip enabled="false">
     <horizontal>true</horizontal>
     <vertical>false</vertical>
@@ -267,7 +267,7 @@ The crop directive crops the material to a region.
 
 Coordinates and sizes are expressed as fractions of the source dimensions.
 
-```xml
+```
 <crop enabled="false">
     <x>0.1</x>
     <y>0.1</y>
@@ -286,7 +286,7 @@ height	Crop height	0.1 — 1
 
 The resize directive changes the size of the material.
 
-```xml
+```
 <resize enabled="false">
     <width>1920</width>
     <height>1080</height>
@@ -311,7 +311,7 @@ The resize directive expresses the aspect_ratio and scale semantics.
 
 The speed directive changes the playback speed.
 
-```xml
+```
 <speed enabled="false">
     <factor>1.0</factor>
 </speed>
@@ -324,7 +324,7 @@ factor	Speed factor	0.25 — 4.0
 
 The fade directive applies fade in and fade out.
 
-```xml
+```
 <fade enabled="false">
     <in_duration>1.0</in_duration>
     <out_duration>2.0</out_duration>
@@ -341,7 +341,7 @@ The overlay directive composites another resource over the material.
 
 The x and y values position the overlay; they express the position_offsets semantics.
 
-```xml
+```
 <overlay enabled="false">
     <src>asset_logo</src>
     <opacity>0.8</opacity>
@@ -362,7 +362,7 @@ The chroma_key directive removes a background color.
 
 It expresses the background_removal semantics.
 
-```xml
+```
 <chroma_key enabled="false">
     <similarity>0.4</similarity>
     <color>#00FF00</color>
@@ -379,7 +379,7 @@ The text directive renders text over the material.
 
 It expresses the subtitle_style and caption_enable semantics.
 
-```xml
+```
 <text enabled="false">
     <content>Sample Text</content>
     <size>24</size>
@@ -402,7 +402,7 @@ y	Vertical position	0 — 1
 
 The convert directive describes the requested output format.
 
-```xml
+```
 <convert>
     <format>mp4</format>
     <codec>h264</codec>
@@ -421,7 +421,7 @@ Processing for a video element may be declared at several scopes.
 
 The scopes form an inheritance chain:
 
-```xml
+```
 Project (<settings>)
           ↓
     Character
@@ -437,7 +437,7 @@ A project MAY declare default video processing in its `<settings>` section.
 
 For example:
 
-```xml
+```
 <settings>
 
     <video_processing>
@@ -456,7 +456,7 @@ Project-level processing applies as the default to the project's video material 
 
 A character MAY reference a video-processing preset.
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -471,7 +471,7 @@ See: reference/character.md
 
 A video media element MAY reference a processing preset by the `processing` attribute:
 
-```xml
+```
 <video
     src="my_video"
     action="play"
@@ -480,7 +480,7 @@ A video media element MAY reference a processing preset by the `processing` attr
 
 Processing may also be declared inline as child directives of the media element:
 
-```xml
+```
 <video src="background" action="play">
 
     <color>

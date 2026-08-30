@@ -34,7 +34,7 @@ Audio processing can be associated with a project at several levels. The standar
 
     Character — the voice of a character. A character may reference an audio-processing preset through audioProcessorId, audioProcessorName, and audioProcessorFile:
 
-```xml
+```
 <character
     id="vestfal"
     name="Vestfal"
@@ -53,7 +53,7 @@ A preset is a standalone XML document that describes a sequence of processing op
 
 For audio, a preset uses <audio_processing> as its root element and carries an id and a name:
 
-```xml
+```
 <audio_processing id="narrator_classic" name="Narrator Classic Warm">
     ...
 </audio_processing>
@@ -67,7 +67,7 @@ A preset contains a list of operations. Operations are normally evaluated in the
 
 For example:
 
-```xml
+```
 <audio_processing id="example" name="Example">
     <eq enabled="true">
         ...

@@ -26,7 +26,7 @@ Example:
 
 <world>
 
-```xml
+```
 <locations>
 
     <location
@@ -61,7 +61,7 @@ type	string	No	Location type: tavern, forest, cave, palace, street, interior, ex
 Example:
 
 <location
-```xml
+```
 id="rusty_anchor"
 name="The Rusty Anchor"
 type="tavern">
@@ -111,7 +111,7 @@ The world canon solves this by describing each location once and letting scenes 
 A scene references a canonical location through a child <location> element with a ref attribute.
 
 <scene
-```xml
+```
 color="#1a1a2e"
 atmosphere="tense, night">
 
@@ -137,7 +137,7 @@ It points to the canon and adds only what is different in this scene.
 A scene may specify how a referenced location differs from its canon in this particular scene.
 
 <location ref="rusty_anchor">
-```xml
+```
 <variation>
     <time>night</time>
     <weather>foggy</weather>
@@ -163,7 +163,7 @@ The canon remains the permanent description; the variation describes the transie
 A plain-text <location> without ref remains valid.
 
 <scene>
-```xml
+```
 <location>A dark forest. Mist between the trees.</location>
 ...
 ```
@@ -179,7 +179,7 @@ A scene may combine a location reference with an image or video that depicts it.
 
 <scene>
 
-```xml
+```
 <location ref="rusty_anchor" />
 
 <img

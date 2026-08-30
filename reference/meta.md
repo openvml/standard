@@ -21,7 +21,7 @@ A minimal OVML document may therefore omit <meta> entirely.
 The general structure is:
 
 <meta>
-```xml
+```
 <title>Project title</title>
 <author>Project author</author>
 
@@ -75,7 +75,7 @@ The optional <preferences> element defines general presentation preferences for 
 Example:
 
 <preferences
-```xml
+```
 showSubtitles="true"
 subtitleFontSize="16"
 subtitleBg="rgba(0,0,0,0.7)"
@@ -143,14 +143,14 @@ The value uses a CSS-compatible color representation.
 Example:
 
 <preferences
-```xml
+```
 subtitleBg="rgba(0,0,0,0.7)" />
 ```
 
 Another valid example:
 
 <preferences
-```xml
+```
 subtitleBg="#000000" />
 ```
 
@@ -168,7 +168,7 @@ Default	#ffffff
 Example:
 
 <preferences
-```xml
+```
 subtitleColor="#ffffff" />
 ```
 
@@ -187,7 +187,7 @@ subtitleColor	#ffffff
 Therefore:
 
 <meta>
-```xml
+```
 <title>Example</title>
 ```
 </meta>
@@ -195,7 +195,7 @@ Therefore:
 is equivalent, with respect to these preferences, to:
 
 <meta>
-```xml
+```
 <title>Example</title>
 
 <preferences
@@ -208,7 +208,7 @@ is equivalent, with respect to these preferences, to:
 8. Complete Example
 <meta>
 
-```xml
+```
 <title>The Last Evening</title>
 
 <author>OpenVML Example</author>
@@ -226,7 +226,7 @@ is equivalent, with respect to these preferences, to:
 The smallest useful metadata section may contain only a title:
 
 <meta>
-```xml
+```
 <title>My Project</title>
 ```
 </meta>
@@ -235,7 +235,7 @@ It is also valid to omit the entire <meta> section:
 
 <ovml version="2.2" lang="en">
 
-```xml
+```
 <script>
     ...
 </script>
@@ -272,7 +272,7 @@ For example:
 
 OVML project
     │
-```xml
+```
 └── showSubtitles = true
          │
          ▼
@@ -304,7 +304,7 @@ An implementation encountering an unknown metadata element or attribute should n
 For example, a future version may introduce:
 
 <meta>
-```xml
+```
 <title>Example</title>
 
 <futurePreference value="..." />

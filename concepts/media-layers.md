@@ -30,7 +30,7 @@ Visual content is conceptually ordered from back to front:
 
 For example:
 
-```xml
+```
 <scene atmosphere="night city">
 
     <video
@@ -58,7 +58,7 @@ A media element defines:
 
 For example:
 
-```xml
+```
 <video
     src="background.mp4"
     layer="background"
@@ -86,7 +86,7 @@ Beyond its layer, a visual element is positioned and sized within the compositio
 
 For example:
 
-```xml
+```
 <img
     src="castle"
     layer="foreground"
@@ -109,7 +109,7 @@ The layer is the portable intent; the renderer decides how much depth, parallax,
 
 Several media elements may share the same layer. For example, multiple audio elements may form an ambience bed:
 
-```xml
+```
 <audio
     src="rain"
     layer="background"
@@ -129,7 +129,7 @@ The layer expresses the intended grouping, not a strict z-order between elements
 
 The same asset may be used on different layers with different presentation settings:
 
-```xml
+```
 <img
     src="castle"
     layer="background"

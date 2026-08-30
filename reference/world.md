@@ -75,7 +75,7 @@ This makes the language self-describing. No project-type declaration is required
 
 The `<world>` element is placed at the top of the document, before `<script>`:
 
-```xml
+```
 <ovml version="2.2" lang="en">
 
     <meta>
@@ -117,7 +117,7 @@ Attribute	Type	Required	Description
 
 ### Example — locations section
 
-```xml
+```
 <world>
     <locations>
         <location
@@ -138,7 +138,7 @@ Attribute	Type	Required	Description
 
 ### Example — terms section (lecture, documentation)
 
-```xml
+```
 <world>
     <terms>
         <term
@@ -163,7 +163,7 @@ reference/locations.md
 
 A scene references a canonical entity via a child element with a `ref` attribute.
 
-```xml
+```
 <scene
     color="#1a1a2e"
     atmosphere="tense, night">
@@ -186,7 +186,7 @@ reference/locations.md
 
 The mechanism is identical for every section:
 
-```xml
+```
 <scene>
     <term ref="photosynthesis" />
     ...
@@ -197,7 +197,7 @@ The mechanism is identical for every section:
 
 A scene may specify how a referenced entity differs from its canon in this particular scene.
 
-```xml
+```
 <location ref="rusty_anchor">
     <variation>
         <time>night</time>
@@ -219,7 +219,7 @@ A plain-text entity reference without `ref` remains valid.
 
 For example:
 
-```xml
+```
 <scene>
     <location>A dark forest. Mist between the trees.</location>
     ...

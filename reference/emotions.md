@@ -29,7 +29,7 @@ Example:
 A scene may describe the emotion of a participating character:
 
 <scene id="ch1_tavern_night" time="night" mood="tense">
-```xml
+```
 <characters>
     <char ref="heroine" emotion="cautious"/>
 </characters>
@@ -74,7 +74,7 @@ A Player MAY ignore the emotion attribute during playback.
 The `emotion` attribute may appear on a spoken line.
 
 <line
-```xml
+```
 char="anna"
 emotion="happy">
 What a wonderful day!
@@ -106,7 +106,7 @@ shout	Shout
 The `intonation` attribute may appear on a spoken line.
 
 <line
-```xml
+```
 char="heavy"
 intonation="command">
 Halt! Do not move.
@@ -132,7 +132,7 @@ Describes the prosodic delivery pattern.
 They may be combined:
 
 <line
-```xml
+```
 char="alex"
 emotion="angry"
 intonation="command">
@@ -149,7 +149,7 @@ A scene may use an explicit `mood` attribute as well as per-character emotion.
 Example:
 
 <scene id="ch1_tavern_night" time="night" mood="tense">
-```xml
+```
 <characters>
     <char ref="heroine" emotion="cautious"/>
 </characters>
