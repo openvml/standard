@@ -241,14 +241,14 @@ OVMZ
 OVMZ is a project container.
 
 An OVMZ package can contain:
-
+``text`
 project
 ├── content.ovml
 ├── project metadata
 ├── media resources
 ├── presets
 └── pre-rendered or cached resources
-
+```
 OVMZ is intended to make a project portable.
 
 A project can therefore be distributed as a single container while retaining the original OVML structure.
@@ -260,30 +260,31 @@ OVMV is a rendered video container/output.
 When a project is rendered into a final video, the OVML description is converted into a conventional audiovisual result.
 
 Conceptually:
-
+``text`
 OVML
   │
   │ render
   ▼
 OVMV
-
+```
 Whereas:
-
+``text`
 OVML
   │
   │ package
   ▼
 OVMZ
-
+```
 preserves the structured project.
 
 OVML document structure
 
 A basic OVML document has the following structure:
 
+``xml`
 <ovml version="2.2" lang="en">
 
-``xml`
+
    <meta>
        ...
    </meta>
@@ -299,18 +300,19 @@ A basic OVML document has the following structure:
    <script>
        ...
    </script>
-```
+
 </ovml>
+```
 
 The major sections are:
-
+``text`
 Section	Purpose
 <ovml>	Root document
 <meta>	Project metadata and presentation preferences
 <cast>	Characters and voice configuration
 <assets>	Media resources
 <script>	Chapters, scenes, and content blocks
-
+```
 Additional structural elements are defined by the specification.
 
 Scenes
@@ -318,9 +320,9 @@ Scenes
 OVML supports explicit scene descriptions using the <scene> element.
 
 A scene can contain visual and narrative information such as:
-
-<scene
 ``xml`
+<scene
+
    color="#1a1a2e"
    atmosphere="warm sunset, silence, tranquility">
 
@@ -350,7 +352,7 @@ Starting with OVML 2.2, the standard also introduces the <camera> element.
 <camera> describes visual direction independently from the physical rendering implementation.
 
 The purpose is to allow an OVML document to express cinematic intent such as:
-
+``text`
 camera position;
 framing;
 shot type;
@@ -359,7 +361,7 @@ transition;
 focus;
 duration;
 visual emphasis.
-
+```
 The exact <camera> vocabulary is defined in the OVML 2.2 specification.
 
 The important architectural principle is:
@@ -394,7 +396,7 @@ Example:
 ```
 
 A character can contain information about:
-
+``text`
 identity;
 display name;
 gender;
@@ -407,18 +409,18 @@ speech rate;
 audio processing;
 video processing;
 image processing.
-
+```
 The standard does not require one specific TTS engine.
 
 A compatible implementation may use:
-
+``text`
 local TTS;
 cloud TTS;
 operating-system TTS;
 AI voice providers;
 user-provided voice engines.
 Script
-
+```
 The <script> section contains the actual content of the work.
 
 Content is organized into structural units such as:
@@ -445,7 +447,7 @@ Example:
    Hello, world!
 
 </line>
-```
+`` `
 Timing
 
 Timing is an important part of OVML.
@@ -473,20 +475,20 @@ Example:
    startMode="absolute"
    startTime="10"
    duration="20" />
-```
+`` `
 This allows an OVML document to describe complex synchronization without embedding a particular playback engine into the
 format.
 
 Media
 
 OVML can reference different types of media:
-
+``text`
 audio;
 video;
 images;
 speech/TTS;
 other resources supported by a compatible implementation.
-
+`` `
 Example:
 
 ``xml`
@@ -498,7 +500,7 @@ Example:
    duration="10"
    startTime="0"
    startMode="absolute" />
-```
+`` `
 The src value identifies the resource.
 
 The actual resource may be stored:
@@ -528,10 +530,10 @@ Example:
    <w group="2">you?</w>
 
 </line>
-```
+`` `
 
 This can be used for:
-
+``text`
 karaoke-style presentation;
 language learning;
 subtitles;
@@ -539,7 +541,7 @@ reading assistance;
 synchronized narration;
 accessibility.
 Declarative format
-
+`` `
 OVML is a declarative format.
 
 An OVML document describes the desired structure and timing of an audiovisual experience.
@@ -549,18 +551,18 @@ It does not prescribe how a particular application must implement it.
 For example, the following:
 ``xml`
 <video src="background" duration="10" />
-```
+`` `
 does not require a specific video library.
 
 A Player may use:
-
+``text`
 HTML5 video;
 native video APIs;
 FFmpeg;
 platform media frameworks;
 WebAssembly;
 another compatible implementation.
-
+`` `
 The same principle applies to audio and TTS.
 
 OpenVML architecture
@@ -583,7 +585,7 @@ The OpenVML ecosystem separates description from execution.
           │
           ▼
        Runtime
-```
+`` `
 The standard defines the portable representation.
 
 The Player is responsible for execution.
@@ -619,7 +621,7 @@ timing
 OVML
   ↓
 OVMZ / OVMV
-```
+`` `
 Because the content is structured, an AI system can modify individual elements without having to regenerate the entire
 project.
 
@@ -656,7 +658,7 @@ For example, the standard can determine that:
 <scene>
     ...
 </scene>
-
+`` `
 is correctly formed and properly closed.
 
 Whether the scene itself is artistically appropriate is outside the responsibility of the parser.
@@ -670,7 +672,7 @@ OVML 2.2
 The version is declared in the root element:
 ``xml`
 <ovml version="2.2" lang="en">
-```
+`` `
 Implementations should use the declared version to determine which vocabulary and semantics are supported.
 
 Future versions may introduce new:
