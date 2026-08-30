@@ -2,9 +2,11 @@
 
 ## OVML — Open Voice Markup Language
 
-**OVML** is an open, declarative XML-based standard for describing audiovisual content, interactive narratives, synchronized speech, media assets, scenes, timing, characters, and presentation.
+**OVML** is an open, declarative XML-based standard for describing audiovisual content, interactive narratives,
+synchronized speech, media assets, scenes, timing, characters, and presentation.
 
-OVML is designed to describe **what an audiovisual work should contain and how its elements are structured**, while leaving actual rendering and playback to compatible applications.
+OVML is designed to describe **what an audiovisual work should contain and how its elements are structured**, while
+leaving actual rendering and playback to compatible applications.
 
 The standard is designed for:
 
@@ -55,7 +57,8 @@ A single OVML document can describe:
 - how subtitles are displayed;
 - how chapters and blocks are organized.
 
-This makes OVML particularly suitable for projects where content is continuously edited, regenerated, translated, re-voiced, or rendered into different target formats.
+This makes OVML particularly suitable for projects where content is continuously edited, regenerated, translated,
+re-voiced, or rendered into different target formats.
 
 ---
 
@@ -65,7 +68,8 @@ The central architectural idea of OpenVML is:
 
 > **OVML describes the experience. The Player renders the experience.**
 
-The standard therefore does not define a particular rendering engine, audio library, video library, UI framework, operating system, or TTS implementation.
+The standard therefore does not define a particular rendering engine, audio library, video library, UI framework,
+operating system, or TTS implementation.
 
 A compatible implementation is free to choose its own:
 
@@ -90,7 +94,8 @@ OVML is intentionally not limited to one type of media.
 
 **Lecture**
 
-Educational content with structured chapters, synchronized narration, slides, media assets, timestamps, and a clear narrative.
+Educational content with structured chapters, synchronized narration, slides, media assets, timestamps, and a clear
+narrative.
 
 Suitable for:
 
@@ -174,7 +179,8 @@ Potential applications include:
 
 **Film Voiceover**
 
-Multi-character voiceover and dubbing projects with synchronized dialogue, scenes, timing, audio processing, and media assets.
+Multi-character voiceover and dubbing projects with synchronized dialogue, scenes, timing, audio processing, and media
+assets.
 
 OVML can be used as a structured intermediate representation before final audio/video rendering.
 
@@ -202,7 +208,8 @@ Structured educational programs containing chapters, lessons, narration, slides,
 
 **Podcast**
 
-Conversational audio projects with multiple speakers, introductions, transitions, music, sound effects, and structured episodes.
+Conversational audio projects with multiple speakers, introductions, transitions, music, sound effects, and structured
+episodes.
 
 ---
 
@@ -276,22 +283,23 @@ A basic OVML document has the following structure:
 
 <ovml version="2.2" lang="en">
 
-    <meta>
-        ...
-    </meta>
+```xml
+   <meta>
+       ...
+   </meta>
 
-    <cast>
-        ...
-    </cast>
+   <cast>
+       ...
+   </cast>
 
-    <assets>
-        ...
-    </assets>
+   <assets>
+       ...
+   </assets>
 
-    <script>
-        ...
-    </script>
-
+   <script>
+       ...
+   </script>
+```
 </ovml>
 
 The major sections are:
@@ -312,11 +320,12 @@ OVML supports explicit scene descriptions using the <scene> element.
 A scene can contain visual and narrative information such as:
 
 <scene
-    color="#1a1a2e"
-    atmosphere="warm sunset, silence, tranquility">
+```xml
+   color="#1a1a2e"
+   atmosphere="warm sunset, silence, tranquility">
 
-    ...
-
+   ...
+```
 </scene>
 
 The color attribute can be used as a visual hint for UI presentation and processing presets.
@@ -366,19 +375,20 @@ Example:
 
 <cast>
 
-    <character
-        id="alex"
-        name="Alex"
-        gender="male"
-        age="adult"
-        role="protagonist"
-        voiceId="ru-RU-DmitryNeural"
-        voiceName="Dmitry"
-        voiceLang="ru-RU"
-        voiceEngine="edge-tts"
-        pitch="1"
-        rate="1" />
-
+```xml
+   <character
+       id="alex"
+       name="Alex"
+       gender="male"
+       age="adult"
+       role="protagonist"
+       voiceId="ru-RU-DmitryNeural"
+       voiceName="Dmitry"
+       voiceLang="ru-RU"
+       voiceEngine="edge-tts"
+       pitch="1"
+       rate="1" />
+```
 </cast>
 
 A character can contain information about:
@@ -421,15 +431,16 @@ synchronized word groups.
 Example:
 
 <line
-    char="alex"
-    startMode="afterPrevious"
-    startDelay="0"
-    wordByWord="true"
-    wordByWordMode="single"
-    wordDisplayDuration="100">
+```xml
+   char="alex"
+   startMode="afterPrevious"
+   startDelay="0"
+   wordByWord="true"
+   wordByWordMode="single"
+   wordDisplayDuration="100">
 
-    Hello, world!
-
+   Hello, world!
+```
 </line>
 Timing
 
@@ -452,12 +463,14 @@ The block starts at an absolute position on the timeline.
 Example:
 
 <video
-    src="background-video"
-    startMode="absolute"
-    startTime="10"
-    duration="20" />
-
-This allows an OVML document to describe complex synchronization without embedding a particular playback engine into the format.
+```xml
+   src="background-video"
+   startMode="absolute"
+   startTime="10"
+   duration="20" />
+```
+This allows an OVML document to describe complex synchronization without embedding a particular playback engine into the
+format.
 
 Media
 
@@ -472,13 +485,14 @@ other resources supported by a compatible implementation.
 Example:
 
 <video
-    src="asset_id"
-    layer="background"
-    volume="1"
-    duration="10"
-    startTime="0"
-    startMode="absolute" />
-
+```xml
+   src="asset_id"
+   layer="background"
+   volume="1"
+   duration="10"
+   startTime="0"
+   startMode="absolute" />
+```
 The src value identifies the resource.
 
 The actual resource may be stored:
@@ -495,16 +509,17 @@ OVML supports synchronized word presentation.
 Example:
 
 <line
-    wordByWord="true"
-    wordByWordMode="cumulative"
-    wordDisplayDuration="500">
+```xml
+   wordByWord="true"
+   wordByWordMode="cumulative"
+   wordDisplayDuration="500">
 
-    <w group="1">Hello</w>
-    <w group="1">world</w>
-    <w group="2">how</w>
-    <w group="2">are</w>
-    <w group="2">you?</w>
-
+   <w group="1">Hello</w>
+   <w group="1">world</w>
+   <w group="2">how</w>
+   <w group="2">are</w>
+   <w group="2">you?</w>
+```
 </line>
 
 This can be used for:
@@ -597,7 +612,8 @@ OVML
   ↓
 OVMZ / OVMV
 
-Because the content is structured, an AI system can modify individual elements without having to regenerate the entire project.
+Because the content is structured, an AI system can modify individual elements without having to regenerate the entire
+project.
 
 For example, changing:
 
@@ -779,13 +795,15 @@ compatibility implications;
 example OVML;
 impact on existing implementations.
 
-Changes to the normative specification should be made deliberately because the standard is a public contract between independent implementations.
+Changes to the normative specification should be made deliberately because the standard is a public contract between
+independent implementations.
 
 License
 
 The OpenVML Standard specification is released under the Apache License 2.0.
 
-Apache License 2.0 permits reuse, modification, distribution, and implementation of the specification, including in commercial software. The license also includes an express patent license.
+Apache License 2.0 permits reuse, modification, distribution, and implementation of the specification, including in
+commercial software. The license also includes an express patent license.
 
 See:
 
@@ -799,7 +817,8 @@ Open format.
 Open runtime.
 Open ecosystem.
 
-OVML is intended to become a common, portable description layer for audiovisual experiences — from a simple narrated lesson to a multi-character audiobook, interactive story, animated production, or fully rendered video.
+OVML is intended to become a common, portable description layer for audiovisual experiences — from a simple narrated
+lesson to a multi-character audiobook, interactive story, animated production, or fully rendered video.
 
 The format describes the work.
 
@@ -870,14 +889,15 @@ docs/standard/
 ├── schema/
 │   └── ovml-2.2.xsd
 └── examples/
-    ├── audiobook/
-    │   ├── README.md
-    │   ├── source.txt
-    │   └── example.ovml
-    ├── ner_test.ovml
-    ├── README.md
-    └── source/
-        └── ner_test.md
+```xml
+   ├── audiobook/
+   │   ├── README.md
+   │   ├── source.txt
+   │   └── example.ovml
+   ├── ner_test.ovml
+   ├── README.md
+   └── source/
+       └── ner_test.md
 ```
 
 The `spec/` folder holds the normative specification (`OVML-2.2.md`). The `reference/` folder
