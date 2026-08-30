@@ -167,6 +167,7 @@ OVML can use referenced external resources.
 
 For example:
 
+```xml
 <assets>
 
     <asset
@@ -180,9 +181,11 @@ For example:
         src="https://example.com/assets/rain.mp3" />
 
 </assets>
+```
 
 Resources may also be included in an OVMZ container:
 
+```text
 project.ovmz
 │
 ├── content.ovml
@@ -190,6 +193,7 @@ project.ovmz
     ├── images/
     ├── audio/
     └── video/
+```
 The script can then reference those resources by ID.
 
 See:
@@ -216,6 +220,7 @@ an entity is referenced from script content by ref.
 
 Example — a story-geared canon:
 
+```xml
 <world>
 
     <locations>
@@ -236,9 +241,11 @@ Example — a story-geared canon:
     </locations>
 
 </world>
+```
 
 Example — a knowledge-geared canon (lecture, documentation):
 
+```xml
 <world>
 
     <terms>
@@ -254,12 +261,14 @@ Example — a knowledge-geared canon (lecture, documentation):
     </terms>
 
 </world>
+```
 
 The world canon holds the permanent properties of its entities.
 
 Scenes reference a canonical entity by its id rather than
 duplicating the full description:
 
+```xml
 <scene>
 
     <location ref="rusty_anchor">
@@ -271,6 +280,7 @@ duplicating the full description:
     ...
 
 </scene>
+```
 
 This keeps long-form projects consistent across many scenes and
 chapters.
@@ -319,6 +329,7 @@ It organizes the project into navigable sections and contains scenes and content
 
 Example:
 
+```xml
 <script>
 
     <chapter id="chapter-1" title="Beginning">
@@ -330,6 +341,7 @@ Example:
     </chapter>
 
 </script>
+```
 
 The complete chapter model is defined in:
 
@@ -343,6 +355,7 @@ It groups elements that occur within the same visual and dramatic context.
 
 Example:
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="warm sunset, silence, tranquility">
@@ -350,6 +363,7 @@ Example:
     ...
 
 </scene>
+```
 
 The scene model — including its attributes, child elements, location references, camera direction, and scene boundaries — is defined in:
 
@@ -365,6 +379,7 @@ It describes how the visual content is intended to be presented.
 
 Example:
 
+```xml
 <scene>
 
     <camera
@@ -376,6 +391,7 @@ Example:
     ...
 
 </scene>
+```
 
 The camera model is defined in:
 
@@ -388,6 +404,7 @@ The primary element for dialogue and textual content is <line>.
 
 It is commonly contained within a <p> block:
 
+```xml
 <p>
 
     <line char="alex">
@@ -395,6 +412,7 @@ It is commonly contained within a <p> block:
     </line>
 
 </p>
+```
 
 A <line> may contain:
 
@@ -406,6 +424,7 @@ word-by-word markup.
 
 Example:
 
+```xml
 <line
     char="alex"
     startMode="afterPrevious"
@@ -416,10 +435,12 @@ Example:
     Hello, Maria!
 
 </line>
+```
 13. Word-by-Word Markup
 
 Text may contain additional word-level markup:
 
+```xml
 <line
     wordByWord="true"
     wordByWordMode="cumulative">
@@ -431,11 +452,13 @@ Text may contain additional word-level markup:
     <w group="2">you</w>
 
 </line>
+```
 
 This allows a Player or renderer to implement different synchronized text-display modes.
 
 For example:
 
+```text
 Hello
 
 Hello world
@@ -445,6 +468,7 @@ Hello world how are you
 or:
 
 Hello → world → how → are → you
+```
 
 The exact visual behavior is determined by wordByWordMode and the Player implementation.
 
@@ -882,6 +906,7 @@ cloud service.
 
 For example, one Player may use:
 
+```text
 Howler + WebAudio
 
 another:
@@ -891,6 +916,7 @@ native audio APIs
 and a renderer:
 
 FFmpeg + GPU
+```
 
 All of them can work with the same OVML document.
 
