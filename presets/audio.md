@@ -67,8 +67,6 @@ Processing operations that can be switched on or off use the `enabled` attribute
 
 ```xml
 <eq enabled="true">
-```
-
 ```xml
 <eq enabled="false">
 ```

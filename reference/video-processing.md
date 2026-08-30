@@ -20,34 +20,36 @@ The document describes the intended processing. The Player or rendering implemen
 
 The general structure is:
 
-    <video_processing id="my_video_processor" name="Warm Vintage">
+```text
+<video_processing id="my_video_processor" name="Warm Vintage">
 
-        <color enabled="true">
-            <brightness>0.1</brightness>
-            <contrast>0.15</contrast>
-            <saturation>0.8</saturation>
-            <hue>5</hue>
-            <gamma>1.1</gamma>
-        </color>
+    <color enabled="true">
+        <brightness>0.1</brightness>
+        <contrast>0.15</contrast>
+        <saturation>0.8</saturation>
+        <hue>5</hue>
+        <gamma>1.1</gamma>
+    </color>
 
-        <blur enabled="false">
-            <radius>5</radius>
-        </blur>
+    <blur enabled="false">
+        <radius>5</radius>
+    </blur>
 
-        <overlay enabled="false">
-            <src>asset_logo</src>
-            <opacity>0.8</opacity>
-            <x>0.95</x>
-            <y>0.05</y>
-        </overlay>
+    <overlay enabled="false">
+        <src>asset_logo</src>
+        <opacity>0.8</opacity>
+        <x>0.95</x>
+        <y>0.05</y>
+    </overlay>
 
-        <convert>
-            <format>mp4</format>
-            <codec>h264</codec>
-            <quality>high</quality>
-        </convert>
+    <convert>
+        <format>mp4</format>
+        <codec>h264</codec>
+        <quality>high</quality>
+    </convert>
 
-    </video_processing>
+</video_processing>
+```
 
 Each child element is a processing directive.
 
@@ -62,9 +64,11 @@ enabled	boolean	Enables or disables the whole processing definition
 
 Example:
 
-    <video_processing id="my_video_processor" name="Warm Vintage">
-        ...
-    </video_processing>
+```xml
+<video_processing id="my_video_processor" name="Warm Vintage">
+    ...
+</video_processing>
+```
 
 When `enabled` is present and false, the processing definition does not participate in the processing chain.
 
@@ -145,13 +149,15 @@ Processing directives are declarative. The runtime interprets them.
 
 The color directive applies color correction.
 
-    <color enabled="true">
-        <brightness>0.1</brightness>
-        <contrast>0.15</contrast>
-        <saturation>0.8</saturation>
-        <hue>5</hue>
-        <gamma>1.1</gamma>
-    </color>
+```xml
+<color enabled="true">
+    <brightness>0.1</brightness>
+    <contrast>0.15</contrast>
+    <saturation>0.8</saturation>
+    <hue>5</hue>
+    <gamma>1.1</gamma>
+</color>
+```
 
 Parameter	Description	Range
 brightness	Brightness adjustment	-1 — +1
@@ -164,9 +170,11 @@ gamma	Gamma correction	0.1 — 3.0
 
 The grayscale directive converts the material to black and white.
 
-    <grayscale enabled="false">
-        <intensity>1.0</intensity>
-    </grayscale>
+```xml
+<grayscale enabled="false">
+    <intensity>1.0</intensity>
+</grayscale>
+```
 
 Parameter	Description	Range
 intensity	Grayscale intensity	0 — 1
@@ -175,9 +183,11 @@ intensity	Grayscale intensity	0 — 1
 
 The invert directive inverts the colors.
 
-    <invert enabled="false">
-        <intensity>1.0</intensity>
-    </invert>
+```xml
+<invert enabled="false">
+    <intensity>1.0</intensity>
+</invert>
+```
 
 Parameter	Description	Range
 intensity	Inversion intensity	0 — 1
@@ -186,9 +196,11 @@ intensity	Inversion intensity	0 — 1
 
 The sepia directive applies a sepia tone.
 
-    <sepia enabled="false">
-        <intensity>0.7</intensity>
-    </sepia>
+```xml
+<sepia enabled="false">
+    <intensity>0.7</intensity>
+</sepia>
+```
 
 Parameter	Description	Range
 intensity	Sepia intensity	0 — 1
@@ -197,9 +209,11 @@ intensity	Sepia intensity	0 — 1
 
 The blur directive applies a gaussian blur.
 
-    <blur enabled="false">
-        <radius>5</radius>
-    </blur>
+```xml
+<blur enabled="false">
+    <radius>5</radius>
+</blur>
+```
 
 Parameter	Description	Range
 radius	Blur radius	0 — 50
@@ -208,9 +222,11 @@ radius	Blur radius	0 — 50
 
 The sharpen directive increases perceived sharpness.
 
-    <sharpen enabled="false">
-        <amount>1.5</amount>
-    </sharpen>
+```xml
+<sharpen enabled="false">
+    <amount>1.5</amount>
+</sharpen>
+```
 
 Parameter	Description	Range
 amount	Sharpening amount	0 — 5
@@ -219,9 +235,11 @@ amount	Sharpening amount	0 — 5
 
 The rotate directive rotates the material.
 
-    <rotate enabled="false">
-        <angle>90</angle>
-    </rotate>
+```xml
+<rotate enabled="false">
+    <angle>90</angle>
+</rotate>
+```
 
 Angles may be 90, 180, or 270 degrees.
 
@@ -232,10 +250,12 @@ angle	Rotation angle	-180 — +180 degrees
 
 The flip directive mirrors the material horizontally and/or vertically.
 
-    <flip enabled="false">
-        <horizontal>true</horizontal>
-        <vertical>false</vertical>
-    </flip>
+```xml
+<flip enabled="false">
+    <horizontal>true</horizontal>
+    <vertical>false</vertical>
+</flip>
+```
 
 Parameter	Description	Values
 horizontal	Horizontal mirroring	true / false
@@ -247,12 +267,14 @@ The crop directive crops the material to a region.
 
 Coordinates and sizes are expressed as fractions of the source dimensions.
 
-    <crop enabled="false">
-        <x>0.1</x>
-        <y>0.1</y>
-        <width>0.8</width>
-        <height>0.8</height>
-    </crop>
+```xml
+<crop enabled="false">
+    <x>0.1</x>
+    <y>0.1</y>
+    <width>0.8</width>
+    <height>0.8</height>
+</crop>
+```
 
 Parameter	Description	Range
 x	Left offset	0 — 1
@@ -264,11 +286,13 @@ height	Crop height	0.1 — 1
 
 The resize directive changes the size of the material.
 
-    <resize enabled="false">
-        <width>1920</width>
-        <height>1080</height>
-        <mode>fit</mode>
-    </resize>
+```xml
+<resize enabled="false">
+    <width>1920</width>
+    <height>1080</height>
+    <mode>fit</mode>
+</resize>
+```
 
 Parameter	Description	Values
 width	Target width	160 — 3840 px
@@ -287,9 +311,11 @@ The resize directive expresses the aspect_ratio and scale semantics.
 
 The speed directive changes the playback speed.
 
-    <speed enabled="false">
-        <factor>1.0</factor>
-    </speed>
+```xml
+<speed enabled="false">
+    <factor>1.0</factor>
+</speed>
+```
 
 Parameter	Description	Range
 factor	Speed factor	0.25 — 4.0
@@ -298,10 +324,12 @@ factor	Speed factor	0.25 — 4.0
 
 The fade directive applies fade in and fade out.
 
-    <fade enabled="false">
-        <in_duration>1.0</in_duration>
-        <out_duration>2.0</out_duration>
-    </fade>
+```xml
+<fade enabled="false">
+    <in_duration>1.0</in_duration>
+    <out_duration>2.0</out_duration>
+</fade>
+```
 
 Parameter	Description	Range
 in_duration	Fade-in duration	0 — 10 s
@@ -313,12 +341,14 @@ The overlay directive composites another resource over the material.
 
 The x and y values position the overlay; they express the position_offsets semantics.
 
-    <overlay enabled="false">
-        <src>asset_logo</src>
-        <opacity>0.8</opacity>
-        <x>0.95</x>
-        <y>0.05</y>
-    </overlay>
+```xml
+<overlay enabled="false">
+    <src>asset_logo</src>
+    <opacity>0.8</opacity>
+    <x>0.95</x>
+    <y>0.05</y>
+</overlay>
+```
 
 Parameter	Description	Range
 src	Asset identifier of the overlay resource	asset reference
@@ -332,10 +362,12 @@ The chroma_key directive removes a background color.
 
 It expresses the background_removal semantics.
 
-    <chroma_key enabled="false">
-        <similarity>0.4</similarity>
-        <color>#00FF00</color>
-    </chroma_key>
+```xml
+<chroma_key enabled="false">
+    <similarity>0.4</similarity>
+    <color>#00FF00</color>
+</chroma_key>
+```
 
 Parameter	Description	Range
 similarity	Color similarity threshold	0 — 1
@@ -347,14 +379,16 @@ The text directive renders text over the material.
 
 It expresses the subtitle_style and caption_enable semantics.
 
-    <text enabled="false">
-        <content>Sample Text</content>
-        <size>24</size>
-        <color>#FFFFFF</color>
-        <font>Arial</font>
-        <x>0.5</x>
-        <y>0.9</y>
-    </text>
+```xml
+<text enabled="false">
+    <content>Sample Text</content>
+    <size>24</size>
+    <color>#FFFFFF</color>
+    <font>Arial</font>
+    <x>0.5</x>
+    <y>0.9</y>
+</text>
+```
 
 Parameter	Description	Range
 content	Text content	text
@@ -368,11 +402,13 @@ y	Vertical position	0 — 1
 
 The convert directive describes the requested output format.
 
-    <convert>
-        <format>mp4</format>
-        <codec>h264</codec>
-        <quality>high</quality>
-    </convert>
+```xml
+<convert>
+    <format>mp4</format>
+    <codec>h264</codec>
+    <quality>high</quality>
+</convert>
+```
 
 Parameter	Description	Allowed values
 format	Container format	mp4, webm, mov, avi
@@ -385,11 +421,13 @@ Processing for a video element may be declared at several scopes.
 
 The scopes form an inheritance chain:
 
-    Project (<settings>)
-              ↓
-        Character
-              ↓
-    Scene / block / media element
+```xml
+Project (<settings>)
+          ↓
+    Character
+          ↓
+Scene / block / media element
+```
 
 A more specific declaration overrides or supplements the more general one.
 
@@ -399,16 +437,18 @@ A project MAY declare default video processing in its `<settings>` section.
 
 For example:
 
-    <settings>
+```xml
+<settings>
 
-        <video_processing>
-            <color enabled="true">
-                <contrast>0.05</contrast>
-                <saturation>1.1</saturation>
-            </color>
-        </video_processing>
+    <video_processing>
+        <color enabled="true">
+            <contrast>0.05</contrast>
+            <saturation>1.1</saturation>
+        </color>
+    </video_processing>
 
-    </settings>
+</settings>
+```
 
 Project-level processing applies as the default to the project's video material unless a more specific declaration overrides it.
 
@@ -416,12 +456,14 @@ Project-level processing applies as the default to the project's video material 
 
 A character MAY reference a video-processing preset.
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        videoProcessorId="video_01"
-        videoProcessorName="Cinematic"
-        videoProcessorFile="presets/video/Cinematic.ovml" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    videoProcessorId="video_01"
+    videoProcessorName="Cinematic"
+    videoProcessorFile="presets/video/Cinematic.ovml" />
+```
 
 See: reference/character.md
 
@@ -429,25 +471,29 @@ See: reference/character.md
 
 A video media element MAY reference a processing preset by the `processing` attribute:
 
-    <video
-        src="my_video"
-        action="play"
-        processing="my_video_processor" />
+```xml
+<video
+    src="my_video"
+    action="play"
+    processing="my_video_processor" />
+```
 
 Processing may also be declared inline as child directives of the media element:
 
-    <video src="background" action="play">
+```xml
+<video src="background" action="play">
 
-        <color>
-            <brightness>0.2</brightness>
-            <contrast>0.1</contrast>
-        </color>
+    <color>
+        <brightness>0.2</brightness>
+        <contrast>0.1</contrast>
+    </color>
 
-        <blur>
-            <radius>3</radius>
-        </blur>
+    <blur>
+        <radius>3</radius>
+    </blur>
 
-    </video>
+</video>
+```
 
 Inline directives apply only to that media element.
 

@@ -48,13 +48,17 @@ overlay	Content composited above the foreground layer
 Example:
 
 <video
-    src="city-background"
-    layer="background" />
+```xml
+src="city-background"
+layer="background" />
+```
 
 <img
-    src="character"
-    layer="foreground"
-    sizePercent="60" />
+```xml
+src="character"
+layer="foreground"
+sizePercent="60" />
+```
 
 The intended conceptual ordering is:
 
@@ -68,20 +72,22 @@ For example:
 
 <scene atmosphere="night city">
 
-    <video
-        src="city-background"
-        layer="background" />
+```xml
+<video
+    src="city-background"
+    layer="background" />
 
-    <img
-        src="character"
-        layer="foreground"
-        sizePercent="60" />
+<img
+    src="character"
+    layer="foreground"
+    sizePercent="60" />
 
-    <p>
-        <line char="alex">
-            Look at the lights.
-        </line>
-    </p>
+<p>
+    <line char="alex">
+        Look at the lights.
+    </line>
+</p>
+```
 
 </scene>
 
@@ -115,16 +121,20 @@ Several media elements may share the same layer.
 For example, multiple audio elements may use the background layer to form an ambience bed:
 
 <audio
-    src="rain"
-    layer="background"
-    volume="0.3"
-    loop="true" />
+```xml
+src="rain"
+layer="background"
+volume="0.3"
+loop="true" />
+```
 
 <audio
-    src="wind"
-    layer="background"
-    volume="0.2"
-    loop="true" />
+```xml
+src="wind"
+layer="background"
+volume="0.2"
+loop="true" />
+```
 
 The layer expresses the intended grouping, not a strict z-order between elements on the same layer.
 
@@ -140,18 +150,22 @@ where it is placed (layer).
 For example:
 
 <video
-    src="background.mp4"
-    layer="background"
-    startMode="absolute"
-    startTime="0"
-    duration="30" />
+```xml
+src="background.mp4"
+layer="background"
+startMode="absolute"
+startTime="0"
+duration="30" />
+```
 
 <img
-    src="character.png"
-    layer="foreground"
-    startMode="absolute"
-    startTime="5"
-    duration="10" />
+```xml
+src="character.png"
+layer="foreground"
+startMode="absolute"
+startTime="5"
+duration="10" />
+```
 
 The first element defines when the background video is active.
 
@@ -166,14 +180,18 @@ Timing determines temporal composition.
 The same asset may be used on different layers with different presentation settings.
 
 <img
-    src="castle"
-    layer="background"
-    sizePercent="100" />
+```xml
+src="castle"
+layer="background"
+sizePercent="100" />
+```
 
 <img
-    src="castle"
-    layer="foreground"
-    sizePercent="40" />
+```xml
+src="castle"
+layer="foreground"
+sizePercent="40" />
+```
 
 The underlying asset is unchanged.
 

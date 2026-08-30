@@ -35,9 +35,11 @@ It is a directorial instruction.
 For example:
 
 <camera
-    shot="close-up"
-    framing="center"
-    movement="static" />
+```xml
+shot="close-up"
+framing="center"
+movement="static" />
+```
 
 does not mean that OpenVML must use a particular camera API.
 
@@ -123,9 +125,11 @@ Future OpenVML versions may add more advanced camera capabilities without changi
 The simplest camera instruction is:
 
 <camera
-    shot="medium"
-    framing="center"
-    movement="static" />
+```xml
+shot="medium"
+framing="center"
+movement="static" />
+```
 
 This describes:
 
@@ -169,8 +173,10 @@ bottom	Subject positioned toward the lower part of the frame
 Example:
 
 <camera
-    shot="medium"
-    framing="left" />
+```xml
+shot="medium"
+framing="left" />
+```
 
 This may be used to create visual space on the right side of the frame for another character, subtitles, graphics, or other content.
 
@@ -194,8 +200,10 @@ dolly-out	Movement away from the subject
 Example:
 
 <camera
-    shot="wide"
-    movement="zoom-in" />
+```xml
+shot="wide"
+movement="zoom-in" />
+```
 
 The distinction between zoom and dolly is intentional.
 
@@ -212,9 +220,11 @@ The target attribute identifies the intended subject of the camera.
 Example:
 
 <camera
-    shot="close"
-    framing="center"
-    target="alex" />
+```xml
+shot="close"
+framing="center"
+target="alex" />
+```
 
 The target may refer to:
 
@@ -234,8 +244,10 @@ Example:
 followed by:
 
 <camera
-    shot="close"
-    target="alex" />
+```xml
+shot="close"
+target="alex" />
+```
 11. Camera Transitions
 
 A camera change may require a transition.
@@ -253,9 +265,11 @@ smooth	Smooth interpolation of camera parameters
 Example:
 
 <camera
-    shot="close"
-    target="alex"
-    transition="smooth" />
+```xml
+shot="close"
+target="alex"
+transition="smooth" />
+```
 
 If no transition is specified, the implementation may use an appropriate default.
 
@@ -268,9 +282,11 @@ Camera instructions may have a duration when they represent a temporal camera st
 Example:
 
 <camera
-    shot="wide"
-    movement="zoom-in"
-    duration="5" />
+```xml
+shot="wide"
+movement="zoom-in"
+duration="5" />
+```
 
 This describes a five-second camera movement.
 
@@ -288,11 +304,13 @@ A camera instruction may use the standard timing attributes.
 Example:
 
 <camera
-    shot="close"
-    target="alex"
-    startMode="absolute"
-    startTime="12"
-    duration="4" />
+```xml
+shot="close"
+target="alex"
+startMode="absolute"
+startTime="12"
+duration="4" />
+```
 
 This requests:
 
@@ -310,29 +328,31 @@ Example:
 
 <scene>
 
-    <camera
-        shot="wide"
-        framing="center"
-        movement="static"
-        startMode="absolute"
-        startTime="0"
-        duration="5" />
+```xml
+<camera
+    shot="wide"
+    framing="center"
+    movement="static"
+    startMode="absolute"
+    startTime="0"
+    duration="5" />
 
-    <camera
-        shot="medium"
-        target="alex"
-        movement="smooth"
-        startMode="absolute"
-        startTime="5"
-        duration="4" />
+<camera
+    shot="medium"
+    target="alex"
+    movement="smooth"
+    startMode="absolute"
+    startTime="5"
+    duration="4" />
 
-    <camera
-        shot="close"
-        target="alex"
-        movement="zoom-in"
-        startMode="absolute"
-        startTime="9"
-        duration="3" />
+<camera
+    shot="close"
+    target="alex"
+    movement="zoom-in"
+    startMode="absolute"
+    startTime="9"
+    duration="3" />
+```
 
 </scene>
 
@@ -352,14 +372,16 @@ Camera direction may complement the semantic information of a scene.
 Example:
 
 <scene
-    color="#1a1a2e"
-    atmosphere="ночь, тревога, опасность">
+```xml
+color="#1a1a2e"
+atmosphere="ночь, тревога, опасность">
 
-    <camera
-        shot="wide"
-        movement="static" />
+<camera
+    shot="wide"
+    movement="static" />
 
-    ...
+...
+```
 </scene>
 
 An AI Assistant may interpret the combination as:
@@ -388,27 +410,31 @@ Characters are natural camera targets.
 Example:
 
 <cast>
-    <character id="alex" name="Alex" />
-    <character id="maria" name="Maria" />
+```xml
+<character id="alex" name="Alex" />
+<character id="maria" name="Maria" />
+```
 </cast>
 
 <scene>
 
-    <camera
-        shot="medium"
-        target="alex" />
+```xml
+<camera
+    shot="medium"
+    target="alex" />
 
-    <line char="alex">
-        We have to leave.
-    </line>
+<line char="alex">
+    We have to leave.
+</line>
 
-    <camera
-        shot="medium"
-        target="maria" />
+<camera
+    shot="medium"
+    target="maria" />
 
-    <line char="maria">
-        Now?
-    </line>
+<line char="maria">
+    Now?
+</line>
+```
 
 </scene>
 
@@ -468,8 +494,10 @@ For video content, camera instructions may describe how the video should be pres
 For example:
 
 <camera
-    shot="wide"
-    framing="center" />
+```xml
+shot="wide"
+framing="center" />
+```
 
 <video src="scene.mp4" />
 
@@ -486,13 +514,17 @@ Camera instructions are particularly useful with large images.
 For example:
 
 <camera
-    shot="wide"
-    movement="zoom-in"
-    duration="8" />
+```xml
+shot="wide"
+movement="zoom-in"
+duration="8" />
+```
 
 <img
-    src="landscape"
-    duration="8" />
+```xml
+src="landscape"
+duration="8" />
+```
 
 This can describe a classic documentary-style image movement:
 
@@ -512,13 +544,15 @@ For example:
 
 <scene atmosphere="dramatic confrontation">
 
-    <camera
-        shot="medium-close"
-        framing="center"
-        movement="dolly-in"
-        target="alex" />
+```xml
+<camera
+    shot="medium-close"
+    framing="center"
+    movement="dolly-in"
+    target="alex" />
 
-    ...
+...
+```
 </scene>
 
 An AI-assisted workflow may use this information when generating or selecting visual assets.
@@ -681,9 +715,11 @@ The validator does not judge the artistic quality of the camera direction.
 For example:
 
 <camera
-    shot="extreme-close"
-    movement="zoom-out"
-    duration="0.5" />
+```xml
+shot="extreme-close"
+movement="zoom-out"
+duration="0.5" />
+```
 
 may be an unusual creative decision, but it is not necessarily invalid.
 

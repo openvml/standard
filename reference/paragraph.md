@@ -22,17 +22,19 @@ Example:
 
 <p>
 
-    <line char="narrator">
-        The room was silent.
-    </line>
+```xml
+<line char="narrator">
+    The room was silent.
+</line>
 
-    <line char="alex">
-        Is anyone here?
-    </line>
+<line char="alex">
+    Is anyone here?
+</line>
 
-    <line char="narrator">
-        No one answered.
-    </line>
+<line char="narrator">
+    No one answered.
+</line>
+```
 
 </p>
 
@@ -48,17 +50,21 @@ In OVML 2.2 both roles are represented by the same mechanism: `<line>` elements 
 Narration:
 
 <p>
-    <line char="narrator">
-        The sun rose over the horizon.
-    </line>
+```xml
+<line char="narrator">
+    The sun rose over the horizon.
+</line>
+```
 </p>
 
 Dialogue:
 
 <p>
-    <line char="hero" emotion="happy">
-        What a wonderful day!
-    </line>
+```xml
+<line char="hero" emotion="happy">
+    What a wonderful day!
+</line>
+```
 </p>
 
 The narrator is the default character.
@@ -93,13 +99,15 @@ A `<line>` that does not specify its own char inherits the paragraph's character
 
 <p char="hero">
 
-    <line>
-        I said it once.
-    </line>
+```xml
+<line>
+    I said it once.
+</line>
 
-    <line char="narrator">
-        He said it again.
-    </line>
+<line char="narrator">
+    He said it again.
+</line>
+```
 
 </p>
 
@@ -128,15 +136,17 @@ marker	string	implementation-defined	Navigation marker
 Example:
 
 <p
-    char="hero"
-    emotion="angry"
-    rate="1.2"
-    emphasis="sentence"
-    emphasis_level="medium">
+```xml
+char="hero"
+emotion="angry"
+rate="1.2"
+emphasis="sentence"
+emphasis_level="medium">
 
-    <line>
-        Get out of my house!
-    </line>
+<line>
+    Get out of my house!
+</line>
+```
 
 </p>
 
@@ -160,17 +170,19 @@ Example:
 
 <p>
 
-    <line char="alex">
-        Hello.
-    </line>
+```xml
+<line char="alex">
+    Hello.
+</line>
 
-    <line char="maria">
-        Hello, Alex.
-    </line>
+<line char="maria">
+    Hello, Alex.
+</line>
 
-    <line char="alex">
-        How are you?
-    </line>
+<line char="alex">
+    How are you?
+</line>
+```
 
 </p>
 
@@ -192,18 +204,20 @@ For example:
 
 <p>
 
-    <line
-        char="narrator"
-        startMode="absolute"
-        startTime="0">
-        The storm was approaching.
-    </line>
+```xml
+<line
+    char="narrator"
+    startMode="absolute"
+    startTime="0">
+    The storm was approaching.
+</line>
 
-    <audio
-        src="storm"
-        startMode="absolute"
-        startTime="0"
-        loop="true" />
+<audio
+    src="storm"
+    startMode="absolute"
+    startTime="0"
+    loop="true" />
+```
 
 </p>
 
@@ -231,19 +245,21 @@ A paragraph normally occurs inside a scene.
 
 <scene atmosphere="quiet forest">
 
-    <p>
+```xml
+<p>
 
-        <line char="narrator">
-            The forest was unusually quiet.
-        </line>
+    <line char="narrator">
+        The forest was unusually quiet.
+    </line>
 
-        <line
-            char="alex"
-            emotion="whispering">
-            Did you hear that?
-        </line>
+    <line
+        char="alex"
+        emotion="whispering">
+        Did you hear that?
+    </line>
 
-    </p>
+</p>
+```
 
 </scene>
 
@@ -257,64 +273,66 @@ The following example shows a paragraph with multiple lines, alternating speaker
 
 <p>
 
-    <line
-        char="vestfal"
-        emotion="calm"
-        rate="1.0"
-        startMode="afterPrevious"
-        fontFamily="Inter"
-        fontSize="32"
-        fontWeight="500"
-        fontColor="#ffffff"
-        textBackground="#000000"
-        textAlign="left"
-        textUppercase="false"
-        wordByWord="false"
-        marquee="false"
-        gridRow="1"
-        gridCol="1"
-        gridRowSpan="1"
-        gridColSpan="4"
-        enter="fade"
-        exit="fade">
+```xml
+<line
+    char="vestfal"
+    emotion="calm"
+    rate="1.0"
+    startMode="afterPrevious"
+    fontFamily="Inter"
+    fontSize="32"
+    fontWeight="500"
+    fontColor="#ffffff"
+    textBackground="#000000"
+    textAlign="left"
+    textUppercase="false"
+    wordByWord="false"
+    marquee="false"
+    gridRow="1"
+    gridCol="1"
+    gridRowSpan="1"
+    gridColSpan="4"
+    enter="fade"
+    exit="fade">
 
-        — Это ракеты,
+    — Это ракеты,
 
-    </line>
+</line>
 
-    <line
-        char="narrator"
-        emotion="slightly amused"
-        rate="1.0"
-        startMode="afterPrevious">
+<line
+    char="narrator"
+    emotion="slightly amused"
+    rate="1.0"
+    startMode="afterPrevious">
 
-        — раздался в моей голове чуть насмешливый голос
-        моего спутника — дракона Вестфаля.
+    — раздался в моей голове чуть насмешливый голос
+    моего спутника — дракона Вестфаля.
 
-    </line>
+</line>
 
-    <line
-        char="vestfal"
-        emotion="confident"
-        rate="0.95"
-        startMode="afterPrevious"
-        wordByWord="true"
-        wordByWordMode="cumulative"
-        wordDisplayDuration="100">
+<line
+    char="vestfal"
+    emotion="confident"
+    rate="0.95"
+    startMode="afterPrevious"
+    wordByWord="true"
+    wordByWordMode="cumulative"
+    wordDisplayDuration="100">
 
-        — А если точнее, «Гроза», «Гарпия» и несколько «Ос»
-        старой модификации,
+    — А если точнее, «Гроза», «Гарпия» и несколько «Ос»
+    старой модификации,
 
-    </line>
+</line>
 
-    <line
-        char="narrator"
-        emotion="knowing"
-        startMode="afterPrevious">
+<line
+    char="narrator"
+    emotion="knowing"
+    startMode="afterPrevious">
 
-        — с нотками знатока добавил он.
+    — с нотками знатока добавил он.
 
-    </line>
+</line>
+```
 
 </p>
 

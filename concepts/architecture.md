@@ -31,10 +31,12 @@ None of these statements are coordinates. They are declarative instructions. The
 
 For example:
 
-    <video
-        src="background"
-        layer="background"
-        duration="10" />
+```xml
+<video
+    src="background"
+    layer="background"
+    duration="10" />
+```
 
 does not require a specific video library. One Player may use HTML5 video, another FFmpeg, another a platform media framework. All of them can honor the same instruction.
 
@@ -103,7 +105,9 @@ OVML is deliberately language-agnostic.
 
 The document declares its primary language in the root element:
 
-    <ovml version="2.2" lang="en">
+```xml
+<ovml version="2.2" lang="en">
+```
 
 The textual content of a project — dialogue, narration, subtitles, scene atmosphere — is written in the language of the work. OVML does not hardcode a particular human language, and no vocabulary of the language presumes one.
 

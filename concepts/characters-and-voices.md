@@ -10,15 +10,19 @@ Understanding this separation is central to OpenVML. It is what allows the same 
 
 A character is a named semantic entity declared in the <cast> section. A character has a stable id and a human-readable name:
 
-    <character
-        id="vestfal"
-        name="Vestfal" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal" />
+```
 
 The script references the character by id through the char attribute of a line:
 
-    <line char="vestfal">
-        — Это ракеты.
-    </line>
+```xml
+<line char="vestfal">
+    — Это ракеты.
+</line>
+```
 
 The character's id is the canonical identity. It remains stable within the document, and the script refers to it rather than duplicating the character's definition in every line.
 
@@ -28,16 +32,18 @@ The id is held in the original script's language. A character id is not translit
 
 A character carries a display name and, optionally, aliases:
 
-    <character
-        id="vestfal"
-        name="Vestfal">
+```xml
+<character
+    id="vestfal"
+    name="Vestfal">
 
-        <aliases>
-            <alias>Вестфаль</alias>
-            <alias>Дракон</alias>
-        </aliases>
+    <aliases>
+        <alias>Вестфаль</alias>
+        <alias>Дракон</alias>
+    </aliases>
 
-    </character>
+</character>
+```
 
 Aliases provide alternative names by which a character may be known. They are intended for authoring tools, search, indexing, and AI-assisted workflows. Aliases do not create additional characters — the canonical identity remains the character's id.
 
@@ -51,15 +57,17 @@ This descriptive metadata is informational. It does not prescribe a particular v
 
 A character may bind a voice through voice attributes. The binding is a reference to a TTS resource, not the audio itself:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        voiceEngine="edge-tts"
-        voiceId="en-US-GuyNeural"
-        voiceName="Guy"
-        voiceLang="en-US"
-        pitch="1.0"
-        rate="1.0" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    voiceEngine="edge-tts"
+    voiceId="en-US-GuyNeural"
+    voiceName="Guy"
+    voiceLang="en-US"
+    pitch="1.0"
+    rate="1.0" />
+```
 
 The voice binding declares:
 
@@ -135,9 +143,11 @@ A word may receive:
 
 For example:
 
-    <p char="narrator">
-        Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
-    </p>
+```xml
+<p char="narrator">
+    Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
+</p>
+```
 
 Pronunciation is part of the voice's rendering intent. It does not create or change a character; it refines how a particular word is synthesized.
 

@@ -20,13 +20,15 @@ The `<cast>` element is optional for projects that do not require character defi
 
 The basic structure is:
 
-    <cast>
+```text
+<cast>
 
-        <character id="vestfal" name="Vestfal" />
+    <character id="vestfal" name="Vestfal" />
 
-        <character id="narrator" name="Narrator" />
+    <character id="narrator" name="Narrator" />
 
-    </cast>
+</cast>
+```
 
 The `<character>` element is the unit of the cast.
 
@@ -44,9 +46,11 @@ Each `<character>` MUST have a unique id within the OVML document.
 
 Script content references a character by its id:
 
-    <line char="vestfal">
-        — Это ракеты.
-    </line>
+```xml
+<line char="vestfal">
+    — Это ракеты.
+</line>
+```
 
 The value of line/@char MUST correspond to an existing character/@id.
 
@@ -56,18 +60,20 @@ The script may contain paragraphs with lines assigned to different characters.
 
 Example (detailed in reference/character.md):
 
-    <p>
+```xml
+<p>
 
-        <line char="vestfal">
-            — Это ракеты,
-        </line>
+    <line char="vestfal">
+        — Это ракеты,
+    </line>
 
-        <line char="narrator">
-            — раздался в моей голове чуть насмешливый голос моего спутника —
-            дракона Вестфаля.
-        </line>
+    <line char="narrator">
+        — раздался в моей голове чуть насмешливый голос моего спутника —
+        дракона Вестфаля.
+    </line>
 
-    </p>
+</p>
+```
 
 The char attribute identifies the character or voice assigned to the individual line.
 
@@ -79,14 +85,16 @@ A scene MAY list the characters participating in that scene.
 
 Each `<char>` entry references a character id declared in the `<cast>` element:
 
-    <scene>
+```xml
+<scene>
 
-        <characters>
-            <char ref="vestfal" emotion="thoughtful" />
-            <char ref="narrator" emotion="neutral" />
-        </characters>
+    <characters>
+        <char ref="vestfal" emotion="thoughtful" />
+        <char ref="narrator" emotion="neutral" />
+    </characters>
 
-    </scene>
+</scene>
+```
 
 Scene participation references the characters of the cast.
 
@@ -100,9 +108,11 @@ Pronunciation guidance for spoken content lives in the voice and pronunciation m
 
 Word-level pronunciation control is provided by the `<w>` element:
 
-    <p char="narrator">
-        Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
-    </p>
+```xml
+<p char="narrator">
+    Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
+</p>
+```
 
 The `<w>` element may set explicit stress, provide abbreviation aliases, supply a phonetic transcription, or ignore a word during synthesis.
 
@@ -114,12 +124,14 @@ A project MAY apply processing to the voices and media of its characters through
 
 Processing presets are referenced from character configuration:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        audioProcessorId="preset_1"
-        audioProcessorName="Warm Voice"
-        audioProcessorFile="presets/audio/WarmVoice.ovml" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    audioProcessorId="preset_1"
+    audioProcessorName="Warm Voice"
+    audioProcessorFile="presets/audio/WarmVoice.ovml" />
+```
 
 The reference mechanism is documented in reference/character.md.
 

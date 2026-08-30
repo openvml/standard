@@ -69,7 +69,9 @@ Versioning is part of extensibility.
 
 The current standard is OVML 2.2, declared in the root element:
 
-    <ovml version="2.2" lang="en">
+```xml
+<ovml version="2.2" lang="en">
+```
 
 Implementations use the declared version to determine which vocabulary and semantics are supported. Future versions may introduce new elements, attributes, media types, timing mechanisms, camera controls, processing hints, and extension mechanisms. Backward compatibility will be considered when evolving the standard.
 
@@ -89,13 +91,15 @@ OVML stays extensible through a few consistent decisions.
 
     The uniform section rule lets any kind of canonical entity be added without changing the parser.
 
-    The <world> canon is a generic container with free sections.
+```xml
+The <world> canon is a generic container with free sections.
 
-    Forward compatibility preserves unknown elements and warns without rejecting documents.
+Forward compatibility preserves unknown elements and warns without rejecting documents.
 
-    Versioning (currently 2.2) lets the language grow deliberately.
+Versioning (currently 2.2) lets the language grow deliberately.
 
-    Project types are deliberately absent, so the language serves any audiovisual work.
+Project types are deliberately absent, so the language serves any audiovisual work.
+```
 
 Each of these keeps OVML an open format that can grow through discussion and implementation experience without breaking the documents that already exist.
 

@@ -37,7 +37,9 @@ Example:
 The time may also be expressed in a `<variation>`:
 
 <variation>
-    <time>night</time>
+```xml
+<time>night</time>
+```
 </variation>
 
 ## 3. Weather
@@ -56,7 +58,9 @@ snowy	Snowy
 Example:
 
 <variation>
-    <weather>rainy</weather>
+```xml
+<weather>rainy</weather>
+```
 </variation>
 
 ## 4. Mood
@@ -154,8 +158,10 @@ An implementation MAY support additional internal layers.
 Example:
 
 <img
-    src="character"
-    layer="foreground" />
+```xml
+src="character"
+layer="foreground" />
+```
 
 See: reference/media.md
 
@@ -173,9 +179,11 @@ absolute	Start at an absolute timeline position
 Example:
 
 <video
-    src="intro"
-    startMode="absolute"
-    startTime="0" />
+```xml
+src="intro"
+startMode="absolute"
+startTime="0" />
+```
 
 The default for media elements is:
 
@@ -254,9 +262,11 @@ villain
 Example:
 
 <character
-    id="narrator"
-    name="Narrator"
-    role="narrator" />
+```xml
+id="narrator"
+name="Narrator"
+role="narrator" />
+```
 
 See: reference/cast.md
 
@@ -289,10 +299,12 @@ senior	Senior / pensioner
 Example:
 
 <character
-    id="vestfal"
-    name="Vestfal"
-    gender="male"
-    age="adult" />
+```xml
+id="vestfal"
+name="Vestfal"
+gender="male"
+age="adult" />
+```
 
 See: reference/cast.md
 

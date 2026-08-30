@@ -25,12 +25,14 @@ A plain OVML project may describe a character's voice without containing pre-ren
 Example:
 
 <character
-    id="alex"
-    name="Alex"
-    voiceId="ru_RU-some-voice"
-    voiceName="Russian Voice"
-    voiceLang="ru-RU"
-    voiceEngine="piper" />
+```xml
+id="alex"
+name="Alex"
+voiceId="ru_RU-some-voice"
+voiceName="Russian Voice"
+voiceLang="ru-RU"
+voiceEngine="piper" />
+```
 
 The document describes which voice should be used.
 
@@ -67,14 +69,16 @@ rate	float	1.0	Base speech-rate multiplier
 Example:
 
 <character
-    id="vestfal"
-    name="Vestfal"
-    voiceEngine="edge-tts"
-    voiceId="en-US-GuyNeural"
-    voiceName="Guy"
-    voiceLang="en-US"
-    pitch="1.0"
-    rate="1.0" />
+```xml
+id="vestfal"
+name="Vestfal"
+voiceEngine="edge-tts"
+voiceId="en-US-GuyNeural"
+voiceName="Guy"
+voiceLang="en-US"
+pitch="1.0"
+rate="1.0" />
+```
 
 ## 4. voiceEngine
 
@@ -170,11 +174,13 @@ Availability depends on the Player implementation and target platform.
 When a voice belongs to a built-in provider, the OVML document only needs to identify the provider and voice.
 
 <character
-    id="narrator"
-    name="Narrator"
-    voiceId="ru_RU-some-voice"
-    voiceLang="ru-RU"
-    voiceEngine="piper" />
+```xml
+id="narrator"
+name="Narrator"
+voiceId="ru_RU-some-voice"
+voiceLang="ru-RU"
+voiceEngine="piper" />
+```
 
 No secret credentials are stored in the OVML document.
 
@@ -187,11 +193,13 @@ Examples include providers requiring user credentials or API keys.
 The OVML document may identify the required provider and voice:
 
 <character
-    id="maria"
-    name="Maria"
-    voiceId="provider_voice_id"
-    voiceLang="en-US"
-    voiceEngine="elevenlabs" />
+```xml
+id="maria"
+name="Maria"
+voiceId="provider_voice_id"
+voiceLang="en-US"
+voiceEngine="elevenlabs" />
+```
 
 The required credentials are not part of OVML.
 
@@ -209,8 +217,10 @@ authentication cookies.
 For example, the following is invalid as a project design:
 
 <character
-    voiceEngine="elevenlabs"
-    apiKey="secret-value" />
+```xml
+voiceEngine="elevenlabs"
+apiKey="secret-value" />
+```
 
 Authentication belongs to the Player, Studio, or another execution environment.
 
@@ -237,11 +247,13 @@ Voice availability is a runtime capability of the Player.
 A character MAY be defined without voice information:
 
 <character
-    id="alex"
-    name="Alex"
-    gender="male"
-    age="adult"
-    role="main" />
+```xml
+id="alex"
+name="Alex"
+gender="male"
+age="adult"
+role="main" />
+```
 
 Such a document is valid.
 
@@ -316,11 +328,13 @@ A character may reference an audio-processing preset through its configuration.
 Example:
 
 <character
-    id="vestfal"
-    name="Vestfal"
-    audioProcessorId="preset_1"
-    audioProcessorName="Warm Voice"
-    audioProcessorFile="presets/audio/WarmVoice.ovml" />
+```xml
+id="vestfal"
+name="Vestfal"
+audioProcessorId="preset_1"
+audioProcessorName="Warm Voice"
+audioProcessorFile="presets/audio/WarmVoice.ovml" />
+```
 
 The processing preset is separate from the voice declaration.
 

@@ -59,15 +59,17 @@ A scene is represented by the `<scene>` element.
 Example:
 
 <scene>
-    <line char="narrator">
-        The sun was setting over the city.
-    </line>
+```xml
+<line char="narrator">
+    The sun was setting over the city.
+</line>
 
-    <img
-        src="sunset"
-        startMode="absolute"
-        startTime="0"
-        duration="10" />
+<img
+    src="sunset"
+    startMode="absolute"
+    startTime="0"
+    duration="10" />
+```
 </scene>
 
 A scene may contain multiple blocks.
@@ -157,8 +159,10 @@ The atmosphere attribute describes the atmosphere, mood, or emotional context of
 Example:
 
 <scene
-    atmosphere="warm sunset, silence, tranquility">
-    ...
+```xml
+atmosphere="warm sunset, silence, tranquility">
+...
+```
 </scene>
 
 The value is a free-form string.
@@ -204,8 +208,10 @@ One important purpose of atmosphere is AI-assisted asset selection.
 For example:
 
 <scene
-    color="#1a1a2e"
-    atmosphere="warm sunset, silence, tranquility">
+```xml
+color="#1a1a2e"
+atmosphere="warm sunset, silence, tranquility">
+```
 
 An AI Assistant may interpret this as a request for assets such as:
 
@@ -242,14 +248,16 @@ transition	enum	Transition to the next scene: fade, cut, dissolve, wipe
 Example:
 
 <scene
-    id="ch02_forest"
-    title="The Forest"
-    time="morning"
-    weather="foggy"
-    mood="mysterious"
-    color="#1a1a2e">
+```xml
+id="ch02_forest"
+title="The Forest"
+time="morning"
+weather="foggy"
+mood="mysterious"
+color="#1a1a2e">
 
-    ...
+...
+```
 
 </scene>
 
@@ -290,15 +298,17 @@ Instead, the temporal behavior is determined by its child blocks.
 For example:
 
 <scene>
-    <line char="alex">
-        Hello.
-    </line>
+```xml
+<line char="alex">
+    Hello.
+</line>
 
-    <video
-        src="city"
-        startMode="absolute"
-        startTime="0"
-        duration="15" />
+<video
+    src="city"
+    startMode="absolute"
+    startTime="0"
+    duration="15" />
+```
 </scene>
 
 The video has an explicit temporal position.
@@ -330,16 +340,18 @@ Element	Purpose
 A scene references a canonical location from the project's world canon through a child <location> element with a ref attribute.
 
 <scene
-    color="#1a1a2e"
-    atmosphere="tense, night">
+```xml
+color="#1a1a2e"
+atmosphere="tense, night">
 
-    <location ref="rusty_anchor">
-        <variation>
-            <weather>rainy</weather>
-        </variation>
-    </location>
+<location ref="rusty_anchor">
+    <variation>
+        <weather>rainy</weather>
+    </variation>
+</location>
 
-    ...
+...
+```
 </scene>
 
 The ref value is the id of a location declared in the <locations> section of <world>.
@@ -347,11 +359,13 @@ The ref value is the id of a location declared in the <locations> section of <wo
 Scene-specific change is expressed by a <variation> inside the scene, never by editing the canon:
 
 <location ref="rusty_anchor">
-    <variation>
-        <time>night</time>
-        <weather>foggy</weather>
-        <changes>Chairs stacked, a fire in the hearth</changes>
-    </variation>
+```xml
+<variation>
+    <time>night</time>
+    <weather>foggy</weather>
+    <changes>Chairs stacked, a fire in the hearth</changes>
+</variation>
+```
 </location>
 
 A plain-text <location> without ref remains valid as a free-form description.
@@ -367,8 +381,10 @@ The <characters> element lists the characters participating in a scene.
 Example:
 
 <characters>
-    <char ref="hero" emotion="thoughtful" />
-    <char ref="heroine" emotion="curious" />
+```xml
+<char ref="hero" emotion="thoughtful" />
+<char ref="heroine" emotion="curious" />
+```
 </characters>
 
 Each <char> entry references a character id declared in the <cast> element.
@@ -384,8 +400,10 @@ The <blocking> element describes the semantic relationships between the characte
 Example:
 
 <blocking>
-    <character ref="anna" position="left" look_at="ivan" enters="true" />
-    <character ref="ivan" position="right" addresses="anna" />
+```xml
+<character ref="anna" position="left" look_at="ivan" enters="true" />
+<character ref="ivan" position="right" addresses="anna" />
+```
 </blocking>
 
 Blocking records intend and spatial relations rather than absolute coordinates:
@@ -422,13 +440,15 @@ Example:
 
 <scene>
 
-    <camera
-        shot="medium"
-        framing="center"
-        target="alex"
-        movement="static" />
+```xml
+<camera
+    shot="medium"
+    framing="center"
+    target="alex"
+    movement="static" />
 
-    ...
+...
+```
 </scene>
 
 A camera is not a media file.
@@ -473,25 +493,27 @@ A scene may contain text blocks and media elements as direct children.
 
 <scene color="#182033">
 
-    <video
-        src="background"
-        layer="background"
-        startMode="absolute"
-        startTime="0"
-        duration="20" />
+```xml
+<video
+    src="background"
+    layer="background"
+    startMode="absolute"
+    startTime="0"
+    duration="20" />
 
-    <audio
-        src="ambience"
-        startMode="absolute"
-        startTime="0"
-        duration="20"
-        volume="0.5" />
+<audio
+    src="ambience"
+    startMode="absolute"
+    startTime="0"
+    duration="20"
+    volume="0.5" />
 
-    <p>
-        <line char="narrator">
-            Welcome to the city.
-        </line>
-    </p>
+<p>
+    <line char="narrator">
+        Welcome to the city.
+    </line>
+</p>
+```
 
 </scene>
 
@@ -612,8 +634,10 @@ checking continuity.
 For example:
 
 <scene
-    color="#243447"
-    atmosphere="ночь, дождь, напряжение">
+```xml
+color="#243447"
+atmosphere="ночь, дождь, напряжение">
+```
 
 provides substantially more context than an isolated media block.
 
@@ -665,9 +689,11 @@ The same <scene> element therefore serves multiple project forms.
 The smallest useful scene can be:
 
 <scene>
-    <line char="narrator">
-        Hello.
-    </line>
+```xml
+<line char="narrator">
+    Hello.
+</line>
+```
 </scene>
 
 No additional metadata is required.
@@ -677,31 +703,33 @@ No additional metadata is required.
 A more expressive scene can combine semantic metadata, media, dialogue, and camera direction:
 
 <scene
-    color="#1a1a2e"
-    atmosphere="warm sunset, silence, tranquility">
+```xml
+color="#1a1a2e"
+atmosphere="warm sunset, silence, tranquility">
 
-    <camera
-        shot="wide"
-        framing="center"
-        movement="static" />
+<camera
+    shot="wide"
+    framing="center"
+    movement="static" />
 
-    <video
-        src="sunset"
-        layer="background"
-        startMode="absolute"
-        startTime="0"
-        duration="12" />
+<video
+    src="sunset"
+    layer="background"
+    startMode="absolute"
+    startTime="0"
+    duration="12" />
 
-    <audio
-        src="wind"
-        startMode="absolute"
-        startTime="0"
-        duration="12"
-        volume="0.3" />
+<audio
+    src="wind"
+    startMode="absolute"
+    startTime="0"
+    duration="12"
+    volume="0.3" />
 
-    <line char="narrator">
-        The sun slowly disappeared beyond the horizon.
-    </line>
+<line char="narrator">
+    The sun slowly disappeared beyond the horizon.
+</line>
+```
 
 </scene>
 

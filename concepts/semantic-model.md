@@ -28,13 +28,15 @@ Meaning in OVML is expressed at several levels. These levels are not competing; 
 
 At the literal level, a scene contains <line> elements that carry dialogue or narration:
 
-    <scene atmosphere="night city">
+```xml
+<scene atmosphere="night city">
 
-        <line char="alex">
-            Look at the lights.
-        </line>
+    <line char="alex">
+        Look at the lights.
+    </line>
 
-    </scene>
+</scene>
+```
 
 A line is spoken text. It may reference a character, carry timing information, and include word-level markup. It is the most concrete and immediately meaningful part of the document: this is what is said.
 
@@ -44,12 +46,14 @@ At the semantic level, a scene may describe the intended relationships between t
 
 Blocking records who is where, who looks at whom, who addresses whom, and who enters or exits the scene:
 
-    <scene>
-        <blocking>
-            <character ref="anna" position="left" look_at="ivan" enters="true" />
-            <character ref="ivan" position="right" addresses="anna" />
-        </blocking>
-    </scene>
+```xml
+<scene>
+    <blocking>
+        <character ref="anna" position="left" look_at="ivan" enters="true" />
+        <character ref="ivan" position="right" addresses="anna" />
+    </blocking>
+</scene>
+```
 
 These are semantic relations, not coordinates. The value position="left" does not say "x=10, y=200"; it says the character is intended to be on the left. A runtime translates these relations into whatever it needs, and different models or renderers may translate them differently — into a prompt for one system, a layout rule for another.
 
@@ -61,17 +65,21 @@ The same principle applies to emotion and atmosphere.
 
 A scene carries an atmosphere attribute that describes its mood as free-form text:
 
-    <scene atmosphere="тревога, дождь, пустая улица">
-        ...
-    </scene>
+```text
+<scene atmosphere="тревога, дождь, пустая улица">
+    ...
+</scene>
+```
 
 This is semantic information, not a rendering command. It does not mean the Player must add rain, apply a dark filter, or generate a sound effect. It describes the author's intent, which an AI Assistant, authoring tool, or asset-selection system may use as a hint.
 
 On a line, the emotion attribute describes the emotional state of the speaker:
 
-    <line char="alex" emotion="angry">
-        Get out of here!
-    </line>
+```xml
+<line char="alex" emotion="angry">
+    Get out of here!
+</line>
+```
 
 As with atmosphere, emotion is a hint about intended delivery. The TTS engine or Player decides how it is realized.
 
@@ -79,10 +87,12 @@ As with atmosphere, emotion is a hint about intended delivery. The TTS engine or
 
 Camera instructions extend the same model to visual direction. A <camera> element is a directorial instruction, not a resource:
 
-    <camera
-        shot="close"
-        framing="center"
-        target="alex" />
+```xml
+<camera
+    shot="close"
+    framing="center"
+    target="alex" />
+```
 
 It says how the current composition should be framed and how attention should move, without prescribing a rendering API. Different renderers realize the same instruction with different graphics or video technology.
 
@@ -92,10 +102,12 @@ The camera participates in the same intent-driven model as everything else: OVML
 
 The procedural level is where concrete resources appear. Media elements are still instructions, not files:
 
-    <video
-        src="background"
-        layer="background"
-        duration="10" />
+```xml
+<video
+    src="background"
+    layer="background"
+    duration="10" />
+```
 
 The asset is declared in <assets>, and the media element instructs how that asset is used at this point in the timeline — when it starts, how long it lasts, where it is placed, how large it is.
 

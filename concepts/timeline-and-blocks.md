@@ -41,10 +41,12 @@ OVML describes what should happen in time. The Player determines how it is rende
 For example, an OVML document may specify:
 
 <line
-    char="alex"
-    startMode="afterPrevious"
-    startDelay="0.5">
-    Hello!
+```xml
+char="alex"
+startMode="afterPrevious"
+startDelay="0.5">
+Hello!
+```
 </line>
 
 The document does not specify:
@@ -163,10 +165,12 @@ The block starts at a specified time relative to the current temporal context.
 Example:
 
 <video
-    src="background.mp4"
-    startMode="duringCurrent"
-    startTime="3"
-    duration="10" />
+```xml
+src="background.mp4"
+startMode="duringCurrent"
+startTime="3"
+duration="10" />
+```
 
 The block becomes active three seconds into the current context.
 
@@ -189,17 +193,21 @@ The absolute mode places a block at an explicit position on the timeline.
 Example:
 
 <audio
-    src="music.mp3"
-    startMode="absolute"
-    startTime="0" />
+```xml
+src="music.mp3"
+startMode="absolute"
+startTime="0" />
+```
 
 Another example:
 
 <video
-    src="intro.mp4"
-    startMode="absolute"
-    startTime="30"
-    duration="15" />
+```xml
+src="intro.mp4"
+startMode="absolute"
+startTime="30"
+duration="15" />
+```
 
 Conceptually:
 
@@ -247,9 +255,11 @@ startTime specifies a temporal offset according to the selected startMode.
 Example:
 
 <line
-    startMode="duringCurrent"
-    startTime="2">
-    Hello!
+```xml
+startMode="duringCurrent"
+startTime="2">
+Hello!
+```
 </line>
 
 The meaning is:
@@ -264,8 +274,10 @@ current temporal context
 For:
 
 <video
-    startMode="absolute"
-    startTime="15">
+```xml
+startMode="absolute"
+startTime="15">
+```
 
 the media begins at 15 seconds on the relevant timeline.
 
@@ -276,10 +288,12 @@ startDelay adds an additional delay before the block becomes active.
 Example:
 
 <line
-    char="alex"
-    startMode="afterPrevious"
-    startDelay="1">
-    Wait...
+```xml
+char="alex"
+startMode="afterPrevious"
+startDelay="1">
+Wait...
+```
 </line>
 
 Conceptually:
@@ -304,9 +318,11 @@ Some elements have an explicit duration.
 Example:
 
 <video
-    src="background.mp4"
-    startTime="0"
-    duration="10" />
+```xml
+src="background.mp4"
+startTime="0"
+duration="10" />
+```
 
 The media is active for ten seconds.
 
@@ -465,16 +481,20 @@ OpenVML permits multiple blocks to be active at the same time.
 For example:
 
 <audio
-    src="music.mp3"
-    startMode="absolute"
-    startTime="0"
-    duration="60" />
+```xml
+src="music.mp3"
+startMode="absolute"
+startTime="0"
+duration="60" />
+```
 
 <line
-    char="narrator"
-    startMode="absolute"
-    startTime="5">
-    Once upon a time...
+```xml
+char="narrator"
+startMode="absolute"
+startTime="5">
+Once upon a time...
+```
 </line>
 
 Conceptually:
@@ -503,18 +523,22 @@ Timing and visual layering are independent concepts.
 For example:
 
 <video
-    src="background.mp4"
-    layer="background"
-    startMode="absolute"
-    startTime="0"
-    duration="30" />
+```xml
+src="background.mp4"
+layer="background"
+startMode="absolute"
+startTime="0"
+duration="30" />
+```
 
 <img
-    src="character.png"
-    layer="foreground"
-    startMode="absolute"
-    startTime="5"
-    duration="10" />
+```xml
+src="character.png"
+layer="foreground"
+startMode="absolute"
+startTime="5"
+duration="10" />
+```
 
 The first element defines when the background video is active.
 
@@ -559,13 +583,15 @@ OpenVML supports word-level text presentation.
 Example:
 
 <line
-    wordByWord="true"
-    wordByWordMode="single"
-    wordDisplayDuration="500">
+```xml
+wordByWord="true"
+wordByWordMode="single"
+wordDisplayDuration="500">
 
-    <w group="1">Hello</w>
-    <w group="1">world</w>
-    <w group="2">again</w>
+<w group="1">Hello</w>
+<w group="1">world</w>
+<w group="2">again</w>
+```
 
 </line>
 
@@ -610,15 +636,17 @@ For example:
 
 <scene color="#1a1a2e" atmosphere="quiet sunset">
 
-    <line char="narrator">
-        The sun was setting.
-    </line>
+```xml
+<line char="narrator">
+    The sun was setting.
+</line>
 
-    <video
-        src="sunset.mp4"
-        startMode="absolute"
-        startTime="0"
-        duration="10" />
+<video
+    src="sunset.mp4"
+    startMode="absolute"
+    startTime="0"
+    duration="10" />
+```
 
 </scene>
 

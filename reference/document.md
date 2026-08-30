@@ -40,6 +40,7 @@ The value version="2.2" identifies the document as using the model and rules def
 
 A typical OVML document has the following structure:
 
+```xml
 <ovml version="2.2" lang="en">
 
     <meta>
@@ -63,6 +64,7 @@ A typical OVML document has the following structure:
     </script>
 
 </ovml>
+```
 
 The primary sections have different responsibilities:
 
@@ -83,6 +85,7 @@ The <meta> element contains information about the project itself.
 
 Example:
 
+```xml
 <meta>
     <title>The Last Summer Day</title>
     <author>OpenVML Example</author>
@@ -93,6 +96,7 @@ Example:
         subtitleBg="rgba(0,0,0,0.7)"
         subtitleColor="#ffffff" />
 </meta>
+```
 
 Metadata is not part of the script itself.
 
@@ -107,6 +111,7 @@ The <cast> element contains the characters used by the project.
 
 Example:
 
+```xml
 <cast>
 
     <character
@@ -132,6 +137,7 @@ Example:
         voiceEngine="edge-tts" />
 
 </cast>
+```
 
 The character ID is referenced by dialogue:
 
@@ -446,14 +452,17 @@ The exact visual behavior is determined by wordByWordMode and the Player impleme
 
 OVML supports different types of media:
 
+```xml
 <img src="background" />
 
 <video src="intro-video" />
 
 <audio src="rain" />
+```
 
 Media elements may have timing and presentation attributes:
 
+```xml
 <video
     src="background-video"
     layer="background"
@@ -462,6 +471,7 @@ Media elements may have timing and presentation attributes:
     startMode="absolute"
     startTime="0"
     loop="true" />
+```
 
 Media is therefore part of the project's timeline rather than merely being a collection of attached files.
 
@@ -469,12 +479,15 @@ Media is therefore part of the project's timeline rather than merely being a col
 
 The <break> element represents a pause.
 
+```xml
 <break time="1000" />
+```
 
 The time value is specified in milliseconds.
 
 Example:
 
+```xml
 <line char="alex">
     I wanted to say...
 </line>
@@ -484,6 +497,7 @@ Example:
 <line char="alex">
     ...that we're late.
 </line>
+```
 16. Timing Model
 
 Script elements may use the common OVML timing model.
@@ -497,6 +511,7 @@ afterPrevious
 
 The element starts after the preceding applicable block has finished.
 
+```xml
 <line char="alex">
     Hello!
 </line>
@@ -504,22 +519,27 @@ The element starts after the preceding applicable block has finished.
 <line char="maria" startMode="afterPrevious">
     Hello!
 </line>
+```
 duringCurrent
 
 The element starts at the specified time relative to the current block.
 
+```xml
 <video
     src="rain"
     startMode="duringCurrent"
     startTime="2" />
+```
 absolute
 
 The element is positioned at an absolute point on the project timeline.
 
+```xml
 <video
     src="intro"
     startMode="absolute"
     startTime="10" />
+```
 
 The complete timing model is described in:
 
@@ -582,6 +602,7 @@ This is a conceptual model. Not every element is required in every document.
 
 The simplest document can contain only the root element and a script:
 
+```xml
 <ovml version="2.2" lang="en">
 
     <script>
@@ -601,6 +622,7 @@ The simplest document can contain only the root element and a script:
     </script>
 
 </ovml>
+```
 
 This is already a valid conceptual OVML project.
 
@@ -608,6 +630,7 @@ This is already a valid conceptual OVML project.
 
 A more complete project may look like this:
 
+```xml
 <ovml version="2.2" lang="en">
 
     <meta>

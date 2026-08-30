@@ -31,36 +31,38 @@ See: reference/cast.md
 
 The general structure is:
 
-    <cast>
+```text
+<cast>
 
-        <character
-            id="vestfal"
-            name="Vestfal"
-            gender="male"
-            age="adult"
-            role="main"
-            color="#888888">
+    <character
+        id="vestfal"
+        name="Vestfal"
+        gender="male"
+        age="adult"
+        role="main"
+        color="#888888">
 
-            <aliases>
-                <alias>Вестфаль</alias>
-                <alias>Дракон</alias>
-            </aliases>
+        <aliases>
+            <alias>Вестфаль</alias>
+            <alias>Дракон</alias>
+        </aliases>
 
-            <personality>
-                Calm, knowledgeable and slightly sarcastic.
-            </personality>
+        <personality>
+            Calm, knowledgeable and slightly sarcastic.
+        </personality>
 
-            <backstory>
-                Vestfal is an ancient dragon accompanying the protagonist.
-            </backstory>
+        <backstory>
+            Vestfal is an ancient dragon accompanying the protagonist.
+        </backstory>
 
-            <timbre>
-                Deep, warm and slightly rough male voice.
-            </timbre>
+        <timbre>
+            Deep, warm and slightly rough male voice.
+        </timbre>
 
-        </character>
+    </character>
 
-    </cast>
+</cast>
+```
 
 Each `<character>` MUST have a unique id within the OVML document.
 
@@ -74,15 +76,19 @@ name	string	Human-readable character name
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal" />
+```
 
 The id is used to reference the character from script content:
 
-    <line char="vestfal">
-        — Это ракеты.
-    </line>
+```xml
+<line char="vestfal">
+    — Это ракеты.
+</line>
+```
 
 The value of line/@char MUST correspond to an existing character/@id.
 
@@ -100,14 +106,18 @@ color
 
 Defines the visual color associated with the character.
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        color="#4f46e5" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    color="#4f46e5" />
+```
 
 The value MUST use hexadecimal RGB notation:
 
-    #RRGGBB
+```xml
+#RRGGBB
+```
 
 The color is a presentation hint and does not define the color of generated media.
 
@@ -124,10 +134,12 @@ neutral	Neutral or unspecified gender
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        gender="male" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    gender="male" />
+```
 
 This value is descriptive.
 
@@ -149,10 +161,12 @@ senior	Senior / pensioner
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        age="adult" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    age="adult" />
+```
 
 The age category is descriptive metadata.
 
@@ -172,10 +186,12 @@ narrator	Narrator or narrative voice
 
 Example:
 
-    <character
-        id="narrator"
-        name="Narrator"
-        role="narrator" />
+```xml
+<character
+    id="narrator"
+    name="Narrator"
+    role="narrator" />
+```
 
 The role is descriptive and does not determine playback behavior.
 
@@ -187,17 +203,19 @@ Aliases provide alternative names or references by which a character may be know
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal">
+```xml
+<character
+    id="vestfal"
+    name="Vestfal">
 
-        <aliases>
-            <alias>Вестфаль</alias>
-            <alias>Дракон</alias>
-            <alias>Спутник</alias>
-        </aliases>
+    <aliases>
+        <alias>Вестфаль</alias>
+        <alias>Дракон</alias>
+        <alias>Спутник</alias>
+    </aliases>
 
-    </character>
+</character>
+```
 
 Each `<alias>` contains a text value.
 
@@ -215,10 +233,12 @@ It describes the character's personality, behavioral traits, temperament, and ot
 
 Example:
 
-    <personality>
-        Calm, intelligent and slightly sarcastic.
-        Usually hides his emotions behind humor.
-    </personality>
+```xml
+<personality>
+    Calm, intelligent and slightly sarcastic.
+    Usually hides his emotions behind humor.
+</personality>
+```
 
 The content is descriptive.
 
@@ -243,10 +263,12 @@ It contains background information about the character.
 
 Example:
 
-    <backstory>
-        Vestfal is an ancient dragon who has accompanied
-        the protagonist for many years.
-    </backstory>
+```xml
+<backstory>
+    Vestfal is an ancient dragon who has accompanied
+    the protagonist for many years.
+</backstory>
+```
 
 The backstory may contain arbitrary descriptive text.
 
@@ -272,21 +294,25 @@ rate	float	1.0	Base speech-rate multiplier
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        voiceEngine="edge-tts"
-        voiceId="en-US-GuyNeural"
-        voiceName="Guy"
-        voiceLang="en-US"
-        pitch="1.0"
-        rate="1.0" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    voiceEngine="edge-tts"
+    voiceId="en-US-GuyNeural"
+    voiceName="Guy"
+    voiceLang="en-US"
+    pitch="1.0"
+    rate="1.0" />
+```
 
 voiceId
 
 Identifies the requested voice.
 
-    voiceId="en-US-GuyNeural"
+```xml
+voiceId="en-US-GuyNeural"
+```
 
 The meaning of voiceId depends on voiceEngine.
 
@@ -300,7 +326,9 @@ voiceName
 
 Provides a human-readable name for the voice.
 
-    voiceName="Guy"
+```xml
+voiceName="Guy"
+```
 
 voiceName is informational and MUST NOT be treated as a unique voice identifier.
 
@@ -349,9 +377,11 @@ Timbre describes the desired acoustic character of the voice.
 
 Example:
 
-    <timbre>
-        Deep, warm and slightly rough male voice.
-    </timbre>
+```xml
+<timbre>
+    Deep, warm and slightly rough male voice.
+</timbre>
+```
 
 Timbre is intentionally represented as descriptive text rather than a fixed enumeration.
 
@@ -359,15 +389,19 @@ This allows the description to be used with different voice systems and AI-assis
 
 Examples:
 
-    <timbre>
-        Warm, deep, slightly rough.
-    </timbre>
+```xml
+<timbre>
+    Warm, deep, slightly rough.
+</timbre>
+```
 
 or:
 
-    <timbre>
-        Soft female voice with a clear tone and restrained warmth.
-    </timbre>
+```xml
+<timbre>
+    Soft female voice with a clear tone and restrained warmth.
+</timbre>
+```
 
 The OVML Standard does not require a particular TTS engine to interpret timbre.
 
@@ -387,10 +421,12 @@ Recommended range:
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        pitch="1.1" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    pitch="1.1" />
+```
 
 The exact interpretation depends on the selected voice engine.
 
@@ -408,10 +444,12 @@ Recommended range:
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        rate="0.9" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    rate="0.9" />
+```
 
 This value represents the character's base speech rate.
 
@@ -427,9 +465,11 @@ If a portable reference is required, an implementation MAY represent it using a 
 
 For example:
 
-    <voicePreset
-        id="preset_21"
-        name="Warm Cinematic Male" />
+```xml
+<voicePreset
+    id="preset_21"
+    name="Warm Cinematic Male" />
+```
 
 The exact structure and semantics of voice presets are implementation-dependent unless explicitly defined by a future OVML specification.
 
@@ -444,12 +484,14 @@ audioProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        audioProcessorId="preset_1"
-        audioProcessorName="Warm Voice"
-        audioProcessorFile="presets/audio/WarmVoice.ovml" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    audioProcessorId="preset_1"
+    audioProcessorName="Warm Voice"
+    audioProcessorFile="presets/audio/WarmVoice.ovml" />
+```
 
 audioProcessorFile provides a portable reference when the preset is included in an OVMZ container.
 
@@ -466,12 +508,14 @@ videoProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        videoProcessorId="video_01"
-        videoProcessorName="Cinematic"
-        videoProcessorFile="presets/video/Cinematic.ovml" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    videoProcessorId="video_01"
+    videoProcessorName="Cinematic"
+    videoProcessorFile="presets/video/Cinematic.ovml" />
+```
 
 See: reference/video-processing.md
 
@@ -486,12 +530,14 @@ imageProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
-    <character
-        id="vestfal"
-        name="Vestfal"
-        imageProcessorId="image_01"
-        imageProcessorName="Dark Fantasy"
-        imageProcessorFile="presets/image/DarkFantasy.ovml" />
+```xml
+<character
+    id="vestfal"
+    name="Vestfal"
+    imageProcessorId="image_01"
+    imageProcessorName="Dark Fantasy"
+    imageProcessorFile="presets/image/DarkFantasy.ovml" />
+```
 
 See: reference/image-processing.md
 
@@ -501,46 +547,50 @@ Characters are referenced by their id.
 
 Example:
 
-    <cast>
+```xml
+<cast>
 
-        <character
-            id="vestfal"
-            name="Vestfal"
-            gender="male"
-            age="adult"
-            role="main" />
+    <character
+        id="vestfal"
+        name="Vestfal"
+        gender="male"
+        age="adult"
+        role="main" />
 
-        <character
-            id="narrator"
-            name="Narrator"
-            gender="neutral"
-            age="adult"
-            role="narrator" />
+    <character
+        id="narrator"
+        name="Narrator"
+        gender="neutral"
+        age="adult"
+        role="narrator" />
 
-    </cast>
+</cast>
+```
 
 The script may then contain:
 
-    <p>
+```xml
+<p>
 
-        <line char="vestfal">
-            — Это ракеты,
-        </line>
+    <line char="vestfal">
+        — Это ракеты,
+    </line>
 
-        <line char="narrator">
-            — раздался в моей голове чуть насмешливый голос моего спутника —
-            дракона Вестфаля.
-        </line>
+    <line char="narrator">
+        — раздался в моей голове чуть насмешливый голос моего спутника —
+        дракона Вестфаля.
+    </line>
 
-        <line char="vestfal">
-            — А если точнее, «Гроза», «Гарпия» и несколько «Ос» старой модификации,
-        </line>
+    <line char="vestfal">
+        — А если точнее, «Гроза», «Гарпия» и несколько «Ос» старой модификации,
+    </line>
 
-        <line char="narrator">
-            — с нотками знатока добавил он.
-        </line>
+    <line char="narrator">
+        — с нотками знатока добавил он.
+    </line>
 
-    </p>
+</p>
+```
 
 The char attribute identifies the character or voice assigned to the individual line.
 
@@ -554,14 +604,16 @@ A scene MAY list the characters participating in that scene.
 
 Each `<char>` entry references a character id declared in the `<cast>` element:
 
-    <scene>
+```xml
+<scene>
 
-        <characters>
-            <char ref="vestfal" emotion="thoughtful" />
-            <char ref="narrator" emotion="neutral" />
-        </characters>
+    <characters>
+        <char ref="vestfal" emotion="thoughtful" />
+        <char ref="narrator" emotion="neutral" />
+    </characters>
 
-    </scene>
+</scene>
+```
 
 Scene participation references existing characters.
 
@@ -594,11 +646,15 @@ Changing a voice does not create a new character.
 
 For example, changing:
 
-    voiceId="voice-A"
+```xml
+voiceId="voice-A"
+```
 
 to:
 
-    voiceId="voice-B"
+```xml
+voiceId="voice-B"
+```
 
 does not change the character's identity.
 
@@ -606,12 +662,14 @@ does not change the character's identity.
 
 A character MAY be defined without voice information:
 
-    <character
-        id="alex"
-        name="Alex"
-        gender="male"
-        age="adult"
-        role="main" />
+```xml
+<character
+    id="alex"
+    name="Alex"
+    gender="male"
+    age="adult"
+    role="main" />
+```
 
 Such a document is valid.
 

@@ -274,6 +274,7 @@ OVML document structure
 
 A basic OVML document has the following structure:
 
+```xml
 <ovml version="2.2" lang="en">
 
     <meta>
@@ -293,6 +294,7 @@ A basic OVML document has the following structure:
     </script>
 
 </ovml>
+```
 
 The major sections are:
 
@@ -311,6 +313,7 @@ OVML supports explicit scene descriptions using the <scene> element.
 
 A scene can contain visual and narrative information such as:
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="warm sunset, silence, tranquility">
@@ -318,6 +321,7 @@ A scene can contain visual and narrative information such as:
     ...
 
 </scene>
+```
 
 The color attribute can be used as a visual hint for UI presentation and processing presets.
 
@@ -364,6 +368,7 @@ Characters are declared in the <cast> section.
 
 Example:
 
+```xml
 <cast>
 
     <character
@@ -380,6 +385,7 @@ Example:
         rate="1" />
 
 </cast>
+```
 
 A character can contain information about:
 
@@ -420,6 +426,7 @@ synchronized word groups.
 
 Example:
 
+```xml
 <line
     char="alex"
     startMode="afterPrevious"
@@ -431,6 +438,7 @@ Example:
     Hello, world!
 
 </line>
+```
 Timing
 
 Timing is an important part of OVML.
@@ -451,11 +459,13 @@ The block starts at an absolute position on the timeline.
 
 Example:
 
+```xml
 <video
     src="background-video"
     startMode="absolute"
     startTime="10"
     duration="20" />
+```
 
 This allows an OVML document to describe complex synchronization without embedding a particular playback engine into the format.
 
@@ -471,6 +481,7 @@ other resources supported by a compatible implementation.
 
 Example:
 
+```xml
 <video
     src="asset_id"
     layer="background"
@@ -478,6 +489,7 @@ Example:
     duration="10"
     startTime="0"
     startMode="absolute" />
+```
 
 The src value identifies the resource.
 
@@ -494,6 +506,7 @@ OVML supports synchronized word presentation.
 
 Example:
 
+```xml
 <line
     wordByWord="true"
     wordByWordMode="cumulative"
@@ -506,6 +519,7 @@ Example:
     <w group="2">you?</w>
 
 </line>
+```
 
 This can be used for:
 
@@ -525,7 +539,9 @@ It does not prescribe how a particular application must implement it.
 
 For example, the following:
 
+```xml
 <video src="background" duration="10" />
+```
 
 does not require a specific video library.
 
