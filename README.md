@@ -241,6 +241,7 @@ OVMZ
 OVMZ is a project container.
 
 An OVMZ package can contain:
+
 ``text`
 project
 ├── content.ovml
@@ -260,6 +261,7 @@ OVMV is a rendered video container/output.
 When a project is rendered into a final video, the OVML description is converted into a conventional audiovisual result.
 
 Conceptually:
+
 ``text`
 OVML
   │
@@ -267,7 +269,9 @@ OVML
   ▼
 OVMV
 `` `
+
 Whereas:
+
 ``text`
 OVML
   │
@@ -275,6 +279,7 @@ OVML
   ▼
 OVMZ
 `` `
+
 preserves the structured project.
 
 OVML document structure
