@@ -810,7 +810,7 @@ The implementation brings it to life.
 
 ## Repository Structure
 
-```
+``text`
 docs/standard/
 ├── README.md
 ├── LICENSE
@@ -880,4 +880,7 @@ docs/standard/
         └── ner_test.md
 ```
 
-The `spec/` folder holds the normative specification (`OVML-2.2.md`). The `reference/` folder contains the normative element/attribute reference for each element. The `concepts/` folder explains the design principles and mental models. The `presets/` folder documents processing presets. The `schema/` folder holds the XSD. The `examples/` folder contains example OVML projects.
+The `spec/` folder holds the normative specification (`OVML-2.2.md`). The `reference/` folder
+contains the normative element/attribute reference for each element. The `concepts/` folder
+explains the design principles and mental models. The `presets/` folder documents processing
+presets. The `schema/` folder holds the XSD. The `examples/` folder contains example OVML projects.
