@@ -528,12 +528,10 @@ Example:
    wordByWordMode="cumulative"
    wordDisplayDuration="500">
 
-   <w group="1">Hello</w>
-   <w group="1">world</w>
-   <w group="2">how</w>
-   <w group="2">are</w>
-   <w group="2">you?</w>
-
+  <w group="1">Mira — the little singer,</w>
+  <w group="2"> college student,</w>
+  <w group="3"> blonde</w>
+  <w> girl, fair-haired girl, the young performer.</w>
 </line>
 ```
 
