@@ -531,7 +531,8 @@ Example:
   <w group="1">Mira — the little singer,</w>
   <w group="2"> college student,</w>
   <w group="3"> blonde</w>
-  <w> girl, fair-haired girl, the young performer.</w>
+  <w group="4"> girl,</w>
+  <w> fair-haired girl, the young performer.</w>
 </line>
 ```
 
