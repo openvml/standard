@@ -487,13 +487,13 @@ section of this specification.
 Text content is represented using <p> and <line>.
 
 Example:
-
+```
 <p>
     <line char="alex">
         Привет!
     </line>
 </p>
-
+```
 A paragraph may contain one or more lines.
 
 16. Dialogue Line — <line>
