@@ -266,7 +266,7 @@ OVML
   │ render
   ▼
 OVMV
-```
+`` `
 Whereas:
 ``text`
 OVML
@@ -274,7 +274,7 @@ OVML
   │ package
   ▼
 OVMZ
-```
+`` `
 preserves the structured project.
 
 OVML document structure
