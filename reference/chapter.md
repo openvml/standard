@@ -38,38 +38,38 @@ Example:
 
 <script>
 
-`` `<chapter id="chapter-1" title="Beginning">
+    <chapter id="chapter-1" title="Beginning">
 
-    <scene>
-        ...
-    </scene>
+        <scene>
+            ...
+        </scene>
 
-</chapter>
+    </chapter>
 
-<chapter id="chapter-2" title="The Meeting">
+    <chapter id="chapter-2" title="The Meeting">
 
-    <scene>
-        ...
-    </scene>
+        <scene>
+            ...
+        </scene>
 
-</chapter>
-`` `
+    </chapter>
+
 </script>
 
 Conceptually:
 
 <script>
     │
-`` `└── <chapter>
-    │
-    ├── <scene>
-    │   ├── <camera>
-    │   ├── text
-    │   ├── media
-    │   └── ...
-    │
-    └── <scene>
-`` `
+    └── <chapter>
+        │
+        ├── <scene>
+        │   ├── <camera>
+        │   ├── text
+        │   ├── media
+        │   └── ...
+        │
+        └── <scene>
+
 A script MAY contain one or more chapters.
 
 Different project types may contain different numbers of chapters and scenes.
@@ -107,17 +107,17 @@ Implementations MAY also support additional attributes such as order_index, stat
 Example:
 
 <chapter
-`` `id="ch_01"
-title="Chapter 1: The Beginning"
-order_index="0"
-status="draft">
+    id="ch_01"
+    title="Chapter 1: The Beginning"
+    order_index="0"
+    status="draft">
 
-<description>Introduction of the main character</description>
+    <description>Introduction of the main character</description>
 
-<scene>
-    ...
-</scene>
-`` `
+    <scene>
+        ...
+    </scene>
+
 </chapter>
 
 ## 4. Chapters and Scenes
@@ -128,18 +128,18 @@ A scene represents a continuous logical audiovisual context.
 
 <chapter>
 
-`` `<scene color="#1a1a2e" atmosphere="quiet evening">
+    <scene color="#1a1a2e" atmosphere="quiet evening">
 
-    ...
+        ...
 
-</scene>
+    </scene>
 
-<scene color="#3b1f1f" atmosphere="danger and tension">
+    <scene color="#3b1f1f" atmosphere="danger and tension">
 
-    ...
+        ...
 
-</scene>
-`` `
+    </scene>
+
 </chapter>
 
 Chapters provide the outer structure; scenes provide the internal dramatic and visual boundaries.
@@ -158,18 +158,18 @@ The simplest valid project can contain a single chapter:
 
 <script>
 
-`` `<chapter title="Greeting">
+    <chapter title="Greeting">
 
-    <scene>
+        <scene>
 
-        <line>
-            Hello, world!
-        </line>
+            <line>
+                Hello, world!
+            </line>
 
-    </scene>
+        </scene>
 
-</chapter>
-`` `
+    </chapter>
+
 </script>
 
 ## 6. Chapter Boundaries and Navigation

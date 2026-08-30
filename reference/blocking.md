@@ -34,11 +34,11 @@ Example:
 
 <scene id="ch1_office" time="evening" mood="dramatic">
 
-`` `<blocking>
-    <character ref="anna" position="left" look_at="ivan" enters="true"/>
-    <character ref="ivan" position="right" addresses="anna"/>
-</blocking>
-`` `
+    <blocking>
+        <character ref="anna" position="left" look_at="ivan" enters="true"/>
+        <character ref="ivan" position="right" addresses="anna"/>
+    </blocking>
+
 </scene>
 
 Each `<character>` entry references a character declared in the `<cast>` element by its `id`.
@@ -115,20 +115,20 @@ A character may be marked as entering, exiting, or neither.
 ## 10. Example: Blocking
 
 <scene id="ch1_office" time="evening" mood="dramatic">
-`` `<location>Офис, неоновая подсветка</location>
-<characters>
-    <char ref="anna"/>
-    <char ref="ivan"/>
-</characters>
-<blocking>
-    <character ref="anna" position="left" look_at="ivan" enters="true"/>
-    <character ref="ivan" position="right" addresses="anna"/>
-</blocking>
-<prompt>S neon lights, dramatic lighting, two people facing each other</prompt>
+    <location>Офис, неоновая подсветка</location>
+    <characters>
+        <char ref="anna"/>
+        <char ref="ivan"/>
+    </characters>
+    <blocking>
+        <character ref="anna" position="left" look_at="ivan" enters="true"/>
+        <character ref="ivan" position="right" addresses="anna"/>
+    </blocking>
+    <prompt>S neon lights, dramatic lighting, two people facing each other</prompt>
 
-<p char="anna">Иван... ты слышал?</p>
-<p char="ivan">Слышал. Давай уходить.</p>
-`` `</scene>
+    <p char="anna">Иван... ты слышал?</p>
+    <p char="ivan">Слышал. Давай уходить.</p>
+</scene>
 
 ## 11. Design Principle
 
@@ -167,9 +167,9 @@ The `<characters>` element of a scene lists the characters participating in the 
 Example:
 
 <characters>
-`` `<char ref="anna"/>
-<char ref="ivan"/>
-`` `</characters>
+    <char ref="anna"/>
+    <char ref="ivan"/>
+</characters>
 
 Blocking then describes the relationships between those characters.
 

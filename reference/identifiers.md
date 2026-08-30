@@ -117,20 +117,20 @@ See: reference/cast.md
 A scene references a canonical entity through a child element with a `ref` attribute.
 
 <scene>
-`` `<location ref="rusty_anchor">
-    <variation>
-        <weather>rainy</weather>
-    </variation>
-</location>
-`` `</scene>
+    <location ref="rusty_anchor">
+        <variation>
+            <weather>rainy</weather>
+        </variation>
+    </location>
+</scene>
 
 The `ref` value is the `id` of an entity declared in the corresponding section of `<world>`.
 
 The mechanism is identical for every section:
 
 <scene>
-`` `<term ref="photosynthesis" />
-`` `</scene>
+    <term ref="photosynthesis" />
+</scene>
 
 See: reference/world.md
 
@@ -157,15 +157,15 @@ This makes the language self-describing.
 A location may be declared in the world canon and referenced from a scene.
 
 <world>
-`` `<locations>
-    <location
-        id="rusty_anchor"
-        name="The Rusty Anchor"
-        type="tavern">
-        ...
-    </location>
-</locations>
-`` `</world>
+    <locations>
+        <location
+            id="rusty_anchor"
+            name="The Rusty Anchor"
+            type="tavern">
+            ...
+        </location>
+    </locations>
+</world>
 
 A scene then references it:
 

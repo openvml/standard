@@ -30,19 +30,19 @@ Visual content is conceptually ordered from back to front:
 
 For example:
 
-`` `<scene atmosphere="night city">
+    <scene atmosphere="night city">
 
-    <video
-        src="city-background"
-        layer="background" />
+        <video
+            src="city-background"
+            layer="background" />
 
-    <img
-        src="character"
-        layer="foreground"
-        sizePercent="60" />
+        <img
+            src="character"
+            layer="foreground"
+            sizePercent="60" />
 
-</scene>
-`` `
+    </scene>
+
 The video forms the base. The character image appears in front of it.
 
 3. Layer Versus Timing
@@ -56,20 +56,20 @@ A media element defines:
 
 For example:
 
-`` `<video
-    src="background.mp4"
-    layer="background"
-    startMode="absolute"
-    startTime="0"
-    duration="30" />
+    <video
+        src="background.mp4"
+        layer="background"
+        startMode="absolute"
+        startTime="0"
+        duration="30" />
 
-<img
-    src="character.png"
-    layer="foreground"
-    startMode="absolute"
-    startTime="5"
-    duration="10" />
-`` `
+    <img
+        src="character.png"
+        layer="foreground"
+        startMode="absolute"
+        startTime="5"
+        duration="10" />
+
 The first element defines when the background video is active. The second defines when the foreground image is active. The layer attribute determines visual composition; timing determines temporal composition. The two can overlap in any way without conflicting.
 
 4. Anchoring and Size
@@ -82,13 +82,13 @@ Beyond its layer, a visual element is positioned and sized within the compositio
 
 For example:
 
-`` `<img
-    src="castle"
-    layer="foreground"
-    sizePercent="40"
-    gridRow="2"
-    gridCol="3" />
-`` `
+    <img
+        src="castle"
+        layer="foreground"
+        sizePercent="40"
+        gridRow="2"
+        gridCol="3" />
+
 The layer says which depth the element occupies. The size and grid say where, within that layer, the element sits and how large it is. These are separate declarative dimensions of the element.
 
 5. Parallax and Depth
@@ -103,34 +103,34 @@ The layer is the portable intent; the renderer decides how much depth, parallax,
 
 Several media elements may share the same layer. For example, multiple audio elements may form an ambience bed:
 
-`` `<audio
-    src="rain"
-    layer="background"
-    volume="0.3"
-    loop="true" />
+    <audio
+        src="rain"
+        layer="background"
+        volume="0.3"
+        loop="true" />
 
-<audio
-    src="wind"
-    layer="background"
-    volume="0.2"
-    loop="true" />
-`` `
+    <audio
+        src="wind"
+        layer="background"
+        volume="0.2"
+        loop="true" />
+
 The layer expresses the intended grouping, not a strict z-order between elements on the same layer. Audio elements may also use the layer attribute to express the intended depth of the mix — background ambience, foreground speech, overlay notification-style audio.
 
 7. Reusing an Asset Across Layers
 
 The same asset may be used on different layers with different presentation settings:
 
-`` `<img
-    src="castle"
-    layer="background"
-    sizePercent="100" />
+    <img
+        src="castle"
+        layer="background"
+        sizePercent="100" />
 
-<img
-    src="castle"
-    layer="foreground"
-    sizePercent="40" />
-`` `
+    <img
+        src="castle"
+        layer="foreground"
+        sizePercent="40" />
+
 The underlying asset is unchanged. Each media element describes an independent use of the resource with its own layer, size, and timing.
 
 8. How Layer, Timing, and Size Compose

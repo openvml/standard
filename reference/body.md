@@ -28,7 +28,8 @@ Those responsibilities belong to the consuming application or Player.
 
 The basic structure is:
 
-`` `<script>
+``xml`
+<script>
 
     <chapter>
         <scene>

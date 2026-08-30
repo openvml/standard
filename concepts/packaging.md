@@ -22,7 +22,8 @@ OpenVML separates the **description of a project** from the **resources required
 
 An OpenVML project may exist as:
 
-```OVML
+``text`
+OVML
   │
   ├── Scenario
   ├── Characters

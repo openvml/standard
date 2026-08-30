@@ -29,7 +29,8 @@ These elements may start and end independently.
 
 For example:
 
-```TIME       0────1────2────3────4────5────6────7────8
+``text`
+TIME       0────1────2────3────4────5────6────7────8
 
 BG image   █████████████████████████████████████████
 

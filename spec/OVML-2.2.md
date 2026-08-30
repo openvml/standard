@@ -9,7 +9,7 @@
 
 ## 1. Introduction
 
-OVML (Open Voice Markup Language) is a declarative XML-based
+OVML (Open Visual Media Language) is a declarative XML-based
 standard for describing structured audiovisual content.
 
 OVML is designed to describe not only media files, but the
@@ -121,7 +121,8 @@ application.
 
 An OVML document consists of four primary areas:
 
-`` `<ovml>
+``xml`
+<ovml>
     <meta>
         ...
     </meta>

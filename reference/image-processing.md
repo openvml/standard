@@ -23,19 +23,19 @@ See: reference/assets.md
 
 The general structure is:
 
-```<image_processing id="preset_img_bw" name="Black and White">
+    <image_processing id="preset_img_bw" name="Black and White">
 
-    <grayscale enabled="true">
-        <intensity>1</intensity>
-    </grayscale>
+        <grayscale enabled="true">
+            <intensity>1</intensity>
+        </grayscale>
 
-    <convert>
-        <format>png</format>
-        <quality>95</quality>
-    </convert>
+        <convert>
+            <format>png</format>
+            <quality>95</quality>
+        </convert>
 
-</image_processing>
-`` `
+    </image_processing>
+
 Each child element is a processing directive.
 
 The `<image_processing>` element itself is the container.
@@ -49,10 +49,10 @@ enabled	boolean	Enables or disables the whole processing definition
 
 Example:
 
-`` `<image_processing id="preset_img_bw" name="Black and White">
-    ...
-</image_processing>
-`` `
+    <image_processing id="preset_img_bw" name="Black and White">
+        ...
+    </image_processing>
+
 When `enabled` is present and false, the processing definition does not participate in the processing chain.
 
 4. Processing Directives
@@ -133,14 +133,14 @@ Processing directives are declarative. The runtime interprets them.
 
 The color directive applies color correction.
 
-`` `<color enabled="true">
-    <brightness>0.1</brightness>
-    <contrast>0.15</contrast>
-    <saturation>0.8</saturation>
-    <hue>5</hue>
-    <gamma>1.1</gamma>
-</color>
-`` `
+    <color enabled="true">
+        <brightness>0.1</brightness>
+        <contrast>0.15</contrast>
+        <saturation>0.8</saturation>
+        <hue>5</hue>
+        <gamma>1.1</gamma>
+    </color>
+
 Parameter	Description	Range
 brightness	Brightness adjustment	-1 — +1
 contrast	Contrast adjustment	-1 — +1
@@ -154,10 +154,10 @@ brightness and contrast express the semantics of the same-named types.
 
 The grayscale directive converts the image to black and white.
 
-`` `<grayscale enabled="true">
-    <intensity>1</intensity>
-</grayscale>
-`` `
+    <grayscale enabled="true">
+        <intensity>1</intensity>
+    </grayscale>
+
 Parameter	Description	Range
 intensity	Grayscale intensity	0 — 1
 
@@ -165,10 +165,10 @@ intensity	Grayscale intensity	0 — 1
 
 The invert directive inverts the colors.
 
-`` `<invert enabled="false">
-    <intensity>1.0</intensity>
-</invert>
-`` `
+    <invert enabled="false">
+        <intensity>1.0</intensity>
+    </invert>
+
 Parameter	Description	Range
 intensity	Inversion intensity	0 — 1
 
@@ -176,10 +176,10 @@ intensity	Inversion intensity	0 — 1
 
 The sepia directive applies a sepia tone.
 
-`` `<sepia enabled="false">
-    <intensity>0.7</intensity>
-</sepia>
-`` `
+    <sepia enabled="false">
+        <intensity>0.7</intensity>
+    </sepia>
+
 Parameter	Description	Range
 intensity	Sepia intensity	0 — 1
 
@@ -187,10 +187,10 @@ intensity	Sepia intensity	0 — 1
 
 The blur directive applies a gaussian blur.
 
-`` `<blur enabled="false">
-    <radius>5</radius>
-</blur>
-`` `
+    <blur enabled="false">
+        <radius>5</radius>
+    </blur>
+
 Parameter	Description	Range
 radius	Blur radius	0 — 50
 
@@ -198,10 +198,10 @@ radius	Blur radius	0 — 50
 
 The sharpen directive increases perceived sharpness.
 
-`` `<sharpen enabled="false">
-    <amount>1.0</amount>
-</sharpen>
-`` `
+    <sharpen enabled="false">
+        <amount>1.0</amount>
+    </sharpen>
+
 Parameter	Description	Range
 amount	Sharpening amount	0 — 5
 
@@ -209,10 +209,10 @@ amount	Sharpening amount	0 — 5
 
 The rotate directive rotates the image.
 
-`` `<rotate enabled="false">
-    <angle>90</angle>
-</rotate>
-`` `
+    <rotate enabled="false">
+        <angle>90</angle>
+    </rotate>
+
 Angles may be 90, 180, or 270 degrees.
 
 Parameter	Description	Range
@@ -222,11 +222,11 @@ angle	Rotation angle	-180 — +180 degrees
 
 The flip directive mirrors the image horizontally and/or vertically.
 
-`` `<flip
-    enabled="true"
-    horizontal="true"
-    vertical="false" />
-`` `
+    <flip
+        enabled="true"
+        horizontal="true"
+        vertical="false" />
+
 Parameter	Description	Values
 horizontal	Horizontal mirroring	true / false
 vertical	Vertical mirroring	true / false
@@ -237,13 +237,13 @@ The crop directive crops the image to a region.
 
 Coordinates and sizes are expressed as fractions of the source dimensions.
 
-`` `<crop enabled="false">
-    <x>0.1</x>
-    <y>0.1</y>
-    <width>0.8</width>
-    <height>0.8</height>
-</crop>
-`` `
+    <crop enabled="false">
+        <x>0.1</x>
+        <y>0.1</y>
+        <width>0.8</width>
+        <height>0.8</height>
+    </crop>
+
 Parameter	Description	Range
 x	Left offset	0 — 1
 y	Top offset	0 — 1
@@ -254,12 +254,12 @@ height	Crop height	0.1 — 1
 
 The resize directive changes the size of the image.
 
-`` `<resize enabled="false">
-    <width>1920</width>
-    <height>1080</height>
-    <keep_aspect>true</keep_aspect>
-</resize>
-`` `
+    <resize enabled="false">
+        <width>1920</width>
+        <height>1080</height>
+        <keep_aspect>true</keep_aspect>
+    </resize>
+
 Parameter	Description	Values
 width	Target width	px
 height	Target height	px
@@ -275,15 +275,15 @@ The overlay directive composites another image over the base image.
 
 It may express a watermark or logo, and positions and sizes the composited image.
 
-`` `<overlay enabled="true">
-    <opacity>0.8</opacity>
-    <x>0.05</x>
-    <y>0.05</y>
-    <width>0.3</width>
-    <height>0.3</height>
-    <mode>percent</mode>
-</overlay>
-`` `
+    <overlay enabled="true">
+        <opacity>0.8</opacity>
+        <x>0.05</x>
+        <y>0.05</y>
+        <width>0.3</width>
+        <height>0.3</height>
+        <mode>percent</mode>
+    </overlay>
+
 Parameter	Description
 opacity	Overlay opacity (0 — 1)
 x	Horizontal position
@@ -298,11 +298,11 @@ The overlay directive expresses the position_offsets and watermark semantics.
 
 The fade directive applies fade in and fade out.
 
-`` `<fade enabled="false">
-    <in_duration>0.5</in_duration>
-    <out_duration>0.5</out_duration>
-</fade>
-`` `
+    <fade enabled="false">
+        <in_duration>0.5</in_duration>
+        <out_duration>0.5</out_duration>
+    </fade>
+
 Parameter	Description	Range
 in_duration	Fade-in duration	0 — 10 s
 out_duration	Fade-out duration	0 — 10 s
@@ -311,11 +311,11 @@ out_duration	Fade-out duration	0 — 10 s
 
 The convert directive describes the requested output format.
 
-`` `<convert>
-    <format>png</format>
-    <quality>95</quality>
-</convert>
-`` `
+    <convert>
+        <format>png</format>
+        <quality>95</quality>
+    </convert>
+
 Parameter	Description	Values
 format	Container format	png, jpg, webp
 quality	Encoding quality	0 — 100
@@ -326,12 +326,12 @@ Processing for an image may be declared at several scopes.
 
 The scopes form an inheritance chain:
 
-`` `Project (<settings>)
-          ↓
-    Character
-          ↓
-Scene / block / media element
-`` `
+    Project (<settings>)
+              ↓
+        Character
+              ↓
+    Scene / block / media element
+
 A more specific declaration overrides or supplements the more general one.
 
 20. Project-Level Declaration
@@ -344,23 +344,23 @@ Project-level processing applies as the default to the project's image material 
 
 A character MAY reference an image-processing preset.
 
-`` `<character
-    id="vestfal"
-    name="Vestfal"
-    imageProcessorId="image_01"
-    imageProcessorName="Dark Fantasy"
-    imageProcessorFile="presets/image/DarkFantasy.ovml" />
-`` `
+    <character
+        id="vestfal"
+        name="Vestfal"
+        imageProcessorId="image_01"
+        imageProcessorName="Dark Fantasy"
+        imageProcessorFile="presets/image/DarkFantasy.ovml" />
+
 See: reference/character.md
 
 22. Media and Block-Level Declaration
 
 An image media element MAY reference a processing preset by the `processing` attribute:
 
-`` `<img
-    src="portrait"
-    processing="image_01" />
-`` `
+    <img
+        src="portrait"
+        processing="image_01" />
+
 Processing may also be declared inline as child directives of the media element.
 
 Inline directives apply only to that media element.

@@ -10,10 +10,10 @@ An OVML document is a declarative audiovisual project script. It describes the p
 
 Every OVML document is a single XML tree rooted at the <ovml> element:
 
-```<ovml version="2.2" lang="en">
-    ...
-</ovml>
-`` `
+    <ovml version="2.2" lang="en">
+        ...
+    </ovml>
+
 The root declares the standard version and the primary language of the document.
 
 Conceptually, the document is not a flat list of media files. It is a container of named canonical entities — characters, assets, world entities, scenes, chapters — each of which is declared in one place with a stable id. The rest of the document references those entities by id instead of repeating their definitions.
@@ -24,43 +24,43 @@ This is the key idea: an entity is declared once, and every use of it is a refer
 
 The root element contains several major sections, each with a distinct responsibility:
 
-`` `<ovml version="2.2" lang="en">
+    <ovml version="2.2" lang="en">
 
-    <meta>
-        ...
-    </meta>
+        <meta>
+            ...
+        </meta>
 
-    <settings>
-        ...
-    </settings>
+        <settings>
+            ...
+        </settings>
 
-    <cast>
-        ...
-    </cast>
+        <cast>
+            ...
+        </cast>
 
-    <assets>
-        ...
-    </assets>
+        <assets>
+            ...
+        </assets>
 
-    <world>
-        ...
-    </world>
+        <world>
+            ...
+        </world>
 
-    <script>
-        ...
-    </script>
+        <script>
+            ...
+        </script>
 
-</ovml>
-`` `
+    </ovml>
+
 The primary sections are:
 
-`` `<meta> — project metadata and presentation preferences;
-<settings> — general document-level settings;
-<cast> — characters, voices, and character-related processing;
-<assets> — media resource definitions;
-<world> — the canonical entities of the project's world;
-<script> — the main content and timeline structure.
-`` `
+    <meta> — project metadata and presentation preferences;
+    <settings> — general document-level settings;
+    <cast> — characters, voices, and character-related processing;
+    <assets> — media resource definitions;
+    <world> — the canonical entities of the project's world;
+    <script> — the main content and timeline structure.
+
 Not every section is required. A minimal document can contain only the root and a script, and the simplest content may be nothing more than a title and a few lines.
 
 3. <meta> — Project Metadata
@@ -79,10 +79,10 @@ The <cast> element defines the characters used by the project. Each character is
 
 The script references a character by id through the char attribute of a line:
 
-`` `<line char="alex">
-    We have to go.
-</line>
-`` `
+    <line char="alex">
+        We have to go.
+    </line>
+
 The character is declared once; the line only refers to it. Changing the character's voice or description does not change any line that references it.
 
 See: reference/cast.md
@@ -94,8 +94,8 @@ The <assets> element describes the resources used by the project. A resource may
 
 The script references an asset through the src attribute of a media element:
 
-`` `<video src="background-video" />
-`` `
+    <video src="background-video" />
+
 The asset is the resource; the media element is an instruction for using that resource at a particular point in the timeline.
 
 See: reference/assets.md
@@ -105,26 +105,26 @@ See: concepts/media-layers.md
 
 The <world> element declares the canonical entities of the project's world: locations, terms, factions, timelines, or any other section the project requires. It uses the same mechanism everywhere: a section is a container of named entities, each entity has a stable id and a name, and a scene references an entity by ref instead of duplicating its description.
 
-`` `<world>
-    <locations>
-        <location
-            id="rusty_anchor"
-            name="The Rusty Anchor">
-            ...
-        </location>
-    </locations>
-</world>
-`` `
+    <world>
+        <locations>
+            <location
+                id="rusty_anchor"
+                name="The Rusty Anchor">
+                ...
+            </location>
+        </locations>
+    </world>
+
 A scene references the canonical entity and expresses scene-specific change with a <variation>:
 
-`` `<scene>
-    <location ref="rusty_anchor">
-        <variation>
-            <weather>rainy</weather>
-        </variation>
-    </location>
-</scene>
-`` `
+    <scene>
+        <location ref="rusty_anchor">
+            <variation>
+                <weather>rainy</weather>
+            </variation>
+        </location>
+    </scene>
+
 The world keeps recurring entities consistent across many scenes and chapters. It is optional: a document without a world canon is valid.
 
 See: reference/world.md
@@ -160,14 +160,14 @@ The exact set of allowed children is defined by the individual element specifica
 
 All of the document's named entities share one model:
 
-`` `<meta> tags, characters, assets, world entities, scenes, and chapters are identified by stable ids;
-the places that use them carry a reference.
+    <meta> tags, characters, assets, world entities, scenes, and chapters are identified by stable ids;
+    the places that use them carry a reference.
 
-"character" is referenced by char;
-"asset" is referenced by src;
-"world entity" is referenced by ref;
-"camera target" is referenced by target.
-`` `
+    "character" is referenced by char;
+    "asset" is referenced by src;
+    "world entity" is referenced by ref;
+    "camera target" is referenced by target.
+
 This uniform rule is what makes OVML self-describing and extensible. A parser reads the structure of the document and applies the same pattern to every section, without needing to know a special project type.
 
 9. Minimal and Complete Documents
@@ -176,26 +176,26 @@ The conceptual hierarchy is not a checklist. Every element is optional where its
 
 The smallest useful document contains only the root and a script with a single chapter, scene, and line:
 
-`` `<ovml version="2.2" lang="en">
+    <ovml version="2.2" lang="en">
 
-    <script>
+        <script>
 
-        <chapter title="Greeting">
+            <chapter title="Greeting">
 
-            <scene>
+                <scene>
 
-                <line>
-                    Hello, world!
-                </line>
+                    <line>
+                        Hello, world!
+                    </line>
 
-            </scene>
+                </scene>
 
-        </chapter>
+            </chapter>
 
-    </script>
+        </script>
 
-</ovml>
-`` `
+    </ovml>
+
 For further reading on the complete hierarchy and its many examples, consult the reference.
 
 See: reference/document.md

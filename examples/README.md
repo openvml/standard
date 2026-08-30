@@ -57,25 +57,31 @@ Each character may contain information such as:
 
 For example, a character can have several aliases:
 
-`` `<character
+``xml`
+<character
     id="mira"
     name="Mira"
     aliases="little singer|college student|blonde girl|fair-haired girl|young performer"
     ...
 />
-`` `
+```
+
 The aliases identify different textual descriptions that refer to the same character.
 
 When the character speaks, the canonical character identifier is used:
 
-`` `<line char="mira">...</line>
-`` `
+``xml`
+<line char="mira">...</line>
+```
+
 A descriptive reference to the same character may instead occur as part of narration:
 
-`` `<line char="narrator">
+``xml`
+<line char="narrator">
     — squeaked the little singer...
 </line>
-`` `
+```
+
 The description does not replace the canonical character identifier.
 
 ## Narration and Dialogue
@@ -84,19 +90,23 @@ OpenVML allows narration and dialogue to coexist within the same paragraph.
 
 For example:
 
-`` `<p>
+``xml`
+<p>
     <line char="mira">— If we don't start the show...</line>
     <line char="narrator">— squeaked the little singer...</line>
 </p>
-`` `
+```
+
 A paragraph may contain several alternating speakers:
 
-`` `<p>
+``xml`
+<p>
     <line char="bran">— Stop whining.</line>
     <line char="narrator">— growled the tattooed bruiser.</line>
     <line char="bran">— Hey, bartender, pour me another one.</line>
 </p>
-`` `
+```
+
 This makes it possible to preserve the order of speech and narration without flattening the content into a single voice.
 
 ## Chapters and Scenes
@@ -111,10 +121,12 @@ The example contains:
 
 The dialogue chapter also contains scene metadata:
 
-`` `<scene title="Tensions in the Rusty Anchor" mood="Tense">
+``xml`
+<scene title="Tensions in the Rusty Anchor" mood="Tense">
     <location>The Rusty Anchor Tavern</location>
 </scene>
-`` `
+```
+
 This demonstrates that a scene may contain semantic information in addition to its spoken content.
 
 ## Media
@@ -130,16 +142,19 @@ The document uses:
 
 For example:
 
-`` `<video
+``xml`
+<video
     src="..."
     layer="background"
     duration="100"
     sizePercent="100"
 />
-`` `
+```
+
 A foreground video can have its own duration and start relationship:
 
-`` `<video
+``xml`
+<video
     src="..."
     layer="foreground"
     duration="10"
@@ -151,7 +166,8 @@ A foreground video can have its own duration and start relationship:
     gridColSpan="2"
     sizePercent="30"
 />
-`` `
+```
+
 The foreground media therefore does not need to begin or end at the same time as the surrounding spoken content.
 
 ## Timing
@@ -177,11 +193,13 @@ The Player is responsible for implementing buffering, streaming, synthesis, deco
 
 Reusable media can be declared in the document's asset collection:
 
-`` `<assets>
+``xml`
+<assets>
     <asset id="..." type="image" src="..."/>
     <asset id="..." type="video" src="..."/>
 </assets>
-`` `
+```
+
 Content can then reference the corresponding asset identifier.
 
 This separates resource identification from the content blocks that use those resources.
@@ -190,9 +208,11 @@ This separates resource identification from the content blocks that use those re
 
 Characters may reference audio processing presets:
 
-`` `audioProcessorId="..."
+``xml`
+audioProcessorId="..."
 audioProcessorName="..."
-`` `
+```
+
 The processing itself is defined separately in the OpenVML preset collection.
 
 Audio processing may include effects such as:
@@ -255,10 +275,12 @@ It does not redefine the OpenVML language.
 
 The normative definitions of individual elements, attributes, timing rules, media behavior, cast properties, and processing presets are specified in the corresponding documents under:
 
-```docs/standard/concepts/
+``text`
+docs/standard/concepts/
 docs/standard/reference/
 docs/standard/presets/
-`` `
+```
+
 The example should be read together with those reference documents.
 
 ## Future Examples

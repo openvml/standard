@@ -62,16 +62,16 @@ A scene is represented by the <scene> element.
 Example:
 
 <scene>
-`` `<line char="narrator">
-    The sun was setting over the city.
-</line>
+    <line char="narrator">
+        The sun was setting over the city.
+    </line>
 
-<img
-    src="sunset"
-    startMode="absolute"
-    startTime="0"
-    duration="10" />
-`` `</scene>
+    <img
+        src="sunset"
+        startMode="absolute"
+        startTime="0"
+        duration="10" />
+</scene>
 
 A scene may contain multiple blocks.
 
@@ -179,9 +179,9 @@ The scene color may be used as a hint when selecting visual processing presets.
 For example:
 
 <scene
-`` `color="#1a1a2e"
-atmosphere="warm sunset, silence, calm">
-`` `
+    color="#1a1a2e"
+    atmosphere="warm sunset, silence, calm">
+
 An authoring system or AI Assistant may use the color as an additional visual cue when selecting:
 
 image processing presets;
@@ -201,9 +201,9 @@ The atmosphere attribute describes the atmosphere, mood, or emotional context of
 Example:
 
 <scene
-`` `atmosphere="warm sunset, silence, tranquility">
-...
-`` `</scene>
+    atmosphere="warm sunset, silence, tranquility">
+    ...
+</scene>
 
 The value is a free-form string.
 
@@ -251,9 +251,9 @@ One important purpose of atmosphere is AI-assisted asset selection.
 For example:
 
 <scene
-`` `color="#1a1a2e"
-atmosphere="тёплый закат, тишина, умиротворение">
-`` `
+    color="#1a1a2e"
+    atmosphere="тёплый закат, тишина, умиротворение">
+
 An AI Assistant may interpret this as a request for assets such as:
 
 Images:
@@ -283,14 +283,14 @@ For example:
 
 <scene atmosphere="ночной город, дождь">
 
-`` `<line char="narrator">
-    The city never slept.
-</line>
+    <line char="narrator">
+        The city never slept.
+    </line>
 
-<audio src="rain" />
+    <audio src="rain" />
 
-<img src="city-night" />
-`` `
+    <img src="city-night" />
+
 </scene>
 
 A human reader can understand that:
@@ -314,16 +314,16 @@ The canonical entities are declared once in the project-level
 Example — a location reference:
 
 <scene>
-`` `<location ref="rusty_anchor">
-    <variation>
-        <weather>rainy</weather>
-    </variation>
-</location>
+    <location ref="rusty_anchor">
+        <variation>
+            <weather>rainy</weather>
+        </variation>
+    </location>
 
-<line char="narrator">
-    The heavy door of the tavern closed behind her.
-</line>
-`` `</scene>
+    <line char="narrator">
+        The heavy door of the tavern closed behind her.
+    </line>
+</scene>
 
 The ref value is the id of a canonical entity.
 
@@ -335,11 +335,11 @@ reference a term the same way:
 Scene-specific change is expressed by <variation>:
 
 <location ref="rusty_anchor">
-`` `<variation>
-    <time>night</time>
-    <changes>Broken bottle by the door</changes>
-</variation>
-`` `</location>
+    <variation>
+        <time>night</time>
+        <changes>Broken bottle by the door</changes>
+    </variation>
+</location>
 
 The world canon keeps canonical entities consistent across the many
 scenes of a long project.
@@ -359,16 +359,16 @@ Instead, the temporal behavior is determined by its child blocks.
 For example:
 
 <scene>
-`` `<line char="alex">
-    Hello.
-</line>
+    <line char="alex">
+        Hello.
+    </line>
 
-<video
-    src="city"
-    startMode="absolute"
-    startTime="0"
-    duration="15" />
-`` `</scene>
+    <video
+        src="city"
+        startMode="absolute"
+        startTime="0"
+        duration="15" />
+</scene>
 
 The video has an explicit temporal position.
 
@@ -387,18 +387,18 @@ Example:
 
 <scene atmosphere="quiet conversation">
 
-`` `<line char="alex">
-    Are you coming?
-</line>
+    <line char="alex">
+        Are you coming?
+    </line>
 
-<line char="maria">
-    In a minute.
-</line>
+    <line char="maria">
+        In a minute.
+    </line>
 
-<line char="alex">
-    I'll wait.
-</line>
-`` `
+    <line char="alex">
+        I'll wait.
+    </line>
+
 </scene>
 
 The scene groups the dialogue while the timing model determines the sequence.
@@ -419,24 +419,24 @@ Example:
 
 <scene color="#182033">
 
-`` `<video
-    src="background"
-    layer="background"
-    startMode="absolute"
-    startTime="0"
-    duration="20" />
+    <video
+        src="background"
+        layer="background"
+        startMode="absolute"
+        startTime="0"
+        duration="20" />
 
-<audio
-    src="ambience"
-    startMode="absolute"
-    startTime="0"
-    duration="20"
-    volume="0.5" />
+    <audio
+        src="ambience"
+        startMode="absolute"
+        startTime="0"
+        duration="20"
+        volume="0.5" />
 
-<line char="narrator">
-    Welcome to the city.
-</line>
-`` `
+    <line char="narrator">
+        Welcome to the city.
+    </line>
+
 </scene>
 
 This allows a single scene to describe a complete audiovisual composition.
@@ -449,16 +449,16 @@ For example:
 
 <scene atmosphere="dramatic">
 
-`` `<camera>
-    ...
-</camera>
+    <camera>
+        ...
+    </camera>
 
-<video src="background" />
+    <video src="background" />
 
-<line char="narrator">
-    Something was approaching.
-</line>
-`` `
+    <line char="narrator">
+        Something was approaching.
+    </line>
+
 </scene>
 
 The <camera> element describes visual direction.
@@ -548,9 +548,9 @@ or:
 or together:
 
 <scene
-`` `color="#1a1a2e"
-atmosphere="quiet evening, warm sunset">
-`` `20. Scene and Presets
+    color="#1a1a2e"
+    atmosphere="quiet evening, warm sunset">
+20. Scene and Presets
 
 Scenes can provide contextual information for processing presets.
 
@@ -590,9 +590,9 @@ checking continuity.
 For example:
 
 <scene
-`` `color="#243447"
-atmosphere="ночь, дождь, напряжение">
-`` `
+    color="#243447"
+    atmosphere="ночь, дождь, напряжение">
+
 provides substantially more context than an isolated media block.
 
 The Assistant may use this information without changing the underlying OpenVML semantics.
@@ -720,10 +720,10 @@ The Player executes the resulting description.
 The smallest useful scene can be:
 
 <scene>
-`` `<line char="narrator">
-    Hello.
-</line>
-`` `</scene>
+    <line char="narrator">
+        Hello.
+    </line>
+</scene>
 
 No additional metadata is required.
 
@@ -732,31 +732,31 @@ No additional metadata is required.
 A more expressive scene can combine semantic metadata, media, dialogue, and camera direction:
 
 <scene
-`` `color="#1a1a2e"
-atmosphere="warm sunset, silence, tranquility">
+    color="#1a1a2e"
+    atmosphere="warm sunset, silence, tranquility">
 
-<camera>
-    ...
-</camera>
+    <camera>
+        ...
+    </camera>
 
-<video
-    src="sunset"
-    layer="background"
-    startMode="absolute"
-    startTime="0"
-    duration="12" />
+    <video
+        src="sunset"
+        layer="background"
+        startMode="absolute"
+        startTime="0"
+        duration="12" />
 
-<audio
-    src="wind"
-    startMode="absolute"
-    startTime="0"
-    duration="12"
-    volume="0.3" />
+    <audio
+        src="wind"
+        startMode="absolute"
+        startTime="0"
+        duration="12"
+        volume="0.3" />
 
-<line char="narrator">
-    The sun slowly disappeared beyond the horizon.
-</line>
-`` `
+    <line char="narrator">
+        The sun slowly disappeared beyond the horizon.
+    </line>
+
 </scene>
 
 This example demonstrates the intended relationship between:

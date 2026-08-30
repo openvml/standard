@@ -96,7 +96,8 @@ OVML solves this with a **world canon**.
 
 The document declares its canonical entities once, in a `<world>` container at the top of the document:
 
-`` `<world>
+``xml`
+<world>
     <locations>
         <location id="rusty_anchor" name="The Rusty Anchor" type="tavern">
             <era>fantasy-medieval</era>
@@ -107,10 +108,12 @@ The document declares its canonical entities once, in a `<world>` container at t
         </location>
     </locations>
 </world>
-`` `
+```
+
 A scene then references the canon by id instead of duplicating it:
 
-`` `<scene>
+``xml`
+<scene>
     <location ref="rusty_anchor">
         <variation>
             <weather>rainy</weather>
@@ -118,7 +121,8 @@ A scene then references the canon by id instead of duplicating it:
     </location>
     ...
 </scene>
-`` `
+```
+
 `<world>` does not prescribe a fixed set of sections. A document declares the sections that its content requires, and every section follows the same uniform rule — so a lecture's glossary uses exactly the same mechanism as a novel's locations.
 
 The canon holds permanent properties. Scene-specific change is expressed as a `<variation>` in the scene, never by editing the canon.
@@ -206,19 +210,23 @@ It may be transported or packaged in different forms.
 
 A standalone XML document containing the content description.
 
-```project.ovml
-`` `
+``text`
+project.ovml
+```
+
 ### OVMZ
 
 A packaged project containing an OVML document together with resources, presets, metadata, and optionally pre-rendered TTS assets.
 
-```project.ovmz/
+``text`
+project.ovmz/
 ├── content.ovml
 ├── project.json
 ├── resources/
 ├── presets/
 └── tts/
-`` `
+```
+
 ### OVMV
 
 OVMV is a distribution/rendered form of an OVML project intended for playback as a packaged audiovisual experience.

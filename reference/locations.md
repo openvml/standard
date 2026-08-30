@@ -26,23 +26,23 @@ Example:
 
 <world>
 
-`` `<locations>
+    <locations>
 
-    <location
-        id="rusty_anchor"
-        name="The Rusty Anchor"
-        type="tavern">
+        <location
+            id="rusty_anchor"
+            name="The Rusty Anchor"
+            type="tavern">
 
-        <era>fantasy-medieval</era>
-        <style>rough-hewn oak, candlelight</style>
-        <palette>hearth:#4a2f1a; walls:#3a2a1e</palette>
-        <props>cracked bar, long benches, hearth</props>
-        <atmosphere>low murmur, smell of ale and smoke</atmosphere>
+            <era>fantasy-medieval</era>
+            <style>rough-hewn oak, candlelight</style>
+            <palette>hearth:#4a2f1a; walls:#3a2a1e</palette>
+            <props>cracked bar, long benches, hearth</props>
+            <atmosphere>low murmur, smell of ale and smoke</atmosphere>
 
-    </location>
+        </location>
 
-</locations>
-`` `
+    </locations>
+
 </world>
 
 The canon holds the permanent properties of each location.
@@ -59,12 +59,12 @@ type	string	No	Location type: tavern, forest, cave, palace, street, interior, ex
 Example:
 
 <location
-`` `id="rusty_anchor"
-name="The Rusty Anchor"
-type="tavern">
+    id="rusty_anchor"
+    name="The Rusty Anchor"
+    type="tavern">
 
-...
-`` `
+    ...
+
 </location>
 
 The `id` is the stable key used by scene references.
@@ -107,17 +107,17 @@ The world canon solves this by describing each location once and letting scenes 
 A scene references a canonical location through a child <location> element with a ref attribute.
 
 <scene
-`` `color="#1a1a2e"
-atmosphere="tense, night">
+    color="#1a1a2e"
+    atmosphere="tense, night">
 
-<location ref="rusty_anchor">
-    <variation>
-        <weather>rainy</weather>
-    </variation>
-</location>
+    <location ref="rusty_anchor">
+        <variation>
+            <weather>rainy</weather>
+        </variation>
+    </location>
 
-...
-`` `</scene>
+    ...
+</scene>
 
 Attribute	Type	Description
 ref	string	The id of a location in the <locations> section of <world>
@@ -131,12 +131,12 @@ It points to the canon and adds only what is different in this scene.
 A scene may specify how a referenced location differs from its canon in this particular scene.
 
 <location ref="rusty_anchor">
-`` `<variation>
-    <time>night</time>
-    <weather>foggy</weather>
-    <changes>Chairs stacked, a fire in the hearth</changes>
-</variation>
-`` `</location>
+    <variation>
+        <time>night</time>
+        <weather>foggy</weather>
+        <changes>Chairs stacked, a fire in the hearth</changes>
+    </variation>
+</location>
 
 Common variation fields:
 
@@ -155,9 +155,9 @@ The canon remains the permanent description; the variation describes the transie
 A plain-text <location> without ref remains valid.
 
 <scene>
-`` `<location>A dark forest. Mist between the trees.</location>
-...
-`` `</scene>
+    <location>A dark forest. Mist between the trees.</location>
+    ...
+</scene>
 
 Such a description is a free-form scene-local location without a canonical binding.
 
@@ -169,17 +169,17 @@ A scene may combine a location reference with an image or video that depicts it.
 
 <scene>
 
-`` `<location ref="rusty_anchor" />
+    <location ref="rusty_anchor" />
 
-<img
-    src="tavern-interior"
-    layer="background" />
+    <img
+        src="tavern-interior"
+        layer="background" />
 
-<audio
-    src="tavern-ambience"
-    volume="0.4"
-    loop="true" />
-`` `
+    <audio
+        src="tavern-ambience"
+        volume="0.4"
+        loop="true" />
+
 </scene>
 
 The canon describes the location semantically.
