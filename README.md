@@ -325,8 +325,9 @@ A scene can contain visual and narrative information such as:
    atmosphere="warm sunset, silence, tranquility">
 
    ...
-```
+
 </scene>
+```
 
 The color attribute can be used as a visual hint for UI presentation and processing presets.
 
@@ -373,9 +374,9 @@ Characters are declared in the <cast> section.
 
 Example:
 
+``xml`
 <cast>
 
-``xml`
    <character
        id="alex"
        name="Alex"
@@ -388,8 +389,9 @@ Example:
        voiceEngine="edge-tts"
        pitch="1"
        rate="1" />
-```
+
 </cast>
+```
 
 A character can contain information about:
 
@@ -430,8 +432,9 @@ synchronized word groups.
 
 Example:
 
-<line
 ``xml`
+<line
+
    char="alex"
    startMode="afterPrevious"
    startDelay="0"
@@ -440,8 +443,9 @@ Example:
    wordDisplayDuration="100">
 
    Hello, world!
-```
+
 </line>
+```
 Timing
 
 Timing is an important part of OVML.
@@ -462,8 +466,9 @@ The block starts at an absolute position on the timeline.
 
 Example:
 
-<video
 ``xml`
+<video
+
    src="background-video"
    startMode="absolute"
    startTime="10"
@@ -484,8 +489,9 @@ other resources supported by a compatible implementation.
 
 Example:
 
-<video
 ``xml`
+<video
+
    src="asset_id"
    layer="background"
    volume="1"
@@ -508,8 +514,9 @@ OVML supports synchronized word presentation.
 
 Example:
 
-<line
 ``xml`
+<line
+
    wordByWord="true"
    wordByWordMode="cumulative"
    wordDisplayDuration="500">
@@ -519,8 +526,9 @@ Example:
    <w group="2">how</w>
    <w group="2">are</w>
    <w group="2">you?</w>
-```
+
 </line>
+```
 
 This can be used for:
 
@@ -539,9 +547,9 @@ An OVML document describes the desired structure and timing of an audiovisual ex
 It does not prescribe how a particular application must implement it.
 
 For example, the following:
-
+``xml`
 <video src="background" duration="10" />
-
+```
 does not require a specific video library.
 
 A Player may use:
@@ -558,7 +566,7 @@ The same principle applies to audio and TTS.
 OpenVML architecture
 
 The OpenVML ecosystem separates description from execution.
-
+``text`
                  OVML Standard
                       │
                       │ describes
@@ -575,7 +583,7 @@ The OpenVML ecosystem separates description from execution.
           │
           ▼
        Runtime
-
+```
 The standard defines the portable representation.
 
 The Player is responsible for execution.
@@ -591,7 +599,7 @@ OVML is particularly suitable for AI-assisted media production.
 An AI assistant can work with the structured document rather than directly manipulating rendered media.
 
 For example:
-
+``text`
 idea
   ↓
 story
@@ -611,7 +619,7 @@ timing
 OVML
   ↓
 OVMZ / OVMV
-
+```
 Because the content is structured, an AI system can modify individual elements without having to regenerate the entire
 project.
 
@@ -644,7 +652,7 @@ The parser/validator is responsible for determining whether an OVML document is 
 Creative or directorial decisions are not validation errors.
 
 For example, the standard can determine that:
-
+``xml`
 <scene>
     ...
 </scene>
@@ -660,9 +668,9 @@ The current standard is:
 OVML 2.2
 
 The version is declared in the root element:
-
+``xml`
 <ovml version="2.2" lang="en">
-
+```
 Implementations should use the declared version to determine which vocabulary and semantics are supported.
 
 Future versions may introduce new:
