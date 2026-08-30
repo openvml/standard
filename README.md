@@ -1,6 +1,6 @@
 # OpenVML Standard
 
-## OVML — Open Visual Media Language
+## OVML — Open Voice Markup Language
 
 **OVML** is an open, declarative XML-based standard for describing audiovisual content, interactive narratives, synchronized speech, media assets, scenes, timing, characters, and presentation.
 
