@@ -1,0 +1,34 @@
+<audio_processing id="baron_officer_crisp" name="Baron Guard Officer">
+    <eq enabled="true">
+        <band hz="60" gain_db="1"/>
+        <band hz="170" gain_db="0.5"/>
+        <band hz="310" gain_db="0"/>
+        <band hz="600" gain_db="1.5"/>
+        <band hz="1k" gain_db="2"/>
+        <band hz="3k" gain_db="3"/>
+        <band hz="6k" gain_db="1"/>
+        <band hz="12k" gain_db="0.5"/>
+    </eq>
+    <compressor enabled="true">
+        <threshold>-18</threshold>
+        <ratio>3.5</ratio>
+        <attack>5</attack>
+        <release>150</release>
+        <knee>4</knee>
+        <makeup_gain>1.2</makeup_gain>
+    </compressor>
+    <delay enabled="true">
+        <time>0.12</time>
+        <feedback>0.1</feedback>
+        <wet>0.08</wet>
+    </delay>
+    <gain enabled="true">
+        <db>0.8</db>
+    </gain>
+    <convert>
+        <format>mp3</format>
+        <bitrate>192</bitrate>
+        <sample_rate>44100</sample_rate>
+        <channels>2</channels>
+    </convert>
+</audio_processing>

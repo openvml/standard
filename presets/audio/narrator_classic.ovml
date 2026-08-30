@@ -1,0 +1,35 @@
+<audio_processing id="narrator_classic" name="Narrator Classic Warm">
+    <eq enabled="true">
+        <band hz="60" gain_db="1"/>
+        <band hz="170" gain_db="2"/>
+        <band hz="310" gain_db="1"/>
+        <band hz="600" gain_db="0"/>
+        <band hz="1k" gain_db="-0.5"/>
+        <band hz="3k" gain_db="-1.5"/>
+        <band hz="6k" gain_db="-0.5"/>
+        <band hz="12k" gain_db="1"/>
+    </eq>
+    <compressor enabled="true">
+        <threshold>-26</threshold>
+        <ratio>3</ratio>
+        <attack>7</attack>
+        <release>140</release>
+        <knee>6</knee>
+        <makeup_gain>2</makeup_gain>
+    </compressor>
+    <reverb enabled="true">
+        <room_size>0.25</room_size>
+        <damping>0.4</damping>
+        <wet>0.12</wet>
+        <dry>0.9</dry>
+    </reverb>
+    <gain enabled="true">
+        <db>1.5</db>
+    </gain>
+    <convert>
+        <format>mp3</format>
+        <bitrate>192</bitrate>
+        <sample_rate>44100</sample_rate>
+        <channels>2</channels>
+    </convert>
+</audio_processing>

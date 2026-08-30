@@ -1,0 +1,30 @@
+<video_processing id="video_mystic_veil" name="Mystic Veil">
+    <color enabled="true">
+        <brightness>-0.05</brightness>
+        <contrast>0.08</contrast>
+        <saturation>0.2</saturation>
+        <hue>-5</hue>
+        <gamma>1.1</gamma>
+    </color>
+    <blur enabled="true">
+        <radius>4</radius>
+    </blur>
+    <grayscale enabled="false">
+        <intensity>0</intensity>
+    </grayscale>
+    <invert enabled="false">
+        <intensity>0</intensity>
+    </invert>
+    <glow enabled="true">
+        <intensity>0.18</intensity>
+    </glow>
+    <lens_flare enabled="true">
+        <intensity>0.2</intensity>
+    </lens_flare>
+    <convert>
+        <format>mp4</format>
+        <codec>h265</codec>
+        <bitrate>14000</bitrate>
+        <resolution>1920x1080</resolution>
+    </convert>
+</video_processing>

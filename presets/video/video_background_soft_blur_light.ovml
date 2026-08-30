@@ -1,0 +1,34 @@
+<video_processing id="video_background_soft_blur_light" name="Background Soft Blur Light">
+    <color enabled="true">
+        <brightness>-0.05</brightness>
+        <contrast>-0.06</contrast>
+        <saturation>-0.45</saturation>
+        <hue>0</hue>
+        <gamma>0.95</gamma>
+    </color>
+    <blur enabled="true">
+        <radius>12</radius>
+    </blur>
+    <sharpen enabled="false">
+        <amount>0</amount>
+    </sharpen>
+    <grayscale enabled="false">
+        <intensity>0</intensity>
+    </grayscale>
+    <sepia enabled="false">
+        <intensity>0</intensity>
+    </sepia>
+    <fade enabled="true">
+        <in_duration>0.3</in_duration>
+        <out_duration>0.4</out_duration>
+    </fade>
+    <overlay enabled="true">
+        <opacity>0.25</opacity>
+        <x>0</x>
+        <y>0</y>
+    </overlay>
+    <convert>
+        <format>mp4</format>
+        <codec>h264</codec>
+    </convert>
+</video_processing>

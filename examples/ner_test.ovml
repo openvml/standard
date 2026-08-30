@@ -1,0 +1,309 @@
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ovml version="2.1" lang="en">
+  <meta>
+    <title>The Rusty Anchor</title>
+    <author>OpenVML Example</author>
+  </meta>
+
+  <cast>
+    <character id="narrator" name="Narrator" color="#6b7280"
+      voiceId="ru-RU-DmitryNeural"
+      gender="male" age="adult" role="narrator"
+      pitch="1" rate="1"
+      voiceEngine="edge_tts"
+      voiceName="ru-RU-DmitryNeural"
+      voiceLang="ru-RU"
+      audioProcessorId="e87e7740-9e62-4cee-82ea-b2819f42483b"
+      audioProcessorName="narrator_voice_preset"/>
+
+    <character id="mira" name="Mira" color="#ff69b4"
+      voiceId="ru-RU-SvetlanaNeural"
+      gender="female" age="adult" role="major"
+      pitch="1" rate="1"
+      voiceEngine="edge_tts"
+      voiceName="Young, melodic, and expressive voice."
+      voiceLang="ru-RU"
+      audioProcessorId="d7685e32-c3aa-49d9-a55c-473c95263e7f"
+      audioProcessorName="mira_young"
+      aliases="little singer|college student|blonde girl|fair-haired girl|young performer"
+      personality="Talented, sensitive, and easily annoyed by diva-like behavior."
+      backstory="A college student and talented young performer who is currently frustrated with the group's dynamics."/>
+
+    <character id="clara" name="Clara" color="#4169e1"
+      voiceId="en-AU-NatashaNeural"
+      gender="female" age="adult" role="major"
+      pitch="1" rate="1"
+      voiceEngine="edge_tts"
+      voiceName="Clear, analytical, and slightly dry tone."
+      voiceLang="en-AU"
+      audioProcessorId="abcc8b78-76ba-4be9-88c3-030ab686637b"
+      audioProcessorName="clara_young"
+      aliases="girl with glasses|top student|college scholar|nerd|bespectacled student"
+      personality="Methodical, logical, stern, and focused on work."
+      backstory="A brilliant student who manages the group's schedule and keeps a close eye on their performance metrics."/>
+
+    <character id="bran" name="Bran" color="#8b4513"
+      voiceId="en-CA-LiamNeural"
+      gender="male" age="elderly" role="major"
+      pitch="1" rate="1"
+      voiceEngine="edge_tts"
+      voiceName="Deep, raspy, and weathered voice."
+      voiceLang="en-CA"
+      audioProcessorId="9062820a-a061-45e1-ba74-dab08f723495"
+      audioProcessorName="bran_cold"
+      aliases="old boatswain|sea dog|veteran sailor|old deckhand|tattooed bruiser"
+      personality="Stoic, grizzled, and cynical, but experienced."
+      backstory="A veteran sailor with a rough exterior, currently dealing with financial uncertainty from his investment."/>
+
+    <character id="gareth" name="Gareth" color="#d2691e"
+      voiceId="en-GB-ThomasNeural"
+      gender="male" age="adult" role="major"
+      pitch="1" rate="1"
+      voiceEngine="edge_tts"
+      voiceName="Booming, hearty, and loud voice."
+      voiceLang="en-GB"
+      audioProcessorId="a56ca05f-1d95-41bc-b625-62abadd5edf0"
+      audioProcessorName="gareth_cold"
+      aliases="mustached cook|chef|kitchen master|owner of the galley"
+      personality="Boisterous, temperamental, and loud."
+      backstory="The owner of the tavern's kitchen, prone to shouting and protective of his equipment."/>
+
+    <character id="victor" name="Victor" color="#2f4f4f"
+      voiceId="en-GB-ThomasNeural"
+      gender="male" age="adult" role="major"
+      pitch="1" rate="1"
+      voiceEngine="edge_tts"
+      voiceName="Low, calm, and lazy voice."
+      voiceLang="en-GB"
+      audioProcessorId="22005c1f-fcd9-4e54-af41-4a044c16274c"
+      audioProcessorName="victor_cold"
+      aliases="grim bouncer|big guy|heavyset guard|enforcer|man keeping order"
+      personality="Lazy, calm, unimpressed, and firm."
+      backstory="The tavern's security, observant and unimpressed by the drama around him."/>
+
+    <character id="selene" name="Selene" color="#c71585"
+      voiceId="en-GB-MaisieNeural"
+      gender="female" age="adult" role="major"
+      pitch="1" rate="1"
+      voiceEngine="edge_tts"
+      voiceName="Sultry, confident, and slightly haughty."
+      voiceLang="en-GB"
+      audioProcessorId="d8e9e2b1-dd52-4c15-a64f-8f69713ee7c3"
+      audioProcessorName="selene_voice_preset"
+      aliases="demanding diva|model|brunette|tall fashionista|glamorous woman"
+      personality="Egotistical, demanding, and self-assured."
+      backstory="A confident model who values her own time and beauty above the group's efforts."/>
+  </cast>
+
+  <assets>
+    <asset id="18PIy9v41QCtsqZLyf4-nwGujGQVZZI1Y"
+      type="image"
+      src="18PIy9v41QCtsqZLyf4-nwGujGQVZZI1Y"/>
+    <asset id="1MNiJ0MZLlIjbqIkUnCFCwa0e41cHbMXm"
+      type="video"
+      src="1MNiJ0MZLlIjbqIkUnCFCwa0e41cHbMXm"/>
+  </assets>
+
+  <body>
+    <chapter id="ch_67124dc2" title="Character Alias Reference">
+
+      <video
+        src="https://cdn.pixabay.com/video/2023/04/28/160767-822213540_large.mp4"
+        name="ocean, beach, waves, breaking waves, drone, urban, european architecture, europe, coastal nature, nature, portugal, aerial"
+        layer="background"
+        duration="100"
+        processing="d65276e3-9175-4261-97b1-c55481bbf5e3"
+        sizePercent="100"/>
+
+      <audio
+        src="https://cdn.freesound.org/previews/33/33521_115660-hq.mp3"
+        name="Saltwells Nature Reserve (walking on gravel 02).wav"
+        volume="1"
+        layer="foreground"
+        sizePercent="100"/>
+
+      <video
+        src="1MNiJ0MZLlIjbqIkUnCFCwa0e41cHbMXm"
+        name="flowers_garden.mp4"
+        volume="1"
+        layer="foreground"
+        duration="10"
+        startTime="0"
+        startMode="duringCurrent"
+        processing="1a4da3f0-b721-453b-a552-9215db2b834f"
+        gridRow="2"
+        gridCol="2"
+        gridRowSpan="2"
+        gridColSpan="2"
+        sizePercent="30"/>
+
+      <p>
+        <line char="narrator">Mira — the little singer, college student, blonde girl, fair-haired girl, the young performer.</line>
+      </p>
+
+      <p>
+        <line char="narrator">Clara — the girl with glasses, top student, college scholar, the nerd, the bespectacled student.</line>
+      </p>
+
+      <p>
+        <line char="narrator">Bran — the old boatswain, sea dog, veteran sailor, old deckhand, tattooed bruiser.</line>
+      </p>
+
+      <p>
+        <line char="narrator">Gareth — the mustached cook, chef, kitchen master, the cook, owner of the galley.</line>
+      </p>
+
+      <p>
+        <line char="narrator">Victor — the grim bouncer, big guy, heavyset guard, enforcer, the man keeping order.</line>
+      </p>
+
+      <p>
+        <line char="narrator">Selene — the demanding diva, model, brunette, tall fashionista, glamorous woman.</line>
+      </p>
+
+      <img
+        src="18PIy9v41QCtsqZLyf4-nwGujGQVZZI1Y"
+        volume="1"
+        layer="foreground"
+        duration="10"
+        sizePercent="100"/>
+    </chapter>
+
+    <chapter id="ch_e3d74c02" title="Opening Scene">
+
+      <p>&lt;p&gt;In the dim back room of a harbor tavern called &lt;strong&gt;The Rusty Anchor&lt;/strong&gt;, an unlikely group had gathered around a corner table.&lt;/p&gt;</p>
+
+      <p>&lt;p&gt;&lt;strong&gt;Mira&lt;/strong&gt; nervously plucked at the strings of her silent guitar, feeling the jealous stare of &lt;strong&gt;Clara&lt;/strong&gt; behind her. The bespectacled student methodically cleaned her glasses while checking something in a battered notebook.&lt;/p&gt;</p>
+
+      <p>&lt;p&gt;A little farther away, &lt;strong&gt;Bran&lt;/strong&gt; sat lazily sipping cheap rum. His tattooed fingers tapped out an irregular rhythm against the wooden table.&lt;/p&gt;</p>
+
+      <p>&lt;p&gt;From the kitchen came the clatter of pots and pans. &lt;strong&gt;Gareth&lt;/strong&gt; was arguing with a supplier again, his booming voice carrying through the entire tavern.&lt;/p&gt;</p>
+
+      <p>&lt;p&gt;At the bar, &lt;strong&gt;Victor&lt;/strong&gt; looked bored, tossing a shiny coin into the air and catching it without even looking.&lt;/p&gt;</p>
+
+      <p>&lt;p&gt;A few minutes later, &lt;strong&gt;Selene&lt;/strong&gt; swept into the room with the confidence of someone who expected everyone to stop and watch her. Her bright makeup contrasted sharply with her strict business suit.&lt;/p&gt;</p>
+    </chapter>
+
+    <chapter id="ch_9af7a318" title="Dialogue">
+
+      <scene title="Tensions in the Rusty Anchor" mood="Tense">
+        <location>The Rusty Anchor Tavern</location>
+      </scene>
+
+      <p>
+        <line char="mira">— If we don't start the show in five minutes, the audience is going to tear this place apart,</line>
+        <line char="narrator">— squeaked the little singer, pushing a loose strand of blonde hair back into her ponytail.</line>
+      </p>
+
+      <p>
+        <line char="clara">— Calm down,</line>
+        <line char="narrator">— replied the girl with glasses dryly without looking up from her notes.</line>
+        <line char="clara">— According to my calculations, the crowd won't reach its peak for another thirty minutes.</line>
+      </p>
+
+      <p>
+        <line char="narrator">The old boatswain gave a low chuckle through his mustache and finished his rum.</line>
+        <line char="bran">— Your calculations forgot that three cargo ships were unloaded at the harbor today. There's nowhere left to stand.</line>
+      </p>
+
+      <p>
+        <line char="gareth">— And who's going to pay for all the broken dishes?</line>
+        <line char="narrator">— shouted the mustached cook from behind the kitchen curtain, waving a wooden ladle threateningly.</line>
+      </p>
+
+      <p>
+        <line char="narrator">A lazy voice came from the corner of the bar.</line>
+        <line char="victor">— Relax, chef. My people are controlling the entrance. We won't let anyone extra inside,</line>
+        <line char="narrator">— said the grim bouncer, catching the falling coin in his palm.</line>
+      </p>
+
+      <p>
+        <line char="narrator">At that moment the doors swung open, and the demanding diva entered the room with a theatrical sigh.</line>
+        <line char="selene">— What a dump. You can practically smell the cheap beer and stale ale.</line>
+      </p>
+
+      <p>
+        <line char="mira">— Oh, look who's finally here,</line>
+        <line char="narrator">— sneered the singer, deliberately turning her back toward the wall.</line>
+        <line char="mira">— We've only been waiting for you for an hour, Your Highness.</line>
+      </p>
+
+      <p>
+        <line char="selene">— Traffic, darling,</line>
+        <line char="narrator">— said the model, waving dismissively while inspecting her flawless manicure.</line>
+        <line char="selene">— Besides, my time is worth more than this little concert of yours.</line>
+      </p>
+
+      <p>
+        <line char="narrator">The top student finally closed her notebook and gave the newcomer a stern look.</line>
+        <line char="clara">— We're supposed to work as a team. Your ego is destroying the entire schedule.</line>
+      </p>
+
+      <p>
+        <line char="selene">— We've heard your lectures before,</line>
+        <line char="narrator">— snorted the brunette, walking toward the mirror beside the stage.</line>
+        <line char="selene">— Where's our sponsor?</line>
+      </p>
+
+      <p>
+        <line char="bran">— Our distinguished investor,</line>
+        <line char="narrator">— answered the sea dog,</line>
+        <line char="bran">— is currently calculating the losses from the last storm. So we'll have to manage on our own.</line>
+      </p>
+
+      <p>
+        <line char="gareth">— Wonderful,</line>
+        <line char="narrator">— muttered the chef, returning to the stove.</line>
+        <line char="gareth">— That means I'll probably miss another bonus for the banquet.</line>
+      </p>
+
+      <p>
+        <line char="bran">— Stop whining,</line>
+        <line char="narrator">— growled the tattooed bruiser, getting up from his chair.</line>
+        <line char="bran">— Hey, bartender, pour me another one before these strings snap.</line>
+      </p>
+
+      <p>
+        <line char="narrator">The big guy behind the counter silently filled a glass and pushed it toward the musician.</line>
+        <line char="victor">— That's the last one on the house. After that, you pay full price.</line>
+      </p>
+
+      <p>
+        <line char="selene">— Hey, the college student,</line>
+        <line char="narrator">— called the tall fashionista from the stage,</line>
+        <line char="selene">— hand me that microphone. And be careful. Don't dirty the cable.</line>
+      </p>
+
+      <p>
+        <line char="narrator">The fair-haired girl flushed with indignation.</line>
+        <line char="mira">— What, did your hands fall off? Get it yourself. I'm not your servant!</line>
+      </p>
+
+      <p>
+        <line char="victor">— Ladies, break it up,</line>
+        <line char="narrator">— the man keeping order said lazily.</line>
+        <line char="victor">— If you start a fight, I'll throw both of you out without severance pay.</line>
+      </p>
+
+      <p>
+        <line char="clara">— Fine,</line>
+        <line char="narrator">— sighed the bespectacled student.</line>
+        <line char="clara">— Guitarist ready. Vocals ready. We start on the first signal.</line>
+      </p>
+
+      <p>
+        <line char="narrator">From the kitchen came the final chord of the kitchen master's culinary symphony.</line>
+        <line char="gareth">— Good riddance! Just stay away from my serving counter!</line>
+      </p>
+
+      <p>
+        <line char="bran">— Well then, here we go,</line>
+        <line char="narrator">— grinned the old sailor, taking one final sip and winking at the fair-haired girl.</line>
+      </p>
+
+      <scene_end>Tensions in the Rusty Anchor</scene_end>
+    </chapter>
+  </body>
+</ovml>
+```

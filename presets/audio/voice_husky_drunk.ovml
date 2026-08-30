@@ -1,0 +1,34 @@
+<audio_processing id="voice_husky_drunk" name="Husky Drunkard">
+    <eq enabled="true">
+        <band hz="60" gain_db="-10"/>
+        <band hz="170" gain_db="-5"/>
+        <band hz="310" gain_db="2"/>
+        <band hz="600" gain_db="6"/>
+        <band hz="1k" gain_db="8"/>
+        <band hz="3k" gain_db="5"/>
+        <band hz="6k" gain_db="-4"/>
+        <band hz="12k" gain_db="-10"/>
+    </eq>
+    <compressor enabled="true">
+        <threshold>-22</threshold>
+        <ratio>5</ratio>
+        <attack>1</attack>
+        <release>50</release>
+        <knee>2</knee>
+        <makeup_gain>4</makeup_gain>
+    </compressor>
+    <chorus enabled="true">
+        <rate>5.5</rate>
+        <depth>0.6</depth>
+        <mix>0.4</mix>
+    </chorus>
+    <gain enabled="true">
+        <db>1</db>
+    </gain>
+    <convert>
+        <format>mp3</format>
+        <bitrate>192</bitrate>
+        <sample_rate>44100</sample_rate>
+        <channels>2</channels>
+    </convert>
+</audio_processing>

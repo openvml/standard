@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  OpenVML (Open Voice Markup Language) 2.2 — structural XSD
+  Canonical schema reference (see reference/validation.md, section 9).
+
+  This schema is STRUCTURAL and project-type agnostic:
+  it describes the XML shape, allowed values, identifiers and references.
+  Semantic interpretation and runtime behavior belong to the conforming Player.
+
+  Per the Standard, unknown elements and attributes SHOULD be ignored rather
+  than rejected (forward compatibility). Where a reference document leaves a
+  value open (e.g. emotion, role, timbre), this schema uses xs:string.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!-- ============================================================
+         Simple types
+    ============================================================ -->
+
+    <xs:simpleType name="startModeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="afterPrevious"/>
+            <xs:enumeration value="absolute"/>
+            <xs:enumeration value="duringCurrent"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="layerType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="background"/>
+            <xs:enumeration value="foreground"/>
+            <xs:enumeration value="overlay"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="positionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="right"/>
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="offscreen-left"/>
+            <xs:enumeration value="offscreen-right"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="textAlignType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="right"/>
+            <xs:enumeration value="justify"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="wordByWordModeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="single"/>
+            <xs:enumeration value="cumulative"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="transitionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="fade"/>
+            <xs:enumeration value="dissolve"/>
+            <xs:enumeration value="cut"/>
+            <xs:enumeration value="slide-left"/>
+            <xs:enumeration value="slide-right"/>
+            <xs:enumeration value="slide-up"/>
+            <xs:enumeration value="slide-down"/>
+            <xs:enumeration value="zoom-in"/>
+            <xs:enumeration value="zoom-out"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="sceneTransitionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="fade"/>
+            <xs:enumeration value="cut"/>
+            <xs:enumeration value="dissolve"/>
+            <xs:enumeration value="wipe"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="timeOfDayType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="morning"/>
+            <xs:enumeration value="afternoon"/>
+            <xs:enumeration value="evening"/>
+            <xs:enumeration value="night"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="weatherType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="clear"/>
+            <xs:enumeration value="cloudy"/>
+            <xs:enumeration value="rainy"/>
+            <xs:enumeration value="foggy"/>
+            <xs:enumeration value="snowy"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="moodType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="calm"/>
+            <xs:enumeration value="tense"/>
+            <xs:enumeration value="mysterious"/>
+            <xs:enumeration value="romantic"/>
+            <xs:enumeration value="dramatic"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="fitModeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="fit"/>
+            <xs:enumeration value="fill"/>
+            <xs:enumeration value="stretch"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="overlayModeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="percent"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="subtitleTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="srt"/>
+            <xs:enumeration value="vtt"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="secondsType">
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="millisecondsType">
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- ============================================================
+         Shared attribute groups
+    ============================================================ -->
+
+    <xs:attributeGroup name="timingAttrs">
+        <xs:attribute name="startMode" type="startModeType" default="afterPrevious"/>
+        <xs:attribute name="startTime" type="xs:float"/>
+        <xs:attribute name="startDelay" type="xs:float"/>
+        <xs:attribute name="duration" type="xs:float"/>
+        <xs:attribute name="trimStart" type="xs:float"/>
+        <xs:attribute name="loop" type="xs:boolean"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="gridAttrs">
+        <xs:attribute name="gridRow" type="xs:integer"/>
+        <xs:attribute name="gridCol" type="xs:integer"/>
+        <xs:attribute name="gridRowSpan" type="xs:integer"/>
+        <xs:attribute name="gridColSpan" type="xs:integer"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="voiceParamsAttrs">
+        <xs:attribute name="pitch" type="xs:string"/>
+        <xs:attribute name="rate" type="xs:string"/>
+        <xs:attribute name="volume" type="xs:string"/>
+        <xs:attribute name="timbre" type="xs:string"/>
+    </xs:attributeGroup>
+
+    <!-- Permission-slot placeholders for forward compatibility. -->
+    <xs:attributeGroup name="forwardCompatAttrs">
+        <xs:anyAttribute processContents="lax"/>
+    </xs:attributeGroup>
+
+    <!-- ============================================================
+         Processing directives (global, reusable)
+    ============================================================ -->
+
+    <!-- <color> — color correction -->
+    <xs:element name="color">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="brightness" type="xs:float" minOccurs="0"/>
+                <xs:element name="contrast" type="xs:float" minOccurs="0"/>
+                <xs:element name="saturation" type="xs:float" minOccurs="0"/>
+                <xs:element name="hue" type="xs:float" minOccurs="0"/>
+                <xs:element name="gamma" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <grayscale> -->
+    <xs:element name="grayscale">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="intensity" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <invert> -->
+    <xs:element name="invert">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="intensity" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <sepia> -->
+    <xs:element name="sepia">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="intensity" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <blur> -->
+    <xs:element name="blur">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="radius" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <sharpen> -->
+    <xs:element name="sharpen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="amount" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <rotate> -->
+    <xs:element name="rotate">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="angle" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <flip> — attribute form and child-element form are both accepted -->
+    <xs:element name="flip">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="horizontal" type="xs:boolean" minOccurs="0"/>
+                <xs:element name="vertical" type="xs:boolean" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attribute name="horizontal" type="xs:boolean"/>
+            <xs:attribute name="vertical" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <crop> -->
+    <xs:element name="crop">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="x" type="xs:float" minOccurs="0"/>
+                <xs:element name="y" type="xs:float" minOccurs="0"/>
+                <xs:element name="width" type="xs:float" minOccurs="0"/>
+                <xs:element name="height" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <resize> — video form (mode) and image form (keep_aspect) both accepted -->
+    <xs:element name="resize">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="width" type="xs:int" minOccurs="0"/>
+                <xs:element name="height" type="xs:int" minOccurs="0"/>
+                <xs:element name="mode" type="fitModeType" minOccurs="0"/>
+                <xs:element name="keep_aspect" type="xs:boolean" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <speed> (video) -->
+    <xs:element name="speed">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="factor" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <fade> -->
+    <xs:element name="fade">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="in_duration" type="secondsType" minOccurs="0"/>
+                <xs:element name="out_duration" type="secondsType" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <overlay> -->
+    <xs:element name="overlay">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="src" type="xs:string" minOccurs="0"/>
+                <xs:element name="opacity" type="xs:float" minOccurs="0"/>
+                <xs:element name="x" type="xs:float" minOccurs="0"/>
+                <xs:element name="y" type="xs:float" minOccurs="0"/>
+                <xs:element name="width" type="xs:float" minOccurs="0"/>
+                <xs:element name="height" type="xs:float" minOccurs="0"/>
+                <xs:element name="mode" type="overlayModeType" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <chroma_key> (video) -->
+    <xs:element name="chroma_key">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="similarity" type="xs:float" minOccurs="0"/>
+                <xs:element name="color" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <text> (video) -->
+    <xs:element name="text">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="content" type="xs:string" minOccurs="0"/>
+                <xs:element name="size" type="xs:float" minOccurs="0"/>
+                <xs:element name="color" type="xs:string" minOccurs="0"/>
+                <xs:element name="font" type="xs:string" minOccurs="0"/>
+                <xs:element name="x" type="xs:float" minOccurs="0"/>
+                <xs:element name="y" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <convert> -->
+    <xs:element name="convert">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="format" type="xs:string" minOccurs="0"/>
+                <xs:element name="codec" type="xs:string" minOccurs="0"/>
+                <xs:element name="quality" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <eq> and <band> (audio) -->
+    <xs:element name="band">
+        <xs:complexType>
+            <xs:attribute name="hz" type="xs:float"/>
+            <xs:attribute name="gain_db" type="xs:float"/>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="eq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="band" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <compressor> (audio) -->
+    <xs:element name="compressor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="threshold" type="xs:float" minOccurs="0"/>
+                <xs:element name="ratio" type="xs:float" minOccurs="0"/>
+                <xs:element name="attack" type="xs:float" minOccurs="0"/>
+                <xs:element name="release" type="xs:float" minOccurs="0"/>
+                <xs:element name="knee" type="xs:float" minOccurs="0"/>
+                <xs:element name="makeup_gain" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- <gain> (audio) -->
+    <xs:element name="gain">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="db" type="xs:float" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Processing container types -->
+    <xs:complexType name="VideoProcessingType">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="color"/>
+                <xs:element ref="grayscale"/>
+                <xs:element ref="invert"/>
+                <xs:element ref="sepia"/>
+                <xs:element ref="blur"/>
+                <xs:element ref="sharpen"/>
+                <xs:element ref="rotate"/>
+                <xs:element ref="flip"/>
+                <xs:element ref="crop"/>
+                <xs:element ref="resize"/>
+                <xs:element ref="speed"/>
+                <xs:element ref="fade"/>
+                <xs:element ref="overlay"/>
+                <xs:element ref="chroma_key"/>
+                <xs:element ref="text"/>
+                <xs:element ref="convert"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="enabled" type="xs:boolean"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="ImageProcessingType">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="color"/>
+                <xs:element ref="grayscale"/>
+                <xs:element ref="invert"/>
+                <xs:element ref="sepia"/>
+                <xs:element ref="blur"/>
+                <xs:element ref="sharpen"/>
+                <xs:element ref="rotate"/>
+                <xs:element ref="flip"/>
+                <xs:element ref="crop"/>
+                <xs:element ref="resize"/>
+                <xs:element ref="fade"/>
+                <xs:element ref="overlay"/>
+                <xs:element ref="convert"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="enabled" type="xs:boolean"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="AudioProcessingType">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="eq"/>
+                <xs:element ref="compressor"/>
+                <xs:element ref="gain"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="enabled" type="xs:boolean"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- ============================================================
+         <meta>
+    ============================================================ -->
+
+    <xs:complexType name="PreferencesType">
+        <xs:sequence>
+            <xs:element name="showSubtitles" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="subtitleFontSize" type="xs:integer" minOccurs="0"/>
+            <xs:element name="subtitleBg" type="xs:string" minOccurs="0"/>
+            <xs:element name="subtitleColor" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="MetaVideoType">
+        <xs:sequence>
+            <xs:element name="aspect_ratio" type="xs:string" minOccurs="0"/>
+            <xs:element name="resolution" type="xs:string" minOccurs="0"/>
+            <xs:element name="fps" type="xs:float" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="MetaType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string" minOccurs="0"/>
+            <xs:element name="author" type="xs:string" minOccurs="0"/>
+            <xs:element name="narrator" type="xs:string" minOccurs="0"/>
+            <xs:element name="language" type="xs:string" minOccurs="0"/>
+            <xs:element name="preferences" type="PreferencesType" minOccurs="0"/>
+            <xs:element name="video" type="MetaVideoType" minOccurs="0"/>
+            <xs:any processContents="lax" namespace="##any" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- ============================================================
+         <settings>
+    ============================================================ -->
+
+    <xs:complexType name="TtsType">
+        <xs:sequence>
+            <xs:element name="engine" type="xs:string" minOccurs="0"/>
+            <xs:element name="default_language" type="xs:string" minOccurs="0"/>
+            <xs:element name="default_voice" type="xs:string" minOccurs="0"/>
+            <xs:element name="default_speed" type="xs:float" minOccurs="0"/>
+            <xs:element name="default_pitch" type="xs:float" minOccurs="0"/>
+            <xs:element name="default_volume" type="xs:float" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="RenderType">
+        <xs:sequence>
+            <xs:element name="output_format" type="xs:string" minOccurs="0"/>
+            <xs:element name="bitrate" type="xs:string" minOccurs="0"/>
+            <xs:element name="sample_rate" type="xs:integer" minOccurs="0"/>
+            <xs:element name="channels" type="xs:integer" minOccurs="0"/>
+            <xs:element name="normalize_audio" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="MarkersType">
+        <xs:sequence>
+            <xs:element name="enable_chapters" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="enable_cue_sheets" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="chapter_image_format" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="SettingsTransitionsType">
+        <xs:sequence>
+            <xs:element name="default" type="sceneTransitionType" minOccurs="0"/>
+            <xs:element name="duration" type="xs:float" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="SettingsType">
+        <xs:sequence>
+            <xs:element name="tts" type="TtsType" minOccurs="0"/>
+            <xs:element name="render" type="RenderType" minOccurs="0"/>
+            <xs:element name="markers" type="MarkersType" minOccurs="0"/>
+            <xs:element name="transitions" type="SettingsTransitionsType" minOccurs="0"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="audio_processing" type="AudioProcessingType"/>
+                <xs:element name="video_processing" type="VideoProcessingType"/>
+                <xs:element name="image_processing" type="ImageProcessingType"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- ============================================================
+         <cast> / <character>
+    ============================================================ -->
+
+    <xs:complexType name="AliasesType">
+        <xs:sequence>
+            <xs:element name="alias" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="VoiceType">
+        <xs:attribute name="engine" type="xs:string"/>
+        <xs:attribute name="id" type="xs:string"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="lang" type="xs:string"/>
+        <xs:attributeGroup ref="voiceParamsAttrs"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="CharacterType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="aliases" type="AliasesType"/>
+            <xs:element name="personality" type="xs:string"/>
+            <xs:element name="backstory" type="xs:string"/>
+            <xs:element name="timbre" type="xs:string"/>
+            <xs:element name="voice" type="VoiceType"/>
+            <xs:element name="voice_params">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:any processContents="lax" namespace="##any"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="gender" type="xs:string"/>
+        <xs:attribute name="age" type="xs:string"/>
+        <xs:attribute name="role" type="xs:string"/>
+        <xs:attribute name="color" type="xs:string"/>
+        <xs:attribute name="aliases" type="xs:string"/>
+        <xs:attribute name="personality" type="xs:string"/>
+        <xs:attribute name="backstory" type="xs:string"/>
+        <xs:attribute name="voiceId" type="xs:string"/>
+        <xs:attribute name="voiceName" type="xs:string"/>
+        <xs:attribute name="voiceLang" type="xs:string"/>
+        <xs:attribute name="voiceEngine" type="xs:string"/>
+        <xs:attributeGroup ref="voiceParamsAttrs"/>
+        <xs:attribute name="audioProcessorId" type="xs:string"/>
+        <xs:attribute name="audioProcessorName" type="xs:string"/>
+        <xs:attribute name="videoProcessorId" type="xs:string"/>
+        <xs:attribute name="videoProcessorName" type="xs:string"/>
+        <xs:attribute name="videoProcessorFile" type="xs:string"/>
+        <xs:attribute name="imageProcessorId" type="xs:string"/>
+        <xs:attribute name="imageProcessorName" type="xs:string"/>
+        <xs:attribute name="imageProcessorFile" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="CastType">
+        <xs:sequence>
+            <xs:element name="character" type="CharacterType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- ============================================================
+         <assets>
+    ============================================================ -->
+
+    <xs:complexType name="AssetCommonChildrenType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="src" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="width" type="xs:integer"/>
+            <xs:element name="height" type="xs:integer"/>
+            <xs:element name="duration" type="secondsType"/>
+            <xs:element name="loop" type="xs:boolean"/>
+            <xs:element name="volume" type="xs:float"/>
+            <xs:element name="fade_in" type="secondsType"/>
+            <xs:element name="fade_out" type="secondsType"/>
+            <xs:element name="category" type="xs:string"/>
+            <xs:element name="tags">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tag" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="AudioAssetType">
+        <xs:complexContent>
+            <xs:extension base="AssetCommonChildrenType">
+                <xs:attribute name="id" type="xs:ID"/>
+                <xs:attribute name="type" type="xs:string"/>
+                <xs:attribute name="name" type="xs:string"/>
+                <xs:attributeGroup ref="forwardCompatAttrs"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ImageAssetType">
+        <xs:complexContent>
+            <xs:extension base="AssetCommonChildrenType">
+                <xs:attribute name="id" type="xs:ID"/>
+                <xs:attribute name="type" type="xs:string"/>
+                <xs:attribute name="name" type="xs:string"/>
+                <xs:attributeGroup ref="forwardCompatAttrs"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="VideoAssetType">
+        <xs:complexContent>
+            <xs:extension base="AssetCommonChildrenType">
+                <xs:attribute name="id" type="xs:ID"/>
+                <xs:attribute name="type" type="xs:string"/>
+                <xs:attribute name="name" type="xs:string"/>
+                <xs:attributeGroup ref="forwardCompatAttrs"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="SubtitleType" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="src" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="lang" type="xs:language"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="type" type="subtitleTypeType"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="lang" type="xs:language"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="AssetsType">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="audio" type="AudioAssetType"/>
+                <xs:element name="image" type="ImageAssetType"/>
+                <xs:element name="video" type="VideoAssetType"/>
+                <xs:element name="subtitle" type="SubtitleType"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- ============================================================
+         <world>
+    ============================================================ -->
+
+    <xs:complexType name="LocationType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="era" type="xs:string"/>
+            <xs:element name="style" type="xs:string"/>
+            <xs:element name="palette" type="xs:string"/>
+            <xs:element name="props" type="xs:string"/>
+            <xs:element name="atmosphere" type="xs:string"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="WorldType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="locations" type="LocationContainerType"/>
+            <xs:element name="timeline">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:any processContents="lax" namespace="##any" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="factions">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:any processContents="lax" namespace="##any" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="LocationContainerType">
+        <xs:sequence>
+            <xs:element name="location" type="LocationType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ============================================================
+         <script> and block-level content
+    ============================================================ -->
+
+    <xs:complexType name="KeyframesType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:any processContents="lax" namespace="##any"/>
+        </xs:choice>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="WType" mixed="true">
+        <xs:attribute name="stress" type="xs:string"/>
+        <xs:attribute name="alias" type="xs:string"/>
+        <xs:attribute name="ph" type="xs:string"/>
+        <xs:attribute name="group" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <break> — self-closing; MUST NOT contain children -->
+    <xs:complexType name="BreakType">
+        <xs:attribute name="time" type="millisecondsType"/>
+        <xs:attribute name="duration" type="millisecondsType"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <line> -->
+    <xs:complexType name="LineType" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="keyframes" type="KeyframesType"/>
+            <xs:element name="w" type="WType"/>
+        </xs:choice>
+        <xs:attribute name="char" type="xs:IDREF"/>
+        <xs:attribute name="emotion" type="xs:string"/>
+        <xs:attribute name="intonation" type="xs:string"/>
+        <xs:attributeGroup ref="voiceParamsAttrs"/>
+        <xs:attributeGroup ref="timingAttrs"/>
+        <xs:attribute name="fontFamily" type="xs:string"/>
+        <xs:attribute name="fontSize" type="xs:integer"/>
+        <xs:attribute name="fontWeight" type="xs:string"/>
+        <xs:attribute name="fontColor" type="xs:string"/>
+        <xs:attribute name="textBackground" type="xs:string"/>
+        <xs:attribute name="textAlign" type="textAlignType"/>
+        <xs:attribute name="textUppercase" type="xs:boolean"/>
+        <xs:attribute name="textShadow" type="xs:string"/>
+        <xs:attribute name="wordByWord" type="xs:boolean"/>
+        <xs:attribute name="wordByWordMode" type="wordByWordModeType"/>
+        <xs:attribute name="wordDisplayDuration" type="millisecondsType"/>
+        <xs:attribute name="marquee" type="xs:boolean"/>
+        <xs:attributeGroup ref="gridAttrs"/>
+        <xs:attribute name="enter" type="transitionType"/>
+        <xs:attribute name="exit" type="transitionType"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <p> — groups lines; narration and dialogue via line/@char -->
+    <xs:complexType name="PType" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="line" type="LineType"/>
+            <xs:element name="w" type="WType"/>
+            <xs:element name="break" type="BreakType"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="char" type="xs:IDREF"/>
+        <xs:attribute name="emotion" type="xs:string"/>
+        <xs:attribute name="intonation" type="xs:string"/>
+        <xs:attribute name="emphasis" type="xs:string"/>
+        <xs:attribute name="emphasis_level" type="xs:string"/>
+        <xs:attribute name="marker" type="xs:string"/>
+        <xs:attribute name="to" type="xs:string"/>
+        <xs:attribute name="pause_before" type="xs:float"/>
+        <xs:attribute name="pause_after" type="xs:float"/>
+        <xs:attributeGroup ref="voiceParamsAttrs"/>
+        <xs:attributeGroup ref="timingAttrs"/>
+        <xs:attributeGroup ref="gridAttrs"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- Legacy simplified-schema aliases: <narrator>/<dialogue> behave as <p> -->
+    <xs:complexType name="PlainBlockType" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:any processContents="lax" namespace="##any"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="char" type="xs:IDREF"/>
+        <xs:attribute name="emotion" type="xs:string"/>
+        <xs:attribute name="intonation" type="xs:string"/>
+        <xs:attribute name="mood" type="xs:string"/>
+        <xs:attribute name="voice" type="xs:string"/>
+        <xs:attribute name="internal" type="xs:boolean"/>
+        <xs:attribute name="emphasis" type="xs:string"/>
+        <xs:attribute name="emphasis_level" type="xs:string"/>
+        <xs:attribute name="to" type="xs:string"/>
+        <xs:attribute name="pause_before" type="xs:float"/>
+        <xs:attribute name="pause_after" type="xs:float"/>
+        <xs:attributeGroup ref="voiceParamsAttrs"/>
+        <xs:attributeGroup ref="timingAttrs"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <img> (script render instruction; <image> is the asset declaration) -->
+    <xs:complexType name="ImgType">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="color"/>
+                <xs:element ref="grayscale"/>
+                <xs:element ref="invert"/>
+                <xs:element ref="sepia"/>
+                <xs:element ref="blur"/>
+                <xs:element ref="sharpen"/>
+                <xs:element ref="rotate"/>
+                <xs:element ref="flip"/>
+                <xs:element ref="crop"/>
+                <xs:element ref="resize"/>
+                <xs:element ref="fade"/>
+                <xs:element ref="overlay"/>
+                <xs:element ref="convert"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="src" type="xs:string" use="required"/>
+        <xs:attribute name="action" type="xs:string"/>
+        <xs:attribute name="animation" type="xs:string"/>
+        <xs:attribute name="layer" type="layerType"/>
+        <xs:attribute name="sizePercent" type="xs:float"/>
+        <xs:attribute name="processing" type="xs:string"/>
+        <xs:attributeGroup ref="timingAttrs"/>
+        <xs:attributeGroup ref="gridAttrs"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <video> (media element) -->
+    <xs:complexType name="VideoType">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="color"/>
+                <xs:element ref="grayscale"/>
+                <xs:element ref="invert"/>
+                <xs:element ref="sepia"/>
+                <xs:element ref="blur"/>
+                <xs:element ref="sharpen"/>
+                <xs:element ref="rotate"/>
+                <xs:element ref="flip"/>
+                <xs:element ref="crop"/>
+                <xs:element ref="resize"/>
+                <xs:element ref="speed"/>
+                <xs:element ref="fade"/>
+                <xs:element ref="overlay"/>
+                <xs:element ref="chroma_key"/>
+                <xs:element ref="text"/>
+                <xs:element ref="convert"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="src" type="xs:string" use="required"/>
+        <xs:attribute name="action" type="xs:string"/>
+        <xs:attribute name="layer" type="layerType"/>
+        <xs:attribute name="sizePercent" type="xs:float"/>
+        <xs:attribute name="processing" type="xs:string"/>
+        <xs:attributeGroup ref="timingAttrs"/>
+        <xs:attributeGroup ref="gridAttrs"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <audio> (media element) -->
+    <xs:complexType name="AudioType">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="eq"/>
+                <xs:element ref="compressor"/>
+                <xs:element ref="gain"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="src" type="xs:string" use="required"/>
+        <xs:attribute name="action" type="xs:string"/>
+        <xs:attribute name="layer" type="layerType"/>
+        <xs:attribute name="volume" type="xs:float"/>
+        <xs:attribute name="processing" type="xs:string"/>
+        <xs:attributeGroup ref="timingAttrs"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <transition> (script element) -->
+    <xs:complexType name="TransitionType">
+        <xs:attribute name="type" type="sceneTransitionType" use="required"/>
+        <xs:attribute name="duration" type="xs:float"/>
+        <xs:attribute name="from" type="xs:string"/>
+        <xs:attribute name="to" type="xs:string"/>
+        <xs:attribute name="direction" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <camera> -->
+    <xs:complexType name="CameraType">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="shot" type="xs:string"/>
+        <xs:attribute name="framing" type="xs:string"/>
+        <xs:attribute name="movement" type="xs:string"/>
+        <xs:attributeGroup ref="timingAttrs"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <blocking> -->
+    <xs:complexType name="BlockingType">
+        <xs:sequence>
+            <xs:element name="character" type="BlockingCharacterType"
+                        minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="BlockingCharacterType">
+        <xs:attribute name="ref" type="xs:IDREF"/>
+        <xs:attribute name="position" type="positionType"/>
+        <xs:attribute name="look_at" type="xs:IDREF"/>
+        <xs:attribute name="addresses" type="xs:string"/>
+        <xs:attribute name="reacts_to" type="xs:IDREF"/>
+        <xs:attribute name="enters" type="xs:boolean"/>
+        <xs:attribute name="exits" type="xs:boolean"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <characters> (scene-level; alternative to <blocking>) -->
+    <xs:complexType name="SceneCharactersType">
+        <xs:sequence>
+            <xs:element name="char" type="SceneCharType"
+                        minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="SceneCharType">
+        <xs:attribute name="ref" type="xs:IDREF"/>
+        <xs:attribute name="emotion" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <variation> -->
+    <xs:complexType name="VariationType">
+        <xs:sequence>
+            <xs:element name="time" type="timeOfDayType" minOccurs="0"/>
+            <xs:element name="weather" type="weatherType" minOccurs="0"/>
+            <xs:any processContents="lax" namespace="##any" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <scene> -->
+    <xs:complexType name="SceneType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="camera" type="CameraType"/>
+            <xs:element name="blocking" type="BlockingType"/>
+            <xs:element name="characters" type="SceneCharactersType"/>
+            <xs:element name="variation" type="VariationType"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="p" type="PType"/>
+            <xs:element name="line" type="LineType"/>
+            <xs:element name="img" type="ImgType"/>
+            <xs:element name="video" type="VideoType"/>
+            <xs:element name="audio" type="AudioType"/>
+            <xs:element name="subtitle" type="SubtitleType"/>
+            <xs:element name="break" type="BreakType"/>
+            <xs:element name="transition" type="TransitionType"/>
+            <xs:element name="narrator" type="PlainBlockType"/>
+            <xs:element name="dialogue" type="PlainBlockType"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="title" type="xs:string"/>
+        <xs:attribute name="color" type="xs:string"/>
+        <xs:attribute name="time" type="timeOfDayType"/>
+        <xs:attribute name="weather" type="weatherType"/>
+        <xs:attribute name="mood" type="moodType"/>
+        <xs:attribute name="atmosphere" type="xs:string"/>
+        <xs:attribute name="transition" type="sceneTransitionType"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- <chapter> -->
+    <xs:complexType name="ChapterType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="scene" type="SceneType"/>
+            <xs:element name="p" type="PType"/>
+            <xs:element name="line" type="LineType"/>
+            <xs:element name="img" type="ImgType"/>
+            <xs:element name="video" type="VideoType"/>
+            <xs:element name="audio" type="AudioType"/>
+            <xs:element name="break" type="BreakType"/>
+            <xs:element name="transition" type="TransitionType"/>
+            <xs:element name="narrator" type="PlainBlockType"/>
+            <xs:element name="dialogue" type="PlainBlockType"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="title" type="xs:string"/>
+        <xs:attribute name="transition" type="sceneTransitionType"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="ScriptType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="chapter" type="ChapterType"/>
+            <xs:element name="scene" type="SceneType"/>
+            <xs:element name="p" type="PType"/>
+            <xs:element name="line" type="LineType"/>
+            <xs:element name="img" type="ImgType"/>
+            <xs:element name="video" type="VideoType"/>
+            <xs:element name="audio" type="AudioType"/>
+            <xs:element name="subtitle" type="SubtitleType"/>
+            <xs:element name="break" type="BreakType"/>
+            <xs:element name="transition" type="TransitionType"/>
+            <xs:element name="narrator" type="PlainBlockType"/>
+            <xs:element name="dialogue" type="PlainBlockType"/>
+        </xs:choice>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- ============================================================
+         Root element
+    ============================================================ -->
+
+    <xs:element name="ovml">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="meta" type="MetaType" minOccurs="0"/>
+                <xs:element name="settings" type="SettingsType" minOccurs="0"/>
+                <xs:element name="cast" type="CastType" minOccurs="0"/>
+                <xs:element name="assets" type="AssetsType" minOccurs="0"/>
+                <xs:element name="world" type="WorldType" minOccurs="0"/>
+                <xs:element name="script" type="ScriptType" minOccurs="0"/>
+                <xs:any processContents="lax" namespace="##any" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:string"/>
+            <xs:attribute name="lang" type="xs:language"/>
+            <xs:attributeGroup ref="forwardCompatAttrs"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

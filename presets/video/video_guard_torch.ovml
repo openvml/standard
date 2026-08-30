@@ -1,0 +1,27 @@
+<video_processing id="video_guard_torch" name="Gate Guard Torchlight">
+    <color enabled="true">
+        <brightness>-0.08</brightness>
+        <contrast>0.2</contrast>
+        <saturation>-0.15</saturation>
+        <hue>-10</hue>
+        <gamma>0.9</gamma>
+    </color>
+    <sepia enabled="true">
+        <intensity>0.25</intensity>
+    </sepia>
+    <grain enabled="true">
+        <intensity>0.1</intensity>
+    </grain>
+    <vignette enabled="true">
+        <amount>0.3</amount>
+    </vignette>
+    <blur enabled="false">
+        <radius>0</radius>
+    </blur>
+    <convert>
+        <format>mp4</format>
+        <codec>h264</codec>
+        <bitrate>9000</bitrate>
+        <resolution>1920x1080</resolution>
+    </convert>
+</video_processing>
