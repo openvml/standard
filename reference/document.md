@@ -968,23 +968,23 @@ All of them can work with the same OVML document.
 
 ## 24. Related Documents
 
-1. [`spec/OVML-2.2.md`](spec/OVML-2.2.md) — normative specification
-2. [`concepts/scenes-and-world.md`](concepts/scenes-and-world.md) — scene and world canon concepts
-3. [`concepts/camera.md`](concepts/camera.md) — camera model
-4. [`concepts/timeline-and-blocks.md`](concepts/timeline-and-blocks.md)  — timing model
-5. [`reference/meta.md`](reference/meta.md)  — metadata
-7. [`reference/cast.md`](reference/cast.md)  — characters
-8. [`reference/assets.md`](reference/assets.md)  — assets and resources
-9. [`reference/world.md`](reference/world.md) — world canon
-10. [`reference/locations.md`](reference/locations.md) — canonical locations
-11. [`reference/body.md`](reference/body.md) — document body
-12. [`reference/chapter.md`](reference/chapter.md) — chapter model
-13. [`reference/scene.md`](reference/scene.md) — scene model
-14. [`reference/blocking.md`](reference/blocking.md) — blocking
-15. [`reference/line.md`](reference/line.md) — line model
-16. [`reference/paragraph.md`](reference/paragraph.md)  — paragraph model
-17. [`reference/media.md`](reference/media.md) — media elements
-18. [`reference/layers.md`](reference/layers.md)  — layers
-19. [`reference/subtitle.md`](reference/subtitle.md) — subtitles
-20. [`reference/timing.md`](reference/timing.md)  — timing semantics
-21. [`reference/break.md`](reference/break.md) — pauses
+1. [`spec/OVML-2.2.md`](../spec/OVML-2.2.md) — normative specification
+2. [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md) — scene and world canon concepts
+3. [`concepts/camera.md`](../concepts/camera.md) — camera model
+4. [`concepts/timeline-and-blocks.md`](../concepts/timeline-and-blocks.md)  — timing model
+5. [`reference/meta.md`](meta.md)  — metadata
+7. [`reference/cast.md`](cast.md)  — characters
+8. [`reference/assets.md`](assets.md)  — assets and resources
+9. [`reference/world.md`](world.md) — world canon
+10. [`reference/locations.md`](locations.md) — canonical locations
+11. [`reference/body.md`](body.md) — document body
+12. [`reference/chapter.md`](chapter.md) — chapter model
+13. [`reference/scene.md`](scene.md) — scene model
+14. [`reference/blocking.md`](blocking.md) — blocking
+15. [`reference/line.md`](line.md) — line model
+16. [`reference/paragraph.md`](paragraph.md)  — paragraph model
+17. [`reference/media.md`](media.md) — media elements
+18. [`reference/layers.md`](layers.md)  — layers
+19. [`reference/subtitle.md`](subtitle.md) — subtitles
+20. [`reference/timing.md`](timing.md)  — timing semantics
+21. [`reference/break.md`](break.md) — pauses
