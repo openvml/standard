@@ -788,6 +788,7 @@ The same document model can represent different types of content.
 
 For example:
 
+```
 Lecture
     chapter
         scene
@@ -850,6 +851,7 @@ Podcast
             line
             audio
 
+```
 OVML does not require a separate file format for each of these use cases.
 
 The declarative model allows one standard to represent many different production workflows.
@@ -965,7 +967,7 @@ FFmpeg + GPU
 All of them can work with the same OVML document.
 
 ## 24. Related Documents
-
+```
 spec/OVML-2.2.md — normative specification
 concepts/scenes-and-world.md — scene and world canon concepts
 concepts/camera.md — camera model
@@ -986,3 +988,4 @@ reference/layers.md — layers
 reference/subtitle.md — subtitles
 reference/timing.md — timing semantics
 reference/break.md — pauses
+```
