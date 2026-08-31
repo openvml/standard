@@ -35,6 +35,7 @@ Example:
 Attributes:
 
 | Attribute | Type | Required | Description |
+| --------- | ---- | ---------------------- |
 | lang | language tag | No | Language of the subtitle text |
 
 The text content is preserved as authored content.
