@@ -967,25 +967,24 @@ FFmpeg + GPU
 All of them can work with the same OVML document.
 
 ## 24. Related Documents
-```
-spec/OVML-2.2.md — normative specification
-concepts/scenes-and-world.md — scene and world canon concepts
-concepts/camera.md — camera model
-concepts/timeline-and-blocks.md — timing model
-reference/meta.md — metadata
-reference/cast.md — characters
-reference/assets.md — assets and resources
-reference/world.md — world canon
-reference/locations.md — canonical locations
-reference/body.md — document body
-reference/chapter.md — chapter model
-reference/scene.md — scene model
-reference/blocking.md — blocking
-reference/line.md — line model
-reference/paragraph.md — paragraph model
-reference/media.md — media elements
-reference/layers.md — layers
-reference/subtitle.md — subtitles
-reference/timing.md — timing semantics
-reference/break.md — pauses
-```
+
+[`spec/OVML-2.2.md`] — normative specification
+[`concepts/scenes-and-world.md`] — scene and world canon concepts
+[`concepts/camera.md`] — camera model
+[`concepts/timeline-and-blocks.md`] — timing model
+[`reference/meta.md`] — metadata
+[`reference/cast.md`] — characters
+[`reference/assets.md`] — assets and resources
+[`reference/world.md`] — world canon
+[`reference/locations.md`] — canonical locations
+[`reference/body.md`] — document body
+[`reference/chapter.md`] — chapter model
+[`reference/scene.md`] — scene model
+[`reference/blocking.md`] — blocking
+[`reference/line.md`] — line model
+[`reference/paragraph.md`] — paragraph model
+[`reference/media.md`] — media elements
+[`reference/layers.md`] — layers
+[`reference/subtitle.md`] — subtitles
+[`reference/timing.md`] — timing semantics
+[`reference/break.md`] — pauses
