@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Enumeration Values
 
@@ -30,15 +31,19 @@ night	Night
 
 Example:
 
+```xml
 <scene id="ch1_tavern_night" time="night" mood="tense">
     ...
 </scene>
+```
 
 The time may also be expressed in a `<variation>`:
 
+```xml
 <variation>
     <time>night</time>
 </variation>
+```
 
 ## 3. Weather
 
@@ -55,9 +60,11 @@ snowy	Snowy
 
 Example:
 
+```xml
 <variation>
     <weather>rainy</weather>
 </variation>
+```
 
 ## 4. Mood
 
@@ -74,9 +81,11 @@ dramatic	Dramatic
 
 Example:
 
+```xml
 <scene id="ch1_office" time="evening" mood="dramatic">
     ...
 </scene>
+```
 
 ## 5. Emotion
 
@@ -153,9 +162,11 @@ An implementation MAY support additional internal layers.
 
 Example:
 
+```xml
 <img
     src="character"
     layer="foreground" />
+```
 
 See: reference/media.md
 
@@ -172,10 +183,12 @@ absolute	Start at an absolute timeline position
 
 Example:
 
+```xml
 <video
     src="intro"
     startMode="absolute"
     startTime="0" />
+```
 
 The default for media elements is:
 
@@ -197,11 +210,15 @@ wipe	A directional wipe
 
 Example:
 
+```xml
 <transition type="dissolve" duration="0.5" />
+```
 
 or on a scene:
 
+```xml
 <scene ... transition="fade" />
+```
 
 See: reference/transitions.md
 
@@ -253,10 +270,12 @@ villain
 
 Example:
 
+```xml
 <character
     id="narrator"
     name="Narrator"
     role="narrator" />
+```
 
 See: reference/cast.md
 
@@ -288,11 +307,13 @@ senior	Senior / pensioner
 
 Example:
 
+```xml
 <character
     id="vestfal"
     name="Vestfal"
     gender="male"
     age="adult" />
+```
 
 See: reference/cast.md
 

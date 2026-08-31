@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Chapter — `<chapter>`
 
@@ -36,6 +37,7 @@ A `<chapter>` is a child of the `<script>` element and contains scenes and conte
 
 Example:
 
+```xml
 <script>
 
     <chapter id="chapter-1" title="Beginning">
@@ -55,9 +57,11 @@ Example:
     </chapter>
 
 </script>
+```
 
 Conceptually:
 
+```text
 <script>
     │
     └── <chapter>
@@ -69,6 +73,7 @@ Conceptually:
         │   └── ...
         │
         └── <scene>
+```
 
 A script MAY contain one or more chapters.
 
@@ -84,28 +89,34 @@ title	string	No	Display title of the chapter
 
 Example:
 
+```xml
 <chapter id="chapter-01" title="Arrival">
     ...
 </chapter>
+```
 
-The exact metadata model for chapters is implementation-dependent unless explicitly defined elsewhere in the OVML specification.
+The exact metadata model for chapters is implementation-dependent unless explicitly defined
+elsewhere in the OVML specification.
 
 An implementation MAY associate a chapter with:
 
-an identifier;
-a title;
-an index;
-a thumbnail;
-duration;
-metadata;
-navigation information.
+- an identifier;
+- a title;
+- an index;
+- a thumbnail;
+- duration;
+- metadata;
+- navigation information.
 
-If chapter attributes are used, implementations SHOULD preserve unknown attributes when reading and writing OVML documents.
+If chapter attributes are used, implementations SHOULD preserve unknown attributes when reading and
+writing OVML documents.
 
-Implementations MAY also support additional attributes such as order_index, status, or resolution when their workflows require them.
+Implementations MAY also support additional attributes such as order_index, status, or resolution
+when their workflows require them.
 
 Example:
 
+```xml
 <chapter
     id="ch_01"
     title="Chapter 1: The Beginning"
@@ -119,6 +130,7 @@ Example:
     </scene>
 
 </chapter>
+```
 
 ## 4. Chapters and Scenes
 
@@ -126,21 +138,27 @@ A chapter MAY contain multiple `<scene>` elements.
 
 A scene represents a continuous logical audiovisual context.
 
+```xml
 <chapter>
 
     <scene color="#1a1a2e" atmosphere="quiet evening">
+```
 
         ...
 
+```xml
     </scene>
 
     <scene color="#3b1f1f" atmosphere="danger and tension">
+```
 
         ...
 
+```xml
     </scene>
 
 </chapter>
+```
 
 Chapters provide the outer structure; scenes provide the internal dramatic and visual boundaries.
 
@@ -152,10 +170,12 @@ A short project may contain only one chapter.
 
 A script without chapters MAY be supported by implementations for simple projects.
 
-Portable OVML documents SHOULD use `<chapter>` elements when the content has meaningful navigational sections.
+Portable OVML documents SHOULD use `<chapter>` elements when the content has meaningful navigational
+sections.
 
 The simplest valid project can contain a single chapter:
 
+```xml
 <script>
 
     <chapter title="Greeting">
@@ -171,6 +191,7 @@ The simplest valid project can contain a single chapter:
     </chapter>
 
 </script>
+```
 
 ## 6. Chapter Boundaries and Navigation
 
@@ -178,19 +199,19 @@ The chapter boundary provides a natural navigation point for Players.
 
 A Player MAY expose chapters through:
 
-chapter navigation;
-progress indicators;
-bookmarks;
-chapter lists;
-accessibility controls.
+- chapter navigation;
+- progress indicators;
+- bookmarks;
+- chapter lists;
+- accessibility controls.
 
 Navigation MAY allow the user to:
 
-move to the next chapter;
-move to the previous chapter;
-select a chapter;
-resume from a chapter;
-display chapter progress.
+- move to the next chapter;
+- move to the previous chapter;
+- select a chapter;
+- resume from a chapter;
+- display chapter progress.
 
 This is useful for:
 
@@ -226,7 +247,8 @@ A chapter provides high-level logical organization.
 
 It does not prescribe rendering or playback behavior.
 
-The chapter boundary is semantic: it describes a navigable section of the project, while the Player determines how that section is presented and navigated.
+The chapter boundary is semantic: it describes a navigable section of the project, while the Player
+determines how that section is presented and navigated.
 
 ## 10. Related Documents
 

@@ -1,25 +1,30 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # `<audio_processing>` — Audio Processing
 
 **OVML Standard 2.2**
 
-1. Purpose
+## 1. Purpose
 
 The `<audio_processing>` element describes audio processing applied to audio material.
 
-It supports the common production effects: equalizer, compressor, limiter, normalizer, noise reduction, reverb, delay, chorus, phaser, flanger, gain, pan, fade, trim, de-esser, de-clicker, pitch shift, and time stretch.
+It supports the common production effects: equalizer, compressor, limiter, normalizer, noise
+reduction, reverb, delay, chorus, phaser, flanger, gain, pan, fade, trim, de-esser, de-clicker,
+pitch shift, and time stretch.
 
 Processing directives are declarative.
 
-The document describes the intended processing. The Player or processing implementation determines how the processing is executed on the target platform.
+The document describes the intended processing. The Player or processing implementation determines
+how the processing is executed on the target platform.
 
-2. Structure
+## 2. Structure
 
 The general structure is:
 
+```xml
     <audio_processing id="my_processor" name="Heavy Bass">
 
         <eq enabled="true">
@@ -47,12 +52,13 @@ The general structure is:
         </gain>
 
     </audio_processing>
+```
 
 Each child element is a processing directive.
 
 The `<audio_processing>` element itself is the container.
 
-3. Container Attributes
+## 3. Container Attributes
 
 Attribute	Type	Description
 id	ID	Unique identifier of the processing definition
@@ -61,13 +67,16 @@ enabled	boolean	Enables or disables the whole processing definition
 
 Example:
 
+```xml
     <audio_processing id="my_processor" name="Heavy Bass">
         ...
     </audio_processing>
+```
 
-When `enabled` is present and false, the processing definition does not participate in the processing chain.
+When `enabled` is present and false, the processing definition does not participate in the
+processing chain.
 
-4. Processing Directives
+## 4. Processing Directives
 
 A processing directive is a child element of `<audio_processing>`.
 
@@ -75,11 +84,11 @@ Each directive describes one processing operation and its parameters.
 
 A directive MAY be declared with:
 
-type;
-input;
-target;
-enabled;
-parameters.
+- type;
+- input;
+- target;
+- enabled;
+- parameters.
 
 type
 
@@ -121,7 +130,7 @@ Parameters are declarative hints.
 
 The exact interpretation depends on the selected audio engine.
 
-5. Directive Types
+## 5. Directive Types
 
 The canonical processing directives are:
 
@@ -146,27 +155,32 @@ pitch_shift	pitch_shift	Pitch shifting
 time_stretch	speed	Time stretching (speed)
 convert	convert	Output conversion
 
-The task-requested type tokens equalize, compressor, noise_reduction, reverb, pitch_shift, speed, and eq map to the elements eq, compressor, noise_reduction, reverb, pitch_shift, time_stretch, and eq respectively.
+The task-requested type tokens equalize, compressor, noise_reduction, reverb, pitch_shift, speed,
+and eq map to the elements eq, compressor, noise_reduction, reverb, pitch_shift, time_stretch, and
+eq respectively.
 
-6. eq
+### 6. eq
 
 The eq directive applies a multi-band equalizer.
 
 Band parameters:
 
+```xml
     <eq enabled="true">
         <band hz="60" gain_db="5.0" />
         <band hz="10000" gain_db="-3.0" />
     </eq>
+```
 
 Parameter	Description	Range
 hz	Band center frequency	20 — 20000 Hz
 gain_db	Band gain	-24 — +24 dB
 
-7. compressor
+### 7. compressor
 
 The compressor directive compresses the dynamic range.
 
+```xml
     <compressor enabled="true">
         <threshold>-20</threshold>
         <ratio>4.0</ratio>
@@ -175,6 +189,7 @@ The compressor directive compresses the dynamic range.
         <knee>10</knee>
         <makeup_gain>3.0</makeup_gain>
     </compressor>
+```
 
 Parameter	Description	Range
 threshold	Compression threshold	-60 — 0 dB
@@ -184,47 +199,54 @@ release	Release time	10 — 1000 ms
 knee	Knee width	0 — 20 dB
 makeup_gain	Gain applied after compression	-12 — +12 dB
 
-8. limiter
+### 8. limiter
 
 The limiter directive prevents the signal from exceeding a ceiling.
 
+```xml
     <limiter enabled="true">
         <threshold>-0.3</threshold>
         <release>50</release>
     </limiter>
+```
 
 Parameter	Description	Range
 threshold	Output ceiling	-20 — 0 dB
 release	Release time	10 — 500 ms
 
-9. normalizer
+### 9. normalizer
 
 The normalizer directive adjusts the overall level to a target.
 
+```xml
     <normalizer enabled="true">
         <level>-3.0</level>
     </normalizer>
+```
 
 Parameter	Description	Range
 level	Target level	-12 — 0 dB
 
-10. noise_reduction
+### 10. noise_reduction
 
 The noise_reduction directive reduces background noise.
 
+```xml
     <noise_reduction enabled="true">
         <strength>0.7</strength>
         <method>spectral_subtraction</method>
     </noise_reduction>
+```
 
 Parameter	Description	Range
 strength	Reduction strength	0 — 1
 method	Reduction method	spectral_subtraction, wiener_filter, noise_gate
 
-11. reverb
+### 11. reverb
 
 The reverb directive adds reverberation.
 
+```xml
     <reverb enabled="true">
         <room_size>0.7</room_size>
         <damping>0.5</damping>
@@ -232,6 +254,7 @@ The reverb directive adds reverberation.
         <dry>0.7</dry>
         <width>1.0</width>
     </reverb>
+```
 
 Parameter	Description	Range
 room_size	Room size	0 — 1
@@ -240,174 +263,200 @@ wet	Wet signal mix	0 — 1
 dry	Dry signal mix	0 — 1
 width	Stereo width	0 — 1
 
-12. delay
+### 12. delay
 
 The delay directive adds an echo.
 
+```xml
     <delay enabled="true">
         <time>0.5</time>
         <feedback>0.3</feedback>
         <wet>0.3</wet>
     </delay>
+```
 
 Parameter	Description	Range
 time	Delay time	0.01 — 2 s
 feedback	Feedback amount	0 — 0.95
 wet	Wet signal mix	0 — 1
 
-13. chorus
+### 13. chorus
 
 The chorus directive applies chorus modulation.
 
+```xml
     <chorus enabled="false">
         <rate>1.5</rate>
         <depth>0.5</depth>
         <mix>0.5</mix>
     </chorus>
+```
 
 Parameter	Description	Range
 rate	Modulation rate	0.1 — 10 Hz
 depth	Modulation depth	0 — 1
 mix	Dry/wet mix	0 — 1
 
-14. phaser
+### 14. phaser
 
 The phaser directive applies phase modulation.
 
+```xml
     <phaser enabled="false">
         <rate>1.0</rate>
         <depth>0.5</depth>
         <mix>0.5</mix>
     </phaser>
+```
 
 Parameter	Description	Range
 rate	Modulation rate	0.1 — 10 Hz
 depth	Modulation depth	0 — 1
 mix	Dry/wet mix	0 — 1
 
-15. flanger
+### 15. flanger
 
 The flanger directive applies flanging.
 
+```xml
     <flanger enabled="false">
         <rate>1.0</rate>
         <depth>0.5</depth>
         <mix>0.5</mix>
     </flanger>
+```
 
 Parameter	Description	Range
 rate	Modulation rate	0.1 — 10 Hz
 depth	Modulation depth	0 — 1
 mix	Dry/wet mix	0 — 1
 
-16. gain
+### 16. gain
 
 The gain directive applies a fixed level adjustment.
 
+```xml
     <gain enabled="false">
         <db>0.0</db>
     </gain>
+```
 
 Parameter	Description	Range
 db	Gain amount	-24 — +24 dB
 
-17. pan
+### 17. pan
 
 The pan directive positions the signal in the stereo field.
 
+```xml
     <pan enabled="false">
         <position>0.0</position>
     </pan>
+```
 
 Parameter	Description	Range
 position	Pan position	-1 (left) — +1 (right)
 
-18. fade
+### 18. fade
 
 The fade directive applies fade in and fade out.
 
+```xml
     <fade enabled="false">
         <in_duration>0.0</in_duration>
         <out_duration>2.0</out_duration>
         <out_start>300</out_start>
     </fade>
+```
 
 Parameter	Description	Range
 in_duration	Fade-in duration	0 — 10 s
 out_duration	Fade-out duration	0 — 10 s
 out_start	Position where fade-out begins	0 — 600 s
 
-19. trim
+### 19. trim
 
 The trim directive cuts the material to a time window.
 
+```xml
     <trim enabled="false">
         <start>0.0</start>
         <end>600.0</end>
     </trim>
+```
 
 Parameter	Description	Range
 start	Start time	0 — 600 s
 end	End time	0 — 600 s
 
-20. deesser
+### 20. deesser
 
 The deesser directive reduces sibilance.
 
+```xml
     <deesser enabled="false">
         <threshold>-20</threshold>
         <frequency>7000</frequency>
     </deesser>
+```
 
 Parameter	Description	Range
 threshold	De-essing threshold	-40 — 0 dB
 frequency	Target frequency	1000 — 16000 Hz
 
-21. declicker
+### 21. declicker
 
 The declicker directive removes clicks and pops.
 
+```xml
     <declicker enabled="false">
         <sensitivity>0.5</sensitivity>
     </declicker>
+```
 
 Parameter	Description	Range
 sensitivity	Removal sensitivity	0 — 1
 
-22. pitch_shift
+### 22. pitch_shift
 
 The pitch_shift directive changes the pitch without changing the duration.
 
+```xml
     <pitch_shift enabled="true">
         <semitones>2.0</semitones>
     </pitch_shift>
+```
 
 Parameter	Description	Unit
 semitones	Semitone shift	semitones
 
-23. time_stretch
+### 23. time_stretch
 
 The time_stretch directive changes the speed without changing the pitch.
 
 It corresponds to the speed type.
 
+```xml
     <time_stretch enabled="true">
         <factor>1.0</factor>
     </time_stretch>
+```
 
 Parameter	Description	Range
 factor	Speed factor	0.5 — 2.0
 
-24. convert
+### 24. convert
 
 The convert directive describes the requested output format.
 
+```xml
     <convert>
         <format>mp3</format>
         <bitrate>192</bitrate>
         <sample_rate>44100</sample_rate>
         <channels>2</channels>
     </convert>
+```
 
 Parameter	Description	Allowed values
 format	Container format	mp3, wav, flac, ogg, aac, m4a
@@ -415,26 +464,29 @@ bitrate	Bitrate	32 — 320 kbps
 sample_rate	Sample rate	8000 — 192000 Hz
 channels	Channel count	1 (mono), 2 (stereo)
 
-25. Application
+## 25. Application
 
 Processing may be declared at several scopes.
 
 The scopes form an inheritance chain:
 
+```text
     Project (<settings>)
               ↓
         Character
               ↓
     Scene / block / media element
+```
 
 A more specific declaration overrides or supplements the more general one.
 
-26. Project-Level Declaration
+## 26. Project-Level Declaration
 
 A project MAY declare default processing in its `<settings>` section.
 
 For example:
 
+```xml
     <settings>
 
         <audio_processing>
@@ -445,19 +497,23 @@ For example:
         </audio_processing>
 
     </settings>
+```
 
-Project-level processing applies as the default to the project's audio material unless a more specific declaration overrides it.
+Project-level processing applies as the default to the project's audio material unless a more
+specific declaration overrides it.
 
-27. Character-Level Declaration
+## 27. Character-Level Declaration
 
 A character MAY reference an audio-processing preset.
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         audioProcessorId="preset_1"
         audioProcessorName="Warm Voice"
         audioProcessorFile="presets/audio/WarmVoice.ovml" />
+```
 
 The referenced preset is applied to the character's voice.
 
@@ -465,17 +521,20 @@ See: reference/character.md
 
 With the `input` model, character-level processing uses input="character".
 
-28. Media and Block-Level Declaration
+## 28. Media and Block-Level Declaration
 
 A media element MAY reference a processing preset by the `processing` attribute:
 
+```xml
     <audio
         src="voice_chapter_1"
         action="play"
         processing="my_processor" />
+```
 
 Processing may also be declared inline as child directives of the media element:
 
+```xml
     <audio src="music_theme" action="play" volume="0.5">
 
         <eq>
@@ -489,6 +548,7 @@ Processing may also be declared inline as child directives of the media element:
         </compressor>
 
     </audio>
+```
 
 Inline directives apply only to that media element.
 
@@ -496,15 +556,16 @@ With the `input` model, element-level processing uses input="track".
 
 See: reference/media.md
 
-29. Scene-Level Declaration
+## 29. Scene-Level Declaration
 
 A scene MAY provide context for processing preset selection.
 
-The scene provides context; it does not directly execute a preset unless an explicit processing declaration or character configuration specifies one.
+The scene provides context; it does not directly execute a preset unless an explicit processing
+declaration or character configuration specifies one.
 
 See: reference/scene.md
 
-30. Layer-Specific Instantiation
+## 30. Layer-Specific Instantiation
 
 Different audio layers may receive different processing.
 
@@ -515,28 +576,30 @@ A project may route processing by layer using the input scopes:
     character   Processing for a specific character's voice
     track       Processing for an individual audio element
 
-This allows, for example, background music and dialogue to use different reverb, compression, or noise-reduction settings within the same project.
+This allows, for example, background music and dialogue to use different reverb, compression, or
+noise-reduction settings within the same project.
 
 Layer-specific instantiation is resolved by the Player.
 
-31. Design Principle
+## 31. Design Principle
 
 <audio_processing> describes the intended audio processing.
 
 It does not require a particular:
 
-audio library;
-DSP implementation;
-FFmpeg pipeline;
-codec library;
-operating system;
-hardware platform.
+- audio library;
+- DSP implementation;
+- FFmpeg pipeline;
+- codec library;
+- operating system;
+- hardware platform.
 
-A Player MAY implement the same operation using different underlying technologies while preserving the semantics described by the declaration.
+A Player MAY implement the same operation using different underlying technologies while preserving
+the semantics described by the declaration.
 
 Processing directives are declarative. The runtime interprets them.
 
-32. Related Documents
+## 32. Related Documents
 
 See: reference/media.md
 See: reference/character.md

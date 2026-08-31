@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # `<script>` — Project Script
 
@@ -10,7 +11,8 @@
 
 The `<script>` element contains the primary audiovisual content of an OVML document.
 
-It defines the logical structure of the project and organizes content into chapters, scenes, and content blocks.
+It defines the logical structure of the project and organizes content into chapters, scenes, and
+content blocks.
 
 The `<script>` element describes **what happens and when it should happen**.
 
@@ -28,7 +30,7 @@ Those responsibilities belong to the consuming application or Player.
 
 The basic structure is:
 
-```
+```xml
 <script>
 
     <chapter>
@@ -47,10 +49,13 @@ The basic structure is:
     </chapter>
 
 </script>
-2. Script Hierarchy
+```
+
+## 2. Script Hierarchy
 
 The logical hierarchy of an OVML script is:
 
+```text
 <script>
     │
     ├── <chapter>
@@ -70,6 +75,7 @@ The logical hierarchy of an OVML script is:
     │     └── ...
     │
     └── ...
+```
 
 The hierarchy provides different levels of semantic organization:
 
@@ -84,12 +90,14 @@ Element	Purpose
 <img>	Image media
 <audio>	Audio media
 <break>	Explicit pause
-3. <script>
+
+### 3. <script>
 
 The <script> element is the root container for the project's content.
 
 Example:
 
+```xml
 <script>
 
     <chapter>
@@ -101,12 +109,14 @@ Example:
     </chapter>
 
 </script>
+```
 
 A script MAY contain one or more chapters.
 
-A script without chapters MAY be supported by implementations for simple projects, but portable OVML documents SHOULD use <chapter> elements when the content has meaningful navigational sections.
+A script without chapters MAY be supported by implementations for simple projects, but portable OVML
+documents SHOULD use <chapter> elements when the content has meaningful navigational sections.
 
-4. Chapters
+## 4. Chapters
 
 A <chapter> represents a major logical section of the project.
 
@@ -116,7 +126,7 @@ The complete chapter model, including chapter metadata, is defined in:
 
 reference/chapter.md
 
-5. Scenes
+## 5. Scenes
 
 A chapter MAY contain multiple <scene> elements.
 
@@ -124,29 +134,36 @@ A scene represents a continuous logical audiovisual context.
 
 Example:
 
+```xml
 <chapter>
 
     <scene color="#1a1a2e" atmosphere="quiet evening">
+```
 
         ...
 
+```xml
     </scene>
 
     <scene color="#3b1f1f" atmosphere="danger and tension">
+```
 
         ...
 
+```xml
     </scene>
 
 </chapter>
+```
 
-Scenes provide a semantic boundary between different environments, moods, locations, or dramatic situations.
+Scenes provide a semantic boundary between different environments, moods, locations, or dramatic
+situations.
 
 Scene semantics are defined in:
 
 reference/scene.md
 
-6. Camera
+## 6. Camera
 
 A scene MAY contain a <camera> element.
 
@@ -154,15 +171,19 @@ The <camera> element represents the intended camera or viewpoint configuration f
 
 Example:
 
+```xml
 <scene>
 
     <camera
         type="close-up"
         target="vestfal" />
+```
 
     ...
 
+```xml
 </scene>
+```
 
 Camera semantics are defined in:
 
@@ -171,16 +192,19 @@ concepts/camera.md
 
 Camera instructions are declarative.
 
-They describe the intended viewpoint rather than prescribing the implementation of the rendering pipeline.
+They describe the intended viewpoint rather than prescribing the implementation of the rendering
+pipeline.
 
-7. Paragraphs and Dialogue
+## 7. Paragraphs and Dialogue
 
 A <p> element groups sequential textual content, especially dialogue and narration.
 
-It MAY contain multiple <line> elements, and different lines within the same paragraph MAY reference different characters.
+It MAY contain multiple <line> elements, and different lines within the same paragraph MAY reference
+different characters.
 
 Example:
 
+```xml
 <p>
 
     <line char="narrator">
@@ -196,25 +220,29 @@ Example:
     </line>
 
 </p>
+```
 
 When lines use the default startMode="afterPrevious", they form a sequential chain:
 
+```text
 Alex
   ↓
 Maria
   ↓
 Alex
+```
 
 The complete paragraph model, including narration and dialogue roles, is defined in:
 
 reference/paragraph.md
 
-8. Parallel Content
+## 8. Parallel Content
 
 OVML also allows content to overlap through explicit timing.
 
 For example:
 
+```xml
 <p>
 
     <line
@@ -231,29 +259,35 @@ For example:
         loop="true" />
 
 </p>
+```
 
 Both elements begin at the same timeline position.
 
 The script therefore expresses the relationship:
 
+```text
 Narration ────────────────>
 Storm audio ─────────────────────────>
             0s
+```
 
 The consuming Player is responsible for realizing the synchronization.
 
-9. Media Content
+## 9. Media Content
 
 A scene MAY contain media elements.
 
 Supported media elements include:
 
+```xml
 <video />
 <img />
 <audio />
+```
 
 Example:
 
+```xml
 <scene>
 
     <video
@@ -276,16 +310,19 @@ Example:
     </p>
 
 </scene>
+```
 
 Media semantics are defined in:
 
 reference/media.md
-10. Explicit Pauses
+
+## 10. Explicit Pauses
 
 A script MAY contain explicit pauses using <break>.
 
 Example:
 
+```xml
 <p>
 
     <line char="narrator">
@@ -299,6 +336,7 @@ Example:
     </line>
 
 </p>
+```
 
 The pause expresses intentional temporal separation between content.
 
@@ -307,7 +345,8 @@ The <break> element does not represent silence as an audio asset.
 Its semantics are defined in:
 
 reference/break.md
-11. Script Timing
+
+## 11. Script Timing
 
 OVML timing is declarative.
 
@@ -319,6 +358,7 @@ absolute
 
 For example:
 
+```xml
 <line
     char="alex"
     startMode="afterPrevious">
@@ -336,17 +376,19 @@ For example:
     src="music"
     startMode="absolute"
     startTime="0" />
+```
 
 The script defines the intended temporal relationships.
 
 The Player determines how those relationships are implemented at runtime.
 
-12. Nested Timing Context
+## 12. Nested Timing Context
 
 Timing is interpreted within the logical context in which an element appears.
 
 For example:
 
+```xml
 <chapter>
 
     <scene>
@@ -370,11 +412,13 @@ For example:
     </scene>
 
 </chapter>
+```
 
 The lines form a sequential chain inside the paragraph.
 
 By contrast:
 
+```xml
 <chapter>
 
     <scene>
@@ -394,17 +438,19 @@ By contrast:
     </scene>
 
 </chapter>
+```
 
 both elements are scheduled against the scene's timeline.
 
 The precise runtime scheduling model is the responsibility of the Player.
 
-13. Script as a Timeline Description
+## 13. Script as a Timeline Description
 
 An OVML script should be understood as a declarative timeline description.
 
 For example:
 
+```xml
 <script>
 
     <chapter>
@@ -423,18 +469,22 @@ For example:
                     char="narrator"
                     startMode="absolute"
                     startTime="0">
+```
 
                     The forest was unusually quiet.
 
+```xml
                 </line>
 
                 <line
                     char="alex"
                     startMode="afterPrevious"
                     emotion="whispering">
+```
 
                     Did you hear that?
 
+```xml
                 </line>
 
             </p>
@@ -444,9 +494,11 @@ For example:
     </chapter>
 
 </script>
+```
 
 The semantic intent is:
 
+```text
 0s
 │
 ├── Forest ambience starts
@@ -458,33 +510,39 @@ The semantic intent is:
         │
         ▼
     Alex speaks
+```
 
 The OVML document does not specify:
 
-which audio decoder is used;
-how much audio is buffered;
-whether TTS is generated locally or remotely;
-whether audio is streamed;
-which rendering API is used;
-which hardware acceleration is available.
-14. TTS and Script Execution
+- which audio decoder is used;
+- how much audio is buffered;
+- whether TTS is generated locally or remotely;
+- whether audio is streamed;
+- which rendering API is used;
+- which hardware acceleration is available.
+
+## 14. TTS and Script Execution
 
 A line assigned to a character MAY require speech synthesis.
 
 For example:
 
+```xml
 <line char="alex">
     Welcome to the project.
 </line>
+```
 
 The character definition may provide the requested voice:
 
+```xml
 <character
     id="alex"
     name="Alex"
     voiceEngine="edge-tts"
     voiceId="en-US-GuyNeural"
     voiceLang="en-US" />
+```
 
 For a plain .ovml document, the Player MAY synthesize the speech at playback time.
 
@@ -494,39 +552,46 @@ For an OVMV package, the audiovisual result may already be rendered into a final
 
 The script remains the semantic source describing the content and its timing.
 
-15. External Assets
+## 15. External Assets
 
 An OVML script MAY reference media assets externally.
 
 Example:
 
+```xml
 <video
     src="https://example.com/video/forest.mp4" />
+```
 
 or through an asset identifier:
 
+```xml
 <video src="forest-video" />
+```
 
-The interpretation of an asset reference depends on the asset definition and the consuming application.
+The interpretation of an asset reference depends on the asset definition and the consuming
+application.
 
 External assets MAY include:
 
-images;
-video;
-audio;
-subtitles;
-other supported media resources.
+- images;
+- video;
+- audio;
+- subtitles;
+- other supported media resources.
 
-The Player is responsible for retrieving, validating, buffering, and decoding external resources when permitted.
+The Player is responsible for retrieving, validating, buffering, and decoding external resources
+when permitted.
 
-16. Script and Package Forms
+## 16. Script and Package Forms
 
 The same logical script may exist in different delivery forms.
 
 Plain OVML
 project.ovml
 
-The document contains the script and references resources externally or through supported resource identifiers.
+The document contains the script and references resources externally or through supported resource
+identifiers.
 
 The Player may need to:
 
@@ -542,12 +607,14 @@ The script is packaged together with the resources required for the project.
 
 Example:
 
+```text
 project.ovmz/
 ├── content.ovml
 ├── project.json
 ├── resources/
 ├── presets/
 └── tts/
+```
 
 The Player can therefore use pre-generated TTS and bundled media.
 
@@ -556,11 +623,12 @@ project.ovmv
 
 The audiovisual result has already been rendered into a final video representation.
 
-The Player does not need to reconstruct the original TTS or media composition in order to play the final video.
+The Player does not need to reconstruct the original TTS or media composition in order to play the
+final video.
 
 The complete package model is defined in the package documentation.
 
-17. Navigation
+## 17. Navigation
 
 Chapters provide logical navigation points.
 
@@ -573,31 +641,33 @@ Chapter 3
 
 Navigation MAY allow the user to:
 
-move to the next chapter;
-move to the previous chapter;
-select a chapter;
-resume from a chapter;
-display chapter progress.
+- move to the next chapter;
+- move to the previous chapter;
+- select a chapter;
+- resume from a chapter;
+- display chapter progress.
 
 OVML does not require a specific user-interface representation.
 
-18. Accessibility
+## 18. Accessibility
 
-The semantic structure of <script>, <chapter>, <scene>, <p>, and <line> may be used by Players to provide accessibility features.
+The semantic structure of <script>, <chapter>, <scene>, <p>, and <line> may be used by Players to
+provide accessibility features.
 
 Possible applications include:
 
-screen-reader navigation;
-chapter navigation;
-subtitle presentation;
-text-to-speech;
-adjustable playback rate;
-dialogue identification;
-searchable transcripts.
+- screen-reader navigation;
+- chapter navigation;
+- subtitle presentation;
+- text-to-speech;
+- adjustable playback rate;
+- dialogue identification;
+- searchable transcripts.
 
-Accessibility behavior is implementation-dependent unless explicitly defined elsewhere in the standard.
+Accessibility behavior is implementation-dependent unless explicitly defined elsewhere in the
+standard.
 
-19. Validation
+## 19. Validation
 
 An OVML validator SHOULD verify:
 
@@ -613,27 +683,31 @@ boolean attributes contain valid boolean values.
 
 The validator verifies the syntax and structural consistency of the document.
 
-It does not attempt to determine whether the director's creative decisions are good, logical, aesthetically appropriate, or technically optimal.
+It does not attempt to determine whether the director's creative decisions are good, logical,
+aesthetically appropriate, or technically optimal.
 
 For example, the following may be structurally valid:
 
+```xml
 <line
     char="alex"
     startMode="absolute"
     startTime="1000">
     Hello.
 </line>
+```
 
 even if the author intended 1000 milliseconds rather than 1000 seconds.
 
 Semantic or creative intent beyond the defined data model is outside the validator's responsibility.
 
-20. Player Responsibilities
+## 20. Player Responsibilities
 
 The Player interprets the declarative script and turns it into an executable presentation.
 
 Depending on the project form, the Player may:
 
+```text
 OVML
  │
  ├── resolve characters
@@ -646,30 +720,34 @@ OVML
  ├── apply transitions
  ├── apply camera instructions
  └── render the result
+```
 
 Different Players may implement these operations differently while consuming the same OVML document.
 
-21. Design Principle
+## 21. Design Principle
 
 OVML is intentionally declarative.
 
-The script describes the intended content and temporal relationships without prescribing the implementation.
+The script describes the intended content and temporal relationships without prescribing the
+implementation.
 
 Therefore:
 
-OVML defines when content should occur. The Player determines how that content is buffered, streamed, synthesized, decoded, rendered, and synchronized on the target platform.
+OVML defines when content should occur. The Player determines how that content is buffered,
+streamed, synthesized, decoded, rendered, and synchronized on the target platform.
 
 This separation allows the same timing model to be used for:
 
-lectures;
-presentations;
-Shorts/Reels;
-audiobooks;
-game voiceover;
-film dubbing;
-anime;
-courses;
-podcasts;
-interactive multimedia projects.
+- lectures;
+- presentations;
+- Shorts/Reels;
+- audiobooks;
+- game voiceover;
+- film dubbing;
+- anime;
+- courses;
+- podcasts;
+- interactive multimedia projects.
 
-The same OVML script may therefore be consumed by different Players and rendering environments without changing the underlying content model.
+The same OVML script may therefore be consumed by different Players and rendering environments
+without changing the underlying content model.

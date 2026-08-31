@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Voice, Timbre, and Pronunciation
 
@@ -8,7 +9,8 @@
 
 ## 1. Purpose
 
-OVML provides voice and pronunciation attributes that describe how a character's speech is intended to sound.
+OVML provides voice and pronunciation attributes that describe how a character's speech is intended
+to sound.
 
 These attributes may appear on a character or on an individual line.
 
@@ -63,10 +65,12 @@ Recommended range:
 
 Example:
 
+```xml
 <character
     id="vestfal"
     name="Vestfal"
     rate="0.9" />
+```
 
 This value represents the character's base speech rate.
 
@@ -99,31 +103,39 @@ whispering	Whispering
 
 Example line-level use:
 
+```xml
 <line
     char="hero"
     timbre="rough">
     Where have you been?
 </line>
+```
 
 ## 7. Timbre as Descriptive Text
 
-In the character model, timbre may also be represented as descriptive text rather than a fixed enumeration.
+In the character model, timbre may also be represented as descriptive text rather than a fixed
+enumeration.
 
 A character MAY contain a `<timbre>` element.
 
 Example:
 
+```xml
 <timbre>
     Deep, warm and slightly rough male voice.
 </timbre>
+```
 
 or:
 
+```xml
 <timbre>
     Soft female voice with a clear tone and restrained warmth.
 </timbre>
+```
 
-The descriptive form allows the value to be used with different voice systems and AI-assisted workflows.
+The descriptive form allows the value to be used with different voice systems and AI-assisted
+workflows.
 
 The OVML Standard does not require a particular TTS engine to interpret timbre.
 
@@ -133,13 +145,16 @@ The `emotion` attribute describes the emotional state of the speaker.
 
 Allowed values include:
 
-neutral, happy, sad, angry, surprised, fearful, disgusted, excited, confused, contemptuous, crying, laughing, shouting, whispering, singing
+neutral, happy, sad, angry, surprised, fearful, disgusted, excited, confused, contemptuous, crying,
+laughing, shouting, whispering, singing
 
 Example:
 
+```xml
 <line char="hero" emotion="angry">
     Get out of here!
 </line>
+```
 
 See: reference/emotions.md
 
@@ -153,9 +168,11 @@ statement, question, exclamation, command, sarcasm, irony, whisper, shout
 
 Example:
 
+```xml
 <line char="general" intonation="command">
     Hold the line!
 </line>
+```
 
 See: reference/emotions.md
 
@@ -165,10 +182,10 @@ For precise control of the pronunciation of individual words, OVML provides the 
 
 The `<w>` element may be used to:
 
-set explicit stress;
-provide an alias for abbreviations;
-supply a phonetic transcription;
-ignore a word during TTS.
+- set explicit stress;
+- provide an alias for abbreviations;
+- supply a phonetic transcription;
+- ignore a word during TTS.
 
 ## 11. Explicit Stress
 
@@ -182,9 +199,11 @@ The syllable marked with `+` receives the stress.
 
 Example:
 
+```xml
 <p char="hero">
     Он жил в <w stress="зáмок">замок</w> и думал о <w stress="зáмок">замок</w>.
 </p>
+```
 
 ## 12. Abbreviation Aliases
 
@@ -194,10 +213,12 @@ This is useful for abbreviations and initialisms.
 
 Example:
 
+```xml
 <p char="narrator">
     Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
     <w alias="США">USA</w> — великая страна.
 </p>
+```
 
 ## 13. Phonetic Transcription
 
@@ -205,9 +226,11 @@ The `ph` attribute provides a phonetic transcription, which may use IPA or the S
 
 Example:
 
+```xml
 <p char="hero">
     Сложное слово: <w ph="kʲɪˈtaj">китай</w>
 </p>
+```
 
 ## 14. Ignoring Words During TTS
 
@@ -215,9 +238,11 @@ An empty alias may be used to skip a word during TTS.
 
 Example:
 
+```xml
 <p char="hero">
     Кодекс: <w alias="">{code_123}</w>
 </p>
+```
 
 ## 15. Word Element Attributes
 
@@ -232,16 +257,17 @@ A spoken line may override the character's default voice parameters for that lin
 
 Supported line-level attributes include:
 
-emotion;
-intonation;
-pitch;
-rate;
-volume;
-timbre;
-emphasis.
+- emotion;
+- intonation;
+- pitch;
+- rate;
+- volume;
+- timbre;
+- emphasis.
 
 Example:
 
+```xml
 <line
     char="anna"
     emotion="excited"
@@ -249,6 +275,7 @@ Example:
     rate="1.1">
     We won!
 </line>
+```
 
 ## 17. Narrative Voice
 
@@ -256,8 +283,10 @@ A narrator may be configured with a voice tone.
 
 Example:
 
+```xml
 <narrator voice="deep">Могучий голос рассказчика.</narrator>
 <narrator voice="soft">Тихий, интимный тон.</narrator>
+```
 
 The `voice` attribute on narration is a descriptive hint.
 

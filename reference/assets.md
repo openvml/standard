@@ -1,8 +1,9 @@
 # Assets and Resource References
 
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 **OVML Standard 2.2**
 
@@ -24,16 +25,18 @@ OVML separates the **resource itself** from the **instruction that uses the reso
 
 For example:
 
-```
+```xml
 <img src="forest" />
+```
 
 forest identifies a resource.
 
 The <img> element describes how that resource is used in the current position of the script.
 
-This separation allows the same asset to be reused with different timing, positioning, processing, and presentation settings.
+This separation allows the same asset to be reused with different timing, positioning, processing,
+and presentation settings.
 
-2. Asset vs. Asset Reference
+## 2. Asset vs. Asset Reference
 
 An asset is the actual resource.
 
@@ -41,6 +44,7 @@ An asset reference identifies that resource from an OVML document.
 
 Conceptually:
 
+```text
 Asset
   │
   │ identified by
@@ -49,10 +53,13 @@ Asset Reference
   │
   ▼
 Media Element
+```
 
 For example:
 
+```xml
 <video src="forest-video" />
+```
 
 The video file is the asset.
 
@@ -60,29 +67,32 @@ forest-video is the asset reference.
 
 <video> is the instruction to use that asset in the project.
 
-3. Asset Reference Forms
+## 3. Asset Reference Forms
 
 An OVML document MAY identify an asset using:
 
-an external URL;
-a logical asset ID;
-a package-local path;
-another resource identifier defined by a compatible implementation.
+- an external URL;
+- a logical asset ID;
+- a package-local path;
+- another resource identifier defined by a compatible implementation.
 
 Examples:
 
+```xml
 <img src="https://cdn.example.com/images/forest.jpg" />
 <img src="forest-background" />
 <img src="resources/images/forest.jpg" />
+```
 
 The reference form does not change the semantic role of the asset.
 
-4. External Assets
+## 4. External Assets
 
 A plain .ovml document MAY reference assets hosted outside the document.
 
 Example:
 
+```xml
 <scene atmosphere="quiet forest">
 
     <img
@@ -95,6 +105,7 @@ Example:
         loop="true" />
 
 </scene>
+```
 
 This allows an OVML document to remain small while referencing remotely hosted resources.
 
@@ -102,26 +113,26 @@ The Player is responsible for resolving and acquiring the resource.
 
 External resource access depends on:
 
-network availability;
-resource availability;
-Player security policy;
-allowed domains;
-platform restrictions;
-access permissions.
+- network availability;
+- resource availability;
+- Player security policy;
+- allowed domains;
+- platform restrictions;
+- access permissions.
 
 A valid OVML document does not require every referenced resource to be embedded locally.
 
-5. Allowed External Resources
+## 5. Allowed External Resources
 
 Players MAY restrict which external resources can be loaded.
 
 For security and portability, an implementation MAY define an allowlist of:
 
-URL schemes;
-domains;
-content types;
-resource sizes;
-redirect targets.
+- URL schemes;
+- domains;
+- content types;
+- resource sizes;
+- redirect targets.
 
 For example, a Player may allow:
 
@@ -132,13 +143,15 @@ while refusing unknown or unsafe origins.
 
 The security policy belongs to the Player and does not change the OVML resource model.
 
-6. Logical Asset IDs
+## 6. Logical Asset IDs
 
 A project SHOULD prefer logical asset identifiers when the project has an asset catalog.
 
 Example:
 
+```xml
 <video src="intro-video" />
+```
 
 The identifier:
 
@@ -158,7 +171,7 @@ or another supported resource.
 
 This separation allows the resource location to change without changing the OVML script.
 
-7. Asset Catalog
+## 7. Asset Catalog
 
 A project MAY maintain an asset catalog describing available resources.
 
@@ -180,9 +193,10 @@ Example:
   "location": "resources/video/forest.mp4"
 }
 
-The exact catalog format is outside the core OVML XML syntax unless defined by a specific package format.
+The exact catalog format is outside the core OVML XML syntax unless defined by a specific package
+format.
 
-8. Asset Types
+## 8. Asset Types
 
 Common asset types include:
 
@@ -195,87 +209,98 @@ subtitle	subtitle or caption resources
 
 Implementations MAY support additional resource types.
 
-9. Audio Assets
+## 9. Audio Assets
 
 Audio assets may represent:
 
-background music;
-ambience;
-sound effects;
-narration;
-dialogue;
-pre-rendered TTS;
-other audio content.
+- background music;
+- ambience;
+- sound effects;
+- narration;
+- dialogue;
+- pre-rendered TTS;
+- other audio content.
 
 Example:
 
+```xml
 <audio
     src="forest-ambience"
     volume="0.35"
     loop="true" />
+```
 
 The same audio asset may also be used by another element:
 
+```xml
 <audio
     src="forest-ambience"
     volume="0.15"
     startTime="30" />
+```
 
 The asset remains unchanged.
 
 The two media elements specify different uses of it.
 
-10. Video Assets
+## 10. Video Assets
 
 Video assets may contain:
 
-recorded video;
-animation;
-visual backgrounds;
-screen recordings;
-rendered sequences;
-other supported video content.
+- recorded video;
+- animation;
+- visual backgrounds;
+- screen recordings;
+- rendered sequences;
+- other supported video content.
 
 Example:
 
+```xml
 <video
     src="city-background"
     layer="background"
     duration="20" />
+```
 
 A video asset may contain its own audio track.
 
-The Player determines whether that track is enabled and how it is synchronized with other audio content.
+The Player determines whether that track is enabled and how it is synchronized with other audio
+content.
 
-11. Image Assets
+## 11. Image Assets
 
 Image assets may contain:
 
-photographs;
-illustrations;
-artwork;
-backgrounds;
-character images;
-UI-related visual resources.
+- photographs;
+- illustrations;
+- artwork;
+- backgrounds;
+- character images;
+- UI-related visual resources.
 
 Example:
 
+```xml
 <img
     src="character-alex"
     layer="foreground"
     sizePercent="60" />
+```
 
 An image has no intrinsic playback duration.
 
 Its duration is determined by the media element and the surrounding timeline.
 
-12. Pre-rendered Speech Assets
+## 12. Pre-rendered Speech Assets
 
 Speech may be represented by an audio asset.
 
 For example:
 
+```xml
 <audio src="tts/chapter01-line004.wav" />
+```
 
 This is particularly useful for packaged projects.
 
@@ -285,15 +310,18 @@ tts/
 
 The script may reference the generated audio through a project asset ID.
 
-13. TTS References
+## 13. TTS References
 
-OVML also supports projects in which speech is generated by the Player rather than packaged as an audio file.
+OVML also supports projects in which speech is generated by the Player rather than packaged as an
+audio file.
 
 For example:
 
+```xml
 <line char="alex">
     Welcome to the project.
 </line>
+```
 
 The character definition may identify a voice.
 
@@ -303,28 +331,28 @@ This makes plain .ovml documents suitable for dynamic voice generation.
 
 The actual TTS implementation may be:
 
-a built-in Player voice;
-a local TTS engine;
-a system speech engine;
-a remote TTS provider;
-a plugin-provided provider;
-a pre-rendered speech resource.
+- a built-in Player voice;
+- a local TTS engine;
+- a system speech engine;
+- a remote TTS provider;
+- a plugin-provided provider;
+- a pre-rendered speech resource.
 
 The OVML document describes the intended speech content.
 
 The Player determines how that speech is produced.
 
-14. Free and Built-in Voices
+## 14. Free and Built-in Voices
 
 A Player MAY provide voices that can be used without user-supplied API credentials.
 
 Such voices may include:
 
-local voices;
-system voices;
-bundled voices;
-free remote voice services;
-other voices provided directly by the Player.
+- local voices;
+- system voices;
+- bundled voices;
+- free remote voice services;
+- other voices provided directly by the Player.
 
 An OVML document MAY reference such a voice through the character definition.
 
@@ -332,12 +360,13 @@ The absence of an API key does not prevent an OVML document from being a valid d
 
 Voice availability is a runtime capability of the Player.
 
-15. Asset Reuse
+## 15. Asset Reuse
 
 An asset MAY be referenced multiple times.
 
 Example:
 
+```xml
 <scene>
 
     <img
@@ -353,48 +382,58 @@ Example:
         sizePercent="60" />
 
 </scene>
+```
 
 Both elements reference the same asset.
 
 Each use may specify independent:
 
-timing;
-duration;
-layer;
-size;
-position;
-processing;
-volume where applicable.
-16. Asset Independence
+- timing;
+- duration;
+- layer;
+- size;
+- position;
+- processing;
+- volume where applicable.
 
-Changing the physical location of an asset SHOULD NOT require changing the OVML script when a logical asset ID is used.
+## 16. Asset Independence
+
+Changing the physical location of an asset SHOULD NOT require changing the OVML script when a
+logical asset ID is used.
 
 For example:
 
+```xml
 <video src="intro-video" />
+```
 
 may resolve to:
 
+```text
 Development
     ↓
 https://dev.example.com/intro.mp4
+```
 
 and later:
 
+```text
 Production
     ↓
 https://cdn.example.com/intro.mp4
+```
 
 The OVML document remains unchanged.
 
 This provides portability between development, publishing, and packaged environments.
 
-17. OVMZ Assets
+## 17. OVMZ Assets
 
 An OVMZ package may contain all resources required for local playback.
 
 Example:
 
+```text
 project.ovmz/
 ├── content.ovml
 ├── project.json
@@ -404,32 +443,37 @@ project.ovmz/
 │   └── images/
 ├── presets/
 └── tts/
+```
 
 The package may therefore contain:
 
-images;
-videos;
-music;
-sound effects;
-pre-rendered speech;
-processing presets.
+- images;
+- videos;
+- music;
+- sound effects;
+- pre-rendered speech;
+- processing presets.
 
-The Player can resolve package-local resources without requiring access to their original external locations.
+The Player can resolve package-local resources without requiring access to their original external
+locations.
 
-18. Plain OVML
+## 18. Plain OVML
 
 A plain .ovml document does not need to contain all assets locally.
 
 It may contain:
 
+```text
 OVML document
       │
       ├── external media URLs
       ├── logical asset IDs
       └── runtime voice references
+```
 
 For example:
 
+```xml
 <ovml version="2.2" lang="en">
 
     <meta>
@@ -475,15 +519,18 @@ For example:
     </script>
 
 </ovml>
+```
 
 The Player resolves the resources and may synthesize the narration at runtime.
 
-19. OVMZ and Asset Materialization
+## 19. OVMZ and Asset Materialization
 
-When an OVML project is packaged as OVMZ, external or generated resources MAY be materialized into the package.
+When an OVML project is packaged as OVMZ, external or generated resources MAY be materialized into
+the package.
 
 Conceptually:
 
+```text
 Plain OVML
     │
     ├── external assets
@@ -498,12 +545,13 @@ OVMZ
     ├── content.ovml
     ├── resources/
     └── tts/
+```
 
 This allows the resulting OVMZ project to be substantially more self-contained.
 
 The original logical asset references MAY remain unchanged.
 
-20. OVMV
+## 20. OVMV
 
 OVMV represents a rendered audiovisual result.
 
@@ -511,6 +559,7 @@ In an OVMV workflow, the resources have already been processed into the final vi
 
 Conceptually:
 
+```text
 OVML
   │
   ├── assets
@@ -524,13 +573,16 @@ OVML
         │
         ▼
       OVMV
+```
 
-The OVMV playback path does not need to resolve and reconstruct every original asset in order to present the rendered video.
+The OVMV playback path does not need to resolve and reconstruct every original asset in order to
+present the rendered video.
 
-21. Asset Resolution
+## 21. Asset Resolution
 
 A Player may conceptually resolve an asset using the following process:
 
+```text
 Asset Reference
       │
       ▼
@@ -556,18 +608,21 @@ Decode / Prepare
       │
       ▼
 Present
+```
 
 The implementation may optimize or combine these stages.
 
 The OVML Standard defines the semantic relationship, not the internal Player pipeline.
 
-22. Missing Assets
+## 22. Missing Assets
 
 A missing or unavailable asset is a runtime condition.
 
 For example:
 
+```xml
 <img src="missing-background" />
+```
 
 may be structurally valid even if the corresponding resource cannot be found.
 
@@ -575,62 +630,69 @@ The Player SHOULD provide a controlled failure behavior.
 
 Possible behaviors include:
 
-skipping the resource;
-displaying an implementation-defined placeholder;
-reporting an error;
-continuing playback;
-stopping playback when the resource is essential.
+- skipping the resource;
+- displaying an implementation-defined placeholder;
+- reporting an error;
+- continuing playback;
+- stopping playback when the resource is essential.
 
 The OVML Standard does not mandate a universal placeholder.
 
-23. Asset Validation
+## 23. Asset Validation
 
-A validator SHOULD verify the correctness of asset references according to the available project context.
+A validator SHOULD verify the correctness of asset references according to the available project
+context.
 
 It MAY verify:
 
-reference syntax;
-required attributes;
-resource type compatibility;
-logical ID format;
-package-relative path format.
+- reference syntax;
+- required attributes;
+- resource type compatibility;
+- logical ID format;
+- package-relative path format.
 
 For external URLs, a validator is not required to verify that the resource is currently reachable.
 
 Resource availability is a runtime concern.
 
-24. Asset Security
+## 24. Asset Security
 
 Players MUST treat external resources as untrusted input.
 
 Implementations SHOULD protect against:
 
-unsupported URL schemes;
-unauthorized local file access;
-malicious redirects;
-oversized resources;
-unexpected content types;
-resource exhaustion;
-unsafe embedded content.
+- unsupported URL schemes;
+- unauthorized local file access;
+- malicious redirects;
+- oversized resources;
+- unexpected content types;
+- resource exhaustion;
+- unsafe embedded content.
 
 A Player MAY restrict resource access to explicitly allowed origins.
 
 These restrictions are implementation-level security policies.
 
-25. Portability
+## 25. Portability
 
-A portable OVML project SHOULD avoid unnecessary dependence on implementation-specific physical locations.
+A portable OVML project SHOULD avoid unnecessary dependence on implementation-specific physical
+locations.
 
 Logical references are preferred:
 
+```xml
 <video src="intro-video" />
+```
 
 over hard-coded local filesystem paths such as:
 
+```xml
 <video src="/home/user/project/assets/intro.mp4" />
+```
 
 Logical asset references allow the same project to move between:
 
+```text
 Studio
    ↓
 Plain OVML
@@ -642,39 +704,47 @@ Desktop Player
 Mobile Player
    ↓
 OVMZ
+```
 
 without changing the semantic content.
 
-26. Asset and Processing Presets
+## 26. Asset and Processing Presets
 
 An asset and its processing preset are separate concepts.
 
 For example:
 
+```xml
 <img
     src="portrait"
     processing="warm-cinematic" />
+```
 
 Conceptually:
 
+```text
 portrait
     │
     └── asset
+```
 
+```text
 warm-cinematic
     │
     └── processing preset
+```
 
 The same asset may therefore be presented using different processing presets.
 
 This separation also allows presets to be packaged independently in OVMZ.
 
-27. Asset and Scene Context
+## 27. Asset and Scene Context
 
 A scene may provide semantic information about how assets should be interpreted.
 
 For example:
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="warm sunset, quiet and peaceful">
@@ -687,18 +757,21 @@ For example:
         layer="background" />
 
 </scene>
+```
 
 The atmosphere attribute may provide semantic context for tooling or AI-assisted asset selection.
 
 The asset itself remains independent of the scene.
 
-28. Asset Identity
+## 28. Asset Identity
 
 An asset identity SHOULD remain stable within the scope in which it is referenced.
 
 For example:
 
+```xml
 <img src="character-alex" />
+```
 
 should consistently identify the same logical resource within the project.
 
@@ -706,18 +779,21 @@ If the underlying physical resource changes, the logical asset ID may remain unc
 
 This allows projects to update assets without rewriting their scripts.
 
-29. Design Principle
+## 29. Design Principle
 
 OVML deliberately separates:
 
+```text
 Content
    ↓
 Asset Reference
    ↓
 Resource
+```
 
 and:
 
+```text
 Resource
    ↓
 Media Element
@@ -725,31 +801,39 @@ Media Element
 Timeline
    ↓
 Presentation
+```
 
 This makes it possible for the same semantic project to exist as:
 
+```text
 Plain OVML
     ↓
 external / logical resources
     ↓
 runtime synthesis
+```
 
         or
 
+```text
 OVMZ
     ↓
 bundled resources
     ↓
 pre-rendered TTS
+```
 
         or
 
+```text
 OVMV
     ↓
 fully rendered audiovisual result
+```
 
 The resource location is therefore not part of the creative meaning of the project.
 
-An OVML asset is a resource. An asset reference identifies that resource. A media element defines how the resource participates in the project timeline.
+An OVML asset is a resource. An asset reference identifies that resource. A media element defines
+how the resource participates in the project timeline.
 
 This separation is fundamental to the portability of the Open Voice Markup Language.

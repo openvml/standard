@@ -2,9 +2,11 @@
 
 All notable changes to the OpenVML standard are documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
+adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-The standard is currently published as a **Draft**; all versions below are considered work in progress and may change without prior notice.
+The standard is currently published as a **Draft**; all versions below are considered work in
+progress and may change without prior notice.
 
 ## [Unreleased]
 
@@ -12,14 +14,19 @@ The standard is currently published as a **Draft**; all versions below are consi
 
 ## [2.3]
 
-- Added `<world>` — a world canon at the whole-document (project) level, with an arbitrary, extensible set of sections (`<locations>`, `<timeline>`, `<factions>`, `<terms>`, ...).
-- Scenes reference canon entities via the `ref` attribute (e.g. `<location ref="...">`) and can define a scene-specific variation via a nested `<variation>`.
-- Project types are **not** introduced into the standard — the document is self-describing and interpreted by structure.
+- Added `<world>` — a world canon at the whole-document (project) level, with an arbitrary,
+  extensible set of sections (`<locations>`, `<timeline>`, `<factions>`, `<terms>`, ...).
+- Scenes reference canon entities via the `ref` attribute (e.g. `<location ref="...">`) and can
+  define a scene-specific variation via a nested `<variation>`.
+- Project types are **not** introduced into the standard — the document is self-describing and
+  interpreted by structure.
 
 ## [2.2]
 
-- Added the `assetRef` attribute on media blocks `<img>`, `<video>`, `<audio>` to bind a block to an asset passport from the global catalog.
-- Updated the asset passport format with the fields: `id`, `title`, `source`, `author`, `license`, `url`, `tags`, `duration`, `loop`.
+- Added the `assetRef` attribute on media blocks `<img>`, `<video>`, `<audio>` to bind a block to
+  an asset passport from the global catalog.
+- Updated the asset passport format with the fields: `id`, `title`, `source`, `author`,
+  `license`, `url`, `tags`, `duration`, `loop`.
 - Added a vector embedding mechanism for AI-assisted asset selection.
 
 ## [2.1]

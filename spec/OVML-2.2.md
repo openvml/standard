@@ -1,8 +1,8 @@
 # OpenVML — OVML 2.2 Specification
 
-**Version:** 2.2  
-**Status:** Current  
-**Format:** XML  
+**Version:** 2.2
+**Status:** Current
+**Format:** XML
 **Specification:** OpenVML Standard
 
 ---
@@ -121,7 +121,7 @@ application.
 
 An OVML document consists of four primary areas:
 
-```
+```xml
 <ovml>
     <meta>
         ...
@@ -143,6 +143,7 @@ An OVML document consists of four primary areas:
         ...
     </script>
 </ovml>
+```
 
 These areas have different responsibilities.
 
@@ -153,23 +154,30 @@ Element	Purpose
 <assets>	Media resource definitions
 <world>	World canon — canonical entities of the project (locations, chronology, terms, etc.)
 <script>	Narrative and audiovisual timeline
-5. Root Element — <ovml>
+
+## 5. Root Element — <ovml>
 
 The root element identifies an OVML document.
 
 Example:
 
+```xml
 <ovml version="2.2" lang="en">
     ...
 </ovml>
-Attributes
+```
+
+### Attributes
+
 Attribute	Type	Required	Description
 version	string	yes	OVML specification version
 lang	language tag	no	Default language of the document
 
 Example:
 
+```xml
 <ovml version="2.2" lang="ru">
+```
 
 The lang attribute uses language identifiers such as:
 
@@ -184,12 +192,13 @@ en-US
 The language of individual elements may be more specific where
 required by an implementation.
 
-6. Metadata — <meta>
+## 6. Metadata — <meta>
 
 The <meta> element contains project-level metadata.
 
 Example:
 
+```xml
 <meta>
     <title>Путешествие на Марс</title>
     <author>OpenVML Example</author>
@@ -201,15 +210,17 @@ Example:
         subtitleColor="#ffffff"
     />
 </meta>
-<title>
+```
+
+### <title>
 
 Human-readable project title.
 
-<author>
+### <author>
 
 Human-readable author or creator name.
 
-<preferences>
+### <preferences>
 
 Optional playback and presentation preferences.
 
@@ -218,10 +229,12 @@ showSubtitles	boolean	true	Display subtitles
 subtitleFontSize	integer	14	Subtitle font size in pixels
 subtitleBg	string	rgba(0,0,0,0.7)	Subtitle background
 subtitleColor	string	#ffffff	Subtitle text color
-7. Cast — <cast>
+
+## 7. Cast — <cast>
 
 The <cast> element defines the characters used by the project.
 
+```xml
 <cast>
     <character
         id="narrator"
@@ -239,10 +252,12 @@ The <cast> element defines the characters used by the project.
         role="protagonist"
     />
 </cast>
+```
 
 A character is referenced from script content by its id.
 
-8. Character — <character>
+## 8. Character — <character>
+
 Required attributes
 Attribute	Type	Description
 id	string	Unique character identifier
@@ -253,11 +268,13 @@ color	HEX	#888888	Character UI color
 gender	enum	neutral	male, female, neutral
 age	enum	adult	child, teen, adult, elderly
 role	enum	minor	protagonist, antagonist, major, minor, narrator
-9. Voice Configuration
+
+## 9. Voice Configuration
 
 A character may contain voice configuration describing how dialogue
 should be voiced.
 
+```xml
 <character
     id="alex"
     name="Alex"
@@ -268,6 +285,7 @@ should be voiced.
     pitch="1.0"
     rate="1.0"
 />
+```
 
 Voice configuration identifies the intended voice. The actual TTS
 implementation is determined by the environment interpreting the
@@ -284,11 +302,12 @@ rate	float	1.0	Speech rate
 
 Implementations may support additional voice parameters.
 
-10. Media Processing Presets
+## 10. Media Processing Presets
 
 A character may reference processing presets for audio, video or
 images.
 
+```xml
 <character
     id="alex"
     name="Alex"
@@ -296,55 +315,57 @@ images.
     videoProcessorFile="presets/video/Cinematic.ovml"
     imageProcessorFile="presets/image/WarmColors.ovml"
 />
+```
 
 The referenced files are standalone XML documents describing
 processing parameters.
 
 The OVML standard does not require a particular processing engine.
 
-11. Assets — <assets>
+## 11. Assets — <assets>
 
 The <assets> section describes media resources used by the project.
 
 An asset may represent:
 
-audio;
-video;
-image;
-subtitle;
-other media supported by an implementation.
+- audio;
+- video;
+- image;
+- subtitle;
+- other media supported by an implementation.
 
 The exact storage mechanism is implementation-dependent.
 
 When OVML is packaged as OVMZ, assets may be stored inside the
 container.
 
-12. Script — <script>
+## 12. Script — <script>
 
 The <script> contains the actual audiovisual structure of the
 project.
 
 It may contain:
 
-chapters;
-scenes;
-text blocks;
-dialogue;
-audio;
-video;
-images;
-breaks;
-camera direction.
+- chapters;
+- scenes;
+- text blocks;
+- dialogue;
+- audio;
+- video;
+- images;
+- breaks;
+- camera direction.
 
 The script is declarative. It does not contain executable code.
 
-13. Scenes — <scene>
+## 13. Scenes — <scene>
 
 A <scene> groups content belonging to a common dramatic or visual
 context.
 
 Example:
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="тёплый закат, тишина, умиротворение">
@@ -352,7 +373,10 @@ Example:
     ...
 
 </scene>
-Attributes
+```
+
+### Attributes
+
 Attribute	Type	Description
 color	HEX color	Scene color used as a visual/UI hint
 atmosphere	string	Description of the scene atmosphere
@@ -361,31 +385,35 @@ The color and atmosphere attributes describe creative intent.
 
 They may be used by:
 
-authoring tools;
-AI assistants;
-asset selection systems;
-visual processors;
-rendering systems;
-plugins.
+- authoring tools;
+- AI assistants;
+- asset selection systems;
+- visual processors;
+- rendering systems;
+- plugins.
 
 They do not require a specific rendering behavior.
 
-13.1 Canon References — generic mechanism
+### 13.1 Canon References — generic mechanism
 
 A scene may reference a canonical entity from the project's world
 canon via a child element with a ref attribute.
 
 Any section in the world canon may be referenced the same way:
 
+```xml
 <scene>
     <location ref="rusty_anchor">
         <variation>
             <weather>rainy</weather>
         </variation>
     </location>
+```
 
+```xml
     ...
 </scene>
+```
 
 The ref value is the id of an entity declared in the corresponding
 section of the project-level <world> canon.
@@ -393,12 +421,14 @@ section of the project-level <world> canon.
 The mechanism is identical for every section. For example, a lecture
 may reference a term:
 
+```xml
 <scene>
     <term ref="photosynthesis" />
     ...
 </scene>
+```
 
-13.2 World Canon — <world>
+### 13.2 World Canon — <world>
 
 The document-level <world> element describes the canonical entities of
 the project's world.
@@ -411,6 +441,7 @@ may declare the sections that its content requires.
 
 Example — a story-geared canon:
 
+```xml
 <world>
     <locations>
         <location
@@ -434,9 +465,11 @@ Example — a story-geared canon:
         </era>
     </timeline>
 </world>
+```
 
 Example — a knowledge-geared canon (lecture, documentation):
 
+```xml
 <world>
     <terms>
         <term id="photosynthesis" name="Photosynthesis">
@@ -445,13 +478,14 @@ Example — a knowledge-geared canon (lecture, documentation):
         </term>
     </terms>
 </world>
+```
 
 Every section follows the same structural rule:
 
-a section is a container of named entities;
-an entity has a stable id and a display name;
-an entity may contain arbitrary clarifying child elements;
-an entity is referenced from script content by ref.
+- a section is a container of named entities;
+- an entity has a stable id and a display name;
+- an entity may contain arbitrary clarifying child elements;
+- an entity is referenced from script content by ref.
 
 The world canon holds the permanent properties of its entities.
 Context-specific change (time of day, weather, temporary props) is
@@ -462,7 +496,7 @@ The <world> element is optional.
 
 A document without a world canon is valid.
 
-14. Camera Direction — <camera>
+## 14. Camera Direction — <camera>
 
 The <camera> element describes intended camera composition and
 movement.
@@ -472,36 +506,41 @@ camera engine.
 
 Example:
 
+```xml
 <camera
     shot="medium"
     position="center"
     movement="static"
     focus="alex"
 />
+```
 
 The exact <camera> vocabulary is defined by the Camera Direction
 section of this specification.
 
-15. Text Blocks
+## 15. Text Blocks
 
 Text content is represented using <p> and <line>.
 
 Example:
-```
+
+```xml
 <p>
     <line char="alex">
         Привет!
     </line>
 </p>
 ```
+
 A paragraph may contain one or more lines.
 
-16. Dialogue Line — <line>
+## 16. Dialogue Line — <line>
 
 The <line> element represents a unit of spoken or displayed text.
 
 Example:
 
+```xml
 <line
     char="alex"
     startMode="afterPrevious"
@@ -511,13 +550,18 @@ Example:
     wordDisplayDuration="100">
     Текст реплики
 </line>
-Timing attributes
+```
+
+### Timing attributes
+
 Attribute	Type	Description
 startMode	enum	Timing mode
 startTime	float	Start time in seconds
 startDelay	float	Additional delay
 char	string	Character identifier
-Display attributes
+
+### Display attributes
+
 Attribute	Type	Description
 marquee	boolean	Enable marquee text
 wordByWord	boolean	Enable word-by-word display
@@ -526,10 +570,11 @@ wordDisplayDuration	integer	Word display duration in milliseconds
 
 Additional typography and grid attributes may be applied.
 
-17. Word-by-Word Text
+## 17. Word-by-Word Text
 
 OVML can explicitly group words for synchronized display.
 
+```xml
 <line
     wordByWord="true"
     wordByWordMode="cumulative"
@@ -541,19 +586,23 @@ OVML can explicitly group words for synchronized display.
     <w group="2">дела</w>
 
 </line>
+```
 
 The exact visual representation is determined by the player.
 
-18. Media Blocks
+## 18. Media Blocks
 
 OVML supports media blocks such as:
 
+```xml
 <video ... />
 <img ... />
 <audio ... />
+```
 
 Example:
 
+```xml
 <video
     src="asset_id"
     layer="background"
@@ -569,7 +618,9 @@ Example:
     gridColSpan="1"
     sizePercent="100"
 />
-19. Timing Model
+```
+
+## 19. Timing Model
 
 OVML provides explicit timing relationships between blocks.
 
@@ -583,15 +634,18 @@ absolute	Starts at an absolute timeline position
 For media blocks, the default startMode is:
 
 absolute
-20. Break
+
+## 20. Break
 
 A pause may be explicitly inserted into the script.
 
+```xml
 <break time="1000" />
+```
 
 The value is expressed in milliseconds.
 
-21. Layout
+## 21. Layout
 
 Text and media elements may use a grid-based layout.
 
@@ -606,12 +660,13 @@ sizePercent="100"
 
 The exact visual implementation is platform-dependent.
 
-22. OVMZ
+## 22. OVMZ
 
 OVMZ is the packaged form of an OVML project.
 
 A typical OVMZ package contains:
 
+```text
 project.ovmz/
 ├── content.ovml
 ├── project.json
@@ -624,11 +679,12 @@ project.ovmz/
 │   ├── video/
 │   └── image/
 └── tts/
+```
 
 OVMZ packages the project and its resources for distribution or
 offline playback.
 
-23. OVMV
+## 23. OVMV
 
 OVMV represents a rendered audiovisual result of an OVML project.
 
@@ -639,26 +695,26 @@ A renderer may use OVML timing, scenes, camera direction, assets,
 voice configuration and processing instructions to produce the
 final media.
 
-24. Validation
+## 24. Validation
 
 An OVML document must be structurally valid XML and conform to the
 rules defined by this specification.
 
 Validation includes:
 
-XML structure;
-required elements;
-required attributes;
-supported attribute values;
-references to known characters;
-valid timing values;
-valid media references where applicable.
+- XML structure;
+- required elements;
+- required attributes;
+- supported attribute values;
+- references to known characters;
+- valid timing values;
+- valid media references where applicable.
 
 An OVML parser is responsible for rejecting malformed documents.
 
 The player is responsible for interpreting a valid document.
 
-25. Extensibility
+## 25. Extensibility
 
 OVML may be extended by future versions of the standard and by
 implementation-specific mechanisms.
@@ -670,18 +726,22 @@ Implementations may ignore extensions they do not understand,
 provided that doing so does not make the document unsafe or
 structurally invalid.
 
-26. Version
+## 26. Version
 
 This document defines OVML 2.2.
 
 The version is declared in the root element:
 
+```xml
 <ovml version="2.2">
+```
 
 An implementation may reject documents using a version it does not
 support.
 
-27. Complete Example
+## 27. Complete Example
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ovml version="2.2" lang="ru">
@@ -779,19 +839,21 @@ support.
     </script>
 
 </ovml>
-28. Summary
+```
+
+## 28. Summary
 
 OVML is a declarative representation of an audiovisual project.
 
 It describes:
 
-what the project contains;
-who participates;
-what is said;
-which media are used;
-when events occur;
-how scenes are conceptually composed;
-what camera direction is intended.
+- what the project contains;
+- who participates;
+- what is said;
+- which media are used;
+- when events occur;
+- how scenes are conceptually composed;
+- what camera direction is intended.
 
 The application interpreting OVML determines how these
 intentions are realized on a particular platform.

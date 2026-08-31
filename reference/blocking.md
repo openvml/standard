@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Blocking — `<blocking>`
 
@@ -8,7 +9,8 @@
 
 ## 1. Purpose
 
-The `<blocking>` element inside a `<scene>` describes the semantic relationships between the characters present in that scene.
+The `<blocking>` element inside a `<scene>` describes the semantic relationships between the
+characters present in that scene.
 
 Blocking records:
 
@@ -22,16 +24,19 @@ who reacts to whom;
 
 who enters or exits the scene.
 
-Blocking describes intent and spatial relationships, not absolute coordinates or model-specific rendering instructions.
+Blocking describes intent and spatial relationships, not absolute coordinates or model-specific
+rendering instructions.
 
 ## 2. Structure
 
 The `<blocking>` element is a child of `<scene>`.
 
-It contains a list of `<character>` elements, each of which describes the positioning and relationships of one character.
+It contains a list of `<character>` elements, each of which describes the positioning and
+relationships of one character.
 
 Example:
 
+```xml
 <scene id="ch1_office" time="evening" mood="dramatic">
 
     <blocking>
@@ -40,6 +45,7 @@ Example:
     </blocking>
 
 </scene>
+```
 
 Each `<character>` entry references a character declared in the `<cast>` element by its `id`.
 
@@ -60,7 +66,9 @@ The `ref` attribute identifies the character being described.
 
 Its value MUST correspond to an existing character `id` in the `<cast>` element.
 
+```xml
 <character ref="anna" position="left"/>
+```
 
 ## 5. position
 
@@ -81,7 +89,9 @@ Position is a semantic hint, not a set of coordinates.
 
 The `look_at` attribute identifies the character that this character looks at.
 
+```xml
 <character ref="anna" look_at="ivan"/>
+```
 
 The value is a charId.
 
@@ -89,7 +99,9 @@ The value is a charId.
 
 The `addresses` attribute identifies the character that this character addresses speech to.
 
+```xml
 <character ref="ivan" addresses="anna"/>
+```
 
 The value is a charId.
 
@@ -97,7 +109,9 @@ The value is a charId.
 
 The `reacts_to` attribute identifies the character that this character reacts to.
 
+```xml
 <character ref="anna" reacts_to="ivan"/>
+```
 
 The value is a charId.
 
@@ -105,8 +119,10 @@ The value is a charId.
 
 The `enters` and `exits` attributes describe whether a character enters or leaves the scene.
 
+```xml
 <character ref="anna" position="left" look_at="ivan" enters="true"/>
 <character ref="ivan" position="right" addresses="anna"/>
+```
 
 Both attributes are booleans.
 
@@ -114,6 +130,7 @@ A character may be marked as entering, exiting, or neither.
 
 ## 10. Example: Blocking
 
+```xml
 <scene id="ch1_office" time="evening" mood="dramatic">
     <location>Офис, неоновая подсветка</location>
     <characters>
@@ -129,6 +146,7 @@ A character may be marked as entering, exiting, or neither.
     <p char="anna">Иван... ты слышал?</p>
     <p char="ivan">Слышал. Давай уходить.</p>
 </scene>
+```
 
 ## 11. Design Principle
 
@@ -158,7 +176,8 @@ The `<prompt>` child of a scene may be supplied explicitly by the author.
 
 Alternatively, it may be auto-generated from the `<blocking>` element.
 
-Because blocking describes semantics rather than coordinates, an AI-assisted system can use it to produce appropriate model-specific prompts.
+Because blocking describes semantics rather than coordinates, an AI-assisted system can use it to
+produce appropriate model-specific prompts.
 
 ## 13. Blocking and Characters
 
@@ -166,14 +185,17 @@ The `<characters>` element of a scene lists the characters participating in the 
 
 Example:
 
+```xml
 <characters>
     <char ref="anna"/>
     <char ref="ivan"/>
 </characters>
+```
 
 Blocking then describes the relationships between those characters.
 
-The `<character>` entries inside `<blocking>` and the `<char>` entries inside `<characters>` both reference cast character IDs.
+The `<character>` entries inside `<blocking>` and the `<char>` entries inside `<characters>` both
+reference cast character IDs.
 
 ## 14. Validation
 

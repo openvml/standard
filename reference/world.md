@@ -1,8 +1,9 @@
 # World Canon — `<world>`
 
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 **OVML Standard 2.2**
 
@@ -10,15 +11,20 @@
 
 The `<world>` element defines the canonical entities of the project's world.
 
-It is a document-level container, a sibling of `<cast>`, `<assets>`, and `<script>` under the root `<ovml>` element.
+It is a document-level container, a sibling of `<cast>`, `<assets>`, and `<script>` under the root
+`<ovml>` element.
 
-The world canon is declared once at the top of the document and acts as the single source of truth for the entities that recur across the project.
+The world canon is declared once at the top of the document and acts as the single source of truth
+for the entities that recur across the project.
 
-Script scenes reference a canonical entity by its `id` instead of duplicating the full description in every scene.
+Script scenes reference a canonical entity by its `id` instead of duplicating the full description
+in every scene.
 
 This keeps long-form projects consistent across many scenes and chapters.
 
-The world canon is not limited to narrative content. The same mechanism serves any content whose entities recur and must stay consistent — a novel's locations, a lecture's terms, a documentation set's definitions and versions.
+The world canon is not limited to narrative content. The same mechanism serves any content whose
+entities recur and must stay consistent — a novel's locations, a lecture's terms, a documentation
+set's definitions and versions.
 
 ## 2. Canon, Not Copy
 
@@ -36,7 +42,7 @@ The world canon solves this by describing each entity once and letting scenes re
 
 A document declares the sections that its content requires.
 
-```
+```text
 world
 │
 ├── locations
@@ -67,7 +73,8 @@ An entity:
 - may contain arbitrary clarifying child elements;
 - is referenced from script content by `ref`.
 
-The parser does not need to know the kind of content to interpret a section. It applies the same rule to every section.
+The parser does not need to know the kind of content to interpret a section. It applies the same
+rule to every section.
 
 This makes the language self-describing. No project-type declaration is required.
 
@@ -75,7 +82,7 @@ This makes the language self-describing. No project-type declaration is required
 
 The `<world>` element is placed at the top of the document, before `<script>`:
 
-```
+```xml
 <ovml version="2.2" lang="en">
 
     <meta>
@@ -117,7 +124,7 @@ Attribute	Type	Required	Description
 
 ### Example — locations section
 
-```
+```xml
 <world>
     <locations>
         <location
@@ -138,7 +145,7 @@ Attribute	Type	Required	Description
 
 ### Example — terms section (lecture, documentation)
 
-```
+```xml
 <world>
     <terms>
         <term
@@ -153,7 +160,8 @@ Attribute	Type	Required	Description
 </world>
 ```
 
-The child elements of an entity are free-form and project-specific. The standard only requires `id` and `name`.
+The child elements of an entity are free-form and project-specific. The standard only requires `id`
+and `name`.
 
 The complete model for the locations section is defined in:
 
@@ -163,7 +171,7 @@ reference/locations.md
 
 A scene references a canonical entity via a child element with a `ref` attribute.
 
-```
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="tense, night">
@@ -173,7 +181,9 @@ A scene references a canonical entity via a child element with a `ref` attribute
             <weather>rainy</weather>
         </variation>
     </location>
+```
 
+```xml
     ...
 </scene>
 ```
@@ -186,7 +196,7 @@ reference/locations.md
 
 The mechanism is identical for every section:
 
-```
+```xml
 <scene>
     <term ref="photosynthesis" />
     ...
@@ -197,7 +207,7 @@ The mechanism is identical for every section:
 
 A scene may specify how a referenced entity differs from its canon in this particular scene.
 
-```
+```xml
 <location ref="rusty_anchor">
     <variation>
         <time>night</time>
@@ -219,7 +229,7 @@ A plain-text entity reference without `ref` remains valid.
 
 For example:
 
-```
+```xml
 <scene>
     <location>A dark forest. Mist between the trees.</location>
     ...
@@ -239,15 +249,18 @@ When creating a new scene, the Assistant:
 - adds a `<variation>` for anything different in this scene;
 - keeps the canon itself unchanged.
 
-This is the mechanism that keeps generated content consistent across a long project — whether the project is a novel, a course, or a documentation set.
+This is the mechanism that keeps generated content consistent across a long project — whether the
+project is a novel, a course, or a documentation set.
 
 ## 11. Relation to Project Forms
 
 The world canon is independent of any particular kind of content.
 
-The standard does not define "project types". A parser interprets a document from its structure: whichever sections are present are parsed by the uniform section rule.
+The standard does not define "project types". A parser interprets a document from its structure:
+whichever sections are present are parsed by the uniform section rule.
 
-Applications may map the resulting structure to their own product categories, but that mapping is outside the standard.
+Applications may map the resulting structure to their own product categories, but that mapping is
+outside the standard.
 
 ## 12. Related Documents
 

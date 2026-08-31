@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Transitions
 
@@ -18,7 +19,8 @@ between media blocks;
 
 at a point in the timeline.
 
-A transition defines how the visual change is presented, in contrast to timing, which defines when the change occurs.
+A transition defines how the visual change is presented, in contrast to timing, which defines when
+the change occurs.
 
 ## 2. Transition Values
 
@@ -38,10 +40,12 @@ A `<transition>` element may express a transition between two elements.
 
 Example:
 
+```xml
 <transition type="fade" duration="1.0" from="scene_01" to="scene_02" />
 <transition type="cut" />
 <transition type="dissolve" duration="0.5" />
 <transition type="wipe" direction="left" duration="0.3" />
+```
 
 ## 4. Attributes of the Transition Element
 
@@ -60,7 +64,9 @@ The other attributes refine how the transition is applied.
 
 A fade gradually transitions between content.
 
+```xml
 <transition type="fade" duration="1.0" from="scene_01" to="scene_02" />
+```
 
 The duration controls how long the fade takes.
 
@@ -68,7 +74,9 @@ The duration controls how long the fade takes.
 
 A cut switches immediately between content.
 
+```xml
 <transition type="cut" />
+```
 
 A cut has no meaningful duration.
 
@@ -76,7 +84,9 @@ A cut has no meaningful duration.
 
 A dissolve crosses one element into another.
 
+```xml
 <transition type="dissolve" duration="0.5" />
+```
 
 During a dissolve, the outgoing and incoming content overlap.
 
@@ -84,7 +94,9 @@ During a dissolve, the outgoing and incoming content overlap.
 
 A wipe reveals the new content with a directional wipe.
 
+```xml
 <transition type="wipe" direction="left" duration="0.3" />
+```
 
 The direction is a hint for how the wipe is performed.
 
@@ -94,9 +106,11 @@ A `<scene>` may carry a `transition` attribute that describes the transition to 
 
 Example:
 
+```xml
 <scene id="ch1_night" time="night" mood="tense" transition="fade">
     ...
 </scene>
+```
 
 Allowed values:
 
@@ -115,7 +129,8 @@ For example, two scenes may follow each other without a fade or cut.
 
 The scene `transition` attribute makes the author's transition intent explicit.
 
-A scene boundary without a transition leaves the transition behavior to the author or rendering extension.
+A scene boundary without a transition leaves the transition behavior to the author or rendering
+extension.
 
 ## 11. Transitions and Timing
 
@@ -125,13 +140,17 @@ Timing determines when the transition occurs.
 
 The transition determination defines how the visual change occurs.
 
+```text
 Timing
   │
   └── WHEN
+```
 
+```text
 Transition
   │
   └── HOW THE CHANGE IS PRESENTED
+```
 
 Transitions may overlap other content depending on their semantics.
 
@@ -141,9 +160,11 @@ A pause (silence) is distinct from a transition.
 
 A pause may be expressed with a `<break>` element.
 
+```xml
 <break duration="1.0" />
 <break duration="0.5" description="короткая пауза" />
 <break duration="3.0" description="длинная пауза" />
+```
 
 A break introduces silence in the sequential flow.
 

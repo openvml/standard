@@ -2,32 +2,44 @@
 
 **OpenVML Standard 2.2**
 
-This document explains the conceptual relationship between characters and voices in OVML. The two are deliberately separate: a character is a semantic entity in the cast, while a voice is a resource used to render that character's speech.
+This document explains the conceptual relationship between characters and voices in OVML. The two
+are deliberately separate: a character is a semantic entity in the cast, while a voice is a resource
+used to render that character's speech.
 
-Understanding this separation is central to OpenVML. It is what allows the same work to be re-voiced, re-cast, or played on different TTS systems without changing the underlying script.
+Understanding this separation is central to OpenVML. It is what allows the same work to be
+re-voiced, re-cast, or played on different TTS systems without changing the underlying script.
 
-1. Character Identity
+## 1. Character Identity
 
-A character is a named semantic entity declared in the <cast> section. A character has a stable id and a human-readable name:
+A character is a named semantic entity declared in the <cast> section. A character has a stable id
+and a human-readable name:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal" />
+```
 
 The script references the character by id through the char attribute of a line:
 
+```xml
     <line char="vestfal">
         — Это ракеты.
     </line>
+```
 
-The character's id is the canonical identity. It remains stable within the document, and the script refers to it rather than duplicating the character's definition in every line.
+The character's id is the canonical identity. It remains stable within the document, and the script
+refers to it rather than duplicating the character's definition in every line.
 
-The id is held in the original script's language. A character id is not transliterated or freely translated; it retains the value from the source script, whether that is Cyrillic, Latin, or any other writing system.
+The id is held in the original script's language. A character id is not transliterated or freely
+translated; it retains the value from the source script, whether that is Cyrillic, Latin, or any
+other writing system.
 
-2. Name and Aliases
+## 2. Name and Aliases
 
 A character carries a display name and, optionally, aliases:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal">
@@ -38,19 +50,27 @@ A character carries a display name and, optionally, aliases:
         </aliases>
 
     </character>
+```
 
-Aliases provide alternative names by which a character may be known. They are intended for authoring tools, search, indexing, and AI-assisted workflows. Aliases do not create additional characters — the canonical identity remains the character's id.
+Aliases provide alternative names by which a character may be known. They are intended for authoring
+tools, search, indexing, and AI-assisted workflows. Aliases do not create additional characters —
+the canonical identity remains the character's id.
 
-3. Descriptive Information
+## 3. Descriptive Information
 
-A character may carry other descriptive information: gender, age, narrative role, color, personality, and backstory. These describe who the character is.
+A character may carry other descriptive information: gender, age, narrative role, color,
+personality, and backstory. These describe who the character is.
 
-This descriptive metadata is informational. It does not prescribe a particular voice, pitch, TTS engine, or processing method. A Player may ignore it entirely during playback, while an authoring tool or AI system may use it to suggest voices, generate dialogue, or select assets.
+This descriptive metadata is informational. It does not prescribe a particular voice, pitch, TTS
+engine, or processing method. A Player may ignore it entirely during playback, while an authoring
+tool or AI system may use it to suggest voices, generate dialogue, or select assets.
 
-4. Voice Binding
+## 4. Voice Binding
 
-A character may bind a voice through voice attributes. The binding is a reference to a TTS resource, not the audio itself:
+A character may bind a voice through voice attributes. The binding is a reference to a TTS resource,
+not the audio itself:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
@@ -60,6 +80,7 @@ A character may bind a voice through voice attributes. The binding is a referenc
         voiceLang="en-US"
         pitch="1.0"
         rate="1.0" />
+```
 
 The voice binding declares:
 
@@ -73,28 +94,39 @@ The voice binding declares:
 
     pitch and rate — the base delivery characteristics.
 
-The standard does not define a global namespace for voice identifiers. An implementation should interpret the voice reference as the combination of voiceEngine plus voiceId.
+The standard does not define a global namespace for voice identifiers. An implementation should
+interpret the voice reference as the combination of voiceEngine plus voiceId.
 
-5. OVML Stores Voice References, Not Audio
+## 5. OVML Stores Voice References, Not Audio
 
 An OVML document describes which voice should be used; it does not contain the speech audio.
 
-The actual speech may be generated by the Player at runtime through a TTS provider. The document stays small and independent of pre-rendered audio files.
+The actual speech may be generated by the Player at runtime through a TTS provider. The document
+stays small and independent of pre-rendered audio files.
 
-A character may also be defined without any voice information. Such a document is valid. The standard does not prescribe a default TTS provider or default voice; when voice information is absent, the consuming application determines how the character's speech is resolved.
+A character may also be defined without any voice information. Such a document is valid. The
+standard does not prescribe a default TTS provider or default voice; when voice information is
+absent, the consuming application determines how the character's speech is resolved.
 
-A project may instead ship pre-rendered speech as packaged audio inside an OVMZ container. In that case the script references the generated audio as an asset rather than relying on runtime TTS. The plain OVML project, the packaged OVMZ project, and the fully rendered OVMV represent three degrees of this same idea.
+A project may instead ship pre-rendered speech as packaged audio inside an OVMZ container. In that
+case the script references the generated audio as an asset rather than relying on runtime TTS. The
+plain OVML project, the packaged OVMZ project, and the fully rendered OVMV represent three degrees
+of this same idea.
 
-6. Voice References and Credentials
+## 6. Voice References and Credentials
 
 OVML stores references to voices, never the credentials needed to use them.
 
-API keys, access tokens, passwords, and provider secrets must not appear in an OVML document. Authentication belongs to the Player, Studio, or execution environment. This separation lets an author share a project without exposing private provider credentials, and lets different Players use different providers for the same voice reference.
+API keys, access tokens, passwords, and provider secrets must not appear in an OVML document.
+Authentication belongs to the Player, Studio, or execution environment. This separation lets an
+author share a project without exposing private provider credentials, and lets different Players use
+different providers for the same voice reference.
 
-7. Voice and Character Are Separate
+## 7. Voice and Character Are Separate
 
 The relationship is best expressed as a diagram:
 
+```text
     character
     │
     ├── id
@@ -111,8 +143,10 @@ The relationship is best expressed as a diagram:
         ├── timbre
         ├── pitch
         └── rate
+```
 
-Changing a voice does not create a new character. Changing voiceId from one voice to another changes only the voice binding, not the character's identity.
+Changing a voice does not create a new character. Changing voiceId from one voice to another changes
+only the voice binding, not the character's identity.
 
 There are several reasons this separation matters.
 
@@ -122,9 +156,10 @@ There are several reasons this separation matters.
 
     A character without any voice remains valid and resolvable by the Player.
 
-8. Pronunciation
+## 8. Pronunciation
 
-OVML also provides declarative control over how individual words are pronounced, through the <w> element.
+OVML also provides declarative control over how individual words are pronounced, through the <w>
+element.
 
 A word may receive:
 
@@ -135,13 +170,16 @@ A word may receive:
 
 For example:
 
+```xml
     <p char="narrator">
         Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
     </p>
+```
 
-Pronunciation is part of the voice's rendering intent. It does not create or change a character; it refines how a particular word is synthesized.
+Pronunciation is part of the voice's rendering intent. It does not create or change a character; it
+refines how a particular word is synthesized.
 
-9. Summary
+## 9. Summary
 
 Characters are semantic entities; voices are rendering resources.
 
@@ -153,7 +191,8 @@ Characters are semantic entities; voices are rendering resources.
 
     Pronunciation and per-line delivery refine how speech is rendered.
 
-    Character and voice remain separate so that any work can be re-voiced, re-cast, and played on different systems without rewriting the script.
+Character and voice remain separate so that any work can be re-voiced, re-cast, and played on
+different systems without rewriting the script.
 
 See: reference/cast.md
 See: reference/voice.md

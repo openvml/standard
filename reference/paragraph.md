@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Paragraph — `<p>`
 
@@ -20,6 +21,7 @@ Each line is an individual `<line>` element.
 
 Example:
 
+```xml
 <p>
 
     <line char="narrator">
@@ -35,55 +37,67 @@ Example:
     </line>
 
 </p>
+```
 
 ## 2. Narration and Dialogue
 
 A paragraph expresses two primary content roles:
 
-narration — descriptive or narrative text, by default assigned to the narrator character;
-dialogue — spoken text assigned to a named character.
+- narration — descriptive or narrative text, by default assigned to the narrator character;
+- dialogue — spoken text assigned to a named character.
 
-In OVML 2.2 both roles are represented by the same mechanism: `<line>` elements inside `<p>`, with the char attribute selecting the speaker.
+In OVML 2.2 both roles are represented by the same mechanism: `<line>` elements inside `<p>`, with
+the char attribute selecting the speaker.
 
 Narration:
 
+```xml
 <p>
     <line char="narrator">
         The sun rose over the horizon.
     </line>
 </p>
+```
 
 Dialogue:
 
+```xml
 <p>
     <line char="hero" emotion="happy">
         What a wonderful day!
     </line>
 </p>
+```
 
 The narrator is the default character.
 
-When no char attribute is present at the paragraph or line level, the content is treated as narration.
+When no char attribute is present at the paragraph or line level, the content is treated as
+narration.
 
 ## 3. Structure
 
 The simplest paragraph is plain narration:
 
+```xml
 <p>
     Once upon a time...
 </p>
+```
 
 A paragraph with an explicit character:
 
+```xml
 <p char="narrator">
     This story began long ago...
 </p>
+```
 
 A paragraph MAY contain multiple `<line>` elements.
 
 Different lines within the same paragraph MAY reference different characters.
 
-The `<p>` element therefore represents a logical sequence, not necessarily a typographical paragraph.
+The `<p>` element therefore represents a logical sequence, not necessarily a typographical
+paragraph.
 
 ## 4. Character Default
 
@@ -91,6 +105,7 @@ The char attribute sets the default character for the paragraph.
 
 A `<line>` that does not specify its own char inherits the paragraph's character:
 
+```xml
 <p char="hero">
 
     <line>
@@ -102,6 +117,7 @@ A `<line>` that does not specify its own char inherits the paragraph's character
     </line>
 
 </p>
+```
 
 The first line is assigned to hero by inheritance.
 
@@ -127,6 +143,7 @@ marker	string	implementation-defined	Navigation marker
 
 Example:
 
+```xml
 <p
     char="hero"
     emotion="angry"
@@ -139,6 +156,7 @@ Example:
     </line>
 
 </p>
+```
 
 These attributes provide direction for speech synthesis and presentation.
 
@@ -158,6 +176,7 @@ they form a sequential chain.
 
 Example:
 
+```xml
 <p>
 
     <line char="alex">
@@ -173,14 +192,17 @@ Example:
     </line>
 
 </p>
+```
 
 The intended sequence is:
 
+```text
 Alex
   ↓
 Maria
   ↓
 Alex
+```
 
 The Player determines how the individual audio segments are generated, buffered, and played.
 
@@ -190,6 +212,7 @@ OVML also allows content inside a paragraph to overlap through explicit timing.
 
 For example:
 
+```xml
 <p>
 
     <line
@@ -206,14 +229,17 @@ For example:
         loop="true" />
 
 </p>
+```
 
 Both elements begin at the same timeline position.
 
 The script therefore expresses the relationship:
 
+```text
 Narration ────────────────>
 Storm audio ─────────────────────────>
             0s
+```
 
 The consuming Player is responsible for realizing the synchronization.
 
@@ -221,7 +247,8 @@ The consuming Player is responsible for realizing the synchronization.
 
 The paragraph provides a sequential context for its lines.
 
-Line-level timing, text formatting, word-by-word presentation, grid placement, transitions, and keyframes are defined on the `<line>` element.
+Line-level timing, text formatting, word-by-word presentation, grid placement, transitions, and
+keyframes are defined on the `<line>` element.
 
 See: reference/line.md
 
@@ -229,6 +256,7 @@ See: reference/line.md
 
 A paragraph normally occurs inside a scene.
 
+```xml
 <scene atmosphere="quiet forest">
 
     <p>
@@ -246,6 +274,7 @@ A paragraph normally occurs inside a scene.
     </p>
 
 </scene>
+```
 
 The scene provides the dramatic and visual context.
 
@@ -253,8 +282,10 @@ The paragraph provides the sequential text context.
 
 ## 10. Complete Example
 
-The following example shows a paragraph with multiple lines, alternating speakers, emotions, speech rates, and text-presentation features:
+The following example shows a paragraph with multiple lines, alternating speakers, emotions, speech
+rates, and text-presentation features:
 
+```xml
 <p>
 
     <line
@@ -277,9 +308,11 @@ The following example shows a paragraph with multiple lines, alternating speaker
         gridColSpan="4"
         enter="fade"
         exit="fade">
+```
 
         — Это ракеты,
 
+```xml
     </line>
 
     <line
@@ -287,10 +320,12 @@ The following example shows a paragraph with multiple lines, alternating speaker
         emotion="slightly amused"
         rate="1.0"
         startMode="afterPrevious">
+```
 
         — раздался в моей голове чуть насмешливый голос
         моего спутника — дракона Вестфаля.
 
+```xml
     </line>
 
     <line
@@ -301,36 +336,42 @@ The following example shows a paragraph with multiple lines, alternating speaker
         wordByWord="true"
         wordByWordMode="cumulative"
         wordDisplayDuration="100">
+```
 
         — А если точнее, «Гроза», «Гарпия» и несколько «Ос»
         старой модификации,
 
+```xml
     </line>
 
     <line
         char="narrator"
         emotion="knowing"
         startMode="afterPrevious">
+```
 
         — с нотками знатока добавил он.
 
+```xml
     </line>
 
 </p>
+```
 
 ## 11. Validation
 
 An OVML validator SHOULD verify:
 
-a `<p>` element is properly opened and closed;
-`char`, when present, references an existing character;
-lines are correctly enclosed within the paragraph;
-boolean attributes contain valid boolean values;
-timing and numeric attributes contain valid values.
+- a `<p>` element is properly opened and closed;
+- `char`, when present, references an existing character;
+- lines are correctly enclosed within the paragraph;
+- boolean attributes contain valid boolean values;
+- timing and numeric attributes contain valid values.
 
 Validation checks the structural correctness of the document.
 
-It does not determine whether the paragraph reads well, whether a TTS provider can synthesize it, or whether an emotion is supported by the selected voice.
+It does not determine whether the paragraph reads well, whether a TTS provider can synthesize it, or
+whether an emotion is supported by the selected voice.
 
 ## 12. Design Principle
 
@@ -338,16 +379,21 @@ A `<p>` is a logical text block, not a typographical instrument.
 
 It groups sequence of lines that belong together in the narrative or informational flow.
 
+```text
 Paragraph
     └── defines the sequential context
+```
 
+```text
 Line
     ├── defines who speaks
     ├── defines what is said
     ├── defines how it is spoken
     └── defines how it is displayed
+```
 
-This separation allows the same paragraph structure to serve narration, dialogue, lectures, and interactive projects.
+This separation allows the same paragraph structure to serve narration, dialogue, lectures, and
+interactive projects.
 
 ## 13. Related Documents
 

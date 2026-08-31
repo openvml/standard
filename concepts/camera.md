@@ -1,16 +1,18 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 OpenVML Camera Model
 
 OpenVML 2.2
 
-1. Overview
+## 1. Overview
 
 The <camera> element describes visual direction within an OpenVML scene.
 
-It allows an author, director, or AI-assisted authoring system to describe how the visual composition should be framed and how the viewer's attention should move through a scene.
+It allows an author, director, or AI-assisted authoring system to describe how the visual
+composition should be framed and how the viewer's attention should move through a scene.
 
 The camera model is intentionally declarative.
 
@@ -20,13 +22,14 @@ The Player or rendering engine determines how that behavior is implemented on th
 
 This distinction allows the same OpenVML project to be used by:
 
-interactive Players;
-video renderers;
-presentation engines;
-animation systems;
-future 3D environments;
-AI-assisted production tools.
-2. Camera as Director's Instruction
+- interactive Players;
+- video renderers;
+- presentation engines;
+- animation systems;
+- future 3D environments;
+- AI-assisted production tools.
+
+## 2. Camera as Director's Instruction
 
 A camera is not a media resource.
 
@@ -34,10 +37,12 @@ It is a directorial instruction.
 
 For example:
 
+```xml
 <camera
     shot="close-up"
     framing="center"
     movement="static" />
+```
 
 does not mean that OpenVML must use a particular camera API.
 
@@ -47,12 +52,13 @@ Show the current visual composition as a centered close-up without camera moveme
 
 The Player or renderer is responsible for realizing that instruction.
 
-3. Relationship Between Scene and Camera
+## 3. Relationship Between Scene and Camera
 
 A camera belongs to the visual context of a scene.
 
 Conceptually:
 
+```text
 Project
 │
 └── Scene
@@ -64,6 +70,7 @@ Project
     ├── Dialogue
     │
     └── Audio
+```
 
 The scene provides the context.
 
@@ -73,11 +80,12 @@ Media provides the visual material.
 
 Dialogue and audio provide narrative and auditory content.
 
-4. Why Camera Is Part of OVML
+## 4. Why Camera Is Part of OVML
 
 OpenVML is not limited to describing a collection of media files.
 
-A project may contain the same source assets but produce completely different results depending on visual direction.
+A project may contain the same source assets but produce completely different results depending on
+visual direction.
 
 For example:
 
@@ -102,37 +110,41 @@ extreme close-up
 
 The <camera> element allows that directorial intention to be represented in the OpenVML document.
 
-5. Initial Camera Model
+## 5. Initial Camera Model
 
 OpenVML 2.2 introduces a deliberately compact camera model.
 
 The first version focuses on the most useful concepts:
 
-shot size;
-framing;
-camera movement;
-camera target;
-transition.
+- shot size;
+- framing;
+- camera movement;
+- camera target;
+- transition.
 
 The model is intentionally extensible.
 
-Future OpenVML versions may add more advanced camera capabilities without changing the basic concept.
+Future OpenVML versions may add more advanced camera capabilities without changing the basic
+concept.
 
-6. Basic Camera
+## 6. Basic Camera
 
 The simplest camera instruction is:
 
+```xml
 <camera
     shot="medium"
     framing="center"
     movement="static" />
+```
 
 This describes:
 
 a medium shot;
 centered composition;
 no camera movement.
-7. shot
+
+### 7. shot
 
 The shot attribute describes the approximate size of the subject within the frame.
 
@@ -149,11 +161,13 @@ extreme-close	Very tight framing focused on a specific detail
 
 Example:
 
+```xml
 <camera shot="close" />
+```
 
 The exact visual result depends on the available media and rendering environment.
 
-8. framing
+### 8. framing
 
 The framing attribute describes the position of the visual subject within the frame.
 
@@ -168,13 +182,16 @@ bottom	Subject positioned toward the lower part of the frame
 
 Example:
 
+```xml
 <camera
     shot="medium"
     framing="left" />
+```
 
-This may be used to create visual space on the right side of the frame for another character, subtitles, graphics, or other content.
+This may be used to create visual space on the right side of the frame for another character,
+subtitles, graphics, or other content.
 
-9. movement
+### 9. movement
 
 The movement attribute describes the intended camera movement.
 
@@ -193,9 +210,11 @@ dolly-out	Movement away from the subject
 
 Example:
 
+```xml
 <camera
     shot="wide"
     movement="zoom-in" />
+```
 
 The distinction between zoom and dolly is intentional.
 
@@ -205,23 +224,25 @@ A dolly represents physical movement of the camera relative to the subject.
 
 A 2D renderer may approximate both using scaling and transformation.
 
-10. target
+### 10. target
 
 The target attribute identifies the intended subject of the camera.
 
 Example:
 
+```xml
 <camera
     shot="close"
     framing="center"
     target="alex" />
+```
 
 The target may refer to:
 
-a character ID;
-a visual object;
-an element ID;
-another addressable object defined by the implementation.
+- a character ID;
+- a visual object;
+- an element ID;
+- another addressable object defined by the implementation.
 
 The exact target namespace depends on the project structure.
 
@@ -229,14 +250,19 @@ For a character, the value should correspond to the character's id in <cast>.
 
 Example:
 
+```xml
 <character id="alex" name="Alex" />
+```
 
 followed by:
 
+```xml
 <camera
     shot="close"
     target="alex" />
-11. Camera Transitions
+```
+
+## 11. Camera Transitions
 
 A camera change may require a transition.
 
@@ -252,62 +278,74 @@ smooth	Smooth interpolation of camera parameters
 
 Example:
 
+```xml
 <camera
     shot="close"
     target="alex"
     transition="smooth" />
+```
 
 If no transition is specified, the implementation may use an appropriate default.
 
-For deterministic production workflows, authors should specify the transition explicitly when it matters.
+For deterministic production workflows, authors should specify the transition explicitly when it
+matters.
 
-12. Camera Duration
+## 12. Camera Duration
 
 Camera instructions may have a duration when they represent a temporal camera state.
 
 Example:
 
+```xml
 <camera
     shot="wide"
     movement="zoom-in"
     duration="5" />
+```
 
 This describes a five-second camera movement.
 
 The temporal semantics follow the general OpenVML timing model.
 
-The camera therefore participates in the project timeline in the same conceptual way as other timed elements.
+The camera therefore participates in the project timeline in the same conceptual way as other timed
+elements.
 
 See:
 
 concepts/timeline-and-blocks.md
-13. Camera Start Time
+
+## 13. Camera Start Time
 
 A camera instruction may use the standard timing attributes.
 
 Example:
 
+```xml
 <camera
     shot="close"
     target="alex"
     startMode="absolute"
     startTime="12"
     duration="4" />
+```
 
 This requests:
 
+```text
 12s ─────────────── 16s
      close-up
      Alex
+```
 
 The camera state becomes active at 12 seconds and remains active for four seconds.
 
-14. Camera Sequences
+## 14. Camera Sequences
 
 A scene may contain multiple camera instructions.
 
 Example:
 
+```xml
 <scene>
 
     <camera
@@ -335,22 +373,26 @@ Example:
         duration="3" />
 
 </scene>
+```
 
 Conceptually:
 
+```text
 0s────────5s────────9s────────12s
 │         │         │          │
 │  wide   │ medium  │  close   │
 │         │  Alex   │   Alex   │
+```
 
 This provides a basic shot sequence.
 
-15. Camera and Scene Atmosphere
+## 15. Camera and Scene Atmosphere
 
 Camera direction may complement the semantic information of a scene.
 
 Example:
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="ночь, тревога, опасность">
@@ -358,9 +400,12 @@ Example:
     <camera
         shot="wide"
         movement="static" />
+```
 
+```xml
     ...
 </scene>
+```
 
 An AI Assistant may interpret the combination as:
 
@@ -377,16 +422,19 @@ and suggest alternative shots.
 
 For example:
 
+```text
 wide → medium → close
+```
 
 The Assistant may propose these changes, but the resulting OVML remains under the author's control.
 
-16. Camera and Characters
+## 16. Camera and Characters
 
 Characters are natural camera targets.
 
 Example:
 
+```xml
 <cast>
     <character id="alex" name="Alex" />
     <character id="maria" name="Maria" />
@@ -411,25 +459,29 @@ Example:
     </line>
 
 </scene>
+```
 
 This provides a simple dialogue shot structure.
 
 The same concept can be used for:
 
-film dubbing;
-anime;
-game dialogue;
-animated stories;
-narrated scenes.
-17. Camera and Media
+- film dubbing;
+- anime;
+- game dialogue;
+- animated stories;
+- narrated scenes.
+
+## 17. Camera and Media
 
 Camera instructions do not replace media.
 
 For example:
 
+```xml
 <camera shot="close" target="alex" />
 
 <img src="alex.png" />
+```
 
 The image remains the media resource.
 
@@ -437,54 +489,59 @@ The camera describes how that resource should be presented.
 
 This distinction is important because the same asset may be used with different camera instructions.
 
-18. Camera and 2D Media
+## 18. Camera and 2D Media
 
 OpenVML is not limited to 3D scenes.
 
 A camera may operate on:
 
-photographs;
-illustrations;
-generated images;
-slides;
-video;
-2D animation;
-composited media.
+- photographs;
+- illustrations;
+- generated images;
+- slides;
+- video;
+- 2D animation;
+- composited media.
 
 For a 2D renderer, camera operations may be implemented through:
 
-cropping;
-scaling;
-translation;
-interpolation;
-viewport transformation.
+- cropping;
+- scaling;
+- translation;
+- interpolation;
+- viewport transformation.
 
 The OVML document does not prescribe which technique must be used.
 
-19. Camera and Video
+## 19. Camera and Video
 
 For video content, camera instructions may describe how the video should be presented.
 
 For example:
 
+```xml
 <camera
     shot="wide"
     framing="center" />
 
 <video src="scene.mp4" />
+```
 
 A Player or renderer may interpret this as a viewport or crop operation.
 
-If the source video already contains a fixed camera perspective, the renderer may only be able to approximate the requested framing.
+If the source video already contains a fixed camera perspective, the renderer may only be able to
+approximate the requested framing.
 
-An implementation should not claim to provide a camera effect that the underlying media cannot support.
+An implementation should not claim to provide a camera effect that the underlying media cannot
+support.
 
-20. Camera and Image Assets
+## 20. Camera and Image Assets
 
 Camera instructions are particularly useful with large images.
 
 For example:
 
+```xml
 <camera
     shot="wide"
     movement="zoom-in"
@@ -493,23 +550,28 @@ For example:
 <img
     src="landscape"
     duration="8" />
+```
 
 This can describe a classic documentary-style image movement:
 
+```text
 wide
   ↓
 gradual zoom
   ↓
 closer framing
+```
 
-The actual implementation may use image scaling and viewport transformation rather than a physical camera.
+The actual implementation may use image scaling and viewport transformation rather than a physical
+camera.
 
-21. Camera and AI-Generated Media
+## 21. Camera and AI-Generated Media
 
 Camera instructions can also serve as production instructions for AI-generated visual content.
 
 For example:
 
+```xml
 <scene atmosphere="dramatic confrontation">
 
     <camera
@@ -517,38 +579,45 @@ For example:
         framing="center"
         movement="dolly-in"
         target="alex" />
+```
 
+```xml
     ...
 </scene>
+```
 
 An AI-assisted workflow may use this information when generating or selecting visual assets.
 
-The camera instruction therefore remains useful even when the final media is generated after the OVML script has been authored.
+The camera instruction therefore remains useful even when the final media is generated after the
+OVML script has been authored.
 
-22. Camera Does Not Generate Media
+## 22. Camera Does Not Generate Media
 
 The <camera> element does not itself create:
 
-images;
-video;
-3D models;
-animation;
-visual effects.
+- images;
+- video;
+- 3D models;
+- animation;
+- visual effects.
 
 It only describes visual direction.
 
 For example:
 
+```xml
 <camera shot="close" target="alex" />
+```
 
 does not create a close-up image of Alex.
 
 It tells a compatible renderer how the available visual content should be presented.
 
-23. Camera and Rendering
+## 23. Camera and Rendering
 
 The relationship can be represented as:
 
+```text
 OVML
  │
  ├── Scene
@@ -560,15 +629,17 @@ OVML
  │                       │
  │                       ▼
  │                  Final frame
+```
 
 The camera is therefore part of the description layer, not the rendering layer.
 
-24. Camera and Playback
+## 24. Camera and Playback
 
 During interactive playback, the Player may resolve camera instructions dynamically.
 
 For example:
 
+```text
 Playback position
        │
        ▼
@@ -579,17 +650,21 @@ Active camera
        │
        ▼
 Current visual composition
+```
 
-When the user seeks through the project, the Player resolves the camera state corresponding to the new timeline position.
+When the user seeks through the project, the Player resolves the camera state corresponding to the
+new timeline position.
 
 Seeking does not modify the OVML document.
 
-25. Camera and Export
+## 25. Camera and Export
 
-When an OVML project is exported to OVMV, camera instructions may be evaluated during video rendering.
+When an OVML project is exported to OVMV, camera instructions may be evaluated during video
+rendering.
 
 Conceptually:
 
+```text
 OVML
  │
  ├── timeline
@@ -602,17 +677,20 @@ OVML
           │
           ▼
         OVMV
+```
 
-The resulting OVMV contains the rendered visual result rather than the original camera instructions as executable directives.
+The resulting OVMV contains the rendered visual result rather than the original camera instructions
+as executable directives.
 
 The original OVML document may still be preserved as project metadata or source material.
 
-26. Camera and OVMZ
+## 26. Camera and OVMZ
 
 An OVMZ container may preserve camera instructions as part of the OVML source.
 
 For example:
 
+```text
 project.ovmz
 │
 ├── content.ovml
@@ -623,12 +701,13 @@ project.ovmz
 │   └── audio/
 │
 └── presets/
+```
 
 The camera remains part of content.ovml.
 
 This allows the project to remain editable and renderable on another compatible system.
 
-27. Camera Is Declarative
+## 27. Camera Is Declarative
 
 The camera model follows the central OpenVML principle:
 
@@ -636,93 +715,99 @@ The author describes the desired visual result. The implementation determines ho
 
 An implementation may use:
 
-HTML/CSS transforms;
-WebGL;
-WebGPU;
-native rendering;
-FFmpeg;
-GPU video pipelines;
-2D canvas;
-3D engines;
-other technologies.
+- HTML/CSS transforms;
+- WebGL;
+- WebGPU;
+- native rendering;
+- FFmpeg;
+- GPU video pipelines;
+- 2D canvas;
+- 3D engines;
+- other technologies.
 
 The OVML document remains independent of these technologies.
 
-28. Camera Limitations
+## 28. Camera Limitations
 
 Not every Player or renderer will support every camera feature equally.
 
 For example:
 
-a simple audio-focused Player may ignore camera instructions;
-a 2D renderer may approximate a dolly movement;
-a video-only renderer may support only crop and scale;
-an interactive 3D renderer may implement full camera movement.
+- a simple audio-focused Player may ignore camera instructions;
+- a 2D renderer may approximate a dolly movement;
+- a video-only renderer may support only crop and scale;
+- an interactive 3D renderer may implement full camera movement.
 
-An implementation should preserve the semantics it supports and clearly define unsupported capabilities.
+An implementation should preserve the semantics it supports and clearly define unsupported
+capabilities.
 
-Camera instructions must not make otherwise valid OVML documents syntactically invalid merely because a particular Player cannot fully render them.
+Camera instructions must not make otherwise valid OVML documents syntactically invalid merely
+because a particular Player cannot fully render them.
 
-29. Validation
+## 29. Validation
 
 The parser and validator are responsible for technical validity.
 
 They may validate:
 
-proper opening and closing of <camera>;
-supported attributes;
-valid enumeration values;
-numeric timing values;
-valid references where required;
-valid XML structure.
+- proper opening and closing of <camera>;
+- supported attributes;
+- valid enumeration values;
+- numeric timing values;
+- valid references where required;
+- valid XML structure.
 
 The validator does not judge the artistic quality of the camera direction.
 
 For example:
 
+```xml
 <camera
     shot="extreme-close"
     movement="zoom-out"
     duration="0.5" />
+```
 
 may be an unusual creative decision, but it is not necessarily invalid.
 
-30. Future Extensibility
+## 30. Future Extensibility
 
 The initial camera model is intentionally small.
 
 Future OpenVML versions may introduce:
 
-explicit camera position;
-focal length;
-field of view;
-depth of field;
-focus target;
-camera paths;
-rotation;
-3D coordinates;
-easing functions;
-subject tracking;
-multiple simultaneous cameras;
-advanced transitions.
+- explicit camera position;
+- focal length;
+- field of view;
+- depth of field;
+- focus target;
+- camera paths;
+- rotation;
+- 3D coordinates;
+- easing functions;
+- subject tracking;
+- multiple simultaneous cameras;
+- advanced transitions.
 
-Such features should extend the declarative camera model rather than couple OVML to a specific rendering engine.
+Such features should extend the declarative camera model rather than couple OVML to a specific
+rendering engine.
 
-31. Summary
+## 31. Summary
 
 The <camera> element provides a machine-readable representation of visual direction.
 
 It allows OpenVML to describe:
 
-shot size;
-framing;
-subject;
-camera movement;
-camera transitions;
-camera timing.
+- shot size;
+- framing;
+- subject;
+- camera movement;
+- camera transitions;
+- camera timing.
 
 The camera model works together with <scene>:
 
+```text
 Scene
 │
 ├── atmosphere ── semantic context
@@ -733,9 +818,13 @@ Scene
 ├── media ─────── visual material
 ├── line ──────── narrative/dialogue
 └── audio ─────── auditory material
+```
 
 The fundamental principle is:
 
-<scene> describes the context. <camera> describes the visual direction. Media provides the visual material. The Player or renderer determines how the director's intent is realized.
+<scene> describes the context. <camera> describes the visual direction. Media provides the visual
+material. The Player or renderer determines how the director's intent is realized.
 
-This makes the camera model suitable for everything from simple image presentations to audiobooks with visual scenes, animated stories, anime, game narratives, film dubbing, and full video production workflows.
+This makes the camera model suitable for everything from simple image presentations to audiobooks
+with visual scenes, animated stories, anime, game narratives, film dubbing, and full video
+production workflows.

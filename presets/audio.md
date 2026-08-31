@@ -1,6 +1,7 @@
 # OVML Audio Processing Presets
 
-**OpenVML — Open Voice Markup Language** is an open, XML-based standard for describing structured audiovisual content.
+**OpenVML — Open Voice Markup Language** is an open, XML-based standard for describing structured
+audiovisual content.
 
 This document defines the currently established audio processing preset format in OVML 2.2.
 
@@ -8,7 +9,7 @@ This document defines the currently established audio processing preset format i
 
 An audio processing preset uses `<audio_processing>` as its root element.
 
-```
+```xml
 <audio_processing id="preset_id" name="Preset Name">
     ...
 </audio_processing>
@@ -27,7 +28,7 @@ Audio operations are normally evaluated in the order in which they appear in the
 
 For example:
 
-```
+```xml
 <audio_processing id="example" name="Example">
     <eq enabled="true">
         ...
@@ -49,7 +50,7 @@ For example:
 
 represents the conceptual chain:
 
-```
+```text
 Source
   ↓
 EQ
@@ -65,11 +66,11 @@ Convert
 
 Processing operations that can be switched on or off use the `enabled` attribute.
 
-```
+```xml
 <eq enabled="true">
 ```
 
-```
+```xml
 <eq enabled="false">
 ```
 
@@ -79,7 +80,7 @@ An operation with `enabled="false"` is inactive.
 
 The `<eq>` element defines frequency-band equalization.
 
-```
+```xml
 <eq enabled="true">
     <band hz="60" gain_db="1"/>
     <band hz="170" gain_db="0.5"/>
@@ -101,7 +102,6 @@ The `<eq>` element defines frequency-band equalization.
 
 The `hz` value may use compact frequency notation such as:
 
-```
 60
 170
 310
@@ -110,13 +110,12 @@ The `hz` value may use compact frequency notation such as:
 3k
 6k
 12k
-```
 
 ## Compressor
 
 The `<compressor>` element controls dynamic range compression.
 
-```
+```xml
 <compressor enabled="true">
     <threshold>-18</threshold>
     <ratio>3.5</ratio>
@@ -144,7 +143,7 @@ The exact unit interpretation is determined by the operation definition and Play
 
 The `<delay>` element applies a delay effect.
 
-```
+```xml
 <delay enabled="true">
     <time>0.12</time>
     <feedback>0.1</feedback>
@@ -164,7 +163,7 @@ The `<delay>` element applies a delay effect.
 
 The `<reverb>` element applies reverberation.
 
-```
+```xml
 <reverb enabled="true">
     <room_size>0.25</room_size>
     <damping>0.4</damping>
@@ -186,7 +185,7 @@ The `<reverb>` element applies reverberation.
 
 The `<chorus>` element applies a chorus/modulation effect.
 
-```
+```xml
 <chorus enabled="true">
     <rate>5.5</rate>
     <depth>0.6</depth>
@@ -206,7 +205,7 @@ The `<chorus>` element applies a chorus/modulation effect.
 
 The `<gain>` element adjusts signal level.
 
-```
+```xml
 <gain enabled="true">
     <db>1.5</db>
 </gain>
@@ -220,7 +219,7 @@ Gain adjustment in decibels.
 
 The `<convert>` element defines the output conversion parameters.
 
-```
+```xml
 <convert>
     <format>mp3</format>
     <bitrate>192</bitrate>
@@ -238,11 +237,12 @@ The `<convert>` element defines the output conversion parameters.
 | `<sample_rate>` | Output sample rate        |
 | `<channels>`    | Number of output channels |
 
-The `convert` operation is part of the actual OVML preset format and is intentionally named `convert`.
+The `convert` operation is part of the actual OVML preset format and is intentionally named
+`convert`.
 
 ## Complete Example: Baron Guard Officer
 
-```
+```xml
 <audio_processing id="baron_officer_crisp" name="Baron Guard Officer">
     <eq enabled="true">
         <band hz="60" gain_db="1"/>
@@ -285,7 +285,7 @@ The `convert` operation is part of the actual OVML preset format and is intentio
 
 ## Complete Example: Narrator Classic Warm
 
-```
+```xml
 <audio_processing id="narrator_classic" name="Narrator Classic Warm">
     <eq enabled="true">
         <band hz="60" gain_db="1"/>
@@ -329,7 +329,7 @@ The `convert` operation is part of the actual OVML preset format and is intentio
 
 ## Complete Example: Husky Drunkard
 
-```
+```xml
 <audio_processing id="voice_husky_drunk" name="Husky Drunkard">
     <eq enabled="true">
         <band hz="60" gain_db="-10"/>
@@ -372,7 +372,8 @@ The `convert` operation is part of the actual OVML preset format and is intentio
 
 ## Current Audio Vocabulary
 
-The following audio operations have a concrete XML representation in the current OVML 2.2 preset examples:
+The following audio operations have a concrete XML representation in the current OVML 2.2 preset
+examples:
 
 * `eq`
 * `compressor`
@@ -382,7 +383,8 @@ The following audio operations have a concrete XML representation in the current
 * `gain`
 * `convert`
 
-Other audio-processing operations may be added to the standard when their XML representation and semantics have been formally established.
+Other audio-processing operations may be added to the standard when their XML representation and
+semantics have been formally established.
 
 ---
 

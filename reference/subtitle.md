@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Subtitles — `<subtitle>`
 
@@ -8,7 +9,8 @@
 
 ## 1. Purpose
 
-The `<subtitle>` element represents subtitle or caption content associated with a project or with a specific media element.
+The `<subtitle>` element represents subtitle or caption content associated with a project or with a
+specific media element.
 
 Subtitles make spoken and narrative content readable.
 
@@ -24,9 +26,11 @@ A `<subtitle>` element carries subtitle text.
 
 Example:
 
+```xml
 <subtitle lang="en">
     The forest was silent.
 </subtitle>
+```
 
 Attributes:
 
@@ -50,12 +54,14 @@ A subtitle may also be declared as a resource identified by id and src.
 
 Example:
 
+```xml
 <subtitle
     id="subs_ru"
     type="srt"
     name="Russian subtitles">
     <src>gdrive:subtitles/video_ru.srt</src>
 </subtitle>
+```
 
 Common subtitle resource formats include:
 
@@ -71,11 +77,13 @@ See: reference/assets.md
 
 A video or another media element may attach subtitle tracks through a `<subtitles>` child element.
 
+```xml
 <video src="intro">
 
     <subtitles src="subs_en" language="en-US" />
 
 </video>
+```
 
 Attributes:
 
@@ -89,8 +97,10 @@ The Player determines how the tracks are synchronized, selected, and presented.
 
 ## 5. Subtitle Preferences in <meta>
 
-Project-level subtitle presentation preferences are defined in the `<preferences>` element of `<meta>`.
+Project-level subtitle presentation preferences are defined in the `<preferences>` element of
+`<meta>`.
 
+```xml
 <meta>
     <preferences
         showSubtitles="true"
@@ -98,13 +108,14 @@ Project-level subtitle presentation preferences are defined in the `<preferences
         subtitleBg="rgba(0,0,0,0.7)"
         subtitleColor="#ffffff" />
 </meta>
+```
 
 The preferences attributes:
 
-showSubtitles — whether subtitles should normally be displayed;
-subtitleFontSize — preferred subtitle font size;
-subtitleBg — preferred subtitle background color;
-subtitleColor — preferred subtitle text color.
+- showSubtitles — whether subtitles should normally be displayed;
+- subtitleFontSize — preferred subtitle font size;
+- subtitleBg — preferred subtitle background color;
+- subtitleColor — preferred subtitle text color.
 
 These preferences are hints to the Player.
 
@@ -116,21 +127,28 @@ See: reference/meta.md
 
 Subtitles are presentation-oriented caption content for delivered media.
 
-Text blocks (`<p>` and `<line>`) are script content that participates in speech, timing, and word-by-word presentation.
+Text blocks (`<p>` and `<line>`) are script content that participates in speech, timing, and
+word-by-word presentation.
 
-The same spoken line may be displayed as project text while separate subtitles accompany the exported media.
+The same spoken line may be displayed as project text while separate subtitles accompany the
+exported media.
 
-A Player MAY derive subtitle content from the project's text blocks, or MAY use explicitly declared subtitle resources.
+A Player MAY derive subtitle content from the project's text blocks, or MAY use explicitly declared
+subtitle resources.
 
 ## 7. Subtitle and Text Presentation
 
-When a spoken line is rendered as an on-screen caption, the Player may apply the project's subtitle preferences:
+When a spoken line is rendered as an on-screen caption, the Player may apply the project's subtitle
+preferences:
 
+```xml
 <line char="narrator">
     The forest was silent.
 </line>
+```
 
-may be presented as a caption using the font size, background, and color requested by `<preferences>`.
+may be presented as a caption using the font size, background, and color requested by
+`<preferences>`.
 
 The precise caption rendering pipeline is implementation-dependent.
 
@@ -139,7 +157,8 @@ The precise caption rendering pipeline is implementation-dependent.
 An OVML validator SHOULD verify:
 
 lang, when present, is a valid language tag;
-a referenced subtitle resource is recognized as a subtitle-type resource when project context is available;
+a referenced subtitle resource is recognized as a subtitle-type resource when project context is
+available;
 <subtitles> appears only in contexts where the media model allows subtitle tracks;
 the subtitle element is properly opened and closed.
 

@@ -1,29 +1,44 @@
 # OVML Concepts
 
-**OpenVML — Open Voice Markup Language** is an open, XML-based format for describing structured audiovisual content.
+**OpenVML — Open Voice Markup Language** is an open, XML-based format for describing structured
+audiovisual content.
 
-This section explains the concepts behind OVML 2.2 before going into individual XML elements and attributes.
+This section explains the concepts behind OVML 2.2 before going into individual XML elements and
+attributes.
 
-OVML is designed to describe **what should happen, when it should happen, and how different pieces of content relate to each other**. It does not prescribe how a particular Player must implement playback.
+OVML is designed to describe **what should happen, when it should happen, and how different pieces
+of content relate to each other**. It does not prescribe how a particular Player must implement
+playback.
 
-> **OVML defines when content should occur. The Player determines how that content is buffered, streamed, synthesized, decoded, rendered, and synchronized on the target platform.**
+> **OVML defines when content should occur. The Player determines how that content is buffered,
+> streamed, synthesized, decoded, rendered, and synchronized on the target platform.**
 
-This separation allows the same OVML document to be used across different players, platforms, rendering engines, and content-production tools.
+This separation allows the same OVML document to be used across different players, platforms,
+rendering engines, and content-production tools.
 
 ## What OVML Is For
 
 OVML can describe a wide range of audiovisual projects, including:
 
-* **Lecture / Lesson** — structured educational content with chapters, narration, slides, subtitles, and synchronized media.
+* **Lecture / Lesson** — structured educational content with chapters, narration, slides, subtitles,
+  and synchronized media.
 * **Presentation** — slide-based content with synchronized narration, animations, and speaker notes.
-* **Shorts / Reels / TikTok** — short-form vertical video with narration, subtitles, background media, and timed foreground elements.
-* **Audiobook** — narrated books with multiple characters, voices, sound effects, music, chapters, and synchronized text.
-* **Game Voiceover** — character dialogue, voice direction, timed events, and interactive narrative content.
-* **Film Voiceover / Dubbing** — multi-character dialogue, timed media, voice direction, and audiovisual synchronization.
-* **Anime** — animated scenes with character dialogue, background media, music, effects, and scene direction.
-* **Course** — structured educational programs combining narration, slides, text, media, and interactive material.
-* **Podcast** — multi-speaker audio content with narration, music, sound effects, introductions, transitions, and timed elements.
-* **Interactive Multimedia Projects** — audiovisual compositions in which several media elements may overlap and start independently.
+* **Shorts / Reels / TikTok** — short-form vertical video with narration, subtitles, background media,
+  and timed foreground elements.
+* **Audiobook** — narrated books with multiple characters, voices, sound effects, music, chapters, and
+  synchronized text.
+* **Game Voiceover** — character dialogue, voice direction, timed events, and interactive narrative
+  content.
+* **Film Voiceover / Dubbing** — multi-character dialogue, timed media, voice direction, and
+  audiovisual synchronization.
+* **Anime** — animated scenes with character dialogue, background media, music, effects, and scene
+  direction.
+* **Course** — structured educational programs combining narration, slides, text, media, and
+  interactive material.
+* **Podcast** — multi-speaker audio content with narration, music, sound effects, introductions,
+  transitions, and timed elements.
+* **Interactive Multimedia Projects** — audiovisual compositions in which several media elements may
+  overlap and start independently.
 
 ## OVML as a Composition Language
 
@@ -44,7 +59,9 @@ A project may contain:
 * visual overlays;
 * media positioned in different grid cells.
 
-For example, a background video may continue playing while a TTS voice speaks over it. A foreground image, video, or sound effect may then begin **in the middle of that speech**, without requiring the background media or the speech block to end.
+For example, a background video may continue playing while a TTS voice speaks over it. A foreground
+image, video, or sound effect may then begin **in the middle of that speech**, without requiring the
+background media or the speech block to end.
 
 This makes OVML a **temporal composition language**, rather than simply a playlist format.
 
@@ -63,7 +80,8 @@ A content block may:
 * be looped;
 * be positioned independently within the visual composition.
 
-The timing model is described in [`reference/timing.md`](../reference/timing.md) and [`timeline-and-blocks.md`](timeline-and-blocks.md).
+The timing model is described in [`reference/timing.md`](../reference/timing.md) and
+[`timeline-and-blocks.md`](timeline-and-blocks.md).
 
 ## Scenes
 
@@ -76,27 +94,34 @@ A scene may provide:
 * a boundary for a sequence of content blocks;
 * context that can be used by production tools.
 
-The `<scene>` element is described in [`reference/scene.md`](../reference/scene.md). The scene concept is in [`scenes-and-world.md`](scenes-and-world.md).
+The `<scene>` element is described in [`reference/scene.md`](../reference/scene.md). The scene
+concept is in [`scenes-and-world.md`](scenes-and-world.md).
 
 ## Camera
 
 The `<camera>` element describes camera or viewport behavior within a scene.
 
-Camera instructions are part of the content description rather than an implementation-specific command to a particular rendering engine.
+Camera instructions are part of the content description rather than an implementation-specific
+command to a particular rendering engine.
 
-The camera concept is in [`camera.md`](camera.md). The camera element reference is in [`reference/scene.md`](../reference/scene.md).
+The camera concept is in [`camera.md`](camera.md). The camera element reference is in
+[`reference/scene.md`](../reference/scene.md).
 
 ## Locations and the World Canon
 
-Long-form content contains recurring entities. A novel has many scenes, and the same location recurs across them; a course repeats its terms; a documentation set repeats its definitions.
+Long-form content contains recurring entities. A novel has many scenes, and the same location recurs
+across them; a course repeats its terms; a documentation set repeats its definitions.
 
-If each scene repeats its own description of an entity, those descriptions drift apart: a tavern described as "dark" in one scene and "bright" in the next, a prop that appears in one scene but is forgotten in the next, a term defined one way in the intro and another way in a later lesson.
+If each scene repeats its own description of an entity, those descriptions drift apart: a tavern
+described as "dark" in one scene and "bright" in the next, a prop that appears in one scene but is
+forgotten in the next, a term defined one way in the intro and another way in a later lesson.
 
 OVML solves this with a **world canon**.
 
-The document declares its canonical entities once, in a `<world>` container at the top of the document:
+The document declares its canonical entities once, in a `<world>` container at the top of the
+document:
 
-```
+```xml
 <world>
     <locations>
         <location id="rusty_anchor" name="The Rusty Anchor" type="tavern">
@@ -112,7 +137,7 @@ The document declares its canonical entities once, in a `<world>` container at t
 
 A scene then references the canon by id instead of duplicating it:
 
-```
+```xml
 <scene>
     <location ref="rusty_anchor">
         <variation>
@@ -123,15 +148,23 @@ A scene then references the canon by id instead of duplicating it:
 </scene>
 ```
 
-`<world>` does not prescribe a fixed set of sections. A document declares the sections that its content requires, and every section follows the same uniform rule — so a lecture's glossary uses exactly the same mechanism as a novel's locations.
+`<world>` does not prescribe a fixed set of sections. A document declares the sections that its
+content requires, and every section follows the same uniform rule — so a lecture's glossary uses
+exactly the same mechanism as a novel's locations.
 
-The canon holds permanent properties. Scene-specific change is expressed as a `<variation>` in the scene, never by editing the canon.
+The canon holds permanent properties. Scene-specific change is expressed as a `<variation>` in the
+scene, never by editing the canon.
 
-The standard does not define project types. A parser interprets a document from its structure: whichever sections are present are parsed by the uniform rule.
+The standard does not define project types. A parser interprets a document from its structure:
+whichever sections are present are parsed by the uniform rule.
 
-This gives the author, the Player, and the AI Assistant a single stable description of the project's recurring entities — a form of memory that survives across scenes, chapters, and `.ovml`/`.ovmz` transfers.
+This gives the author, the Player, and the AI Assistant a single stable description of the project's
+recurring entities — a form of memory that survives across scenes, chapters, and `.ovml`/`.ovmz`
+transfers.
 
-The world canon is described in [`reference/world.md`](../reference/world.md) and [`reference/locations.md`](../reference/locations.md). The concept is in [`scenes-and-world.md`](scenes-and-world.md) and [`extensibility.md`](extensibility.md).
+The world canon is described in [`reference/world.md`](../reference/world.md) and
+[`reference/locations.md`](../reference/locations.md). The concept is in
+[`scenes-and-world.md`](scenes-and-world.md) and [`extensibility.md`](extensibility.md).
 
 ## Characters and Voices
 
@@ -153,7 +186,9 @@ A character may contain:
 
 The Player or another compatible runtime may use this information to resolve and render speech.
 
-The character model is described in [`reference/cast.md`](../reference/cast.md) and [`reference/character.md`](../reference/character.md). The concept is in [`characters-and-voices.md`](characters-and-voices.md).
+The character model is described in [`reference/cast.md`](../reference/cast.md) and
+[`reference/character.md`](../reference/character.md). The concept is in
+[`characters-and-voices.md`](characters-and-voices.md).
 
 ## Media Composition
 
@@ -170,7 +205,8 @@ Media may include:
 
 Media elements can participate in the same timeline and may overlap one another.
 
-See [`reference/media.md`](../reference/media.md), [`reference/assets.md`](../reference/assets.md), and [`media-layers.md`](media-layers.md).
+See [`reference/media.md`](../reference/media.md), [`reference/assets.md`](../reference/assets.md),
+and [`media-layers.md`](media-layers.md).
 
 ## Assets
 
@@ -183,7 +219,8 @@ An asset may be:
 * referenced by an external URL;
 * referenced through another permitted resource mechanism supported by the Player.
 
-This allows the same OVML content model to be used both as a self-contained project and as a lightweight script that references external resources.
+This allows the same OVML content model to be used both as a self-contained project and as a
+lightweight script that references external resources.
 
 ## Standalone OVML
 
@@ -210,15 +247,14 @@ It may be transported or packaged in different forms.
 
 A standalone XML document containing the content description.
 
-```
 project.ovml
-```
 
 ### OVMZ
 
-A packaged project containing an OVML document together with resources, presets, metadata, and optionally pre-rendered TTS assets.
+A packaged project containing an OVML document together with resources, presets, metadata, and
+optionally pre-rendered TTS assets.
 
-```
+```text
 project.ovmz/
 ├── content.ovml
 ├── project.json
@@ -229,13 +265,16 @@ project.ovmz/
 
 ### OVMV
 
-OVMV is a distribution/rendered form of an OVML project intended for playback as a packaged audiovisual experience.
+OVMV is a distribution/rendered form of an OVML project intended for playback as a packaged
+audiovisual experience.
 
-The distinction between the content description and its distribution or rendering form is intentional.
+The distinction between the content description and its distribution or rendering form is
+intentional.
 
 ## Standard, Studio, and Player
 
-OpenVML projects may pass through several components, but these components have different responsibilities.
+OpenVML projects may pass through several components, but these components have different
+responsibilities.
 
 ### OpenVML Standard
 
@@ -289,7 +328,8 @@ The central architectural principle of OVML is:
 
 > **The Standard defines the language. The Studio creates content. The Player executes it.**
 
-This separation allows OVML to remain independent of any single authoring application, rendering engine, TTS provider, operating system, or hardware platform.
+This separation allows OVML to remain independent of any single authoring application, rendering
+engine, TTS provider, operating system, or hardware platform.
 
 ## Further Reading
 

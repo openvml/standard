@@ -1,6 +1,7 @@
 # OVML Video Processing Presets
 
-**OpenVML — Open Voice Markup Language** is an open, XML-based standard for describing structured audiovisual content.
+**OpenVML — Open Voice Markup Language** is an open, XML-based standard for describing structured
+audiovisual content.
 
 This document defines the currently established video processing preset format in OVML 2.2.
 
@@ -8,7 +9,7 @@ This document defines the currently established video processing preset format i
 
 A video processing preset uses `<video_processing>` as its root element.
 
-```
+```xml
 <video_processing id="preset_id" name="Preset Name">
     ...
 </video_processing>
@@ -27,7 +28,7 @@ Video operations are normally evaluated in document order.
 
 For example:
 
-```
+```xml
 <video_processing id="example" name="Example">
     <color enabled="true">
         ...
@@ -49,7 +50,7 @@ For example:
 
 The conceptual chain is:
 
-```
+```text
 Source
   ↓
 Color
@@ -65,15 +66,11 @@ Convert
 
 Operations that support optional activation use:
 
-```
 enabled="true"
-```
 
 or:
 
-```
 enabled="false"
-```
 
 A disabled operation does not participate in processing.
 
@@ -81,7 +78,7 @@ A disabled operation does not participate in processing.
 
 The `<color>` element controls basic image characteristics.
 
-```
+```xml
 <color enabled="true">
     <brightness>-0.08</brightness>
     <contrast>0.2</contrast>
@@ -105,7 +102,7 @@ The `<color>` element controls basic image characteristics.
 
 The `<blur>` element applies blur.
 
-```
+```xml
 <blur enabled="true">
     <radius>12</radius>
 </blur>
@@ -119,7 +116,7 @@ Defines the blur radius.
 
 The `<sharpen>` element controls image/video sharpening.
 
-```
+```xml
 <sharpen enabled="false">
     <amount>0</amount>
 </sharpen>
@@ -133,7 +130,7 @@ Defines sharpening intensity.
 
 The `<grayscale>` element converts the image toward grayscale.
 
-```
+```xml
 <grayscale enabled="false">
     <intensity>0</intensity>
 </grayscale>
@@ -147,7 +144,7 @@ Defines grayscale intensity.
 
 The `<sepia>` element applies a sepia effect.
 
-```
+```xml
 <sepia enabled="true">
     <intensity>0.25</intensity>
 </sepia>
@@ -157,7 +154,7 @@ The `<sepia>` element applies a sepia effect.
 
 The `<grain>` element adds film-like grain.
 
-```
+```xml
 <grain enabled="true">
     <intensity>0.1</intensity>
 </grain>
@@ -171,7 +168,7 @@ Defines grain intensity.
 
 The `<vignette>` element applies a vignette effect.
 
-```
+```xml
 <vignette enabled="true">
     <amount>0.3</amount>
 </vignette>
@@ -185,7 +182,7 @@ Defines vignette strength.
 
 The `<invert>` element controls color inversion.
 
-```
+```xml
 <invert enabled="false">
     <intensity>0</intensity>
 </invert>
@@ -199,7 +196,7 @@ Defines the intensity of the inversion effect.
 
 The `<glow>` element applies a glow effect.
 
-```
+```xml
 <glow enabled="true">
     <intensity>0.18</intensity>
 </glow>
@@ -209,7 +206,7 @@ The `<glow>` element applies a glow effect.
 
 The `<lens_flare>` element applies a lens flare effect.
 
-```
+```xml
 <lens_flare enabled="true">
     <intensity>0.2</intensity>
 </lens_flare>
@@ -219,7 +216,7 @@ The `<lens_flare>` element applies a lens flare effect.
 
 The `<fade>` element defines video fade-in and fade-out durations.
 
-```
+```xml
 <fade enabled="true">
     <in_duration>0.3</in_duration>
     <out_duration>0.4</out_duration>
@@ -237,7 +234,7 @@ The `<fade>` element defines video fade-in and fade-out durations.
 
 The `<overlay>` element defines an overlay operation.
 
-```
+```xml
 <overlay enabled="true">
     <opacity>0.25</opacity>
     <x>0</x>
@@ -259,7 +256,7 @@ The exact overlay source relationship is determined by the applicable media comp
 
 The `<convert>` element defines output video conversion parameters.
 
-```
+```xml
 <convert>
     <format>mp4</format>
     <codec>h264</codec>
@@ -281,7 +278,7 @@ Not every parameter is required in every preset.
 
 ## Complete Example: Background Soft Blur Light
 
-```
+```xml
 <video_processing id="video_background_soft_blur_light" name="Background Soft Blur Light">
     <color enabled="true">
         <brightness>-0.05</brightness>
@@ -327,7 +324,7 @@ Not every parameter is required in every preset.
 
 ## Complete Example: Gate Guard Torchlight
 
-```
+```xml
 <video_processing id="video_guard_torch" name="Gate Guard Torchlight">
     <color enabled="true">
         <brightness>-0.08</brightness>
@@ -364,7 +361,7 @@ Not every parameter is required in every preset.
 
 ## Complete Example: Mystic Veil
 
-```
+```xml
 <video_processing id="video_mystic_veil" name="Mystic Veil">
     <color enabled="true">
         <brightness>-0.05</brightness>
@@ -405,7 +402,8 @@ Not every parameter is required in every preset.
 
 ## Current Video Vocabulary
 
-The following video operations have a concrete XML representation in the current OVML 2.2 preset examples:
+The following video operations have a concrete XML representation in the current OVML 2.2 preset
+examples:
 
 * `color`
 * `blur`
@@ -421,7 +419,8 @@ The following video operations have a concrete XML representation in the current
 * `overlay`
 * `convert`
 
-Other video-processing operations may be added to the standard when their XML representation and semantics have been formally established.
+Other video-processing operations may be added to the standard when their XML representation and
+semantics have been formally established.
 
 ---
 

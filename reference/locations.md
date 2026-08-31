@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Locations — `<locations>` and `<location>`
 
@@ -8,22 +9,27 @@
 
 ## 1. Purpose
 
-The `<locations>` section of the world canon defines the canonical places in which the project's scenes occur.
+The `<locations>` section of the world canon defines the canonical places in which the project's
+scenes occur.
 
 Each location is a `<location>` element inside `<locations>`.
 
 A scene references a canonical location by its `id` instead of duplicating the full description.
 
-This keeps long-form projects consistent across many scenes and chapters: a location described once in the canon remains the same location everywhere it is referenced.
+This keeps long-form projects consistent across many scenes and chapters: a location described once
+in the canon remains the same location everywhere it is referenced.
 
-The mechanism is generic. The same world-canon section model serves a novel's locations, a lecture's terms, and a documentation set's definitions. See: reference/world.md
+The mechanism is generic. The same world-canon section model serves a novel's locations, a lecture's
+terms, and a documentation set's definitions. See: reference/world.md
 
 ## 2. The Locations Section
 
-The `<locations>` section is a child of the project-level `<world>` element, declared once at the top of the document alongside `<cast>` and `<assets>`.
+The `<locations>` section is a child of the project-level `<world>` element, declared once at the
+top of the document alongside `<cast>` and `<assets>`.
 
 Example:
 
+```xml
 <world>
 
     <locations>
@@ -44,10 +50,12 @@ Example:
     </locations>
 
 </world>
+```
 
 The canon holds the permanent properties of each location.
 
-Scene-specific change (time of day, weather, temporary props) is expressed by a `<variation>` in the scene, never by editing the canon.
+Scene-specific change (time of day, weather, temporary props) is expressed by a `<variation>` in the
+scene, never by editing the canon.
 
 ## 3. Attributes
 
@@ -58,14 +66,18 @@ type	string	No	Location type: tavern, forest, cave, palace, street, interior, ex
 
 Example:
 
+```xml
 <location
     id="rusty_anchor"
     name="The Rusty Anchor"
     type="tavern">
+```
 
     ...
 
+```xml
 </location>
+```
 
 The `id` is the stable key used by scene references.
 
@@ -96,9 +108,9 @@ Long-form content repeats locations.
 
 Without a canon, every repetition invites drift:
 
-a tavern described as "dark" in one scene and "bright" in the next;
-a prop that appears in one scene but is forgotten in the next;
-an atmosphere that changes meaning from scene to scene.
+- a tavern described as "dark" in one scene and "bright" in the next;
+- a prop that appears in one scene but is forgotten in the next;
+- an atmosphere that changes meaning from scene to scene.
 
 The world canon solves this by describing each location once and letting scenes refer to it by `id`.
 
@@ -106,6 +118,7 @@ The world canon solves this by describing each location once and letting scenes 
 
 A scene references a canonical location through a child <location> element with a ref attribute.
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="tense, night">
@@ -115,9 +128,12 @@ A scene references a canonical location through a child <location> element with 
             <weather>rainy</weather>
         </variation>
     </location>
+```
 
+```xml
     ...
 </scene>
+```
 
 Attribute	Type	Description
 ref	string	The id of a location in the <locations> section of <world>
@@ -130,6 +146,7 @@ It points to the canon and adds only what is different in this scene.
 
 A scene may specify how a referenced location differs from its canon in this particular scene.
 
+```xml
 <location ref="rusty_anchor">
     <variation>
         <time>night</time>
@@ -137,6 +154,7 @@ A scene may specify how a referenced location differs from its canon in this par
         <changes>Chairs stacked, a fire in the hearth</changes>
     </variation>
 </location>
+```
 
 Common variation fields:
 
@@ -148,16 +166,19 @@ Tag	Description
 
 Variation never modifies the canon.
 
-The canon remains the permanent description; the variation describes the transient state of this scene.
+The canon remains the permanent description; the variation describes the transient state of this
+scene.
 
 ## 8. Free-form Location Description
 
 A plain-text <location> without ref remains valid.
 
+```xml
 <scene>
     <location>A dark forest. Mist between the trees.</location>
     ...
 </scene>
+```
 
 Such a description is a free-form scene-local location without a canonical binding.
 
@@ -167,6 +188,7 @@ Existing documents therefore remain valid.
 
 A scene may combine a location reference with an image or video that depicts it.
 
+```xml
 <scene>
 
     <location ref="rusty_anchor" />
@@ -181,6 +203,7 @@ A scene may combine a location reference with an image or video that depicts it.
         loop="true" />
 
 </scene>
+```
 
 The canon describes the location semantically.
 
@@ -192,10 +215,10 @@ The world canon gives the AI Assistant consistent memory of the project's recurr
 
 When creating a new scene, the Assistant:
 
-reads the canon to learn a location's permanent description;
-references it by ref;
-adds a <variation> for anything different in this scene;
-keeps the canon itself unchanged;
+- reads the canon to learn a location's permanent description;
+- references it by ref;
+- adds a <variation> for anything different in this scene;
+- keeps the canon itself unchanged;
 
 This is the mechanism that keeps generated content consistent across a long project.
 
@@ -203,13 +226,14 @@ This is the mechanism that keeps generated content consistent across a long proj
 
 An OVML validator SHOULD verify:
 
-<location> elements are properly nested inside <locations>;
-id and name are present;
-ref values in scenes resolve to existing location ids when project context is available;
-variation fields contain valid values;
-child elements are allowed in their respective contexts.
+- <location> elements are properly nested inside <locations>;
+- id and name are present;
+- ref values in scenes resolve to existing location ids when project context is available;
+- variation fields contain valid values;
+- child elements are allowed in their respective contexts.
 
-The validator does not determine whether a location description is good, appropriate, or atmospherically correct.
+The validator does not determine whether a location description is good, appropriate, or
+atmospherically correct.
 
 ## 12. Design Principle
 
@@ -217,7 +241,8 @@ Locations hold permanent properties; scenes hold variations.
 
 A location is described once in the canon and referenced many times by id.
 
-This separation keeps descriptions consistent, reduces duplication, and gives the Player and the AI Assistant a single stable record of where a story's action takes place.
+This separation keeps descriptions consistent, reduces duplication, and gives the Player and the AI
+Assistant a single stable record of where a story's action takes place.
 
 ## 13. Related Documents
 

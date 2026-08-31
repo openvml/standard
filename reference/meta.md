@@ -1,25 +1,29 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
-OVML <meta>
+# OVML <meta>
 
 OpenVML Standard 2.2
 
-1. Purpose
+## 1. Purpose
 
-The <meta> element contains descriptive information and general presentation preferences for an OVML project.
+The <meta> element contains descriptive information and general presentation preferences for an OVML
+project.
 
-Metadata identifies the project but does not define its content, timeline, media resources, character voices, or rendering pipeline.
+Metadata identifies the project but does not define its content, timeline, media resources,
+character voices, or rendering pipeline.
 
 The <meta> element is optional.
 
 A minimal OVML document may therefore omit <meta> entirely.
 
-2. Structure
+## 2. Structure
 
 The general structure is:
 
+```xml
 <meta>
     <title>Project title</title>
     <author>Project author</author>
@@ -30,62 +34,79 @@ The general structure is:
         subtitleBg="rgba(0,0,0,0.7)"
         subtitleColor="#ffffff" />
 </meta>
+```
 
 All child elements of <meta> are optional.
 
-3. <title>
+### 3. <title>
 
 The <title> element contains the human-readable title of the project.
 
 Example:
 
+```xml
 <title>The Last Summer</title>
-Rules
+```
+
+### Rules
+
 The value is plain text.
+
 It may contain Unicode characters.
-It is intended for display in project lists, players, libraries, publishing interfaces, and other user interfaces.
+
+It is intended for display in project lists, players, libraries, publishing interfaces, and other
+user interfaces.
+
 The title does not affect playback or timing.
 
-If <title> is absent, the Player or application may use another available identifier, such as a filename or project ID.
+If <title> is absent, the Player or application may use another available identifier, such as a
+filename or project ID.
 
-4. <author>
+### 4. <author>
 
 The <author> element identifies the author or creator of the project.
 
 Example:
 
+```xml
 <author>John Smith</author>
+```
 
 Multiple authors may be represented as text according to the application's conventions.
 
 For example:
 
+```xml
 <author>John Smith, Maria Brown</author>
+```
 
 The standard does not prescribe a particular author-name format.
 
 The <author> value is informational and does not affect playback.
 
-5. <preferences>
+### 5. <preferences>
 
 The optional <preferences> element defines general presentation preferences for the project.
 
 Example:
 
+```xml
 <preferences
     showSubtitles="true"
     subtitleFontSize="16"
     subtitleBg="rgba(0,0,0,0.7)"
     subtitleColor="#ffffff" />
+```
 
 These preferences provide hints to the Player.
 
 They do not require a particular rendering implementation.
 
-For example, a Player may implement subtitles using HTML/CSS, a native text renderer, or another rendering technology while respecting the same OVML preferences.
+For example, a Player may implement subtitles using HTML/CSS, a native text renderer, or another
+rendering technology while respecting the same OVML preferences.
 
-6. <preferences> Attributes
-showSubtitles
+### 6. <preferences> Attributes
+### showSubtitles
 
 Controls whether subtitles should normally be displayed.
 
@@ -101,13 +122,15 @@ false
 
 Example:
 
+```xml
 <preferences showSubtitles="false" />
+```
 
 If omitted, the default value is true.
 
 The Player may provide a user-level setting that overrides this project preference.
 
-subtitleFontSize
+### subtitleFontSize
 
 Specifies the preferred subtitle font size.
 
@@ -119,13 +142,17 @@ Default	14
 
 Example:
 
+```xml
 <preferences subtitleFontSize="18" />
+```
 
-The value represents the preferred size rather than a guarantee of a particular physical rendering size.
+The value represents the preferred size rather than a guarantee of a particular physical rendering
+size.
 
-A Player may adapt the value to the target platform, display density, accessibility settings, or available rendering technology.
+A Player may adapt the value to the target platform, display density, accessibility settings, or
+available rendering technology.
 
-subtitleBg
+### subtitleBg
 
 Specifies the preferred subtitle background color.
 
@@ -138,17 +165,21 @@ The value uses a CSS-compatible color representation.
 
 Example:
 
+```xml
 <preferences
     subtitleBg="rgba(0,0,0,0.7)" />
+```
 
 Another valid example:
 
+```xml
 <preferences
     subtitleBg="#000000" />
+```
 
 The Player is responsible for interpreting the value.
 
-subtitleColor
+### subtitleColor
 
 Specifies the preferred subtitle text color.
 
@@ -159,12 +190,14 @@ Default	#ffffff
 
 Example:
 
+```xml
 <preferences
     subtitleColor="#ffffff" />
+```
 
 The value uses a CSS-compatible color representation.
 
-7. Default Values
+## 7. Default Values
 
 If <preferences> is absent, the following defaults apply:
 
@@ -176,12 +209,15 @@ subtitleColor	#ffffff
 
 Therefore:
 
+```xml
 <meta>
     <title>Example</title>
 </meta>
+```
 
 is equivalent, with respect to these preferences, to:
 
+```xml
 <meta>
     <title>Example</title>
 
@@ -191,7 +227,11 @@ is equivalent, with respect to these preferences, to:
         subtitleBg="rgba(0,0,0,0.7)"
         subtitleColor="#ffffff" />
 </meta>
-8. Complete Example
+```
+
+## 8. Complete Example
+
+```xml
 <meta>
 
     <title>The Last Evening</title>
@@ -205,16 +245,21 @@ is equivalent, with respect to these preferences, to:
         subtitleColor="#ffffff" />
 
 </meta>
-9. Minimal Example
+```
+
+## 9. Minimal Example
 
 The smallest useful metadata section may contain only a title:
 
+```xml
 <meta>
     <title>My Project</title>
 </meta>
+```
 
 It is also valid to omit the entire <meta> section:
 
+```xml
 <ovml version="2.2" lang="en">
 
     <script>
@@ -222,7 +267,9 @@ It is also valid to omit the entire <meta> section:
     </script>
 
 </ovml>
-10. Metadata and Player Behavior
+```
+
+## 10. Metadata and Player Behavior
 
 The <meta> section describes project-level preferences.
 
@@ -230,26 +277,29 @@ It does not directly control the Player's implementation.
 
 For example:
 
+```xml
 <preferences showSubtitles="true" />
+```
 
 means that subtitles are intended to be visible by default.
 
 It does not specify:
 
-which subtitle renderer must be used;
-how subtitles are synchronized internally;
-which font-rendering engine is required;
-how subtitles are composited into video;
-how accessibility settings are implemented.
+- which subtitle renderer must be used;
+- how subtitles are synchronized internally;
+- which font-rendering engine is required;
+- how subtitles are composited into video;
+- how accessibility settings are implemented.
 
 These decisions belong to the Player or Renderer.
 
-11. User Preferences
+## 11. User Preferences
 
 A Player may allow the user to override project preferences.
 
 For example:
 
+```text
 OVML project
     │
     └── showSubtitles = true
@@ -262,8 +312,10 @@ OVML project
              │
              ▼
        Actual presentation
+```
 
-This allows an OVML project to provide sensible defaults without preventing the Player from adapting the experience to the user's environment.
+This allows an OVML project to provide sensible defaults without preventing the Player from adapting
+the experience to the user's environment.
 
 For example, a user may disable subtitles even when:
 
@@ -271,29 +323,36 @@ showSubtitles="true"
 
 is specified by the project.
 
-The OVML document therefore expresses the project's intended default, while the Player remains responsible for the final presentation.
+The OVML document therefore expresses the project's intended default, while the Player remains
+responsible for the final presentation.
 
-12. Unknown Metadata
+## 12. Unknown Metadata
 
 Implementations should preserve forward compatibility.
 
-An implementation encountering an unknown metadata element or attribute should not reject an otherwise valid OVML document solely because of that unknown metadata.
+An implementation encountering an unknown metadata element or attribute should not reject an
+otherwise valid OVML document solely because of that unknown metadata.
 
 For example, a future version may introduce:
 
+```xml
 <meta>
     <title>Example</title>
 
     <futurePreference value="..." />
 </meta>
+```
 
-An OVML 2.2 implementation that does not understand futurePreference should ignore it rather than treating it as a playback instruction.
+An OVML 2.2 implementation that does not understand futurePreference should ignore it rather than
+treating it as a playback instruction.
 
-Validation of the document's defined OVML 2.2 elements and attributes remains the responsibility of the OVML validator.
+Validation of the document's defined OVML 2.2 elements and attributes remains the responsibility of
+the OVML validator.
 
-13. Scope
+## 13. Scope
 
-The <meta> element is intentionally limited to project identity and general presentation preferences.
+The <meta> element is intentionally limited to project identity and general presentation
+preferences.
 
 The following information belongs elsewhere:
 
@@ -314,12 +373,16 @@ Audio	<audio>
 
 This separation keeps <meta> independent from the project's actual audiovisual behavior.
 
-14. Design Principle
+## 14. Design Principle
 
+```xml
 <meta> describes the project.
+```
 
 It does not describe how the project must be rendered.
 
-Metadata expresses project identity and presentation intent; the Player determines the final presentation on the target platform.
+Metadata expresses project identity and presentation intent; the Player determines the final
+presentation on the target platform.
 
-This principle allows the same OVML document to be used by different Players, renderers, platforms, and publishing systems without embedding implementation-specific behavior into the standard.
+This principle allows the same OVML document to be used by different Players, renderers, platforms,
+and publishing systems without embedding implementation-specific behavior into the standard.

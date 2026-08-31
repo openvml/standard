@@ -1,25 +1,27 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # `<character>` — Characters
 
 **OVML Standard 2.2**
 
-1. Purpose
+## 1. Purpose
 
 The `<character>` element defines a character or named voice used by an OVML project.
 
-A character represents a named entity that may be referenced by script content through the `char` attribute of a `<line>` element.
+A character represents a named entity that may be referenced by script content through the `char`
+attribute of a `<line>` element.
 
 A character may contain:
 
-identity information;
-aliases;
-descriptive character information;
-voice configuration;
-voice characteristics;
-processing preset references.
+- identity information;
+- aliases;
+- descriptive character information;
+- voice configuration;
+- voice characteristics;
+- processing preset references.
 
 Characters are declared inside the `<cast>` element.
 
@@ -27,10 +29,11 @@ The `<cast>` element is optional for projects that do not require character defi
 
 See: reference/cast.md
 
-2. Structure
+## 2. Structure
 
 The general structure is:
 
+```xml
     <cast>
 
         <character
@@ -61,10 +64,11 @@ The general structure is:
         </character>
 
     </cast>
+```
 
 Each `<character>` MUST have a unique id within the OVML document.
 
-3. Required Attributes
+## 3. Required Attributes
 
 The following attributes are required:
 
@@ -74,19 +78,23 @@ name	string	Human-readable character name
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal" />
+```
 
 The id is used to reference the character from script content:
 
+```xml
     <line char="vestfal">
         — Это ракеты.
     </line>
+```
 
 The value of line/@char MUST correspond to an existing character/@id.
 
-4. Character Attributes
+## 4. Character Attributes
 
 The following attributes are optional.
 
@@ -100,10 +108,12 @@ color
 
 Defines the visual color associated with the character.
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         color="#4f46e5" />
+```
 
 The value MUST use hexadecimal RGB notation:
 
@@ -124,10 +134,12 @@ neutral	Neutral or unspecified gender
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         gender="male" />
+```
 
 This value is descriptive.
 
@@ -149,10 +161,12 @@ senior	Senior / pensioner
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         age="adult" />
+```
 
 The age category is descriptive metadata.
 
@@ -172,14 +186,16 @@ narrator	Narrator or narrative voice
 
 Example:
 
+```xml
     <character
         id="narrator"
         name="Narrator"
         role="narrator" />
+```
 
 The role is descriptive and does not determine playback behavior.
 
-5. Aliases
+## 5. Aliases
 
 A character MAY contain an `<aliases>` element.
 
@@ -187,6 +203,7 @@ Aliases provide alternative names or references by which a character may be know
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal">
@@ -198,6 +215,7 @@ Example:
         </aliases>
 
     </character>
+```
 
 Each `<alias>` contains a text value.
 
@@ -207,18 +225,21 @@ Aliases do not create additional characters.
 
 The canonical character identity remains the value of character/@id.
 
-6. Personality
+## 6. Personality
 
 A character MAY contain a `<personality>` element.
 
-It describes the character's personality, behavioral traits, temperament, and other characteristics relevant to the portrayal of the character.
+It describes the character's personality, behavioral traits, temperament, and other characteristics
+relevant to the portrayal of the character.
 
 Example:
 
+```xml
     <personality>
         Calm, intelligent and slightly sarcastic.
         Usually hides his emotions behind humor.
     </personality>
+```
 
 The content is descriptive.
 
@@ -226,16 +247,16 @@ The OVML Standard does not prescribe how an application must use personality inf
 
 Authoring tools and AI-assisted systems MAY use it when:
 
-suggesting voices;
-selecting voice presets;
-generating dialogue;
-suggesting emotions;
-selecting media assets;
-assisting with scene direction.
+- suggesting voices;
+- selecting voice presets;
+- generating dialogue;
+- suggesting emotions;
+- selecting media assets;
+- assisting with scene direction.
 
 A Player MAY ignore this information during playback.
 
-7. Backstory
+## 7. Backstory
 
 A character MAY contain a `<backstory>` element.
 
@@ -243,10 +264,12 @@ It contains background information about the character.
 
 Example:
 
+```xml
     <backstory>
         Vestfal is an ancient dragon who has accompanied
         the protagonist for many years.
     </backstory>
+```
 
 The backstory may contain arbitrary descriptive text.
 
@@ -254,7 +277,7 @@ It is intended primarily for authoring, editing, indexing, and AI-assisted workf
 
 A Player is not required to process or display the backstory during playback.
 
-8. Voice Configuration
+## 8. Voice Configuration
 
 A character MAY contain voice configuration.
 
@@ -272,6 +295,7 @@ rate	float	1.0	Base speech-rate multiplier
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
@@ -281,6 +305,7 @@ Example:
         voiceLang="en-US"
         pitch="1.0"
         rate="1.0" />
+```
 
 voiceId
 
@@ -341,7 +366,7 @@ Unknown engine identifiers SHOULD be preserved when an OVML document is read and
 See: reference/voice.md
 See: reference/tts.md
 
-9. Timbre
+## 9. Timbre
 
 A character MAY contain a `<timbre>` element.
 
@@ -349,9 +374,11 @@ Timbre describes the desired acoustic character of the voice.
 
 Example:
 
+```xml
     <timbre>
         Deep, warm and slightly rough male voice.
     </timbre>
+```
 
 Timbre is intentionally represented as descriptive text rather than a fixed enumeration.
 
@@ -359,21 +386,25 @@ This allows the description to be used with different voice systems and AI-assis
 
 Examples:
 
+```xml
     <timbre>
         Warm, deep, slightly rough.
     </timbre>
+```
 
 or:
 
+```xml
     <timbre>
         Soft female voice with a clear tone and restrained warmth.
     </timbre>
+```
 
 The OVML Standard does not require a particular TTS engine to interpret timbre.
 
 A compatible application MAY use the value as a voice-selection or voice-generation hint.
 
-10. Pitch
+## 10. Pitch
 
 The pitch attribute defines the base pitch requested for the character's voice.
 
@@ -387,14 +418,16 @@ Recommended range:
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         pitch="1.1" />
+```
 
 The exact interpretation depends on the selected voice engine.
 
-11. Rate
+## 11. Rate
 
 The rate attribute defines the character's default speech rate.
 
@@ -408,32 +441,38 @@ Recommended range:
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         rate="0.9" />
+```
 
 This value represents the character's base speech rate.
 
 A `<line>` MAY specify its own speech rate, which takes precedence for that particular line.
 
-12. Voice Presets
+## 12. Voice Presets
 
 An implementation MAY associate a character with a reusable voice preset.
 
 A voice preset is implementation-specific and is not required for a valid OVML document.
 
-If a portable reference is required, an implementation MAY represent it using a provider-specific or application-specific element.
+If a portable reference is required, an implementation MAY represent it using a provider-specific or
+application-specific element.
 
 For example:
 
+```xml
     <voicePreset
         id="preset_21"
         name="Warm Cinematic Male" />
+```
 
-The exact structure and semantics of voice presets are implementation-dependent unless explicitly defined by a future OVML specification.
+The exact structure and semantics of voice presets are implementation-dependent unless explicitly
+defined by a future OVML specification.
 
-13. Audio Processing
+## 13. Audio Processing
 
 A character MAY reference an audio-processing preset.
 
@@ -444,18 +483,20 @@ audioProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         audioProcessorId="preset_1"
         audioProcessorName="Warm Voice"
         audioProcessorFile="presets/audio/WarmVoice.ovml" />
+```
 
 audioProcessorFile provides a portable reference when the preset is included in an OVMZ container.
 
 See: reference/audio-processing.md
 
-14. Video Processing
+## 14. Video Processing
 
 A character MAY reference a video-processing preset.
 
@@ -466,16 +507,18 @@ videoProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         videoProcessorId="video_01"
         videoProcessorName="Cinematic"
         videoProcessorFile="presets/video/Cinematic.ovml" />
+```
 
 See: reference/video-processing.md
 
-15. Image Processing
+## 15. Image Processing
 
 A character MAY reference an image-processing preset.
 
@@ -486,21 +529,24 @@ imageProcessorFile	string	Path to the preset in an OVMZ container
 
 Example:
 
+```xml
     <character
         id="vestfal"
         name="Vestfal"
         imageProcessorId="image_01"
         imageProcessorName="Dark Fantasy"
         imageProcessorFile="presets/image/DarkFantasy.ovml" />
+```
 
 See: reference/image-processing.md
 
-16. Character References in Script
+## 16. Character References in Script
 
 Characters are referenced by their id.
 
 Example:
 
+```xml
     <cast>
 
         <character
@@ -518,9 +564,11 @@ Example:
             role="narrator" />
 
     </cast>
+```
 
 The script may then contain:
 
+```xml
     <p>
 
         <line char="vestfal">
@@ -541,12 +589,13 @@ The script may then contain:
         </line>
 
     </p>
+```
 
 The char attribute identifies the character or voice assigned to the individual line.
 
 A `<p>` MAY contain multiple `<line>` elements assigned to different characters.
 
-17. Scene Participation
+## 17. Scene Participation
 
 Characters are declared once in the `<cast>` element.
 
@@ -554,6 +603,7 @@ A scene MAY list the characters participating in that scene.
 
 Each `<char>` entry references a character id declared in the `<cast>` element:
 
+```xml
     <scene>
 
         <characters>
@@ -562,6 +612,7 @@ Each `<char>` entry references a character id declared in the `<cast>` element:
         </characters>
 
     </scene>
+```
 
 Scene participation references existing characters.
 
@@ -569,10 +620,11 @@ It does not define new characters.
 
 See: reference/scene.md
 
-18. Character Identity vs. Voice
+## 18. Character Identity vs. Voice
 
 Character identity and voice identity are separate concepts.
 
+```text
     character
     │
     ├── id
@@ -589,6 +641,7 @@ Character identity and voice identity are separate concepts.
         ├── timbre
         ├── pitch
         └── rate
+```
 
 Changing a voice does not create a new character.
 
@@ -602,63 +655,70 @@ to:
 
 does not change the character's identity.
 
-19. Unspecified Voices
+## 19. Unspecified Voices
 
 A character MAY be defined without voice information:
 
+```xml
     <character
         id="alex"
         name="Alex"
         gender="male"
         age="adult"
         role="main" />
+```
 
 Such a document is valid.
 
 The OVML Standard does not prescribe a default TTS provider or default voice.
 
-When voice information is absent, the consuming application determines how the character's speech is resolved.
+When voice information is absent, the consuming application determines how the character's speech is
+resolved.
 
-Similarly, failure to resolve a requested voice is a runtime/provider condition and is not, by itself, a structural OVML validation error.
+Similarly, failure to resolve a requested voice is a runtime/provider condition and is not, by
+itself, a structural OVML validation error.
 
-20. Validation
+## 20. Validation
 
 An OVML validator SHOULD verify:
 
-character/@id is present;
-character/@name is present;
-character IDs are unique within <cast>;
-gender, when present, contains an allowed value;
-age, when present, contains an allowed value;
-role, when present, contains an allowed value;
-color, when present, uses the required hexadecimal format;
-numeric voice parameters contain valid numeric values;
-character references in script content resolve to existing character IDs.
+- character/@id is present;
+- character/@name is present;
+- character IDs are unique within <cast>;
+- gender, when present, contains an allowed value;
+- age, when present, contains an allowed value;
+- role, when present, contains an allowed value;
+- color, when present, uses the required hexadecimal format;
+- numeric voice parameters contain valid numeric values;
+- character references in script content resolve to existing character IDs.
 
 The validator checks the structural validity of the OVML document.
 
 It does not determine:
 
-whether a TTS provider is available;
-whether a voice exists at runtime;
-whether an API key is valid;
-whether a voice preset is available;
-whether an audio/video processor is installed;
-whether a particular Player supports a requested voice engine.
+- whether a TTS provider is available;
+- whether a voice exists at runtime;
+- whether an API key is valid;
+- whether a voice preset is available;
+- whether an audio/video processor is installed;
+- whether a particular Player supports a requested voice engine.
 
 These are runtime or implementation concerns.
 
-21. Design Principle
+## 21. Design Principle
 
-The `<character>` element describes who the character is and how the character's voice is intended to be represented.
+The `<character>` element describes who the character is and how the character's voice is intended
+to be represented.
 
 It does not prescribe a particular TTS provider or playback implementation.
 
-Character defines who the speaker is. Voice configuration defines how the character's voice is requested. Line-level properties define how the character speaks a particular line.
+Character defines who the speaker is. Voice configuration defines how the character's voice is
+requested. Line-level properties define how the character speaks a particular line.
 
-This separation allows the same OVML document to be used by different authoring tools, Players, TTS engines, operating systems, and rendering environments.
+This separation allows the same OVML document to be used by different authoring tools, Players, TTS
+engines, operating systems, and rendering environments.
 
-22. Related Documents
+## 22. Related Documents
 
 See: reference/cast.md
 See: reference/voice.md

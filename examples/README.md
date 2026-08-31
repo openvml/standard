@@ -1,12 +1,14 @@
 # OpenVML Audiobook Example
 
-This example demonstrates how **OpenVML — Open Voice Markup Language** can represent a narrated audiobook with multiple characters, dialogue, voice assignments, timed media, and audio processing.
+This example demonstrates how **OpenVML — Open Voice Markup Language** can represent a narrated
+audiobook with multiple characters, dialogue, voice assignments, timed media, and audio processing.
 
 It is the first application example in the OpenVML standard documentation.
 
 ## Purpose
 
-The purpose of this example is to demonstrate how a narrative audiobook can be represented as an OpenVML document while combining spoken content with additional media.
+The purpose of this example is to demonstrate how a narrative audiobook can be represented as an
+OpenVML document while combining spoken content with additional media.
 
 The example contains:
 
@@ -57,7 +59,7 @@ Each character may contain information such as:
 
 For example, a character can have several aliases:
 
-```
+```xml
 <character
     id="mira"
     name="Mira"
@@ -70,13 +72,13 @@ The aliases identify different textual descriptions that refer to the same chara
 
 When the character speaks, the canonical character identifier is used:
 
-```
+```xml
 <line char="mira">...</line>
 ```
 
 A descriptive reference to the same character may instead occur as part of narration:
 
-```
+```xml
 <line char="narrator">
     — squeaked the little singer...
 </line>
@@ -90,7 +92,7 @@ OpenVML allows narration and dialogue to coexist within the same paragraph.
 
 For example:
 
-```
+```xml
 <p>
     <line char="mira">— If we don't start the show...</line>
     <line char="narrator">— squeaked the little singer...</line>
@@ -99,7 +101,7 @@ For example:
 
 A paragraph may contain several alternating speakers:
 
-```
+```xml
 <p>
     <line char="bran">— Stop whining.</line>
     <line char="narrator">— growled the tattooed bruiser.</line>
@@ -107,7 +109,8 @@ A paragraph may contain several alternating speakers:
 </p>
 ```
 
-This makes it possible to preserve the order of speech and narration without flattening the content into a single voice.
+This makes it possible to preserve the order of speech and narration without flattening the content
+into a single voice.
 
 ## Chapters and Scenes
 
@@ -121,7 +124,7 @@ The example contains:
 
 The dialogue chapter also contains scene metadata:
 
-```
+```xml
 <scene title="Tensions in the Rusty Anchor" mood="Tense">
     <location>The Rusty Anchor Tavern</location>
 </scene>
@@ -142,7 +145,7 @@ The document uses:
 
 For example:
 
-```
+```xml
 <video
     src="..."
     layer="background"
@@ -153,7 +156,7 @@ For example:
 
 A foreground video can have its own duration and start relationship:
 
-```
+```xml
 <video
     src="..."
     layer="foreground"
@@ -168,7 +171,8 @@ A foreground video can have its own duration and start relationship:
 />
 ```
 
-The foreground media therefore does not need to begin or end at the same time as the surrounding spoken content.
+The foreground media therefore does not need to begin or end at the same time as the surrounding
+spoken content.
 
 ## Timing
 
@@ -185,15 +189,17 @@ Additional foreground media may appear during an active content block and may ha
 * position;
 * size.
 
-This allows an audiobook to use a multimedia presentation model without requiring the spoken content to become a conventional linear audio track.
+This allows an audiobook to use a multimedia presentation model without requiring the spoken content
+to become a conventional linear audio track.
 
-The Player is responsible for implementing buffering, streaming, synthesis, decoding, rendering, and synchronization for the target platform.
+The Player is responsible for implementing buffering, streaming, synthesis, decoding, rendering, and
+synchronization for the target platform.
 
 ## Assets
 
 Reusable media can be declared in the document's asset collection:
 
-```
+```xml
 <assets>
     <asset id="..." type="image" src="..."/>
     <asset id="..." type="video" src="..."/>
@@ -208,10 +214,8 @@ This separates resource identification from the content blocks that use those re
 
 Characters may reference audio processing presets:
 
-```
 audioProcessorId="..."
 audioProcessorName="..."
-```
 
 The processing itself is defined separately in the OpenVML preset collection.
 
@@ -237,7 +241,8 @@ The audiobook example uses voice processing presets to demonstrate this relation
 
 ## Visual Presentation
 
-Although the example is audiobook-oriented, OpenVML does not require spoken content to be audio-only.
+Although the example is audiobook-oriented, OpenVML does not require spoken content to be
+audio-only.
 
 The same document model can associate speech with visual media.
 
@@ -263,9 +268,11 @@ These capabilities are part of the language and are not limited to audiobook pro
 
 The example demonstrates an important OpenVML principle:
 
-> **OVML defines when content should occur. The Player determines how that content is buffered, streamed, synthesized, decoded, rendered, and synchronized on the target platform.**
+> **OVML defines when content should occur. The Player determines how that content is buffered,
+> streamed, synthesized, decoded, rendered, and synchronized on the target platform.**
 
-The document therefore describes content and temporal relationships without prescribing a particular playback implementation.
+The document therefore describes content and temporal relationships without prescribing a particular
+playback implementation.
 
 ## Relation to the Standard
 
@@ -273,13 +280,12 @@ This file is an informative example.
 
 It does not redefine the OpenVML language.
 
-The normative definitions of individual elements, attributes, timing rules, media behavior, cast properties, and processing presets are specified in the corresponding documents under:
+The normative definitions of individual elements, attributes, timing rules, media behavior, cast
+properties, and processing presets are specified in the corresponding documents under:
 
-```
 docs/standard/concepts/
 docs/standard/reference/
 docs/standard/presets/
-```
 
 The example should be read together with those reference documents.
 
@@ -301,4 +307,5 @@ Future OpenVML examples may cover other domains, including:
 
 The list is intentionally open-ended.
 
-OpenVML is designed as a general voice and multimedia timing language rather than as a format restricted to audiobooks.
+OpenVML is designed as a general voice and multimedia timing language rather than as a format
+restricted to audiobooks.

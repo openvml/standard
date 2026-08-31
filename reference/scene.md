@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Scene — `<scene>`
 
@@ -10,7 +11,8 @@
 
 The `<scene>` element is the primary directorial context of an OVML script.
 
-A scene groups content that belongs to the same dramatic, visual, narrative, or informational context.
+A scene groups content that belongs to the same dramatic, visual, narrative, or informational
+context.
 
 A scene may contain:
 
@@ -43,12 +45,12 @@ A scene describes what belongs together from the author's or director's point of
 
 It does not prescribe:
 
-which rendering engine must be used;
-which video codec must be used;
-which audio backend must be used;
-how media is buffered;
-how TTS is generated;
-how the camera is physically implemented.
+- which rendering engine must be used;
+- which video codec must be used;
+- which audio backend must be used;
+- how media is buffered;
+- how TTS is generated;
+- how the camera is physically implemented.
 
 Those decisions belong to the Player, renderer, or export pipeline.
 
@@ -58,6 +60,7 @@ A scene is represented by the `<scene>` element.
 
 Example:
 
+```xml
 <scene>
     <line char="narrator">
         The sun was setting over the city.
@@ -69,11 +72,13 @@ Example:
         startTime="0"
         duration="10" />
 </scene>
+```
 
 A scene may contain multiple blocks.
 
 Conceptually:
 
+```text
 Scene
 │
 ├── Camera
@@ -86,6 +91,7 @@ Scene
 ├── Video
 ├── Audio
 └── Break
+```
 
 The exact set of allowed child elements is defined by the OVML specification and schema.
 
@@ -101,9 +107,11 @@ Both attributes are optional.
 
 A scene may therefore be completely valid without either attribute:
 
+```xml
 <scene>
     ...
 </scene>
+```
 
 ## 5. color
 
@@ -111,9 +119,11 @@ The color attribute specifies a color associated with the scene.
 
 Example:
 
+```xml
 <scene color="#1a1a2e">
     ...
 </scene>
+```
 
 The value uses the hexadecimal RGB format:
 
@@ -130,23 +140,25 @@ The scene color is primarily semantic metadata.
 
 It may be used by an OVML-compatible application for:
 
-scene identification in the UI;
-timeline visualization;
-scene markers;
-authoring hints;
-visual grouping;
-preset selection;
-AI-assisted workflows;
-rendering hints.
+- scene identification in the UI;
+- timeline visualization;
+- scene markers;
+- authoring hints;
+- visual grouping;
+- preset selection;
+- AI-assisted workflows;
+- rendering hints.
 
 For example, an editor may display:
 
+```text
 ┌─────────────────────────────────────────┐
 │ Scene 03                                │
 │ #1a1a2e                                 │
 │                                         │
 │ Evening — abandoned city                │
 └─────────────────────────────────────────┘
+```
 
 The standard does not require a Player to reproduce the scene color directly in the final media.
 
@@ -156,10 +168,12 @@ The atmosphere attribute describes the atmosphere, mood, or emotional context of
 
 Example:
 
+```xml
 <scene
     atmosphere="warm sunset, silence, tranquility">
     ...
 </scene>
+```
 
 The value is a free-form string.
 
@@ -167,11 +181,15 @@ It is written in the language of the project.
 
 For example:
 
+```xml
 <scene atmosphere="тёплый закат, тишина, умиротворение">
+```
 
 or:
 
+```xml
 <scene atmosphere="warm sunset, silence, tranquility">
+```
 
 Both are valid.
 
@@ -181,31 +199,35 @@ It describes the author's intent.
 
 For example:
 
+```xml
 <scene atmosphere="тревога, дождь, пустая улица">
+```
 
 does not mean that the Player must automatically:
 
-add rain;
-add a dark color filter;
-generate a sound effect;
-change the music.
+- add rain;
+- add a dark color filter;
+- generate a sound effect;
+- change the music.
 
 Instead, it provides semantic information that can be used by:
 
-the author;
-OpenVML Studio;
-the AI Assistant;
-asset-selection systems;
-preset-selection systems;
-future intelligent authoring tools.
+- the author;
+- OpenVML Studio;
+- the AI Assistant;
+- asset-selection systems;
+- preset-selection systems;
+- future intelligent authoring tools.
 
 One important purpose of atmosphere is AI-assisted asset selection.
 
 For example:
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="warm sunset, silence, tranquility">
+```
 
 An AI Assistant may interpret this as a request for assets such as:
 
@@ -224,7 +246,8 @@ Music:
     warm
     reflective
 
-The standard does not prescribe which AI model, asset catalogue, or recommendation algorithm is used.
+The standard does not prescribe which AI model, asset catalogue, or recommendation algorithm is
+used.
 
 ## 7. Additional Scene Attributes
 
@@ -241,6 +264,7 @@ transition	enum	Transition to the next scene: fade, cut, dissolve, wipe
 
 Example:
 
+```xml
 <scene
     id="ch02_forest"
     title="The Forest"
@@ -248,10 +272,13 @@ Example:
     weather="foggy"
     mood="mysterious"
     color="#1a1a2e">
+```
 
     ...
 
+```xml
 </scene>
+```
 
 These attributes carry useful structural metadata.
 
@@ -263,6 +290,7 @@ A scene establishes a boundary between two creative contexts.
 
 For example:
 
+```xml
 <scene atmosphere="morning, quiet">
     ...
 </scene>
@@ -270,10 +298,13 @@ For example:
 <scene atmosphere="evening, crowded">
     ...
 </scene>
+```
 
-The first scene may represent one location or emotional context, while the second represents another.
+The first scene may represent one location or emotional context, while the second represents
+another.
 
-Scene boundaries can therefore be used by authoring tools, Players, and AI-assisted workflows to understand the structure of a project.
+Scene boundaries can therefore be used by authoring tools, Players, and AI-assisted workflows to
+understand the structure of a project.
 
 A scene boundary does not necessarily imply a visible transition.
 
@@ -289,6 +320,7 @@ Instead, the temporal behavior is determined by its child blocks.
 
 For example:
 
+```xml
 <scene>
     <line char="alex">
         Hello.
@@ -300,6 +332,7 @@ For example:
         startTime="0"
         duration="15" />
 </scene>
+```
 
 The video has an explicit temporal position.
 
@@ -327,8 +360,10 @@ Element	Purpose
 
 ## 11. Location Reference
 
-A scene references a canonical location from the project's world canon through a child <location> element with a ref attribute.
+A scene references a canonical location from the project's world canon through a child <location>
+element with a ref attribute.
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="tense, night">
@@ -338,14 +373,18 @@ A scene references a canonical location from the project's world canon through a
             <weather>rainy</weather>
         </variation>
     </location>
+```
 
+```xml
     ...
 </scene>
+```
 
 The ref value is the id of a location declared in the <locations> section of <world>.
 
 Scene-specific change is expressed by a <variation> inside the scene, never by editing the canon:
 
+```xml
 <location ref="rusty_anchor">
     <variation>
         <time>night</time>
@@ -353,6 +392,7 @@ Scene-specific change is expressed by a <variation> inside the scene, never by e
         <changes>Chairs stacked, a fire in the hearth</changes>
     </variation>
 </location>
+```
 
 A plain-text <location> without ref remains valid as a free-form description.
 
@@ -366,10 +406,12 @@ The <characters> element lists the characters participating in a scene.
 
 Example:
 
+```xml
 <characters>
     <char ref="hero" emotion="thoughtful" />
     <char ref="heroine" emotion="curious" />
 </characters>
+```
 
 Each <char> entry references a character id declared in the <cast> element.
 
@@ -379,22 +421,25 @@ See: reference/cast.md
 
 ## 13. Blocking
 
-The <blocking> element describes the semantic relationships between the characters present in the scene.
+The <blocking> element describes the semantic relationships between the characters present in the
+scene.
 
 Example:
 
+```xml
 <blocking>
     <character ref="anna" position="left" look_at="ivan" enters="true" />
     <character ref="ivan" position="right" addresses="anna" />
 </blocking>
+```
 
 Blocking records intend and spatial relations rather than absolute coordinates:
 
-who is where;
-who looks at whom;
-who addresses whom;
-who reacts to whom;
-who enters or exits the scene.
+- who is where;
+- who looks at whom;
+- who addresses whom;
+- who reacts to whom;
+- who enters or exits the scene.
 
 The complete blocking model is defined in:
 
@@ -404,11 +449,14 @@ reference/blocking.md
 
 The <prompt> child of a scene provides a prompt for AI-assisted image or video generation.
 
+```xml
 <prompt>Dark mixed forest, morning fog, two people walking</prompt>
+```
 
 The prompt is optional.
 
-It may be authored explicitly, or it may be auto-generated from the <blocking> element by an AI-assisted workflow.
+It may be authored explicitly, or it may be auto-generated from the <blocking> element by an
+AI-assisted workflow.
 
 OVML does not prescribe which AI model or generator interprets the prompt.
 
@@ -420,6 +468,7 @@ The <camera> element provides a directorial instruction within a scene.
 
 Example:
 
+```xml
 <scene>
 
     <camera
@@ -427,9 +476,12 @@ Example:
         framing="center"
         target="alex"
         movement="static" />
+```
 
+```xml
     ...
 </scene>
+```
 
 A camera is not a media file.
 
@@ -437,16 +489,17 @@ It describes how the visual content is intended to be presented.
 
 The initial camera model supports:
 
-shot size;
-framing;
-camera movement;
-camera target;
-transition;
-duration;
-timing.
+- shot size;
+- framing;
+- camera movement;
+- camera target;
+- transition;
+- duration;
+- timing.
 
 This is important for maintaining the separation between the standard and its implementation:
 
+```text
 OVML
    │
    │ camera instruction
@@ -456,6 +509,7 @@ Player / Renderer
    │ implementation
    ▼
 visual result
+```
 
 The camera describes the intended viewpoint.
 
@@ -471,6 +525,7 @@ concepts/camera.md
 
 A scene may contain text blocks and media elements as direct children.
 
+```xml
 <scene color="#182033">
 
     <video
@@ -494,6 +549,7 @@ A scene may contain text blocks and media elements as direct children.
     </p>
 
 </scene>
+```
 
 This allows a single scene to describe a complete audiovisual composition.
 
@@ -513,14 +569,15 @@ A transition between scenes may be represented by scene content or by future tra
 
 A scene boundary by itself does not require:
 
-a fade;
-a cut;
-a crossfade;
-a sound effect;
-a camera transition.
+- a fade;
+- a cut;
+- a crossfade;
+- a sound effect;
+- a camera transition.
 
 For example:
 
+```xml
 <scene atmosphere="day">
     ...
 </scene>
@@ -528,10 +585,12 @@ For example:
 <scene atmosphere="night">
     ...
 </scene>
+```
 
 does not prescribe how the Player transitions between them.
 
-Explicit transition hints may be provided through scene metadata such as the transition attribute described in section 7.
+Explicit transition hints may be provided through scene metadata such as the transition attribute
+described in section 7.
 
 ## 18. Scene Does Not Imply a Physical Location
 
@@ -563,14 +622,17 @@ Its effective duration may be determined by the content it contains.
 
 For example:
 
+```text
 Scene
  ├── dialogue       5s
  ├── music          20s
  └── video          15s
+```
 
 The resulting temporal extent depends on the resolved timeline.
 
-This allows scenes to remain semantic structures rather than forcing authors to manually maintain redundant duration metadata.
+This allows scenes to remain semantic structures rather than forcing authors to manually maintain
+redundant duration metadata.
 
 ## 20. Scene and Presets
 
@@ -578,6 +640,7 @@ Scenes can provide contextual information for processing presets.
 
 For example, a processing system may use:
 
+```text
 Scene
  ├── color
  ├── atmosphere
@@ -586,10 +649,12 @@ Scene
       ├── image
       ├── video
       └── audio
+```
 
 The scene may use this information to suggest or select appropriate presets.
 
-However, the scene does not directly execute a preset unless an appropriate processing element or character configuration explicitly specifies one.
+However, the scene does not directly execute a preset unless an appropriate processing element or
+character configuration explicitly specifies one.
 
 This distinction keeps the scene declarative.
 
@@ -599,21 +664,23 @@ The scene is an important semantic boundary for AI-assisted authoring.
 
 An Assistant can treat a scene as a contextual unit when performing tasks such as:
 
-selecting assets;
-suggesting music;
-suggesting sound effects;
-selecting processing presets;
-proposing camera directions;
-generating dialogue;
-adjusting atmosphere;
-proposing transitions;
-checking continuity.
+- selecting assets;
+- suggesting music;
+- suggesting sound effects;
+- selecting processing presets;
+- proposing camera directions;
+- generating dialogue;
+- adjusting atmosphere;
+- proposing transitions;
+- checking continuity.
 
 For example:
 
+```xml
 <scene
     color="#243447"
     atmosphere="ночь, дождь, напряжение">
+```
 
 provides substantially more context than an isolated media block.
 
@@ -621,40 +688,43 @@ The Assistant may use this information without changing the underlying OVML sema
 
 ## 22. Scene and Project Forms
 
-Scenes are intentionally generic so that the same structure can support different types of OVML projects.
+Scenes are intentionally generic so that the same structure can support different types of OVML
+projects.
 
-Lecture
+#### Lecture
 
 A scene may represent a section of a lesson.
 
+```text
 Lecture
  └── Chapter
       └── Scene
            ├── narration
            ├── slide
            └── media
+```
 
-Presentation
+#### Presentation
 
 A scene may represent a presentation segment or slide composition.
 
-Audiobook
+#### Audiobook
 
 A scene may represent a location, event, or dramatic moment.
 
-Game Voiceover
+#### Game Voiceover
 
 A scene may represent a dialogue situation or game state.
 
-Film Voiceover
+#### Film Voiceover
 
 A scene may represent a film sequence requiring synchronized dialogue and media.
 
-Anime
+#### Anime
 
 A scene may contain dialogue, music, sound effects, visual media, and camera direction.
 
-Podcast
+#### Podcast
 
 A scene may represent a conversational segment.
 
@@ -664,11 +734,13 @@ The same <scene> element therefore serves multiple project forms.
 
 The smallest useful scene can be:
 
+```xml
 <scene>
     <line char="narrator">
         Hello.
     </line>
 </scene>
+```
 
 No additional metadata is required.
 
@@ -676,6 +748,7 @@ No additional metadata is required.
 
 A more expressive scene can combine semantic metadata, media, dialogue, and camera direction:
 
+```xml
 <scene
     color="#1a1a2e"
     atmosphere="warm sunset, silence, tranquility">
@@ -704,9 +777,11 @@ A more expressive scene can combine semantic metadata, media, dialogue, and came
     </line>
 
 </scene>
+```
 
 This example demonstrates the intended relationship between:
 
+```text
 Scene
  ├── semantic context
  │    ├── color
@@ -723,6 +798,7 @@ Scene
  │
  └── narrative content
       └── line
+```
 
 ## 25. Validation
 
@@ -730,11 +806,11 @@ The OVML parser and validator are responsible for validating the structural corr
 
 For example, they may verify:
 
-the <scene> element is properly opened and closed;
-attributes have valid names;
-color has a valid HEX format;
-required XML structure is respected;
-child elements are allowed in the given context.
+- the <scene> element is properly opened and closed;
+- attributes have valid names;
+- color has a valid HEX format;
+- required XML structure is respected;
+- child elements are allowed in the given context.
 
 The validator does not determine whether the scene is artistically appropriate.
 
@@ -748,14 +824,14 @@ OVML intentionally separates technical correctness from directing.
 
 The author or director decides:
 
-where a scene begins;
-where it ends;
-what happens inside it;
-what atmosphere it represents;
-what visual mood it should have;
-which characters participate;
-what media is used;
-how the scene should feel.
+- where a scene begins;
+- where it ends;
+- what happens inside it;
+- what atmosphere it represents;
+- what visual mood it should have;
+- which characters participate;
+- what media is used;
+- how the scene should feel.
 
 The standard provides a machine-readable language for expressing those decisions.
 
@@ -767,13 +843,13 @@ The <scene> element is a fundamental structural unit of OVML.
 
 It provides:
 
-logical grouping;
-narrative context;
-visual context;
-emotional context;
-a boundary for AI-assisted authoring;
-a context for media and dialogue;
-a context for camera direction.
+- logical grouping;
+- narrative context;
+- visual context;
+- emotional context;
+- a boundary for AI-assisted authoring;
+- a context for media and dialogue;
+- a context for camera direction.
 
 The two standard scene attributes are:
 
@@ -788,9 +864,11 @@ Neither attribute directly commands the Player to perform a particular rendering
 
 The fundamental principle is:
 
-A scene describes the director's intent and context. It does not dictate the implementation used to realize that intent.
+A scene describes the director's intent and context. It does not dictate the implementation used to
+realize that intent.
 
-This makes <scene> suitable for every OVML project form, from a simple lecture or presentation to a multi-character audiobook, interactive game narrative, film dubbing project, or animated production.
+This makes <scene> suitable for every OVML project form, from a simple lecture or presentation to a
+multi-character audiobook, interactive game narrative, film dubbing project, or animated production.
 
 ## 28. Related Documents
 

@@ -1,16 +1,19 @@
 # OVML Reference
 
-**OpenVML — Open Voice Markup Language** is an open, XML-based standard for describing structured audiovisual content.
+**OpenVML — Open Voice Markup Language** is an open, XML-based standard for describing structured
+audiovisual content.
 
 This section is the normative-oriented reference for the OVML 2.2 document model.
 
-While the [`concepts/`](../concepts/) section explains why OVML works the way it does, the Reference section describes **the actual elements, attributes, values, and relationships used in an OVML document**.
+While the [`concepts/`](../concepts/) section explains why OVML works the way it does, the Reference
+section describes **the actual elements, attributes, values, and relationships used in an OVML
+document**.
 
 ## Document Model
 
 An OVML document has the following high-level structure:
 
-```
+```xml
 <ovml version="2.2" lang="en">
     <meta>
         ...
@@ -117,7 +120,8 @@ Defines the `<scene>` element and its attributes, including:
 * `atmosphere`;
 * `transition`.
 
-Scenes provide narrative and visual context for groups of content. The `<camera>` child element is documented here.
+Scenes provide narrative and visual context for groups of content. The `<camera>` child element is
+documented here.
 
 ### Lines
 
@@ -184,7 +188,8 @@ Defines the OVML temporal model, including:
 
 [`layers.md`](layers.md)
 
-Defines the layer system (`background`, `foreground`, `overlay`) used for visual composition of media.
+Defines the layer system (`background`, `foreground`, `overlay`) used for visual composition of
+media.
 
 ### Blocking
 
@@ -210,7 +215,8 @@ Defines transition types and their use on scenes and media blocks.
 
 Defines how OVML identifies and references media resources.
 
-Assets may be packaged inside a project or referenced externally, depending on the project form and Player capabilities.
+Assets may be packaged inside a project or referenced externally, depending on the project form and
+Player capabilities.
 
 ### World Canon
 
@@ -228,7 +234,8 @@ The world canon keeps recurring entities consistent across many scenes and chapt
 
 [`locations.md`](locations.md)
 
-Defines the `<locations>` section and `<location>` entity within `<world>`, and the `<location ref>` + `<variation>` mechanism inside `<scene>`.
+Defines the `<locations>` section and `<location>` entity within `<world>`, and the `<location ref>`
++ `<variation>` mechanism inside `<scene>`.
 
 ### Audio Processing
 
@@ -252,7 +259,8 @@ Defines the `<image_processing>` element for declarative image processing.
 
 [`tts.md`](tts.md)
 
-Describes TTS engine/voice resolution, provider references, and the rule that credentials MUST NOT be stored in OVML.
+Describes TTS engine/voice resolution, provider references, and the rule that credentials MUST NOT
+be stored in OVML.
 
 ### Voice
 
@@ -282,7 +290,7 @@ Describes structural validation, conformance levels, XSD reference, and forward 
 
 A typical script may be organized approximately as:
 
-```
+```text
 <ovml>
 └── <script>
     └── chapter
@@ -307,7 +315,7 @@ OVML separates temporal behavior from visual positioning.
 
 For example, a background video may occupy the entire composition while a spoken line plays over it:
 
-```
+```xml
 <video
     src="background"
     layer="background"
@@ -325,7 +333,7 @@ For example, a background video may occupy the entire composition while a spoken
 
 A foreground media element may then start while the line is still playing:
 
-```
+```xml
 <img
     src="character"
     layer="foreground"
@@ -343,7 +351,7 @@ OVML may reference standalone processing preset documents.
 
 For example:
 
-```
+```xml
 <character
     id="vestfal"
     name="Вестфаль"
@@ -356,7 +364,8 @@ Preset definitions are documented separately under:
 
 [`../presets/`](../presets/)
 
-The Standard describes the reference mechanism; authoring applications may create and manage presets in different ways.
+The Standard describes the reference mechanism; authoring applications may create and manage presets
+in different ways.
 
 ## External Resources
 
@@ -369,7 +378,9 @@ Depending on the project form, resources may be:
 * external URLs;
 * other permitted resource identifiers.
 
-The OVML document describes **what resource is required and where it is referenced**. The Player is responsible for resolving and consuming the resource according to its capabilities and security policy.
+The OVML document describes **what resource is required and where it is referenced**. The Player is
+responsible for resolving and consuming the resource according to its capabilities and security
+policy.
 
 ## Conformance
 
@@ -377,11 +388,14 @@ An OVML implementation should distinguish between:
 
 1. **Structural validity** — whether the document follows the OVML XML structure and allowed values.
 2. **Semantic interpretation** — what a conforming Player should understand from the document.
-3. **Runtime behavior** — how a particular Player implements playback, buffering, decoding, synthesis, rendering, or other platform-specific operations.
+   **Runtime behavior** — how a particular Player implements playback, buffering, decoding, synthesis,
+   rendering, or other platform-specific operations.
 
-A document validator is responsible for structural and syntactic validity. It does not determine whether a creative decision made by an author or director is desirable.
+A document validator is responsible for structural and syntactic validity. It does not determine
+whether a creative decision made by an author or director is desirable.
 
-For example, overlapping speech, video, audio, and images can be completely valid OVML behavior when their timing relationships are correctly specified.
+For example, overlapping speech, video, audio, and images can be completely valid OVML behavior when
+their timing relationships are correctly specified.
 
 ## Version
 
@@ -389,7 +403,7 @@ This reference describes **OVML 2.2**.
 
 The version is declared by the root element:
 
-```
+```xml
 <ovml version="2.2" lang="en">
 ```
 
@@ -432,6 +446,7 @@ For processing presets, continue with [`../presets/README.md`](../presets/README
 
 ## OpenVML
 
-OVML is intended to provide an open content description format that is independent of a particular authoring application or playback implementation.
+OVML is intended to provide an open content description format that is independent of a particular
+authoring application or playback implementation.
 
 > **OVML defines what happens and when. The Player determines how it happens on the target platform.**

@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Identifiers and References
 
@@ -8,7 +9,8 @@
 
 ## 1. Purpose
 
-OVML uses identifiers to give stable names to reusable entities and references to connect those entities to their uses.
+OVML uses identifiers to give stable names to reusable entities and references to connect those
+entities to their uses.
 
 An identifier is a stable key that names an entity.
 
@@ -26,18 +28,23 @@ A reference identifies that entity from a use site.
 
 For example:
 
+```xml
 <character id="alex" name="Alex" />
+```
 
 The `id` names the character.
 
 The script references that character through the `char` attribute:
 
+```xml
 <line char="alex">
     Welcome.
 </line>
+```
 
 Similarly, an asset:
 
+```text
 Asset
   │
   │ identified by id
@@ -46,6 +53,7 @@ Asset Reference (src)
   │
   ▼
 Media Element
+```
 
 ## 3. Stable IDs
 
@@ -53,16 +61,17 @@ Entities that are referenced by other parts of a document SHOULD carry a stable 
 
 Common identifiers include:
 
-character id;
-scene id;
-chapter id;
-location id;
-asset id;
-entity id in a world section.
+- character id;
+- scene id;
+- chapter id;
+- location id;
+- asset id;
+- entity id in a world section.
 
 An identifier should remain stable within the scope in which it is referenced.
 
-Changing the physical resource or the display name of an entity does not necessarily change its identifier.
+Changing the physical resource or the display name of an entity does not necessarily change its
+identifier.
 
 ## 4. Uniqueness
 
@@ -78,7 +87,8 @@ asset IDs must be unique within the asset catalog;
 
 scene and chapter IDs must be unique within the referenced scope.
 
-Two entities in different scopes may use the same identifier value where their resolution scopes do not overlap.
+Two entities in different scopes may use the same identifier value where their resolution scopes do
+not overlap.
 
 ## 5. Naming Conventions
 
@@ -88,25 +98,30 @@ Identifiers SHOULD be stable across document revisions.
 
 Examples:
 
+```xml
 <character id="vestfal" ... />
 <location id="rusty_anchor" ... />
 <scene id="ch1_tavern_night" ... />
 <chapter id="ch_01" ... />
 <asset id="img_hero_portrait" ... />
+```
 
 Common conventions use lowercase, underscores, or hyphens to keep identifiers readable and stable.
 
 Identifiers for characters should preserve the original script identity.
 
-Character IDs are not transliterated or freely translated; they retain the value used in the source script.
+Character IDs are not transliterated or freely translated; they retain the value used in the source
+script.
 
 ## 6. Referencing Characters
 
 Characters are referenced by their `id` through the `char` attribute.
 
+```xml
 <line char="alex">
     Hello.
 </line>
+```
 
 The value of `char` MUST correspond to an existing character `id` in the `<cast>` element.
 
@@ -116,6 +131,7 @@ See: reference/cast.md
 
 A scene references a canonical entity through a child element with a `ref` attribute.
 
+```xml
 <scene>
     <location ref="rusty_anchor">
         <variation>
@@ -123,14 +139,17 @@ A scene references a canonical entity through a child element with a `ref` attri
         </variation>
     </location>
 </scene>
+```
 
 The `ref` value is the `id` of an entity declared in the corresponding section of `<world>`.
 
 The mechanism is identical for every section:
 
+```xml
 <scene>
     <term ref="photosynthesis" />
 </scene>
+```
 
 See: reference/world.md
 
@@ -156,6 +175,7 @@ This makes the language self-describing.
 
 A location may be declared in the world canon and referenced from a scene.
 
+```xml
 <world>
     <locations>
         <location
@@ -166,33 +186,42 @@ A location may be declared in the world canon and referenced from a scene.
         </location>
     </locations>
 </world>
+```
 
 A scene then references it:
 
+```xml
 <location ref="rusty_anchor" />
+```
 
 A plain-text location reference without `ref` remains valid:
 
+```xml
 <location>A dark forest. Mist between the trees.</location>
+```
 
 ## 10. Referencing Assets
 
 Assets are referenced through the `src` attribute of a media element.
 
+```xml
 <video src="forest-video" />
+```
 
 The value may be:
 
-an external URL;
-a logical asset ID;
-a package-local path;
-another resource identifier defined by a compatible implementation.
+- an external URL;
+- a logical asset ID;
+- a package-local path;
+- another resource identifier defined by a compatible implementation.
 
 Examples:
 
+```xml
 <img src="https://cdn.example.com/images/forest.jpg" />
 <img src="forest-background" />
 <img src="resources/images/forest.jpg" />
+```
 
 The reference form does not change the semantic role of the asset.
 
@@ -200,7 +229,9 @@ The reference form does not change the semantic role of the asset.
 
 A project SHOULD prefer logical asset identifiers when the project has an asset catalog.
 
+```xml
 <video src="intro-video" />
+```
 
 The logical ID may resolve to:
 
@@ -258,11 +289,13 @@ OVML references are declarative.
 
 An entity may be referenced before its declaration appears in the document.
 
-For example, `<cast>` normally precedes `<script>`, but a conforming implementation SHOULD not require entities to be declared before every use.
+For example, `<cast>` normally precedes `<script>`, but a conforming implementation SHOULD not
+require entities to be declared before every use.
 
 The document is interpreted as a whole.
 
-A validator MAY resolve references across the entire document rather than requiring declaration order.
+A validator MAY resolve references across the entire document rather than requiring declaration
+order.
 
 ## 15. Validation
 
@@ -292,7 +325,8 @@ the reference from the physical resource;
 
 the identifier from the display name.
 
-This makes it possible to reuse entities, relocate resources, and maintain consistency without rewriting the creative content.
+This makes it possible to reuse entities, relocate resources, and maintain consistency without
+rewriting the creative content.
 
 ## 17. Related Documents
 

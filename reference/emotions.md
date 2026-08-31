@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Emotions and Intonation
 
@@ -14,25 +15,31 @@ The `emotion` and `intonation` attributes describe how a character's voice shoul
 
 `intonation` describes the delivery pattern of the line.
 
-Both are declarative voice hints. They do not prescribe a particular TTS engine, voice, or audio-processing implementation.
+Both are declarative voice hints. They do not prescribe a particular TTS engine, voice, or
+audio-processing implementation.
 
 ## 2. Where Emotion Appears
 
-The `emotion` attribute may appear on a `<line>` or other spoken content block, and on a character reference within a `<characters>` element of a scene.
+The `emotion` attribute may appear on a `<line>` or other spoken content block, and on a character
+reference within a `<characters>` element of a scene.
 
 Example:
 
+```xml
 <line char="alex" emotion="surprised">
     You came after all!
 </line>
+```
 
 A scene may describe the emotion of a participating character:
 
+```xml
 <scene id="ch1_tavern_night" time="night" mood="tense">
     <characters>
         <char ref="heroine" emotion="cautious"/>
     </characters>
 </scene>
+```
 
 ## 3. Emotion Values
 
@@ -71,11 +78,13 @@ A Player MAY ignore the emotion attribute during playback.
 
 The `emotion` attribute may appear on a spoken line.
 
+```xml
 <line
     char="anna"
     emotion="happy">
     What a wonderful day!
 </line>
+```
 
 A line-level emotion applies to that particular line.
 
@@ -101,11 +110,13 @@ shout	Shout
 
 The `intonation` attribute may appear on a spoken line.
 
+```xml
 <line
     char="heavy"
     intonation="command">
     Halt! Do not move.
 </line>
+```
 
 Intonation describes how the line is delivered.
 
@@ -125,12 +136,14 @@ Describes the prosodic delivery pattern.
 
 They may be combined:
 
+```xml
 <line
     char="alex"
     emotion="angry"
     intonation="command">
     Stop right now.
 </line>
+```
 
 Both attributes are optional.
 
@@ -140,11 +153,13 @@ A scene may use an explicit `mood` attribute as well as per-character emotion.
 
 Example:
 
+```xml
 <scene id="ch1_tavern_night" time="night" mood="tense">
     <characters>
         <char ref="heroine" emotion="cautious"/>
     </characters>
 </scene>
+```
 
 The scene `mood` is a vocabulary value such as calm, tense, mysterious, romantic, or dramatic.
 

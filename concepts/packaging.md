@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # OpenVML Project Forms
 
@@ -12,17 +13,19 @@ This document describes the three primary forms of an OpenVML project:
 - **OVMZ** — a self-contained project container;
 - **OVMV** — a fully rendered video.
 
-These forms represent different stages of the same OpenVML project and are intended for different distribution and playback scenarios.
+These forms represent different stages of the same OpenVML project and are intended for different
+distribution and playback scenarios.
 
 ---
 
 ## 1. Overview
 
-OpenVML separates the **description of a project** from the **resources required to render or play it**.
+OpenVML separates the **description of a project** from the **resources required to render or play
+it**.
 
 An OpenVML project may exist as:
 
-```
+```text
 OVML
   │
   ├── Scenario
@@ -39,7 +42,7 @@ OVMZ             OVMV
   ├── Scenario    └── Final rendered video
   ├── Assets
   └── TTS audio
-
+```
 
 The three forms have different characteristics:
 
@@ -48,27 +51,29 @@ OVML	Descriptive script with references to external resources	Authoring, sharing
 OVMZ	Self-contained project container	Offline playback, distribution, archival
 OVMV	Fully rendered video	Video distribution and publication
 
-The conversion between these forms is optional. An OVML project can remain an OVML project and be played directly by a compatible OpenVML Player.
+The conversion between these forms is optional. An OVML project can remain an OVML project and be
+played directly by a compatible OpenVML Player.
 
-2. Plain OVML
-2.1 Purpose
+## 2. Plain OVML
+
+### 2.1 Purpose
 
 OVML is the primary descriptive format of OpenVML.
 
 It describes:
 
-project metadata;
-characters;
-voices;
-scenes;
-camera directions;
-text;
-dialogue;
-timing;
-media;
-visual composition;
-processing presets;
-relationships between project elements.
+- project metadata;
+- characters;
+- voices;
+- scenes;
+- camera directions;
+- text;
+- dialogue;
+- timing;
+- media;
+- visual composition;
+- processing presets;
+- relationships between project elements.
 
 An OVML document does not necessarily contain the actual media resources.
 
@@ -76,91 +81,106 @@ Instead, resources can be referenced externally.
 
 This makes OVML suitable for:
 
-authoring;
-collaborative work;
-web publishing;
-interactive projects;
-lightweight project distribution;
-AI-assisted content creation;
-playback without packaging all resources into a single file.
-2.2 External Assets
+- authoring;
+- collaborative work;
+- web publishing;
+- interactive projects;
+- lightweight project distribution;
+- AI-assisted content creation;
+- playback without packaging all resources into a single file.
+
+### 2.2 External Assets
 
 An OVML document may reference assets available from permitted external resources.
 
 For example:
 
+```xml
 <video
     src="https://cdn.example.com/video/intro.mp4"
     layer="background"
     duration="10"
     startMode="absolute"
     startTime="0" />
+```
 
 An image may be referenced in the same way:
 
+```xml
 <img
     src="https://cdn.example.com/images/background.jpg"
     layer="background"
     duration="8" />
+```
 
 Audio:
 
+```xml
 <audio
     src="https://cdn.example.com/audio/music.mp3"
     volume="0.7"
     duration="30"
     startMode="absolute"
     startTime="0" />
+```
 
-The exact resource location and access policy are determined by the implementation and hosting environment.
+The exact resource location and access policy are determined by the implementation and hosting
+environment.
 
 An OVML document should not assume that every URL is accessible from every Player.
 
 Players may restrict external resources according to:
 
-security policy;
-supported protocols;
-CORS policy;
-permitted domains;
-user settings;
-network availability.
-2.3 Asset References
+- security policy;
+- supported protocols;
+- CORS policy;
+- permitted domains;
+- user settings;
+- network availability.
+
+### 2.3 Asset References
 
 The src attribute identifies the media resource used by a block.
 
 Depending on the project form, src may refer to:
 
-an external URL;
-an asset identifier;
-a resource inside an OVMZ container.
+- an external URL;
+- an asset identifier;
+- a resource inside an OVMZ container.
 
 The interpretation of the reference is determined by the project context.
 
 For a plain OVML project:
 
+```text
 OVML
   ↓
 src
   ↓
 External resource
+```
 
 For OVMZ:
 
+```text
 OVML
   ↓
 src
   ↓
 Container resource
+```
 
 A Player must not assume that an asset reference always represents a local file.
 
-3. Runtime TTS in OVML
-3.1 Voice References
+## 3. Runtime TTS in OVML
+
+### 3.1 Voice References
 
 An OVML project may describe a character's voice without containing pre-rendered speech audio.
 
 For example:
 
+```xml
 <character
     id="alex"
     name="Алекс"
@@ -168,6 +188,7 @@ For example:
     voiceName="Russian Voice"
     voiceLang="ru-RU"
     voiceEngine="piper" />
+```
 
 The document describes which voice should be used.
 
@@ -175,6 +196,7 @@ The actual speech may be generated by the Player at runtime.
 
 Conceptually:
 
+```text
 OVML
   ↓
 Character
@@ -186,36 +208,42 @@ TTS Provider
 Generated audio
   ↓
 Playback
+```
 
-This allows the same OVML scenario to remain relatively small and independent from pre-rendered speech files.
+This allows the same OVML scenario to remain relatively small and independent from pre-rendered
+speech files.
 
-3.2 Built-in TTS Providers
+### 3.2 Built-in TTS Providers
 
-An OpenVML Player may provide built-in TTS providers that do not require the user to enter an API key.
+An OpenVML Player may provide built-in TTS providers that do not require the user to enter an API
+key.
 
 Examples may include locally available or otherwise supported providers such as:
 
-Piper;
-Coqui;
-Edge TTS;
-other providers supported by the Player.
+- Piper;
+- Coqui;
+- Edge TTS;
+- other providers supported by the Player.
 
 Availability depends on the Player implementation and target platform.
 
-When a voice belongs to a built-in provider, the OVML document only needs to identify the provider and voice.
+When a voice belongs to a built-in provider, the OVML document only needs to identify the provider
+and voice.
 
 For example:
 
+```xml
 <character
     id="narrator"
     name="Narrator"
     voiceId="ru_RU-some-voice"
     voiceLang="ru-RU"
     voiceEngine="piper" />
+```
 
 No secret credentials are stored in the OVML document.
 
-3.3 User-provided TTS Providers
+### 3.3 User-provided TTS Providers
 
 A Player may also support commercial or external TTS providers.
 
@@ -223,17 +251,20 @@ Examples include providers requiring user credentials or API keys.
 
 The OVML document may identify the required provider and voice:
 
+```xml
 <character
     id="maria"
     name="Maria"
     voiceId="provider_voice_id"
     voiceLang="en-US"
     voiceEngine="elevenlabs" />
+```
 
 The required credentials are not part of OVML.
 
 Instead:
 
+```text
 OVML
   ↓
 voiceEngine + voiceId
@@ -243,39 +274,45 @@ Player
 User's credentials
   ↓
 External TTS provider
+```
 
 Credentials are managed by the execution environment.
 
-3.4 Credentials MUST NOT Be Stored in OVML
+### 3.4 Credentials MUST NOT Be Stored in OVML
 
 OVML MUST NOT contain:
 
-API keys;
-access tokens;
-passwords;
-private keys;
-provider secrets;
-authentication cookies.
+- API keys;
+- access tokens;
+- passwords;
+- private keys;
+- provider secrets;
+- authentication cookies.
 
 For example, the following is invalid as a project design:
 
+```xml
 <character
     voiceEngine="elevenlabs"
     apiKey="secret-value" />
+```
 
 Authentication belongs to the Player, Studio, or another execution environment.
 
 This separation allows an OVML document to be shared without exposing the author's credentials.
 
-4. OVMZ
-4.1 Purpose
+## 4. OVMZ
+
+### 4.1 Purpose
 
 OVMZ is a self-contained OpenVML project container.
 
-It is intended for cases where the project should be distributed together with its required resources.
+It is intended for cases where the project should be distributed together with its required
+resources.
 
 A typical OVMZ container may contain:
 
+```text
 project.ovmz
 ├── content.ovml
 ├── project.json
@@ -288,15 +325,17 @@ project.ovmz
 │   ├── video/
 │   └── image/
 └── tts/
+```
 
 The exact container structure is defined by the OVMZ specification.
 
-4.2 Embedded Assets
+### 4.2 Embedded Assets
 
 Unlike a plain OVML project, an OVMZ project may contain the resources required for playback.
 
 For example:
 
+```text
 resources/
 ├── audio/
 │   ├── music.mp3
@@ -305,17 +344,19 @@ resources/
 │   └── background.mp4
 └── images/
     └── cover.jpg
+```
 
 The OVML document inside the container references these resources.
 
 This allows the project to be played without downloading the original external assets.
 
-4.3 Pre-rendered TTS
+### 4.3 Pre-rendered TTS
 
 OVMZ may contain pre-rendered TTS audio.
 
 For example:
 
+```text
 tts/
 ├── narrator/
 │   ├── line-001.wav
@@ -323,13 +364,16 @@ tts/
 └── alex/
     ├── line-001.wav
     └── line-002.wav
+```
 
 The TTS audio is generated during the export/build process.
 
-Therefore, playback of a completed OVMZ does not normally require access to the original TTS provider.
+Therefore, playback of a completed OVMZ does not normally require access to the original TTS
+provider.
 
 The process is:
 
+```text
 OVML
   ↓
 TTS synthesis
@@ -337,22 +381,26 @@ TTS synthesis
 WAV/audio resources
   ↓
 OVMZ
+```
 
 This is especially useful for:
 
-offline playback;
-reliable distribution;
-archival;
-sharing projects with users who do not have the required TTS provider;
-avoiding repeated synthesis during playback.
-4.4 Streaming OVMZ Creation
+- offline playback;
+- reliable distribution;
+- archival;
+- sharing projects with users who do not have the required TTS provider;
+- avoiding repeated synthesis during playback.
+
+### 4.4 Streaming OVMZ Creation
 
 An OVMZ container may be assembled in a streaming manner.
 
-The entire project does not need to exist as a single uncompressed in-memory structure before the container is created.
+The entire project does not need to exist as a single uncompressed in-memory structure before the
+container is created.
 
 Conceptually:
 
+```text
 OVML
   ↓
 Export pipeline
@@ -363,20 +411,22 @@ Export pipeline
   └── ...
   ↓
 OVMZ
+```
 
 This is important for large projects.
 
 A project may contain:
 
-large video files;
-high-resolution images;
-many audio resources;
-large numbers of generated speech fragments.
+- large video files;
+- high-resolution images;
+- many audio resources;
+- large numbers of generated speech fragments.
 
 The export process should therefore avoid requiring the complete project to fit into RAM.
 
-5. OVMV
-5.1 Purpose
+## 5. OVMV
+
+### 5.1 Purpose
 
 OVMV is the rendered video form of an OpenVML project.
 
@@ -384,6 +434,7 @@ Unlike OVML and OVMZ, OVMV is intended to contain the final audiovisual result.
 
 Conceptually:
 
+```text
 OVML
   ↓
 Timeline
@@ -395,37 +446,41 @@ Media composition
 Video rendering
   ↓
 OVMV
+```
 
 OVMV is suitable for:
 
-video publishing;
-distribution to conventional video platforms;
-downloading;
-archival;
-playback on devices without an OpenVML runtime.
-5.2 Rendering
+- video publishing;
+- distribution to conventional video platforms;
+- downloading;
+- archival;
+- playback on devices without an OpenVML runtime.
+
+### 5.2 Rendering
 
 Creating OVMV requires rendering the project.
 
 The rendering process may include:
 
-TTS generation;
-audio mixing;
-video composition;
-image rendering;
-subtitles;
-scene transitions;
-camera instructions;
-visual effects;
-audio processing;
-timing synchronization.
+- TTS generation;
+- audio mixing;
+- video composition;
+- image rendering;
+- subtitles;
+- scene transitions;
+- camera instructions;
+- visual effects;
+- audio processing;
+- timing synchronization.
 
 The result is a final video stream.
 
-For large projects, rendering should be performed as a streaming process rather than requiring the complete video to be held in memory.
+For large projects, rendering should be performed as a streaming process rather than requiring the
+complete video to be held in memory.
 
 Conceptually:
 
+```text
 Project
    ↓
 Render
@@ -434,10 +489,13 @@ video chunk 1 ──→ output
 video chunk 2 ──→ output
 video chunk 3 ──→ output
 ...
-6. OVML → OVMZ
+```
+
+## 6. OVML → OVMZ
 
 The OVMZ export process converts a descriptive project into a self-contained project.
 
+```text
                  OVML
                   │
         ┌─────────┴─────────┐
@@ -450,23 +508,26 @@ The OVMZ export process converts a descriptive project into a self-contained pro
         └─────────┬─────────┘
                   ▼
                  OVMZ
+```
 
 During export:
 
-The OVML document is validated.
-Referenced assets are resolved.
-Required resources are collected.
-TTS is generated where necessary.
-Generated audio is added to the container.
-Presets and metadata are included.
-The final OVMZ container is assembled.
+- The OVML document is validated.
+- Referenced assets are resolved.
+- Required resources are collected.
+- TTS is generated where necessary.
+- Generated audio is added to the container.
+- Presets and metadata are included.
+- The final OVMZ container is assembled.
 
-The resulting OVMZ can be played independently of the original external resources, provided all required resources were successfully included.
+The resulting OVMZ can be played independently of the original external resources, provided all
+required resources were successfully included.
 
-7. OVML → OVMV
+## 7. OVML → OVMV
 
 OVMV export performs a full rendering of the project.
 
+```text
                     OVML
                      │
                      ▼
@@ -482,24 +543,26 @@ OVMV export performs a full rendering of the project.
                      │
                      ▼
                     OVMV
+```
 
 The renderer resolves:
 
-timing;
-text;
-dialogue;
-TTS;
-audio;
-video;
-images;
-scenes;
-camera instructions;
-visual processing;
-subtitles.
+- timing;
+- text;
+- dialogue;
+- TTS;
+- audio;
+- video;
+- images;
+- scenes;
+- camera instructions;
+- visual processing;
+- subtitles.
 
 The result is a conventional video file.
 
-8. Project Form Comparison
+## 8. Project Form Comparison
+
 Feature	OVML	OVMZ	OVMV
 Descriptive script	Yes	Yes	No
 Structured scenes	Yes	Yes	No
@@ -515,7 +578,8 @@ Editable as a project	Yes	Yes	No
 Suitable for video platforms	Indirectly	Indirectly	Yes
 Typical file size	Small	Potentially large	Potentially large
 Main purpose	Description	Distribution	Final rendering
-9. Portability
+
+## 9. Portability
 
 OVML is designed to be the most portable project form.
 
@@ -523,6 +587,7 @@ A compatible Player can interpret the same OVML document on different platforms.
 
 For example:
 
+```text
 OVML
  ├── Windows Player
  ├── Linux Player
@@ -530,6 +595,7 @@ OVML
  ├── Android Player
  ├── iOS Player
  └── Web Player
+```
 
 The Player determines how the described experience is rendered.
 
@@ -541,34 +607,36 @@ An OVML document describes what should happen.
 
 The execution environment determines how it happens.
 
-10. Runtime Dependencies
+## 10. Runtime Dependencies
 
 A plain OVML project may depend on resources that are not contained in the document.
 
 These may include:
 
-external media;
-network connectivity;
-built-in TTS providers;
-user-configured TTS providers;
-compatible media decoders;
-permitted resource domains.
+- external media;
+- network connectivity;
+- built-in TTS providers;
+- user-configured TTS providers;
+- compatible media decoders;
+- permitted resource domains.
 
-Therefore, two Players may be capable of opening the same OVML document while having different available runtime capabilities.
+Therefore, two Players may be capable of opening the same OVML document while having different
+available runtime capabilities.
 
-A Player should report unavailable capabilities rather than silently changing the meaning of the project.
+A Player should report unavailable capabilities rather than silently changing the meaning of the
+project.
 
-11. Security and Credentials
+## 11. Security and Credentials
 
 OpenVML separates project data from authentication data.
 
 Project files may contain:
 
-public resource URLs;
-asset identifiers;
-provider identifiers;
-voice identifiers;
-processing preset references.
+- public resource URLs;
+- asset identifiers;
+- provider identifiers;
+- voice identifiers;
+- processing preset references.
 
 Project files MUST NOT contain private credentials.
 
@@ -576,6 +644,7 @@ Credentials are owned by the execution environment.
 
 For example:
 
+```text
 Project
   │
   ├── voiceEngine = "elevenlabs"
@@ -585,41 +654,45 @@ Project
           Player
              │
              └── user's locally stored API key
+```
 
-This model allows users to share OVML projects without accidentally sharing their private provider credentials.
+This model allows users to share OVML projects without accidentally sharing their private provider
+credentials.
 
-12. Choosing a Project Form
+## 12. Choosing a Project Form
 
 Use OVML when:
 
-the project is still being edited;
-external assets are acceptable;
-runtime TTS is acceptable;
-a small and portable project description is desired;
-the project should remain editable;
-interactive playback is required.
+- the project is still being edited;
+- external assets are acceptable;
+- runtime TTS is acceptable;
+- a small and portable project description is desired;
+- the project should remain editable;
+- interactive playback is required.
 
 Use OVMZ when:
 
-all required assets should travel with the project;
-reliable offline playback is required;
-TTS should already be generated;
-the project should remain editable;
-the project should be distributed as a self-contained OpenVML project.
+- all required assets should travel with the project;
+- reliable offline playback is required;
+- TTS should already be generated;
+- the project should remain editable;
+- the project should be distributed as a self-contained OpenVML project.
 
 Use OVMV when:
 
-the project is finished;
-editing the OpenVML structure is no longer required;
-the final result should be a conventional video;
-the project needs to be published on conventional video platforms;
-an OpenVML Player is not required for playback.
-13. Relationship Between the Forms
+- the project is finished;
+- editing the OpenVML structure is no longer required;
+- the final result should be a conventional video;
+- the project needs to be published on conventional video platforms;
+- an OpenVML Player is not required for playback.
+
+## 13. Relationship Between the Forms
 
 The three forms are not competing formats.
 
 They represent different stages and purposes:
 
+```text
                  AUTHORING
                      │
                      ▼
@@ -633,6 +706,7 @@ They represent different stages and purposes:
              │               │
              ▼               ▼
         OpenVML Player   Any video player
+```
 
 OVML remains the canonical descriptive representation of the project.
 
@@ -640,37 +714,44 @@ OVMZ packages the project for reliable distribution.
 
 OVMV renders the project into a conventional audiovisual format.
 
-14. Design Principle
+## 14. Design Principle
 
 OpenVML deliberately separates:
 
+```text
 Description
     ↓
 OVML
+```
 
 from:
 
+```text
 Resources
     ↓
 OVMZ
+```
 
 and:
 
+```text
 Rendering
     ↓
 OVMV
+```
 
 This separation allows the same creative work to be:
 
-edited as OVML;
-played directly from external resources;
-packaged as OVMZ;
-rendered as OVMV;
-distributed through different channels.
+- edited as OVML;
+- played directly from external resources;
+- packaged as OVMZ;
+- rendered as OVMV;
+- distributed through different channels.
 
-The project author therefore does not have to choose a single representation for the entire lifetime of the work.
+The project author therefore does not have to choose a single representation for the entire lifetime
+of the work.
 
-15. Summary
+## 15. Summary
 
 OpenVML provides three complementary project forms:
 
@@ -694,6 +775,7 @@ It contains the completed audiovisual result and does not require an OpenVML run
 
 Together they form a simple pipeline:
 
+```text
                 OPENVML PROJECT
                       │
                       ▼
@@ -708,6 +790,7 @@ Together they form a simple pipeline:
               │               │
               ▼               ▼
        OpenVML Player    standard players
+```
 
 The fundamental rule is:
 

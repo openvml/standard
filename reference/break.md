@@ -1,14 +1,16 @@
 # Break Element
 
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 **OVML Standard 2.2**
 
 ## 1. Purpose
 
-The `<break>` element explicitly introduces a period of silence or inactivity into the script timeline.
+The `<break>` element explicitly introduces a period of silence or inactivity into the script
+timeline.
 
 It is primarily intended for:
 
@@ -22,23 +24,27 @@ A break does not contain content and does not reference an asset.
 
 Example:
 
-```
+```xml
 <break time="1000" />
+```
 
 This introduces a pause of 1000 milliseconds.
 
-2. Syntax
+## 2. Syntax
 
 The basic syntax is:
 
+```xml
 <break time="1000" />
+```
 
 The <break> element is self-closing.
 
 It MUST NOT contain child elements.
 
-3. Attributes
-time
+## 3. Attributes
+
+### time
 
 The time attribute specifies the duration of the pause.
 
@@ -47,37 +53,47 @@ time	integer	yes	Duration of the break in milliseconds
 
 Example:
 
+```xml
 <break time="500" />
+```
 
 The example represents a 500 ms pause.
 
-4. Time Unit
+## 4. Time Unit
 
 The value of time is expressed in milliseconds.
 
 Examples:
 
+```xml
 <break time="250" />
+```
 
 250 milliseconds.
 
+```xml
 <break time="1000" />
+```
 
 1 second.
 
+```xml
 <break time="2500" />
+```
 
 2.5 seconds.
 
 Using milliseconds provides sufficient precision for speech and audiovisual timing.
 
-5. Valid Values
+## 5. Valid Values
 
 The value SHOULD be a non-negative integer.
 
 A value of:
 
+```xml
 <break time="0" />
+```
 
 represents a zero-duration break.
 
@@ -85,12 +101,13 @@ Although syntactically valid, a zero-duration break normally has no observable e
 
 Negative values are invalid.
 
-6. Break Between Lines
+## 6. Break Between Lines
 
 A break may be placed between <line> elements.
 
 Example:
 
+```xml
 <p>
 
     <line char="vestfal">
@@ -104,15 +121,17 @@ Example:
     </line>
 
 </p>
+```
 
 The Player inserts the specified pause into the playback sequence.
 
-7. Dramatic Pause
+## 7. Dramatic Pause
 
 A break may be used to create a deliberate dramatic pause.
 
 Example:
 
+```xml
 <p>
 
     <line char="narrator">
@@ -126,15 +145,17 @@ Example:
     </line>
 
 </p>
+```
 
 The break is part of the content timing and therefore represents an intentional editorial decision.
 
-8. Break and Speech
+## 8. Break and Speech
 
 A <break> is not part of the spoken text.
 
 For example:
 
+```xml
 <line char="narrator">
     Он ответил.
 </line>
@@ -144,6 +165,7 @@ For example:
 <line char="alex">
     Я согласен.
 </line>
+```
 
 The TTS engine processes only the text of the <line> elements.
 
@@ -151,33 +173,37 @@ The Player applies the break between them.
 
 A <break> therefore does not require a TTS provider.
 
-9. Break and startDelay
+## 9. Break and startDelay
 
 A <break> and startDelay both affect timing, but have different semantic meanings.
 
-Break
+### Break
 
 A break represents an explicit pause in the script:
 
+```xml
 <break time="1000" />
+```
 
 It is a visible part of the project timeline.
 
-startDelay
+### startDelay
 
 A startDelay modifies when an individual element begins:
 
+```xml
 <line
     char="alex"
     startDelay="1000">
     Я согласен.
 </line>
+```
 
 The delay belongs to that element.
 
 These mechanisms SHOULD NOT be treated as interchangeable.
 
-10. Break and startMode
+## 10. Break and startMode
 
 A <break> does not have a startMode attribute.
 
@@ -185,6 +211,7 @@ Its position in the document determines its position in the sequential script fl
 
 For example:
 
+```xml
 <p>
 
     <line char="alex">
@@ -198,15 +225,17 @@ For example:
     </line>
 
 </p>
+```
 
 The second line follows the break in the script sequence.
 
-11. Break and Media
+## 11. Break and Media
 
 A break may occur between media or text elements.
 
 Example:
 
+```xml
 <p>
 
     <line char="narrator">
@@ -220,14 +249,16 @@ Example:
         volume="1" />
 
 </p>
+```
 
-The Player determines the exact interaction between the break and simultaneously scheduled media according to the timing model.
+The Player determines the exact interaction between the break and simultaneously scheduled media
+according to the timing model.
 
 A break does not automatically stop, pause, or mute media that has already started.
 
 It represents a pause in the sequential script flow, not a global pause command.
 
-12. Break Does Not Stop Playback
+## 12. Break Does Not Stop Playback
 
 The <break> element MUST NOT be interpreted as a global player pause.
 
@@ -241,18 +272,21 @@ Wait for N milliseconds in the script sequence
 
 Therefore:
 
+```xml
 <break time="2000" />
+```
 
 does not pause unrelated background media that is already playing.
 
 This distinction is important for music, ambience, video, and other continuously running media.
 
-13. Break Inside a Chapter
+## 13. Break Inside a Chapter
 
 A break may be used anywhere in the script where a break element is permitted.
 
 Example:
 
+```xml
 <chapter id="chapter-1">
 
     <scene>
@@ -278,15 +312,17 @@ Example:
     </scene>
 
 </chapter>
+```
 
 This allows the author to explicitly control narrative rhythm.
 
-14. Break and Scenes
+## 14. Break and Scenes
 
 A break belongs to the script flow in which it is declared.
 
 Example:
 
+```xml
 <scene>
 
     <line char="narrator">
@@ -300,39 +336,45 @@ Example:
     </line>
 
 </scene>
+```
 
 A break does not change the scene itself.
 
 Scene properties such as color and atmosphere remain unchanged.
 
-15. Break and Word-by-Word Text
+## 15. Break and Word-by-Word Text
 
 A break is different from word-by-word timing.
 
 For example:
 
+```xml
 <line
     char="narrator"
     wordByWord="true"
     wordByWordMode="single"
     wordDisplayDuration="300">
+```
 
     One two three.
 
+```xml
 </line>
 
 <break time="1000" />
+```
 
 wordDisplayDuration controls the presentation timing of words within the line.
 
 <break> controls the explicit pause after the line.
 
-16. Break and Subtitles
+## 16. Break and Subtitles
 
 A break contains no text and therefore does not generate a subtitle by itself.
 
 For example:
 
+```xml
 <line char="narrator">
     Wait here.
 </line>
@@ -342,15 +384,19 @@ For example:
 <line char="narrator">
     I'm coming back.
 </line>
+```
 
-The Player MAY represent the silent interval visually, but the OVML Standard does not require a subtitle or placeholder to be displayed during a break.
+The Player MAY represent the silent interval visually, but the OVML Standard does not require a
+subtitle or placeholder to be displayed during a break.
 
-17. Multiple Consecutive Breaks
+## 17. Multiple Consecutive Breaks
 
 Multiple breaks MAY appear consecutively:
 
+```xml
 <break time="500" />
 <break time="1000" />
+```
 
 Their durations are additive:
 
@@ -358,16 +404,19 @@ Their durations are additive:
 
 However, authors SHOULD normally prefer a single equivalent break:
 
+```xml
 <break time="1500" />
+```
 
 unless separate breaks have semantic significance for tooling or editing.
 
-18. Runtime Behavior
+## 18. Runtime Behavior
 
 The Player SHOULD treat a break as a deterministic timing event.
 
 Conceptually:
 
+```text
 Previous content
        │
        ▼
@@ -376,41 +425,48 @@ Previous content
        │ wait N milliseconds
        ▼
 Next content
+```
 
-The Player is responsible for implementing this behavior using the timing and playback mechanisms of the target platform.
+The Player is responsible for implementing this behavior using the timing and playback mechanisms of
+the target platform.
 
 The OVML document does not prescribe the internal implementation.
 
-19. Validation
+## 19. Validation
 
 A validator SHOULD verify:
 
-that <break> is syntactically valid;
-that time is present;
-that time is an integer;
-that time is non-negative;
-that the element does not contain child content.
+- that <break> is syntactically valid;
+- that time is present;
+- that time is an integer;
+- that time is non-negative;
+- that the element does not contain child content.
 
 Example of valid syntax:
 
+```xml
 <break time="1000" />
+```
 
 Invalid examples:
 
+```xml
 <break />
 <break time="-500" />
 <break time="one-second" />
 <break time="1000">
     text
 </break>
+```
 
 The validator is responsible for structural correctness.
 
 The Player is responsible for runtime behavior.
 
-20. Design Principle
+## 20. Design Principle
 
-The <break> element provides an explicit and portable way to express silence or inactivity in the sequential script flow.
+The <break> element provides an explicit and portable way to express silence or inactivity in the
+sequential script flow.
 
 It should be understood as:
 
@@ -418,19 +474,22 @@ A declarative request to introduce a defined duration of time between elements o
 
 It is not:
 
-a TTS instruction;
-a media pause command;
-a Player pause command;
-an audio asset;
-a scene transition.
+- a TTS instruction;
+- a media pause command;
+- a Player pause command;
+- an audio asset;
+- a scene transition.
 
-This distinction keeps OVML focused on describing what should happen and when, while leaving playback implementation to the Player.
+This distinction keeps OVML focused on describing what should happen and when, while leaving
+playback implementation to the Player.
 
-21. Summary
+## 21. Summary
 
 The minimal form is:
 
+```xml
 <break time="1000" />
+```
 
 where:
 
@@ -438,13 +497,13 @@ time = duration in milliseconds
 
 The <break> element:
 
-contains no content;
-does not require an asset;
-does not require TTS;
-participates in sequential script timing;
-does not globally pause the Player;
-may be used to control narrative rhythm;
-is independent from startDelay;
-is resolved by the Player at runtime.
+- contains no content;
+- does not require an asset;
+- does not require TTS;
+- participates in sequential script timing;
+- does not globally pause the Player;
+- may be used to control narrative rhythm;
+- is independent from startDelay;
+- is resolved by the Player at runtime.
 
 <break> describes a pause in the script timeline, not a command to pause the Player.

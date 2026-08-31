@@ -1,10 +1,12 @@
 # OVML Presets
 
-**OpenVML — Open Voice Markup Language** is an open, XML-based standard for describing structured audiovisual content.
+**OpenVML — Open Voice Markup Language** is an open, XML-based standard for describing structured
+audiovisual content.
 
 This section defines the OVML processing preset model.
 
-A **preset** is a standalone XML document that describes a sequence of processing operations for a particular media type.
+A **preset** is a standalone XML document that describes a sequence of processing operations for a
+particular media type.
 
 Presets are independent from the main content document and may be referenced by an OVML project.
 
@@ -18,7 +20,8 @@ OVML processing presets are defined separately for different media types.
 | Video       | `<video_processing>` | [`video.md`](video.md) |
 | Image       | `<image_processing>` | Not yet defined        |
 
-The Standard reserves the concept of image processing presets, but no normative image preset format is currently documented in OVML 2.2.
+The Standard reserves the concept of image processing presets, but no normative image preset format
+is currently documented in OVML 2.2.
 
 The image preset specification will be added when a concrete format has been established.
 
@@ -30,7 +33,7 @@ It is not an XML fragment intended to be inserted into the main OVML document.
 
 For example:
 
-```
+```xml
 <audio_processing id="narrator_classic" name="Narrator Classic Warm">
     ...
 </audio_processing>
@@ -42,7 +45,7 @@ The file normally uses the `.ovml` extension.
 
 Presets included in an OVMZ project may be organized as:
 
-```
+```text
 project.ovmz/
 └── presets/
     ├── audio/
@@ -53,7 +56,7 @@ project.ovmz/
 
 For example:
 
-```
+```text
 presets/
 ├── audio/
 │   ├── baron_officer_crisp.ovml
@@ -71,7 +74,7 @@ Every preset has an `id` and a human-readable `name`.
 
 Example:
 
-```
+```xml
 <audio_processing
     id="baron_officer_crisp"
     name="Baron Guard Officer">
@@ -93,7 +96,7 @@ Operations are normally evaluated in document order.
 
 For example:
 
-```
+```xml
 <audio_processing id="example" name="Example">
     <eq enabled="true">
         ...
@@ -115,7 +118,7 @@ For example:
 
 The conceptual processing chain is:
 
-```
+```text
 Source
   ↓
 EQ
@@ -135,21 +138,17 @@ The exact runtime implementation is determined by the Player.
 
 Processing operations that support optional activation use:
 
-```
 enabled="true"
-```
 
 or:
 
-```
 enabled="false"
-```
 
 An operation with `enabled="false"` is disabled and does not participate in processing.
 
 Example:
 
-```
+```xml
 <sharpen enabled="false">
     <amount>0</amount>
 </sharpen>
@@ -197,11 +196,12 @@ Additional video operations may be introduced as their XML representation become
 
 A preset may be associated with content in the main OVML document.
 
-The reference identifies the processing configuration while the preset remains an independent document.
+The reference identifies the processing configuration while the preset remains an independent
+document.
 
 Example:
 
-```
+```xml
 <character
     id="vestfal"
     name="Вестфаль"
@@ -215,7 +215,7 @@ The exact reference attributes belong to the corresponding content model.
 
 An OVMZ package may contain the presets required by the project:
 
-```
+```text
 project.ovmz/
 ├── content.ovml
 ├── resources/
@@ -229,7 +229,8 @@ This allows processing definitions to travel together with the project.
 
 ## External Presets
 
-A project may reference a preset outside the local package when the applicable project form and Player support external resources.
+A project may reference a preset outside the local package when the applicable project form and
+Player support external resources.
 
 The Standard defines the preset document format.
 
@@ -248,7 +249,8 @@ It does not require a particular:
 * operating system;
 * hardware platform.
 
-A Player may implement the same operation using different underlying technologies while preserving the semantics defined by the preset.
+A Player may implement the same operation using different underlying technologies while preserving
+the semantics defined by the preset.
 
 ## Current Standard Scope
 
@@ -258,7 +260,8 @@ The Standard does not invent XML syntax merely to provide a complete list of pos
 
 This distinction is intentional:
 
-> **A documented operation is part of the language. An undocumented operation is not assumed to have a standardized XML representation.**
+> **A documented operation is part of the language. An undocumented operation is not assumed to have a
+> standardized XML representation.**
 
 ---
 

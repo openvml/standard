@@ -1,6 +1,7 @@
 > **OpenVML — Open Voice Markup Language**
->
-> An open, declarative format for describing voice-driven audiovisual content, including dialogue, narration, scenes, media, timing, and synchronization.
+> 
+> An open, declarative format for describing voice-driven audiovisual content, including dialogue,
+> narration, scenes, media, timing, and synchronization.
 
 # Validation and Conformance
 
@@ -8,11 +9,13 @@
 
 ## 1. Purpose
 
-This document describes how an OVML document is validated and what conformance means for an implementation.
+This document describes how an OVML document is validated and what conformance means for an
+implementation.
 
 An OVML validator checks the structural and syntactic validity of an OVML document.
 
-It does not determine the artistic quality, semantic desirability, or runtime behavior of the document.
+It does not determine the artistic quality, semantic desirability, or runtime behavior of the
+document.
 
 Validation is distinct from interpretation and from playback.
 
@@ -44,9 +47,11 @@ child elements are allowed in the given context.
 
 For example, a validator might verify:
 
+```xml
 <scene id="ch1" time="evening" mood="dramatic">
     ...
 </scene>
+```
 
 where:
 
@@ -121,7 +126,8 @@ Runtime behavior is a further concern separate from both validation and interpre
 
 Runtime behavior
 
-How a particular Player implements playback, buffering, decoding, synthesis, rendering, or other platform-specific operations.
+How a particular Player implements playback, buffering, decoding, synthesis, rendering, or other
+platform-specific operations.
 
 Validation and interpretation do not predict runtime behavior.
 
@@ -155,7 +161,8 @@ For example, it should not attempt to determine:
 
 nor whether overlapping speech, video, audio, and images are good design.
 
-Overlapping speech, video, audio, and images can be completely valid OVML behavior when their timing relationships are correctly specified.
+Overlapping speech, video, audio, and images can be completely valid OVML behavior when their timing
+relationships are correctly specified.
 
 ## 8. XML and Whitespace
 
@@ -177,6 +184,7 @@ The simplified XSD defines the root element and its main children.
 
 The root element:
 
+```xml
 <xs:element name="ovml">
     <xs:complexType>
         <xs:sequence>
@@ -190,6 +198,7 @@ The root element:
         <xs:attribute name="lang" type="xs:language"/>
     </xs:complexType>
 </xs:element>
+```
 
 The simplified XSD defines elements such as:
 
@@ -213,6 +222,7 @@ break.
 
 The character element in the simplified XSD:
 
+```xml
 <xs:element name="character">
     <xs:complexType>
         <xs:sequence>
@@ -227,20 +237,25 @@ The character element in the simplified XSD:
         <xs:attribute name="color" type="xs:string"/>
     </xs:complexType>
 </xs:element>
+```
 
-The simplified XSD is informational. The full OVML 2.2 conformance rules are described by the individual reference documents and the normative specification.
+The simplified XSD is informational. The full OVML 2.2 conformance rules are described by the
+individual reference documents and the normative specification.
 
 ## 10. Forward Compatibility
 
 Implementations should preserve forward compatibility.
 
-An implementation encountering an unknown element or attribute should not reject an otherwise valid OVML document solely because of that unknown element or attribute.
+An implementation encountering an unknown element or attribute should not reject an otherwise valid
+OVML document solely because of that unknown element or attribute.
 
 For example, a future version may introduce a new element or attribute.
 
-An OVML 2.2 implementation that does not understand it should ignore it rather than treating it as invalid or as a playback instruction.
+An OVML 2.2 implementation that does not understand it should ignore it rather than treating it as
+invalid or as a playback instruction.
 
-Validation of the document's defined OVML 2.2 elements and attributes remains the responsibility of the OVML validator.
+Validation of the document's defined OVML 2.2 elements and attributes remains the responsibility of
+the OVML validator.
 
 This allows the language to grow without breaking existing documents.
 
@@ -250,9 +265,11 @@ Some durations are only known at runtime.
 
 For example, a dynamically synthesized line:
 
+```xml
 <line char="narrator">
     Dynamically synthesized speech.
 </line>
+```
 
 The final audio duration depends on the TTS engine and generated audio.
 
