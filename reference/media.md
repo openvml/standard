@@ -253,22 +253,22 @@ The exact packaging rules are defined by the OVMZ specification.
 
 The following attributes may be used by media elements where applicable.
 
-Attribute	Type	Default	Description
-src	string	required	Media resource reference
-layer	enum	implementation-defined	Rendering layer
-volume	float	1.0	Audio volume
-duration	float	implementation-defined	Requested playback duration in seconds
-startTime	float	0	Start time in seconds
-startMode	enum	absolute	Timing mode
-startDelay	float	0	Additional start delay in seconds
-loop	boolean	false	Repeat the media
-trimStart	float	0	Skip the specified amount from the beginning
-processing	string	implementation-defined	Processing preset reference
-gridRow	integer	implementation-defined	Grid row
-gridCol	integer	implementation-defined	Grid column
-gridRowSpan	integer	implementation-defined	Number of grid rows occupied
-gridColSpan	integer	implementation-defined	Number of grid columns occupied
-sizePercent	integer	implementation-defined	Relative visual size
+Attribute	    Type	    Default	                Description
+`<src>`	        `string`	required	            Media resource reference
+`<layer>`	    `enum`	    implementation-defined	Rendering layer
+`<volume>`	    `float`	    1.0	                    Audio volume
+`<duration>`	`float`	    implementation-defined	Requested playback duration in seconds
+`<startTime>`	`float`	    0	                    Start time in seconds
+`<startMode>`	`enum`	    absolute	            Timing mode
+`<startDelay>`	`float`	    0	                    Additional start delay in seconds
+`<loop>`	    `boolean`	false	                Repeat the media
+`<trimStart>`	`float`	    0	                    Skip the specified amount from the beginning
+`<processing>`	`string`	implementation-defined	Processing preset reference
+`<gridRow>`	    `integer`	implementation-defined	Grid row
+`<gridCol>`	    `integer`	implementation-defined	Grid column
+`<gridRowSpan>`	`integer`	implementation-defined	Number of grid rows occupied
+`<gridColSpan>`	`integer`	implementation-defined	Number of grid columns occupied
+`<sizePercent>`	`integer`	implementation-defined	Relative visual size
 
 Not every attribute applies equally to every media type.
 
