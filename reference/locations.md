@@ -128,9 +128,6 @@ A scene references a canonical location through a child `<location>` element wit
             <weather>rainy</weather>
         </variation>
     </location>
-```
-
-```xml
     ...
 </scene>
 ```
