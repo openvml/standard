@@ -350,7 +350,7 @@ Element	Purpose
 * **`<location ref="...">`** - Reference to a canonical location from `<world>`
 * **`<characters>`** - List of characters present in the scene
 * **`<blocking>`** - Semantic character positioning and relationships
-* * **`<prompt>`** - Prompt for AI-assisted image/video generation
+* **`<prompt>`** - Prompt for AI-assisted image/video generation
 * **`<camera>`** - Camera or viewpoint direction within the scene
 * **`<p>` / `<line>`** - Text and dialogue blocks
 * **`<img>` / `<video>` / `<audio>`** - Media content
