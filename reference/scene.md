@@ -259,7 +259,7 @@ Authoring environments and implementations MAY support additional scene attribut
 | title | string | Display title of the scene |
 | time | enum | Time of day: morning, afternoon, evening, night |
 | weather | enum | Weather: clear, cloudy, rainy, foggy, snowy |
-| | mood | enum | Mood: calm, tense, mysterious, romantic, dramatic |
+| mood | enum | Mood: calm, tense, mysterious, romantic, dramatic |
 | duration | number | Maximum scene duration in seconds |
 | transition | enum | Transition to the next scene: fade, cut, dissolve, wipe |
 
