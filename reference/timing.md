@@ -463,16 +463,19 @@ The video is synchronized to the timeline, not forced to wait for TTS completion
 
 OVML defines three primary timing modes:
 
-Mode	Meaning
-afterPrevious	Start after the preceding sequential content
-duringCurrent	Start at a specified time relative to the current timing context
-absolute	Start at a specified position on the timeline
+
+| Mode | Meaning |
+| :--- | :--- |
+| `afterPrevious` | Start after the preceding sequential content |
+| `duringCurrent` | Start at a specified time relative to the current timing context |
+| `absolute` | Start at a specified position on the timeline |
+
 
 These modes allow both sequential and overlapping composition.
 
-### 16. afterPrevious
+### 16. `afterPrevious`
 
-afterPrevious creates a sequential relationship.
+`afterPrevious` creates a sequential relationship.
 
 Example:
 
@@ -949,7 +952,7 @@ This is a fundamental OVML use case.
 
 ## 32. Sequential Does Not Mean Global
 
-afterPrevious creates a sequential relationship only for the applicable content flow.
+`afterPrevious` creates a sequential relationship only for the applicable content flow.
 
 It does not mean:
 
@@ -1248,7 +1251,7 @@ Above or below what?
 
 ### 43.4 Sequential timing is only one mode
 
-afterPrevious is useful for dialogue and narration, but it does not define the entire OVML timing
+`afterPrevious` is useful for dialogue and narration, but it does not define the entire OVML timing
 model.
 
 ### 43.5 The Player owns execution
