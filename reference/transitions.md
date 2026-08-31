@@ -49,12 +49,13 @@ Example:
 
 ## 4. Attributes of the Transition Element
 
-Attribute	Type	Description
-type	enum	The transition type: fade, cut, dissolve, wipe
-duration	number	Transition duration in seconds
-from	string	Source element of the transition
-to	string	Destination element of the transition
-direction	string	Direction hint for transitions such as wipe
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| type | enum | The transition type: fade, cut, dissolve, wipe |
+| duration | number | Transition duration in seconds |
+| from | string | Source element of the transition |
+| to | string | Destination element of the transition |
+| direction | string | Direction hint for transitions such as wipe |
 
 The `type` attribute is the primary descriptor.
 
@@ -112,12 +113,12 @@ Example:
 </scene>
 ```
 
-Allowed values:
+Allowed values: 
 
-fade
-cut
-dissolve
-wipe
+fade  
+cut  
+dissolve  
+wipe  
 
 This is a declarative intent at the scene level.
 

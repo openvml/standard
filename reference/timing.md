@@ -293,7 +293,7 @@ The element may appear at any point during another active element.
 
 layer describes compositing semantics.
 
-startMode, startTime, and duration describe temporal semantics.
+`startMode`, `startTime`, and `duration` describe temporal semantics.
 
 These are independent dimensions.
 
