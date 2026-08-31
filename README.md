@@ -785,7 +785,7 @@ Repository:
 
 https://github.com/openvml/player
 
-**OpenVML Plugins**
+**OpenVML Player Plugins**
 
 Public plugin ecosystem for extending OpenVML Player.
 
