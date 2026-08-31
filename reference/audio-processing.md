@@ -583,7 +583,7 @@ Layer-specific instantiation is resolved by the Player.
 
 ## 31. Design Principle
 
-<audio_processing> describes the intended audio processing.
+`<audio_processing>` describes the intended audio processing.
 
 It does not require a particular:
 

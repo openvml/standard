@@ -20,7 +20,7 @@ OVML does not define a specific playback or rendering technology.
 OVML defines what should happen and when. The Player or renderer determines how it happens on the
 target platform.
 
-## 2. Root Element: <ovml>
+## 2. Root Element: `<ovml>`
 
 Every OVML document has a single root element:
 
@@ -92,9 +92,9 @@ The primary sections have different responsibilities:
 └── <script>     Script and timeline structure
 ```
 
-### 4. <meta>
+### 4. `<meta>`
 
-The <meta> element contains information about the project itself.
+The `<meta>` element contains information about the project itself.
 
 Example:
 
@@ -116,9 +116,9 @@ Metadata is not part of the script itself.
 It describes the project and its general presentation preferences.
 
 1. [`reference/meta.md`](meta.md)
-### 5. <cast>
+### 5. `<cast>`
 
-The <cast> element contains the characters used by the project.
+The `<cast>` element contains the characters used by the project.
 
 Example:
 
@@ -161,9 +161,9 @@ The character ID is referenced by dialogue:
 This avoids duplicating character information in every line.
 
 1. [`reference/cast.md`](cast.md)
-### 6. <assets>
+### 6. `<assets>`
 
-The <assets> element describes resources used by the project.
+The `<assets>` element describes resources used by the project.
 
 Resources may include:
 
@@ -210,9 +210,9 @@ The script can then reference those resources by ID.
 
 1. [`reference/assets.md`](assets.md)
 
-### 7. <world>
+### 7. `<world>`
 
-The <world> element describes the canonical entities of the
+The `<world>` element describes the canonical entities of the
 project's world.
 
 ```xml
@@ -299,10 +299,10 @@ duplicating the full description:
 This keeps long-form projects consistent across many scenes and
 chapters.
 
-- Scene-specific change is expressed by a <variation> inside the scene,
+- Scene-specific change is expressed by a `<variation>` inside the scene,
 - never by editing the canon.
 
-The <world> element is optional.
+The `<world>` element is optional.
 
 A document without a world canon is valid.
 
@@ -311,9 +311,9 @@ section by the uniform rule above, from the document's structure alone.
 
 1. [`reference/world.md`](world.md)
 
-### 8. <script>
+### 8. `<script>`
 
-The <script> element contains the actual project content.
+The `<script>` element contains the actual project content.
 
 Conceptually:
 
@@ -361,7 +361,7 @@ The complete chapter model is defined in:
 
 [`reference/chapter.md`](chapter.md)
 
-### 10. <scene>
+### 10. `<scene>`
 
 A scene provides the primary directorial context.
 
@@ -386,9 +386,9 @@ and scene boundaries — is defined in:
 
 [`reference/scene.md`](scene.md)
 
-### 11. <camera>
+### 11. `<camera>`
 
-The <camera> element provides a directorial instruction within a scene.
+The `<camera>` element provides a directorial instruction within a scene.
 
 A camera is not a media file.
 
@@ -419,9 +419,9 @@ The camera model is defined in:
 
 ## 12. Text Content
 
-The primary element for dialogue and textual content is <line>.
+The primary element for dialogue and textual content is `<line>`.
 
-It is commonly contained within a <p> block:
+It is commonly contained within a `<p>` block:
 
 ```xml
 <p>
@@ -433,7 +433,7 @@ It is commonly contained within a <p> block:
 </p>
 ```
 
-A <line> may contain:
+A `<line>` may contain:
 
 - dialogue text;
 - a character reference;
@@ -522,9 +522,9 @@ Media elements may have timing and presentation attributes:
 Media is therefore part of the project's timeline rather than merely being a collection of attached
 files.
 
-### 15. <break>
+### 15. `<break>`
 
-The <break> element represents a pause.
+The `<break>` element represents a pause.
 
 ```xml
 <break time="1000" />

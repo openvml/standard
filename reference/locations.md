@@ -92,11 +92,11 @@ A location may contain arbitrary clarifying child elements.
 Common canonical fields include:
 
 Tag	Description
-<era>	Epoch / historical period
-<style>	General visual style (materials, finish)
-<palette>	Color palette (for UI/rendering)
-<props>	Permanent props and objects of the location
-<atmosphere>	Permanent atmosphere (smells, sounds, light)
+`<era>`	Epoch / historical period
+`<style>`	General visual style (materials, finish)
+`<palette>`	Color palette (for UI/rendering)
+`<props>`	Permanent props and objects of the location
+`<atmosphere>`	Permanent atmosphere (smells, sounds, light)
 
 The child elements of a location are free-form and project-specific.
 
@@ -116,7 +116,7 @@ The world canon solves this by describing each location once and letting scenes 
 
 ## 6. Referencing a Location From a Scene
 
-A scene references a canonical location through a child <location> element with a ref attribute.
+A scene references a canonical location through a child `<location>` element with a ref attribute.
 
 ```xml
 <scene
@@ -136,13 +136,13 @@ A scene references a canonical location through a child <location> element with 
 ```
 
 Attribute	Type	Description
-ref	string	The id of a location in the <locations> section of <world>
+ref	string	The id of a location in the `<locations>` section of `<world>`
 
 The scene therefore does not repeat the location's full description.
 
 It points to the canon and adds only what is different in this scene.
 
-## 7. <variation>
+## 7. `<variation>`
 
 A scene may specify how a referenced location differs from its canon in this particular scene.
 
@@ -159,10 +159,10 @@ A scene may specify how a referenced location differs from its canon in this par
 Common variation fields:
 
 Tag	Description
-<time>	Time of day in the scene: morning, afternoon, evening, night
-<weather>	Weather in the scene: clear, cloudy, rainy, foggy, snowy
-<changes>	Free-form scene-specific changes (broken items, added props)
-<atmosphere>	Scene-specific atmosphere (overrides the canon)
+`<time>`	Time of day in the scene: morning, afternoon, evening, night
+`<weather>`	Weather in the scene: clear, cloudy, rainy, foggy, snowy
+`<changes>`	Free-form scene-specific changes (broken items, added props)
+`<atmosphere>`	Scene-specific atmosphere (overrides the canon)
 
 Variation never modifies the canon.
 
@@ -171,7 +171,7 @@ scene.
 
 ## 8. Free-form Location Description
 
-A plain-text <location> without ref remains valid.
+A plain-text `<location>` without ref remains valid.
 
 ```xml
 <scene>
@@ -217,7 +217,7 @@ When creating a new scene, the Assistant:
 
 - reads the canon to learn a location's permanent description;
 - references it by ref;
-- adds a <variation> for anything different in this scene;
+- adds a `<variation>` for anything different in this scene;
 - keeps the canon itself unchanged;
 
 This is the mechanism that keeps generated content consistent across a long project.
@@ -226,7 +226,7 @@ This is the mechanism that keeps generated content consistent across a long proj
 
 An OVML validator SHOULD verify:
 
-- <location> elements are properly nested inside <locations>;
+- `<location>` elements are properly nested inside `<locations>`;
 - id and name are present;
 - ref values in scenes resolve to existing location ids when project context is available;
 - variation fields contain valid values;

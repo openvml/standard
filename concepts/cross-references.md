@@ -14,7 +14,7 @@ the whole document navigable.
 An identifier is a key that names a reusable entity. A reference is an attribute that points back to
 that identifier from another place in the document.
 
-For example, a character is declared in <cast>:
+For example, a character is declared in `<cast>`:
 
 ```xml
     <character id="alex" name="Alex" />
@@ -95,7 +95,7 @@ A scene references a canonical world entity through a child element with a ref a
     </scene>
 ```
 
-The ref value is the id of an entity declared in the corresponding section of <world>. The mechanism
+The ref value is the id of an entity declared in the corresponding section of `<world>`. The mechanism
 is identical for every section — a location, a term, a faction all follow the same rule.
 
 ```xml
@@ -115,7 +115,7 @@ The camera target identifies the intended subject of the camera:
 
 The target may refer to a character id, a visual object, an element id, or another addressable
 object defined by the implementation. For a character, the value should correspond to the
-character's id in <cast>. The exact target namespace depends on the project structure.
+character's id in `<cast>`. The exact target namespace depends on the project structure.
 
 ## 7. Resolution Scope
 
@@ -137,7 +137,7 @@ overlap. This is why a character id and a world location id may share a value wi
 OVML references are declarative. An entity may be referenced before its declaration appears in the
 document.
 
-For example, <cast> normally precedes <script>, but a conforming implementation should not require
+For example, `<cast>` normally precedes `<script>`, but a conforming implementation should not require
 every entity to be declared before every use. The document is interpreted as a whole, and a
 validator may resolve references across the entire document rather than requiring declaration order.
 

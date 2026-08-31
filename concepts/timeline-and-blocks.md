@@ -247,7 +247,7 @@ This mode is particularly useful for:
 
 The default depends on the type of content.
 
-For textual blocks such as <line>, the normal sequential behavior is:
+For textual blocks such as `<line>`, the normal sequential behavior is:
 
 afterPrevious
 
@@ -585,7 +585,7 @@ Timing determines temporal composition.
 
 ## 18. Breaks
 
-A <break> element introduces a pause into sequential content.
+A `<break>` element introduces a pause into sequential content.
 
 Example:
 

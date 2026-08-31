@@ -684,7 +684,7 @@ An OVML validator SHOULD verify:
 
 - character/@id is present;
 - character/@name is present;
-- character IDs are unique within <cast>;
+- character IDs are unique within `<cast>`;
 - gender, when present, contains an allowed value;
 - age, when present, contains an allowed value;
 - role, when present, contains an allowed value;

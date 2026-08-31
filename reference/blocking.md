@@ -52,7 +52,7 @@ Each `<character>` entry references a character declared in the `<cast>` element
 ## 3. Attributes
 
 Attribute	Type	Description
-ref	string	charId of the character (from <cast>)
+ref	string	charId of the character (from `<cast>`)
 position	enum	Position: left, right, center, offscreen-left, offscreen-right
 look_at	string	charId of the character this character looks at
 addresses	string	charId of the character this character addresses speech to

@@ -349,18 +349,18 @@ The general timing model is defined in:
 A scene may contain the following child elements.
 
 Element	Purpose
-<location ref="...">	Reference to a canonical location from <world>
-<characters>	List of characters present in the scene
-<blocking>	Semantic character positioning and relationships
-<prompt>	Prompt for AI-assisted image/video generation
-<camera>	Camera or viewpoint direction within the scene
-<p> / <line>	Text and dialogue blocks
-<img> / <video> / <audio>	Media content
-<break>	Explicit pause
+<location ref="...">	Reference to a canonical location from `<world>`
+`<characters>`	List of characters present in the scene
+`<blocking>`	Semantic character positioning and relationships
+`<prompt>`	Prompt for AI-assisted image/video generation
+`<camera>`	Camera or viewpoint direction within the scene
+`<p>` / `<line>`	Text and dialogue blocks
+`<img>` / `<video>` / `<audio>`	Media content
+`<break>`	Explicit pause
 
 ## 11. Location Reference
 
-A scene references a canonical location from the project's world canon through a child <location>
+A scene references a canonical location from the project's world canon through a child `<location>`
 element with a ref attribute.
 
 ```xml
@@ -380,9 +380,9 @@ element with a ref attribute.
 </scene>
 ```
 
-The ref value is the id of a location declared in the <locations> section of <world>.
+The ref value is the id of a location declared in the `<locations>` section of `<world>`.
 
-Scene-specific change is expressed by a <variation> inside the scene, never by editing the canon:
+Scene-specific change is expressed by a `<variation>` inside the scene, never by editing the canon:
 
 ```xml
 <location ref="rusty_anchor">
@@ -394,7 +394,7 @@ Scene-specific change is expressed by a <variation> inside the scene, never by e
 </location>
 ```
 
-A plain-text <location> without ref remains valid as a free-form description.
+A plain-text `<location>` without ref remains valid as a free-form description.
 
 The complete location model is defined in:
 
@@ -402,7 +402,7 @@ The complete location model is defined in:
 
 ## 12. Characters
 
-The <characters> element lists the characters participating in a scene.
+The `<characters>` element lists the characters participating in a scene.
 
 Example:
 
@@ -413,7 +413,7 @@ Example:
 </characters>
 ```
 
-Each <char> entry references a character id declared in the <cast> element.
+Each `<char>` entry references a character id declared in the `<cast>` element.
 
 The emotional state may provide additional context for voice direction and AI-assisted rendering.
 
@@ -421,7 +421,7 @@ The emotional state may provide additional context for voice direction and AI-as
 
 ## 13. Blocking
 
-The <blocking> element describes the semantic relationships between the characters present in the
+The `<blocking>` element describes the semantic relationships between the characters present in the
 scene.
 
 Example:
@@ -447,7 +447,7 @@ The complete blocking model is defined in:
 
 ## 14. Prompt
 
-The <prompt> child of a scene provides a prompt for AI-assisted image or video generation.
+The `<prompt>` child of a scene provides a prompt for AI-assisted image or video generation.
 
 ```xml
 <prompt>Dark mixed forest, morning fog, two people walking</prompt>
@@ -455,16 +455,16 @@ The <prompt> child of a scene provides a prompt for AI-assisted image or video g
 
 The prompt is optional.
 
-It may be authored explicitly, or it may be auto-generated from the <blocking> element by an
+It may be authored explicitly, or it may be auto-generated from the `<blocking>` element by an
 AI-assisted workflow.
 
 OVML does not prescribe which AI model or generator interprets the prompt.
 
 ## 15. Camera
 
-A scene may contain one or more <camera> elements.
+A scene may contain one or more `<camera>` elements.
 
-The <camera> element provides a directorial instruction within a scene.
+The `<camera>` element provides a directorial instruction within a scene.
 
 Example:
 
@@ -728,7 +728,7 @@ A scene may contain dialogue, music, sound effects, visual media, and camera dir
 
 A scene may represent a conversational segment.
 
-The same <scene> element therefore serves multiple project forms.
+The same `<scene>` element therefore serves multiple project forms.
 
 ## 23. Minimal Scene
 
@@ -806,7 +806,7 @@ The OVML parser and validator are responsible for validating the structural corr
 
 For example, they may verify:
 
-- the <scene> element is properly opened and closed;
+- the `<scene>` element is properly opened and closed;
 - attributes have valid names;
 - color has a valid HEX format;
 - required XML structure is respected;
@@ -839,7 +839,7 @@ The Player executes the resulting description.
 
 ## 27. Summary
 
-The <scene> element is a fundamental structural unit of OVML.
+The `<scene>` element is a fundamental structural unit of OVML.
 
 It provides:
 
@@ -867,7 +867,7 @@ The fundamental principle is:
 A scene describes the director's intent and context. It does not dictate the implementation used to
 realize that intent.
 
-This makes <scene> suitable for every OVML project form, from a simple lecture or presentation to a
+This makes `<scene>` suitable for every OVML project form, from a simple lecture or presentation to a
 multi-character audiobook, interactive game narrative, film dubbing project, or animated production.
 
 ## 28. Related Documents

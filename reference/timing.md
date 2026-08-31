@@ -140,12 +140,12 @@ These dimensions should not be confused.
 The timing model applies to different types of content.
 
 Element	Temporal	Visual	Audio	Layer
-<line>	yes	yes	yes	text/content
-<img>	yes	yes	no	background / foreground
-<video>	yes	yes	optionally	background / foreground
-<audio>	yes	no	yes	background / foreground
-<break>	yes	no	no	none
-<camera>	yes	indirectly	no	camera
+`<line>`	yes	yes	yes	text/content
+`<img>`	yes	yes	no	background / foreground
+`<video>`	yes	yes	optionally	background / foreground
+`<audio>`	yes	no	yes	background / foreground
+`<break>`	yes	no	no	none
+`<camera>`	yes	indirectly	no	camera
 transitions	yes	yes	optionally	presentation
 
 Not every element uses every timing or spatial property.
@@ -392,7 +392,7 @@ This defines both temporal and spatial behavior.
 
 ## 13. TTS Is a Time-Based Content Stream
 
-A <line> rendered through TTS is not necessarily a fixed-duration object.
+A `<line>` rendered through TTS is not necessarily a fixed-duration object.
 
 Its actual duration may depend on:
 
@@ -593,11 +593,11 @@ Example:
 
 startDelay belongs to the element being delayed.
 
-It is different from <break>.
+It is different from `<break>`.
 
 ### 21. break
 
-A <break> introduces an explicit pause into sequential script flow.
+A `<break>` introduces an explicit pause into sequential script flow.
 
 Example:
 
@@ -1011,7 +1011,7 @@ The two concepts should remain separate.
 
 ## 34. Scenes Do Not Automatically Reset Time
 
-A <scene> is a semantic and visual grouping mechanism.
+A `<scene>` is a semantic and visual grouping mechanism.
 
 It does not automatically imply a global timeline reset.
 
@@ -1135,7 +1135,7 @@ For example:
 Is startTime a valid number?
 Is duration non-negative?
 Is startMode allowed?
-Is time valid for <break>?
+Is time valid for `<break>`?
 
 The Player handles runtime concerns:
 

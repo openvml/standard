@@ -62,7 +62,7 @@ in different uses.
 ## 4. Processing Presets
 
 A preset is a standalone XML document describing a sequence of processing operations. For video, a
-preset uses <video_processing> as its root element and carries an id and a name:
+preset uses `<video_processing>` as its root element and carries an id and a name:
 
 ```xml
     <video_processing id="video_guard_torch" name="Gate Guard Torchlight">

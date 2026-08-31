@@ -9,7 +9,7 @@ OpenVML 2.2
 
 ## 1. Overview
 
-The <camera> element describes visual direction within an OpenVML scene.
+The `<camera>` element describes visual direction within an OpenVML scene.
 
 It allows an author, director, or AI-assisted authoring system to describe how the visual
 composition should be framed and how the viewer's attention should move through a scene.
@@ -108,7 +108,7 @@ or:
 
 extreme close-up
 
-The <camera> element allows that directorial intention to be represented in the OpenVML document.
+The `<camera>` element allows that directorial intention to be represented in the OpenVML document.
 
 ## 5. Initial Camera Model
 
@@ -246,7 +246,7 @@ The target may refer to:
 
 The exact target namespace depends on the project structure.
 
-For a character, the value should correspond to the character's id in <cast>.
+For a character, the value should correspond to the character's id in `<cast>`.
 
 Example:
 
@@ -591,7 +591,7 @@ OVML script has been authored.
 
 ## 22. Camera Does Not Generate Media
 
-The <camera> element does not itself create:
+The `<camera>` element does not itself create:
 
 - images;
 - video;
@@ -748,7 +748,7 @@ The parser and validator are responsible for technical validity.
 
 They may validate:
 
-- proper opening and closing of <camera>;
+- proper opening and closing of `<camera>`;
 - supported attributes;
 - valid enumeration values;
 - numeric timing values;
@@ -792,7 +792,7 @@ rendering engine.
 
 ## 31. Summary
 
-The <camera> element provides a machine-readable representation of visual direction.
+The `<camera>` element provides a machine-readable representation of visual direction.
 
 It allows OpenVML to describe:
 
@@ -803,7 +803,7 @@ It allows OpenVML to describe:
 - camera transitions;
 - camera timing.
 
-The camera model works together with <scene>:
+The camera model works together with `<scene>`:
 
 ```text
 Scene
@@ -820,7 +820,7 @@ Scene
 
 The fundamental principle is:
 
-<scene> describes the context. <camera> describes the visual direction. Media provides the visual
+`<scene>` describes the context. `<camera>` describes the visual direction. Media provides the visual
 material. The Player or renderer determines how the director's intent is realized.
 
 This makes the camera model suitable for everything from simple image presentations to audiobooks

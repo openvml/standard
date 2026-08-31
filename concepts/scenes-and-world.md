@@ -59,7 +59,7 @@ Those decisions belong to the Player, renderer, or export pipeline.
 
 ## 3. Basic Structure
 
-A scene is represented by the <scene> element.
+A scene is represented by the `<scene>` element.
 
 Example:
 
@@ -344,7 +344,7 @@ A scene may reference a canonical entity of its project via a
 child element with a ref attribute.
 
 The canonical entities are declared once in the project-level
-<world> element, in free-form sections (locations, terms, and so on).
+`<world>` element, in free-form sections (locations, terms, and so on).
 
 Example — a location reference:
 
@@ -371,7 +371,7 @@ reference a term the same way:
 <term ref="photosynthesis" />
 ```
 
-Scene-specific change is expressed by <variation>:
+Scene-specific change is expressed by `<variation>`:
 
 ```xml
 <location ref="rusty_anchor">
@@ -512,7 +512,7 @@ For example:
 </scene>
 ```
 
-The <camera> element describes visual direction.
+The `<camera>` element describes visual direction.
 
 Camera semantics are defined separately in:
 
@@ -707,7 +707,7 @@ Podcast
 
 A scene may represent a conversational segment.
 
-The same <scene> element therefore serves multiple project forms.
+The same `<scene>` element therefore serves multiple project forms.
 
 ## 23. Scene Does Not Imply a Physical Location
 
@@ -758,7 +758,7 @@ scene.
 
 For example, they may verify:
 
-- the <scene> element is properly opened and closed;
+- the `<scene>` element is properly opened and closed;
 - attributes have valid names;
 - color has a valid format;
 - required XML structure is respected;
@@ -862,7 +862,7 @@ Scene
 
 ## 29. Summary
 
-The <scene> element is a fundamental structural unit of OpenVML.
+The `<scene>` element is a fundamental structural unit of OpenVML.
 
 It provides:
 
@@ -890,6 +890,6 @@ The fundamental principle is:
 A scene describes the director's intent and context. It does not dictate the implementation used to
 realize that intent.
 
-This makes <scene> suitable for every OpenVML project form, from a simple lecture or presentation to
+This makes `<scene>` suitable for every OpenVML project form, from a simple lecture or presentation to
 a multi-character audiobook, interactive game narrative, film dubbing project, or animated
 production.

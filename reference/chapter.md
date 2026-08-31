@@ -225,7 +225,7 @@ OVML does not require a specific user-interface representation.
 
 ## 7. Chapters and the Document Canvas
 
-The project-level document model describes <chapter> as the container between <script> and <scene>.
+The project-level document model describes `<chapter>` as the container between `<script>` and `<scene>`.
 
 1. [`reference/document.md`](document.md)
 

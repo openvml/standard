@@ -83,7 +83,7 @@ The char attribute identifies the character or voice assigned to the line.
 </line>
 ```
 
-The value MUST correspond to a character/@id defined in the document's <cast> section.
+The value MUST correspond to a character/@id defined in the document's `<cast>` section.
 
 Example:
 
@@ -117,7 +117,7 @@ application.
 
 ## 4. Text Content
 
-The textual content of <line> is the text represented by the line.
+The textual content of `<line>` is the text represented by the line.
 
 Example:
 
@@ -269,7 +269,7 @@ The line begins after the preceding sequential content has completed.
 
 This is the default mode.
 
-It is particularly useful inside a <p> containing dialogue:
+It is particularly useful inside a `<p>` containing dialogue:
 
 ```xml
 <p>
@@ -782,9 +782,9 @@ rather than the character's base rate of 1.0.
 This model allows a character to maintain a consistent default voice while individual lines may be
 performed differently.
 
-## 16. Lines Within <p>
+## 16. Lines Within `<p>`
 
-A <p> element may contain multiple lines.
+A `<p>` element may contain multiple lines.
 
 Each line may reference a different character.
 
@@ -804,7 +804,7 @@ Example:
 </p>
 ```
 
-The <p> provides the surrounding sequential context.
+The `<p>` provides the surrounding sequential context.
 
 The paragraph model — including narration and dialogue roles, character defaults, and sequential
 chaining — is defined in:
@@ -879,7 +879,7 @@ Those are runtime or implementation concerns.
 
 ## 19. Design Principle
 
-A <line> represents a single unit of textual content together with its optional speech, timing, and
+A `<line>` represents a single unit of textual content together with its optional speech, timing, and
 presentation instructions.
 
 The line does not redefine the character.

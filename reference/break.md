@@ -38,7 +38,7 @@ The basic syntax is:
 <break time="1000" />
 ```
 
-The <break> element is self-closing.
+The `<break>` element is self-closing.
 
 It MUST NOT contain child elements.
 
@@ -103,7 +103,7 @@ Negative values are invalid.
 
 ## 6. Break Between Lines
 
-A break may be placed between <line> elements.
+A break may be placed between `<line>` elements.
 
 Example:
 
@@ -151,7 +151,7 @@ The break is part of the content timing and therefore represents an intentional 
 
 ## 8. Break and Speech
 
-A <break> is not part of the spoken text.
+A `<break>` is not part of the spoken text.
 
 For example:
 
@@ -167,15 +167,15 @@ For example:
 </line>
 ```
 
-The TTS engine processes only the text of the <line> elements.
+The TTS engine processes only the text of the `<line>` elements.
 
 The Player applies the break between them.
 
-A <break> therefore does not require a TTS provider.
+A `<break>` therefore does not require a TTS provider.
 
 ## 9. Break and startDelay
 
-A <break> and startDelay both affect timing, but have different semantic meanings.
+A `<break>` and startDelay both affect timing, but have different semantic meanings.
 
 ### Break
 
@@ -205,7 +205,7 @@ These mechanisms SHOULD NOT be treated as interchangeable.
 
 ## 10. Break and startMode
 
-A <break> does not have a startMode attribute.
+A `<break>` does not have a startMode attribute.
 
 Its position in the document determines its position in the sequential script flow.
 
@@ -260,7 +260,7 @@ It represents a pause in the sequential script flow, not a global pause command.
 
 ## 12. Break Does Not Stop Playback
 
-The <break> element MUST NOT be interpreted as a global player pause.
+The `<break>` element MUST NOT be interpreted as a global player pause.
 
 It does not mean:
 
@@ -366,7 +366,7 @@ For example:
 
 wordDisplayDuration controls the presentation timing of words within the line.
 
-<break> controls the explicit pause after the line.
+`<break>` controls the explicit pause after the line.
 
 ## 16. Break and Subtitles
 
@@ -436,7 +436,7 @@ The OVML document does not prescribe the internal implementation.
 
 A validator SHOULD verify:
 
-- that <break> is syntactically valid;
+- that `<break>` is syntactically valid;
 - that time is present;
 - that time is an integer;
 - that time is non-negative;
@@ -465,7 +465,7 @@ The Player is responsible for runtime behavior.
 
 ## 20. Design Principle
 
-The <break> element provides an explicit and portable way to express silence or inactivity in the
+The `<break>` element provides an explicit and portable way to express silence or inactivity in the
 sequential script flow.
 
 It should be understood as:
@@ -495,7 +495,7 @@ where:
 
 time = duration in milliseconds
 
-The <break> element:
+The `<break>` element:
 
 - contains no content;
 - does not require an asset;
@@ -506,4 +506,4 @@ The <break> element:
 - is independent from startDelay;
 - is resolved by the Player at runtime.
 
-<break> describes a pause in the script timeline, not a command to pause the Player.
+`<break>` describes a pause in the script timeline, not a command to pause the Player.

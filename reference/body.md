@@ -80,20 +80,20 @@ The logical hierarchy of an OVML script is:
 The hierarchy provides different levels of semantic organization:
 
 Element	Purpose
-<script>	Complete project script
-<chapter>	Major navigable section
-<scene>	Continuous dramatic/visual context
-<camera>	Camera/view direction within a scene
-<p>	Sequential textual/dialogue block
-<line>	Individual textual/speech unit
-<video>	Video media
-<img>	Image media
-<audio>	Audio media
-<break>	Explicit pause
+`<script>`	Complete project script
+`<chapter>`	Major navigable section
+`<scene>`	Continuous dramatic/visual context
+`<camera>`	Camera/view direction within a scene
+`<p>`	Sequential textual/dialogue block
+`<line>`	Individual textual/speech unit
+`<video>`	Video media
+`<img>`	Image media
+`<audio>`	Audio media
+`<break>`	Explicit pause
 
-### 3. <script>
+### 3. `<script>`
 
-The <script> element is the root container for the project's content.
+The `<script>` element is the root container for the project's content.
 
 Example:
 
@@ -114,11 +114,11 @@ Example:
 A script MAY contain one or more chapters.
 
 A script without chapters MAY be supported by implementations for simple projects, but portable OVML
-documents SHOULD use <chapter> elements when the content has meaningful navigational sections.
+documents SHOULD use `<chapter>` elements when the content has meaningful navigational sections.
 
 ## 4. Chapters
 
-A <chapter> represents a major logical section of the project.
+A `<chapter>` represents a major logical section of the project.
 
 It contains scenes and content blocks and provides a natural navigation point for Players.
 
@@ -128,7 +128,7 @@ The complete chapter model, including chapter metadata, is defined in:
 
 ## 5. Scenes
 
-A chapter MAY contain multiple <scene> elements.
+A chapter MAY contain multiple `<scene>` elements.
 
 A scene represents a continuous logical audiovisual context.
 
@@ -165,9 +165,9 @@ Scene semantics are defined in:
 
 ## 6. Camera
 
-A scene MAY contain a <camera> element.
+A scene MAY contain a `<camera>` element.
 
-The <camera> element represents the intended camera or viewpoint configuration for the scene.
+The `<camera>` element represents the intended camera or viewpoint configuration for the scene.
 
 Example:
 
@@ -197,9 +197,9 @@ pipeline.
 
 ## 7. Paragraphs and Dialogue
 
-A <p> element groups sequential textual content, especially dialogue and narration.
+A `<p>` element groups sequential textual content, especially dialogue and narration.
 
-It MAY contain multiple <line> elements, and different lines within the same paragraph MAY reference
+It MAY contain multiple `<line>` elements, and different lines within the same paragraph MAY reference
 different characters.
 
 Example:
@@ -318,7 +318,7 @@ Media semantics are defined in:
 
 ## 10. Explicit Pauses
 
-A script MAY contain explicit pauses using <break>.
+A script MAY contain explicit pauses using `<break>`.
 
 Example:
 
@@ -340,7 +340,7 @@ Example:
 
 The pause expresses intentional temporal separation between content.
 
-The <break> element does not represent silence as an audio asset.
+The `<break>` element does not represent silence as an audio asset.
 
 Its semantics are defined in:
 
@@ -651,7 +651,7 @@ OVML does not require a specific user-interface representation.
 
 ## 18. Accessibility
 
-The semantic structure of <script>, <chapter>, <scene>, <p>, and <line> may be used by Players to
+The semantic structure of `<script>`, `<chapter>`, `<scene>`, `<p>`, and `<line>` may be used by Players to
 provide accessibility features.
 
 Possible applications include:
@@ -671,7 +671,7 @@ standard.
 
 An OVML validator SHOULD verify:
 
-the <script> element is structurally valid;
+the `<script>` element is structurally valid;
 chapters and scenes are properly nested;
 all XML elements are properly opened and closed;
 <line char="..."> references a valid character;

@@ -148,14 +148,14 @@ An OVML document consists of four primary areas:
 These areas have different responsibilities.
 
 Element	Purpose
-<ovml>	Root document
-<meta>	Project metadata and presentation preferences
-<cast>	Characters and voice configuration
-<assets>	Media resource definitions
-<world>	World canon — canonical entities of the project (locations, chronology, terms, etc.)
-<script>	Narrative and audiovisual timeline
+`<ovml>`	Root document
+`<meta>`	Project metadata and presentation preferences
+`<cast>`	Characters and voice configuration
+`<assets>`	Media resource definitions
+`<world>`	World canon — canonical entities of the project (locations, chronology, terms, etc.)
+`<script>`	Narrative and audiovisual timeline
 
-## 5. Root Element — <ovml>
+## 5. Root Element — `<ovml>`
 
 The root element identifies an OVML document.
 
@@ -192,9 +192,9 @@ en-US
 The language of individual elements may be more specific where
 required by an implementation.
 
-## 6. Metadata — <meta>
+## 6. Metadata — `<meta>`
 
-The <meta> element contains project-level metadata.
+The `<meta>` element contains project-level metadata.
 
 Example:
 
@@ -212,15 +212,15 @@ Example:
 </meta>
 ```
 
-### <title>
+### `<title>`
 
 Human-readable project title.
 
-### <author>
+### `<author>`
 
 Human-readable author or creator name.
 
-### <preferences>
+### `<preferences>`
 
 Optional playback and presentation preferences.
 
@@ -230,9 +230,9 @@ subtitleFontSize	integer	14	Subtitle font size in pixels
 subtitleBg	string	rgba(0,0,0,0.7)	Subtitle background
 subtitleColor	string	#ffffff	Subtitle text color
 
-## 7. Cast — <cast>
+## 7. Cast — `<cast>`
 
-The <cast> element defines the characters used by the project.
+The `<cast>` element defines the characters used by the project.
 
 ```xml
 <cast>
@@ -256,7 +256,7 @@ The <cast> element defines the characters used by the project.
 
 A character is referenced from script content by its id.
 
-## 8. Character — <character>
+## 8. Character — `<character>`
 
 Required attributes
 Attribute	Type	Description
@@ -322,9 +322,9 @@ processing parameters.
 
 The OVML standard does not require a particular processing engine.
 
-## 11. Assets — <assets>
+## 11. Assets — `<assets>`
 
-The <assets> section describes media resources used by the project.
+The `<assets>` section describes media resources used by the project.
 
 An asset may represent:
 
@@ -339,9 +339,9 @@ The exact storage mechanism is implementation-dependent.
 When OVML is packaged as OVMZ, assets may be stored inside the
 container.
 
-## 12. Script — <script>
+## 12. Script — `<script>`
 
-The <script> contains the actual audiovisual structure of the
+The `<script>` contains the actual audiovisual structure of the
 project.
 
 It may contain:
@@ -358,9 +358,9 @@ It may contain:
 
 The script is declarative. It does not contain executable code.
 
-## 13. Scenes — <scene>
+## 13. Scenes — `<scene>`
 
-A <scene> groups content belonging to a common dramatic or visual
+A `<scene>` groups content belonging to a common dramatic or visual
 context.
 
 Example:
@@ -416,7 +416,7 @@ Any section in the world canon may be referenced the same way:
 ```
 
 The ref value is the id of an entity declared in the corresponding
-section of the project-level <world> canon.
+section of the project-level `<world>` canon.
 
 The mechanism is identical for every section. For example, a lecture
 may reference a term:
@@ -428,9 +428,9 @@ may reference a term:
 </scene>
 ```
 
-### 13.2 World Canon — <world>
+### 13.2 World Canon — `<world>`
 
-The document-level <world> element describes the canonical entities of
+The document-level `<world>` element describes the canonical entities of
 the project's world.
 
 It is declared once at the top of the document and acts as the single
@@ -489,16 +489,16 @@ Every section follows the same structural rule:
 
 The world canon holds the permanent properties of its entities.
 Context-specific change (time of day, weather, temporary props) is
-expressed by the referencing scene's <variation> rather than by
+expressed by the referencing scene's `<variation>` rather than by
 editing the canon.
 
-The <world> element is optional.
+The `<world>` element is optional.
 
 A document without a world canon is valid.
 
-## 14. Camera Direction — <camera>
+## 14. Camera Direction — `<camera>`
 
-The <camera> element describes intended camera composition and
+The `<camera>` element describes intended camera composition and
 movement.
 
 It is a directorial description, not a command to a specific
@@ -515,12 +515,12 @@ Example:
 />
 ```
 
-The exact <camera> vocabulary is defined by the Camera Direction
+The exact `<camera>` vocabulary is defined by the Camera Direction
 section of this specification.
 
 ## 15. Text Blocks
 
-Text content is represented using <p> and <line>.
+Text content is represented using `<p>` and `<line>`.
 
 Example:
 
@@ -534,9 +534,9 @@ Example:
 
 A paragraph may contain one or more lines.
 
-## 16. Dialogue Line — <line>
+## 16. Dialogue Line — `<line>`
 
-The <line> element represents a unit of spoken or displayed text.
+The `<line>` element represents a unit of spoken or displayed text.
 
 Example:
 

@@ -95,7 +95,7 @@ The `<subtitles>` element attaches one or more caption tracks to the media eleme
 
 The Player determines how the tracks are synchronized, selected, and presented.
 
-## 5. Subtitle Preferences in <meta>
+## 5. Subtitle Preferences in `<meta>`
 
 Project-level subtitle presentation preferences are defined in the `<preferences>` element of
 `<meta>`.
@@ -159,7 +159,7 @@ An OVML validator SHOULD verify:
 lang, when present, is a valid language tag;
 a referenced subtitle resource is recognized as a subtitle-type resource when project context is
 available;
-<subtitles> appears only in contexts where the media model allows subtitle tracks;
+`<subtitles>` appears only in contexts where the media model allows subtitle tracks;
 the subtitle element is properly opened and closed.
 
 The validator does not determine whether subtitle timing is synchronized with the media content.

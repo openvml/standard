@@ -3,21 +3,21 @@
 > An open, declarative format for describing voice-driven audiovisual content, including dialogue,
 > narration, scenes, media, timing, and synchronization.
 
-# OVML <meta>
+# OVML `<meta>`
 
 OpenVML Standard 2.2
 
 ## 1. Purpose
 
-The <meta> element contains descriptive information and general presentation preferences for an OVML
+The `<meta>` element contains descriptive information and general presentation preferences for an OVML
 project.
 
 Metadata identifies the project but does not define its content, timeline, media resources,
 character voices, or rendering pipeline.
 
-The <meta> element is optional.
+The `<meta>` element is optional.
 
-A minimal OVML document may therefore omit <meta> entirely.
+A minimal OVML document may therefore omit `<meta>` entirely.
 
 ## 2. Structure
 
@@ -36,11 +36,11 @@ The general structure is:
 </meta>
 ```
 
-All child elements of <meta> are optional.
+All child elements of `<meta>` are optional.
 
-### 3. <title>
+### 3. `<title>`
 
-The <title> element contains the human-readable title of the project.
+The `<title>` element contains the human-readable title of the project.
 
 Example:
 
@@ -59,12 +59,12 @@ user interfaces.
 
 The title does not affect playback or timing.
 
-If <title> is absent, the Player or application may use another available identifier, such as a
+If `<title>` is absent, the Player or application may use another available identifier, such as a
 filename or project ID.
 
-### 4. <author>
+### 4. `<author>`
 
-The <author> element identifies the author or creator of the project.
+The `<author>` element identifies the author or creator of the project.
 
 Example:
 
@@ -82,11 +82,11 @@ For example:
 
 The standard does not prescribe a particular author-name format.
 
-The <author> value is informational and does not affect playback.
+The `<author>` value is informational and does not affect playback.
 
-### 5. <preferences>
+### 5. `<preferences>`
 
-The optional <preferences> element defines general presentation preferences for the project.
+The optional `<preferences>` element defines general presentation preferences for the project.
 
 Example:
 
@@ -105,7 +105,7 @@ They do not require a particular rendering implementation.
 For example, a Player may implement subtitles using HTML/CSS, a native text renderer, or another
 rendering technology while respecting the same OVML preferences.
 
-### 6. <preferences> Attributes
+### 6. `<preferences>` Attributes
 ### showSubtitles
 
 Controls whether subtitles should normally be displayed.
@@ -199,7 +199,7 @@ The value uses a CSS-compatible color representation.
 
 ## 7. Default Values
 
-If <preferences> is absent, the following defaults apply:
+If `<preferences>` is absent, the following defaults apply:
 
 Preference	Default
 showSubtitles	true
@@ -257,7 +257,7 @@ The smallest useful metadata section may contain only a title:
 </meta>
 ```
 
-It is also valid to omit the entire <meta> section:
+It is also valid to omit the entire `<meta>` section:
 
 ```xml
 <ovml version="2.2" lang="en">
@@ -271,7 +271,7 @@ It is also valid to omit the entire <meta> section:
 
 ## 10. Metadata and Player Behavior
 
-The <meta> section describes project-level preferences.
+The `<meta>` section describes project-level preferences.
 
 It does not directly control the Player's implementation.
 
@@ -351,27 +351,27 @@ the OVML validator.
 
 ## 13. Scope
 
-The <meta> element is intentionally limited to project identity and general presentation
+The `<meta>` element is intentionally limited to project identity and general presentation
 preferences.
 
 The following information belongs elsewhere:
 
 Information	OVML element
-Project title	<meta>
-Author	<meta>
-Subtitle preferences	<meta>
-Characters	<cast>
-Voice configuration	<character>
-Media resources	<assets>
-Timing	<script> / script elements
-Scenes	<scene>
-Camera direction	<camera>
-Dialogue	<line>
-Images	<img>
-Video	<video>
-Audio	<audio>
+Project title	`<meta>`
+Author	`<meta>`
+Subtitle preferences	`<meta>`
+Characters	`<cast>`
+Voice configuration	`<character>`
+Media resources	`<assets>`
+Timing	`<script>` / script elements
+Scenes	`<scene>`
+Camera direction	`<camera>`
+Dialogue	`<line>`
+Images	`<img>`
+Video	`<video>`
+Audio	`<audio>`
 
-This separation keeps <meta> independent from the project's actual audiovisual behavior.
+This separation keeps `<meta>` independent from the project's actual audiovisual behavior.
 
 ## 14. Design Principle
 

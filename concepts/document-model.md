@@ -12,7 +12,7 @@ or rendering technology.
 
 ## 1. The Document as a Container
 
-Every OVML document is a single XML tree rooted at the <ovml> element:
+Every OVML document is a single XML tree rooted at the `<ovml>` element:
 
 ```xml
     <ovml version="2.2" lang="en">
@@ -79,9 +79,9 @@ The primary sections are:
 Not every section is required. A minimal document can contain only the root and a script, and the
 simplest content may be nothing more than a title and a few lines.
 
-3. <meta> — Project Metadata
+3. `<meta>` — Project Metadata
 
-The <meta> element contains information about the project itself: its title, author, and general
+The `<meta>` element contains information about the project itself: its title, author, and general
 presentation preferences such as whether subtitles are shown by default and how they are styled.
 
 Metadata identifies the project but does not define its content, timeline, media, voices, or
@@ -93,9 +93,9 @@ instruction.
 
 1. [`reference/meta.md`](../reference/meta.md)
 
-4. <cast> — Characters
+4. `<cast>` — Characters
 
-The <cast> element defines the characters used by the project. Each character is a canonical entity
+The `<cast>` element defines the characters used by the project. Each character is a canonical entity
 with a stable id and a human-readable name, and may carry identity information, aliases, descriptive
 text, voice configuration, and optional processing preset references.
 
@@ -113,9 +113,9 @@ description does not change any line that references it.
 1. [`reference/cast.md`](../reference/cast.md)
 2. [`concepts/characters-and-voices.md`](characters-and-voices.md)
 
-5. <assets> — Resources
+5. `<assets>` — Resources
 
-The <assets> element describes the resources used by the project. A resource may be an image, video,
+The `<assets>` element describes the resources used by the project. A resource may be an image, video,
 audio, music track, or sound effect. Assets may be referenced externally, by logical id, or as
 packaged resources inside an OVMZ container.
 
@@ -131,9 +131,9 @@ particular point in the timeline.
 1. [`reference/assets.md`](../reference/assets.md)
 2. [`concepts/media-layers.md`](media-layers.md)
 
-6. <world> — The World Canon
+6. `<world>` — The World Canon
 
-The <world> element declares the canonical entities of the project's world: locations, terms,
+The `<world>` element declares the canonical entities of the project's world: locations, terms,
 factions, timelines, or any other section the project requires. It uses the same mechanism
 everywhere: a section is a container of named entities, each entity has a stable id and a name, and
 a scene references an entity by ref instead of duplicating its description.
@@ -150,7 +150,7 @@ a scene references an entity by ref instead of duplicating its description.
     </world>
 ```
 
-A scene references the canonical entity and expresses scene-specific change with a <variation>:
+A scene references the canonical entity and expresses scene-specific change with a `<variation>`:
 
 ```xml
     <scene>
@@ -168,9 +168,9 @@ document without a world canon is valid.
 1. [`reference/world.md`](../reference/world.md)
 2. [`concepts/scenes-and-world.md`](scenes-and-world.md)
 
-7. <script> — The Content
+7. `<script>` — The Content
 
-The <script> element contains the actual content of the work. It organizes content into a hierarchy:
+The `<script>` element contains the actual content of the work. It organizes content into a hierarchy:
 
 ```text
     script

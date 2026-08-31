@@ -61,7 +61,7 @@ For example:
 
 The value forest identifies the resource.
 
-The <img> element additionally defines how that resource is used at this particular point in the
+The `<img>` element additionally defines how that resource is used at this particular point in the
 script.
 
 For example:
@@ -95,9 +95,9 @@ The presentation instructions are different.
 OVML defines three primary media elements.
 
 Element	Purpose
-<video>	Video content
-<img>	Still image content
-<audio>	Audio content
+`<video>`	Video content
+`<img>`	Still image content
+`<audio>`	Audio content
 
 Example:
 
@@ -555,9 +555,9 @@ requests approximately half of that size.
 
 The exact interpretation depends on the layout system.
 
-### 20. <video>
+### 20. `<video>`
 
-The <video> element represents video content.
+The `<video>` element represents video content.
 
 Example:
 
@@ -589,9 +589,9 @@ synchronization;
 frame presentation;
 buffering;
 hardware acceleration.
-### 21. <img>
+### 21. `<img>`
 
-The <img> element represents still image content.
+The `<img>` element represents still image content.
 
 Example:
 
@@ -612,9 +612,9 @@ timeline.
 
 An image MAY therefore act as a visual background for a timed sequence.
 
-### 22. <audio>
+### 22. `<audio>`
 
-The <audio> element represents audio content.
+The `<audio>` element represents audio content.
 
 Example:
 
@@ -643,7 +643,7 @@ Audio does not require a visual representation.
 
 Generated speech is logically an audio resource.
 
-For a plain .ovml project, a <line> may reference a character whose voice is resolved at runtime.
+For a plain .ovml project, a `<line>` may reference a character whose voice is resolved at runtime.
 
 The resulting speech may then be treated as an audio stream or generated audio resource by the
 Player.

@@ -64,7 +64,7 @@ are described independently, so either can change without the other.
 A preset is a standalone XML document that describes a sequence of processing operations. It is
 independent of the main content document and may be referenced by a project.
 
-For audio, a preset uses <audio_processing> as its root element and carries an id and a name:
+For audio, a preset uses `<audio_processing>` as its root element and carries an id and a name:
 
 ```xml
     <audio_processing id="narrator_classic" name="Narrator Classic Warm">

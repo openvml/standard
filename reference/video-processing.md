@@ -524,7 +524,7 @@ Layer-specific instantiation is resolved by the Player.
 
 ## 28. Design Principle
 
-<video_processing> describes the intended video processing.
+`<video_processing>` describes the intended video processing.
 
 It does not require a particular:
 

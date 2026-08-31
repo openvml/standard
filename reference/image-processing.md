@@ -421,9 +421,9 @@ declaration or character configuration specifies one.
 
 ## 24. Design Principle
 
-<image_processing> describes the intended image processing.
+`<image_processing>` describes the intended image processing.
 
-It mirrors <video_processing> and shares its semantics for still images.
+It mirrors `<video_processing>` and shares its semantics for still images.
 
 It does not require a particular:
 

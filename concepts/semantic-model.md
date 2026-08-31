@@ -39,7 +39,7 @@ but still declarative: they describe what media and processing to use, not how t
 
 ## 3. Literal Text: Lines
 
-At the literal level, a scene contains <line> elements that carry dialogue or narration:
+At the literal level, a scene contains `<line>` elements that carry dialogue or narration:
 
 ```xml
     <scene atmosphere="night city">
@@ -58,7 +58,7 @@ what is said.
 ## 4. Semantic Intent: Blocking
 
 At the semantic level, a scene may describe the intended relationships between the characters
-present in it through <blocking>.
+present in it through `<blocking>`.
 
 Blocking records who is where, who looks at whom, who addresses whom, and who enters or exits the
 scene:
@@ -109,7 +109,7 @@ it is realized.
 
 ## 6. Semantic Intent: Camera
 
-Camera instructions extend the same model to visual direction. A <camera> element is a directorial
+Camera instructions extend the same model to visual direction. A `<camera>` element is a directorial
 instruction, not a resource:
 
 ```xml
@@ -138,7 +138,7 @@ files:
         duration="10" />
 ```
 
-The asset is declared in <assets>, and the media element instructs how that asset is used at this
+The asset is declared in `<assets>`, and the media element instructs how that asset is used at this
 point in the timeline — when it starts, how long it lasts, where it is placed, how large it is.
 
 Processing presets are the same idea applied to the audio and visual signal. A preset is a

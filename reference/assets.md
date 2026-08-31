@@ -31,7 +31,7 @@ For example:
 
 forest identifies a resource.
 
-The <img> element describes how that resource is used in the current position of the script.
+The `<img>` element describes how that resource is used in the current position of the script.
 
 This separation allows the same asset to be reused with different timing, positioning, processing,
 and presentation settings.
@@ -65,7 +65,7 @@ The video file is the asset.
 
 forest-video is the asset reference.
 
-<video> is the instruction to use that asset in the project.
+`<video>` is the instruction to use that asset in the project.
 
 ## 3. Asset Reference Forms
 

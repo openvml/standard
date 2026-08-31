@@ -27,9 +27,9 @@ This makes the language self-describing. New kinds of sections can be introduced
 the parser: a lecture's glossary, a novel's locations, a documentation set's definitions all use the
 identical mechanism. The standard does not need to enumerate every possible section in advance.
 
-## 2. The <world> Canon as the Extension Point
+## 2. The `<world>` Canon as the Extension Point
 
-The <world> element applies this uniform rule at the document level. It holds the canonical entities
+The `<world>` element applies this uniform rule at the document level. It holds the canonical entities
 of the project in free sections:
 
 ```text
@@ -125,7 +125,7 @@ OVML stays extensible through a few consistent decisions.
 
     The uniform section rule lets any kind of canonical entity be added without changing the parser.
 
-    The <world> canon is a generic container with free sections.
+    The `<world>` canon is a generic container with free sections.
 
     Forward compatibility preserves unknown elements and warns without rejecting documents.
 

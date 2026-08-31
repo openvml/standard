@@ -11,7 +11,7 @@ re-voiced, re-cast, or played on different TTS systems without changing the unde
 
 ## 1. Character Identity
 
-A character is a named semantic entity declared in the <cast> section. A character has a stable id
+A character is a named semantic entity declared in the `<cast>` section. A character has a stable id
 and a human-readable name:
 
 ```xml
@@ -158,7 +158,7 @@ There are several reasons this separation matters.
 
 ## 8. Pronunciation
 
-OVML also provides declarative control over how individual words are pronounced, through the <w>
+OVML also provides declarative control over how individual words are pronounced, through the `<w>`
 element.
 
 A word may receive:
