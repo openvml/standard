@@ -356,20 +356,21 @@ preferences.
 
 The following information belongs elsewhere:
 
-Information	OVML element
-Project title	`<meta>`
-Author	`<meta>`
-Subtitle preferences	`<meta>`
-Characters	`<cast>`
-Voice configuration	`<character>`
-Media resources	`<assets>`
-Timing	`<script>` / script elements
-Scenes	`<scene>`
-Camera direction	`<camera>`
-Dialogue	`<line>`
-Images	`<img>`
-Video	`<video>`
-Audio	`<audio>`
+| Information | OVML element            |
+| ------------| ----------------------- | 
+| Project title	| `<meta>`
+| Author | `<meta>` |
+| Subtitle preferences	| `<meta>` |
+| Characters | `<cast>` |
+| Voice configuration | `<character>` |
+| Media resources | `<assets>` |
+| Timing| `<script>` / script elements |
+| Scenes | `<scene>` |
+| Camera direction | `<camera>` |
+| Dialogue | `<line>` |
+| Images | `<img>` |
+| Video | `<video>` |
+| Audio | `<audio>` |
 
 This separation keeps `<meta>` independent from the project's actual audiovisual behavior.
 
