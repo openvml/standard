@@ -63,13 +63,14 @@ This allows the same OVML scenario to remain small and independent from pre-rend
 
 A character may declare its voice through voice attributes.
 
-Attribute	Type	Default	Description
-voiceId	string	empty	Provider-specific voice identifier
-voiceName	string	empty	Human-readable voice name
-voiceLang	string	empty	Language identifier
-voiceEngine	string	implementation-defined	TTS/voice engine identifier
-pitch	float	1.0	Base pitch multiplier
-rate	float	1.0	Base speech-rate multiplier
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| voiceId | string | empty | Provider-specific voice identifier |
+| voiceName | string | empty | Human-readable voice name |
+| voiceLang | string | empty | Language identifier |
+| voiceEngine | string | implementation-defined | TTS/voice engine identifier |
+| pitch | float | 1.0 | Base pitch multiplier |
+| rate | float | 1.0 | Base speech-rate multiplier |
 
 Example:
 
@@ -89,12 +90,12 @@ Example:
 
 The `voiceEngine` attribute identifies the TTS or voice engine associated with `voiceId`.
 
-Examples may include:
+Examples may include:  
 
-edge-tts
-elevenlabs
-web-speech
-piper
+edge-tts  
+elevenlabs  
+web-speech  
+piper  
 
 The standard does not restrict implementations to these values.
 
@@ -104,30 +105,30 @@ Unknown engine identifiers SHOULD be preserved when an OVML document is read and
 
 ## 5. voiceId
 
-The `voiceId` attribute identifies the requested voice.
+The `voiceId` attribute identifies the requested voice. 
 
-voiceId="en-US-GuyNeural"
+voiceId="en-US-GuyNeural"  
 
 The meaning of `voiceId` depends on `voiceEngine`.
 
 The OVML Standard does not define a global namespace for voice identifiers.
 
-Therefore, implementations SHOULD interpret the voice reference as:
+Therefore, implementations SHOULD interpret the voice reference as:  
 
-voiceEngine + voiceId
+voiceEngine + voiceId  
 
 ## 6. voiceLang
 
 The `voiceLang` attribute specifies the language associated with the voice.
 
-Examples:
+Examples:  
 
-en-US
-en-GB
-ru-RU
-uk-UA
-de-DE
-fr-FR
+en-US  
+en-GB  
+ru-RU  
+uk-UA  
+de-DE  
+fr-FR  
 
 Language identifiers SHOULD follow BCP 47 conventions.
 
@@ -332,9 +333,10 @@ An OVMZ project may contain pre-rendered speech.
 
 An OVMV project has already rendered speech into the final audio.
 
-Feature	OVML	OVMZ	OVMV
-Runtime TTS	Yes	Optional	No
-Pre-rendered TTS	Optional	Yes	Included in final audio
+| Feature | OVML | OVMZ | OVMV |
+| :--- | :--- | :--- | :--- |
+| Runtime TTS | Yes | Optional | No |
+| Pre-rendered TTS | Optional | Yes | Included in final audio |
 
 ## 15. TTS and Audio Processing
 
