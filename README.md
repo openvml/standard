@@ -318,14 +318,14 @@ A basic OVML document has the following structure:
 
 The major sections are:
 
-```text
-Section	Purpose
-<ovml>	Root document
-<meta>	Project metadata and presentation preferences
-<cast>	Characters and voice configuration
-<assets>	Media resources
-<script>	Chapters, scenes, and content blocks
-```
+| Section | Purpose |
+| --- | --- |
+| `<ovml>` | Root document |
+| `<meta>` | Project metadata and presentation preferences |
+| `<cast>` | Characters and voice configuration |
+| `<assets>` | Media resources |
+| `<script>` | Chapters, scenes, and content blocks |
+
 Additional structural elements are defined by the specification.
 
 ## Scenes
