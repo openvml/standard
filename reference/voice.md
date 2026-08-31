@@ -20,11 +20,12 @@ They are declarative hints. The TTS engine or Player determines how they are int
 
 The following voice parameters describe the speaker's delivery.
 
-Attribute	Type	Range	Description
-pitch	float	-10 to +10	Pitch (0 = normal)
-rate	float	0.5 to 2.0	Speech rate
-volume	float	0.0 to 2.0	Volume
-timbre	enum	see below	Voice timbre
+| Attribute | Type | Range | Description |
+| --- | --- | --- | --- |
+| pitch | float | -10 to +10 | Pitch (0 = normal) |
+| rate | float | 0.5 to 2.0 | Speech rate |
+| volume | float | 0.0 to 2.0 | Volume |
+| timbre | enum | see below | Voice timbre |
 
 These values apply a requested delivery to the speaker.
 
@@ -42,8 +43,9 @@ A character may also use a pitch expressed as a multiplier.
 
 For the character attribute model:
 
-Attribute	Type	Default	Description
-pitch	float	1.0	Base pitch multiplier
+| Attribute | Type | Default | Description |
+| --- | --- | --- | --- |
+| pitch | float | 1.0 | Base pitch multiplier |
 
 Recommended range:
 
@@ -92,14 +94,15 @@ The `timbre` attribute describes the acoustic character of the voice.
 
 The enumeration values are:
 
-Value	Description
-neutral	Neutral
-breathy	Breathy, with aspiration
-rough	Hoarse, coarse
-soft	Soft, gentle
-nasal	Nasal
-belting	Theatrical
-whispering	Whispering
+| Value | Description |
+| --- | --- |
+| neutral | Neutral |
+| breathy | Breathy, with aspiration |
+| rough | Hoarse, coarse |
+| soft | Soft, gentle |
+| nasal | Nasal |
+| belting | Theatrical |
+| whispering | Whispering |
 
 Example line-level use:
 
@@ -193,7 +196,7 @@ The `stress` attribute marks the stressed syllable.
 
 Syntax:
 
-stress="слог+слог"
+stress="syl+lable"
 
 The syllable marked with `+` receives the stress.
 
@@ -201,7 +204,7 @@ Example:
 
 ```xml
 <p char="hero">
-    Он жил в <w stress="зáмок">замок</w> и думал о <w stress="зáмок">замок</w>.
+    He lives in a <w stress="cas+tle">castle</w> and thinks about the <w stress="cas+tle">castle</w>.
 </p>
 ```
 
@@ -215,8 +218,8 @@ Example:
 
 ```xml
 <p char="narrator">
-    Организация <w alias="Эф Би Ай">FBI</w> провела расследование.
-    <w alias="США">USA</w> — великая страна.
+    The <w alias="Federal Bureau of Investigation">FBI</w> conducted an investigation.
+    The <w alias="United States of America">USA</w> is a great country.
 </p>
 ```
 
@@ -228,7 +231,7 @@ Example:
 
 ```xml
 <p char="hero">
-    Сложное слово: <w ph="kʲɪˈtaj">китай</w>
+    A complex word: <w ph="ˈtʃaɪ.nə">china</w>
 </p>
 ```
 
@@ -240,16 +243,17 @@ Example:
 
 ```xml
 <p char="hero">
-    Кодекс: <w alias="">{code_123}</w>
+    Code: <w alias="">{code_123}</w>
 </p>
 ```
 
 ## 15. Word Element Attributes
 
-Attribute	Type	Description
-stress	string	Stressed-syllable notation
-alias	string	Replacement text used during synthesis
-ph	string	Phonetic transcription (IPA or SAPI)
+| Attribute | Type | Description |
+| --- | --- | --- |
+| stress | string | Stressed-syllable notation |
+| alias | string | Replacement text used during synthesis |
+| ph | string | Phonetic transcription (IPA or SAPI) |
 
 ## 16. Line-Level Voice Attributes
 
@@ -284,8 +288,8 @@ A narrator may be configured with a voice tone.
 Example:
 
 ```xml
-<narrator voice="deep">Могучий голос рассказчика.</narrator>
-<narrator voice="soft">Тихий, интимный тон.</narrator>
+<narrator voice="deep">A powerful narrator voice.</narrator>
+<narrator voice="soft">A quiet, intimate tone.</narrator>
 ```
 
 The `voice` attribute on narration is a descriptive hint.
