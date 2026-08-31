@@ -91,7 +91,7 @@ user-level settings.
 As with every section, unknown future metadata is preserved rather than treated as a playback
 instruction.
 
-See: [`reference/meta.md`](../reference/meta.md)
+1. [`reference/meta.md`](../reference/meta.md)
 
 4. <cast> — Characters
 
@@ -110,8 +110,8 @@ The script references a character by id through the char attribute of a line:
 The character is declared once; the line only refers to it. Changing the character's voice or
 description does not change any line that references it.
 
-See: [`reference/cast.md`](../reference/cast.md)
-See: [`concepts/characters-and-voices.md`](characters-and-voices.md)
+1. [`reference/cast.md`](../reference/cast.md)
+2. [`concepts/characters-and-voices.md`](characters-and-voices.md)
 
 5. <assets> — Resources
 
@@ -128,8 +128,8 @@ The script references an asset through the src attribute of a media element:
 The asset is the resource; the media element is an instruction for using that resource at a
 particular point in the timeline.
 
-See: [`reference/assets.md`](../reference/assets.md)
-See: [`concepts/media-layers.md`](media-layers.md)
+1. [`reference/assets.md`](../reference/assets.md)
+2. [`concepts/media-layers.md`](media-layers.md)
 
 6. <world> — The World Canon
 
@@ -165,8 +165,8 @@ A scene references the canonical entity and expresses scene-specific change with
 The world keeps recurring entities consistent across many scenes and chapters. It is optional: a
 document without a world canon is valid.
 
-See: [`reference/world.md`](../reference/world.md)
-See: [`concepts/scenes-and-world.md`](scenes-and-world.md)
+1. [`reference/world.md`](../reference/world.md)
+2. [`concepts/scenes-and-world.md`](scenes-and-world.md)
 
 7. <script> — The Content
 
@@ -247,6 +247,6 @@ line:
 
 For further reading on the complete hierarchy and its many examples, consult the reference.
 
-See: [`reference/document.md`](../reference/document.md)
-See: [`reference/meta.md`](../reference/meta.md)
-See: [`reference/README.md`](../reference/README.md)
+1. [`reference/document.md`](../reference/document.md)
+2. [`reference/meta.md`](../reference/meta.md)
+3. [`reference/README.md`](../reference/README.md)

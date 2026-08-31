@@ -174,6 +174,6 @@ The runtime interprets all of these for its own model. Because the document stor
 than coordinates, the same OVML project can be rendered, read, synthesized, and analyzed by entirely
 different applications.
 
-See: [`reference/blocking.md`](../reference/blocking.md)
-See: [`concepts/scenes-and-world.md`](scenes-and-world.md)
-See: [`concepts/camera.md`](camera.md)
+1. [`reference/blocking.md`](../reference/blocking.md)
+2. [`concepts/scenes-and-world.md`](scenes-and-world.md)
+3. [`concepts/camera.md`](camera.md)

@@ -357,8 +357,8 @@ Example:
 
 The processing preset is separate from the voice declaration.
 
-See: [`reference/cast.md`](cast.md)
-See: [`presets/audio.md`](../presets/audio.md)
+1. [`reference/cast.md`](cast.md)
+2. [`presets/audio.md`](../presets/audio.md)
 
 ## 16. Validation vs. Runtime
 
@@ -389,7 +389,7 @@ and rendering environments.
 
 ## 18. Related Documents
 
-See: [`concepts/packaging.md`](../concepts/packaging.md)
-See: [`reference/cast.md`](cast.md)
-See: [`reference/assets.md`](assets.md)
-See: [`presets/audio.md`](../presets/audio.md)
+1. [`concepts/packaging.md`](../concepts/packaging.md)
+2. [`reference/cast.md`](cast.md)
+3. [`reference/assets.md`](assets.md)
+4. [`presets/audio.md`](../presets/audio.md)

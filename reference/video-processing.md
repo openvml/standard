@@ -470,7 +470,7 @@ A character MAY reference a video-processing preset.
         videoProcessorFile="presets/video/Cinematic.ovml" />
 ```
 
-See: [`reference/character.md`](character.md)
+1. [`reference/character.md`](character.md)
 
 ## 25. Media and Block-Level Declaration
 
@@ -502,7 +502,7 @@ Processing may also be declared inline as child directives of the media element:
 
 Inline directives apply only to that media element.
 
-See: [`reference/media.md`](media.md)
+1. [`reference/media.md`](media.md)
 
 ## 26. Scene-Level Declaration
 
@@ -511,7 +511,7 @@ A scene MAY provide context for processing preset selection.
 The scene provides context; it does not directly execute a preset unless an explicit processing
 declaration or character configuration specifies one.
 
-See: [`reference/scene.md`](scene.md)
+1. [`reference/scene.md`](scene.md)
 
 ## 27. Layer-Specific Instantiation
 
@@ -542,10 +542,10 @@ Processing directives are declarative. The runtime interprets them.
 
 ## 29. Related Documents
 
-See: [`reference/media.md`](media.md)
-See: [`reference/character.md`](character.md)
-See: [`reference/cast.md`](cast.md)
-See: [`reference/audio-processing.md`](audio-processing.md)
-See: [`reference/image-processing.md`](image-processing.md)
-See: ../[`presets/video.md`](../presets/video.md)
-See: ../[`presets/README.md`](../presets/README.md)
+1. [`reference/media.md`](media.md)
+2. [`reference/character.md`](character.md)
+3. [`reference/cast.md`](cast.md)
+4. [`reference/audio-processing.md`](audio-processing.md)
+5. [`reference/image-processing.md`](image-processing.md)
+6. [`presets/video.md`](../presets/video.md)
+7. [`presets/README.md`](../presets/README.md)

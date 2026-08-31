@@ -194,6 +194,6 @@ Characters are semantic entities; voices are rendering resources.
 Character and voice remain separate so that any work can be re-voiced, re-cast, and played on
 different systems without rewriting the script.
 
-See: [`reference/cast.md`](../reference/cast.md)
-See: [`reference/voice.md`](../reference/voice.md)
-See: [`reference/tts.md`](../reference/tts.md)
+1. [`reference/cast.md`](../reference/cast.md)
+2. [`reference/voice.md`](../reference/voice.md)
+3. [`reference/tts.md`](../reference/tts.md)

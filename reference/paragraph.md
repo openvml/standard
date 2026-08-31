@@ -250,7 +250,7 @@ The paragraph provides a sequential context for its lines.
 Line-level timing, text formatting, word-by-word presentation, grid placement, transitions, and
 keyframes are defined on the `<line>` element.
 
-See: [`reference/line.md`](line.md)
+1. [`reference/line.md`](line.md)
 
 ## 9. Paragraph Within a Scene
 
@@ -397,8 +397,8 @@ interactive projects.
 
 ## 13. Related Documents
 
-See: [`reference/line.md`](line.md)
-See: [`reference/scene.md`](scene.md)
-See: [`reference/cast.md`](cast.md)
-See: [`reference/timing.md`](timing.md)
-See: [`reference/media.md`](media.md)
+1. [`reference/line.md`](line.md)
+2. [`reference/scene.md`](scene.md)
+3. [`reference/cast.md`](cast.md)
+4. [`reference/timing.md`](timing.md)
+5. [`reference/media.md`](media.md)

@@ -136,6 +136,6 @@ OVML stays extensible through a few consistent decisions.
 Each of these keeps OVML an open format that can grow through discussion and implementation
 experience without breaking the documents that already exist.
 
-See: [`reference/world.md`](../reference/world.md)
-See: [`reference/validation.md`](../reference/validation.md)
-See: [`concepts/README.md`](README.md)
+1. [`reference/world.md`](../reference/world.md)
+2. [`reference/validation.md`](../reference/validation.md)
+3. [`concepts/README.md`](README.md)

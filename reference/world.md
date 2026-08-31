@@ -264,6 +264,6 @@ outside the standard.
 
 ## 12. Related Documents
 
-See: [`reference/locations.md`](locations.md)
-See: [`reference/scene.md`](scene.md)
-See: [`reference/document.md`](document.md)
+1. [`reference/locations.md`](locations.md)
+2. [`reference/scene.md`](scene.md)
+3. [`reference/document.md`](document.md)

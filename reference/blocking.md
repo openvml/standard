@@ -215,5 +215,5 @@ The validator does not determine whether the described staging is artistically a
 
 ## 15. Related Documents
 
-See: [`reference/cast.md`](cast.md)
-See: [`reference/world.md`](world.md)
+1. [`reference/cast.md`](cast.md)
+2. [`reference/world.md`](world.md)

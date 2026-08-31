@@ -310,9 +310,7 @@ The temporal semantics follow the general OpenVML timing model.
 The camera therefore participates in the project timeline in the same conceptual way as other timed
 elements.
 
-See:
-
-[`concepts/timeline-and-blocks.md`](timeline-and-blocks.md)
+1. [`concepts/timeline-and-blocks.md`](timeline-and-blocks.md)
 
 ## 13. Camera Start Time
 

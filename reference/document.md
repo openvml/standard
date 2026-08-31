@@ -115,9 +115,7 @@ Metadata is not part of the script itself.
 
 It describes the project and its general presentation preferences.
 
-See:
-
-[`reference/meta.md`](meta.md)
+1. [`reference/meta.md`](meta.md)
 ### 5. <cast>
 
 The <cast> element contains the characters used by the project.
@@ -162,9 +160,7 @@ The character ID is referenced by dialogue:
 
 This avoids duplicating character information in every line.
 
-See:
-
-[`reference/cast.md`](cast.md)
+1. [`reference/cast.md`](cast.md)
 ### 6. <assets>
 
 The <assets> element describes resources used by the project.
@@ -212,9 +208,7 @@ project.ovmz
 
 The script can then reference those resources by ID.
 
-See:
-
-[`reference/assets.md`](assets.md)
+1. [`reference/assets.md`](assets.md)
 
 ### 7. <world>
 
@@ -315,9 +309,7 @@ A document without a world canon is valid.
 The standard does not define project types. The parser interprets any
 section by the uniform rule above, from the document's structure alone.
 
-See:
-
-[`reference/world.md`](world.md)
+1. [`reference/world.md`](world.md)
 
 ### 8. <script>
 

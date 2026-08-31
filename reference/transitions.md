@@ -170,7 +170,7 @@ A break introduces silence in the sequential flow.
 
 A transition changes how one piece of visual content becomes another.
 
-See: [`reference/break.md`](break.md)
+1. [`reference/break.md`](break.md)
 
 ## 13. Validation
 
@@ -186,7 +186,7 @@ Transition rendering is a runtime concern of the Player.
 
 ## 14. Related Documents
 
-See: [`reference/timing.md`](timing.md)
-See: [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md)
-See: [`reference/media.md`](media.md)
-See: [`reference/enums.md`](enums.md)
+1. [`reference/timing.md`](timing.md)
+2. [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md)
+3. [`reference/media.md`](media.md)
+4. [`reference/enums.md`](enums.md)

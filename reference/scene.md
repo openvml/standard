@@ -417,7 +417,7 @@ Each <char> entry references a character id declared in the <cast> element.
 
 The emotional state may provide additional context for voice direction and AI-assisted rendering.
 
-See: [`reference/cast.md`](cast.md)
+1. [`reference/cast.md`](cast.md)
 
 ## 13. Blocking
 
@@ -872,15 +872,15 @@ multi-character audiobook, interactive game narrative, film dubbing project, or 
 
 ## 28. Related Documents
 
-See: [`reference/document.md`](document.md)
-See: [`reference/chapter.md`](chapter.md)
-See: [`reference/body.md`](body.md)
-See: [`reference/locations.md`](locations.md)
-See: [`reference/blocking.md`](blocking.md)
-See: [`reference/cast.md`](cast.md)
-See: [`reference/line.md`](line.md)
-See: [`reference/paragraph.md`](paragraph.md)
-See: [`reference/media.md`](media.md)
-See: [`reference/timing.md`](timing.md)
-See: [`concepts/camera.md`](../concepts/camera.md)
-See: [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md)
+1. [`reference/document.md`](document.md)
+2. [`reference/chapter.md`](chapter.md)
+3. [`reference/body.md`](body.md)
+4. [`reference/locations.md`](locations.md)
+5. [`reference/blocking.md`](blocking.md)
+6. [`reference/cast.md`](cast.md)
+7. [`reference/line.md`](line.md)
+8. [`reference/paragraph.md`](paragraph.md)
+9. [`reference/media.md`](media.md)
+10. [`reference/timing.md`](timing.md)
+11. [`concepts/camera.md`](../concepts/camera.md)
+12. [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md)

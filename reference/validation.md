@@ -81,8 +81,8 @@ sizePercent contains a valid number;
 
 trimStart and duration are not negative.
 
-See: [`reference/media.md`](media.md)
-See: [`reference/timing.md`](timing.md)
+1. [`reference/media.md`](media.md)
+2. [`reference/timing.md`](timing.md)
 
 ## 4. Validation of References
 
@@ -98,7 +98,7 @@ For external URLs, a validator is not required to verify that the resource is cu
 
 Resource availability is a runtime concern.
 
-See: [`reference/identifiers.md`](identifiers.md)
+1. [`reference/identifiers.md`](identifiers.md)
 
 ## 5. Structural Validity vs. Semantic Interpretation
 
@@ -301,9 +301,9 @@ The Player owns the third.
 
 ## 13. Related Documents
 
-See: [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md)
-See: [`reference/identifiers.md`](identifiers.md)
-See: [`reference/media.md`](media.md)
-See: [`reference/timing.md`](timing.md)
-See: [`reference/emotions.md`](emotions.md)
-See: [`reference/README.md`](README.md)
+1. [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md)
+2. [`reference/identifiers.md`](identifiers.md)
+3. [`reference/media.md`](media.md)
+4. [`reference/timing.md`](timing.md)
+5. [`reference/emotions.md`](emotions.md)
+6. [`reference/README.md`](README.md)

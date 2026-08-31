@@ -112,7 +112,7 @@ singing	Singing
 
 Taken together with intonation, emotion forms the delivery vocabulary of a line.
 
-See: [`reference/emotions.md`](emotions.md)
+1. [`reference/emotions.md`](emotions.md)
 
 ## 6. Intonation
 
@@ -130,7 +130,7 @@ irony	Irony
 whisper	Whisper
 shout	Shout
 
-See: [`reference/emotions.md`](emotions.md)
+1. [`reference/emotions.md`](emotions.md)
 
 ## 7. Position
 
@@ -145,7 +145,7 @@ center	Center
 offscreen-left	Offscreen to the left
 offscreen-right	Offscreen to the right
 
-See: [`reference/blocking.md`](blocking.md)
+1. [`reference/blocking.md`](blocking.md)
 
 ## 8. Layer
 
@@ -168,7 +168,7 @@ Example:
     layer="foreground" />
 ```
 
-See: [`reference/media.md`](media.md)
+1. [`reference/media.md`](media.md)
 
 ## 9. startMode
 
@@ -194,7 +194,7 @@ The default for media elements is:
 
 absolute
 
-See: [`reference/timing.md`](timing.md)
+1. [`reference/timing.md`](timing.md)
 
 ## 10. Transition
 
@@ -220,7 +220,7 @@ or on a scene:
 <scene ... transition="fade" />
 ```
 
-See: [`reference/transitions.md`](transitions.md)
+1. [`reference/transitions.md`](transitions.md)
 
 ## 11. Timbre
 
@@ -239,7 +239,7 @@ whispering	Whispering
 
 Timbre may also be expressed as descriptive text on a character.
 
-See: [`reference/voice.md`](voice.md)
+1. [`reference/voice.md`](voice.md)
 
 ## 12. Role
 
@@ -277,7 +277,7 @@ Example:
     role="narrator" />
 ```
 
-See: [`reference/cast.md`](cast.md)
+1. [`reference/cast.md`](cast.md)
 
 ## 13. Gender
 
@@ -290,7 +290,7 @@ male	Male
 female	Female
 neutral	Neutral or unspecified
 
-See: [`reference/cast.md`](cast.md)
+1. [`reference/cast.md`](cast.md)
 
 ## 14. Age
 
@@ -315,7 +315,7 @@ Example:
     age="adult" />
 ```
 
-See: [`reference/cast.md`](cast.md)
+1. [`reference/cast.md`](cast.md)
 
 ## 15. Validation
 
@@ -327,10 +327,10 @@ The interpretation of a valid value remains semantic and is handled by the Playe
 
 ## 16. Related Documents
 
-See: [`reference/emotions.md`](emotions.md)
-See: [`reference/voice.md`](voice.md)
-See: [`reference/blocking.md`](blocking.md)
-See: [`reference/media.md`](media.md)
-See: [`reference/timing.md`](timing.md)
-See: [`reference/transitions.md`](transitions.md)
-See: [`reference/cast.md`](cast.md)
+1. [`reference/emotions.md`](emotions.md)
+2. [`reference/voice.md`](voice.md)
+3. [`reference/blocking.md`](blocking.md)
+4. [`reference/media.md`](media.md)
+5. [`reference/timing.md`](timing.md)
+6. [`reference/transitions.md`](transitions.md)
+7. [`reference/cast.md`](cast.md)

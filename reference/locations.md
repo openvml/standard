@@ -246,7 +246,7 @@ Assistant a single stable record of where a story's action takes place.
 
 ## 13. Related Documents
 
-See: [`reference/world.md`](world.md)
-See: [`reference/scene.md`](scene.md)
-See: [`reference/assets.md`](assets.md)
-See: [`reference/document.md`](document.md)
+1. [`reference/world.md`](world.md)
+2. [`reference/scene.md`](scene.md)
+3. [`reference/assets.md`](assets.md)
+4. [`reference/document.md`](document.md)
