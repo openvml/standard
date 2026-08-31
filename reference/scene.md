@@ -347,7 +347,7 @@ The general timing model is defined in:
 A scene may contain the following child elements.
 
 Element	Purpose
-<location ref="...">	Reference to a canonical location from `<world>`
+`<location ref="...">`	Reference to a canonical location from `<world>`
 `<characters>`	List of characters present in the scene
 `<blocking>`	Semantic character positioning and relationships
 `<prompt>`	Prompt for AI-assisted image/video generation
@@ -474,10 +474,6 @@ Example:
         framing="center"
         target="alex"
         movement="static" />
-```
-
-```xml
-    ...
 </scene>
 ```
 
@@ -595,20 +591,22 @@ described in section 7.
 A scene does not necessarily mean a physical place.
 
 For example:
-
+```text
 Scene 01 — Introduction
 Scene 02 — Main argument
 Scene 03 — Conclusion
 
 may be used in a presentation.
+```
 
 Likewise:
-
+```text
 Scene 01 — Character introduction
 Scene 02 — Conflict
 Scene 03 — Resolution
 
 may be used in an audiobook.
+```
 
 The meaning of a scene is determined by the project context.
 
@@ -851,12 +849,12 @@ It provides:
 
 The two standard scene attributes are:
 
-color
-atmosphere
+ - `color`
+ - `atmosphere`
 
-color provides a visual semantic hint.
+`color` provides a visual semantic hint.
 
-atmosphere provides a descriptive semantic hint.
+`atmosphere` provides a descriptive semantic hint.
 
 Neither attribute directly commands the Player to perform a particular rendering operation.
 
