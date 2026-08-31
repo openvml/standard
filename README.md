@@ -469,15 +469,15 @@ Timing is an important part of OVML.
 
 Content can be synchronized using different start modes.
 
-afterPrevious
+**`afterPrevious`**
 
 The block starts after the previous textual block has finished.
 
-duringCurrent
+**`duringCurrent`**
 
 The block starts at a specified time relative to the current timing context.
 
-absolute
+**`absolute`**
 
 The block starts at an absolute position on the timeline.
 
@@ -777,7 +777,7 @@ OpenVML is designed to support multiple independent implementations.
 
 The official OpenVML ecosystem includes:
 
-OpenVML Player
+**OpenVML Player**
 
 Open-source cross-platform player and runtime.
 
@@ -785,7 +785,7 @@ Repository:
 
 https://github.com/openvml/player
 
-OpenVML Plugins
+**OpenVML Plugins**
 
 Public plugin ecosystem for extending OpenVML Player.
 
@@ -793,7 +793,7 @@ Repository:
 
 https://github.com/openvml/plugins
 
-OpenVML Standard
+**OpenVML Standard**
 
 This repository contains the open OVML specification.
 
@@ -847,9 +847,9 @@ for the complete license text.
 
 OpenVML
 
-Open format.
-Open runtime.
-Open ecosystem.
+Open format.  
+Open runtime.  
+Open ecosystem.  
 
 OVML is intended to become a common, portable description layer for audiovisual experiences — from a
 simple narrated lesson to a multi-character audiobook, interactive story, animated production, or
