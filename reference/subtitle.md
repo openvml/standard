@@ -34,19 +34,19 @@ Example:
 
 Attributes:
 
-Attribute	Type	Required	Description
-lang	language tag	No	Language of the subtitle text
+| Attribute | Type | Required | Description |
+| lang | language tag | No | Language of the subtitle text |
 
 The text content is preserved as authored content.
 
-The value of lang uses language identifiers such as:
+The value of lang uses language identifiers such as:  
 
-en
-en-US
-ru
-ru-RU
-uk
-uk-UA
+en  
+en-US  
+ru  
+ru-RU  
+uk  
+uk-UA  
 
 ## 3. Subtitle as a Resource
 
