@@ -88,25 +88,25 @@ A directive MAY be declared with:
 - enabled;
 - parameters.
 
-type
+**type**
 
 Identifies the kind of processing operation.
 
 In the XML form, the directive element name is the type.
 
-target
+**target**
 
 Identifies the specific element or layer the directive addresses.
 
 When absent, the directive applies to the whole material of its scope.
 
-enabled
+**enabled**
 
 Activates or deactivates the directive.
 
 A directive with enabled="false" does not participate in processing.
 
-parameters
+**parameters**
 
 The effect-specific parameters of the directive.
 
@@ -118,34 +118,36 @@ The exact interpretation depends on the selected rendering engine.
 
 The canonical processing directives are:
 
-Element	Type	Description
-color	color_grading	Color correction (brightness, contrast, saturation, hue, gamma)
-grayscale	grayscale	Grayscale conversion
-invert	invert	Color inversion
-sepia	sepia	Sepia toning
-blur	blur	Gaussian blur
-sharpen	sharpen	Sharpening
-crop	crop	Region cropping
-resize	scale	Scaling / resolution change
-rotate	rotate	Rotation
-flip	flip	Horizontal / vertical mirroring
-speed	speed	Playback speed
-fade	fade	Fade in / fade out
-overlay	position_offsets	Image overlay and positioning
-chroma_key	background_removal	Background removal by chroma key
-text	subtitle_style	Text, caption, and subtitle styling
-convert	convert	Output conversion
+| Element | Type | Description |
+| :--- | :--- | :--- |
+| color | color_grading | Color correction (brightness, contrast, saturation, hue, gamma) |
+| grayscale | grayscale | Grayscale conversion |
+| invert | invert | Color inversion |
+| sepia | sepia | Sepia toning |
+| blur | blur | Gaussian blur |
+| sharpen | sharpen | Sharpening |
+| crop | crop | Region cropping |
+| resize | scale | Scaling / resolution change |
+| rotate | rotate | Rotation |
+| flip | flip | Horizontal / vertical mirroring |
+| speed | speed | Playback speed |
+| fade | fade | Fade in / fade out |
+| overlay | position_offsets | Image overlay and positioning |
+| chroma_key | background_removal | Background removal by chroma key |
+| text | subtitle_style | Text, caption, and subtitle styling |
+| convert | convert | Output conversion |
 
 The type vocabulary also includes the semantic intents aspect_ratio, canvas_zoom_pan,
 container_color, and caption_enable.
 
 These are resolved through the corresponding directives:
 
-Type	Semantic intent
-aspect_ratio	Expressed through crop and resize (fit, fill, stretch)
-canvas_zoom_pan	Canvas motion; expressed through resize and camera instructions
-container_color	Canvas / container background color behind the media, expressed through fade color or scene color
-caption_enable	Whether text is rendered, expressed through the enabled state of text
+| Type | Semantic intent |
+| :--- | :--- |
+| aspect_ratio | Expressed through crop and resize (fit, fill, stretch) |
+| canvas_zoom_pan | Canvas motion; expressed through resize and camera instructions |
+| container_color | Canvas / container background color behind the media, expressed through fade color or scene color |
+| caption_enable | Whether text is rendered, expressed through the enabled state of text |
 
 Processing directives are declarative. The runtime interprets them.
 
@@ -163,12 +165,13 @@ The color directive applies color correction.
     </color>
 ```
 
-Parameter	Description	Range
-brightness	Brightness adjustment	-1 — +1
-contrast	Contrast adjustment	-1 — +1
-saturation	Saturation adjustment	-1 — +1
-hue	Hue rotation	-180 — +180
-gamma	Gamma correction	0.1 — 3.0
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| brightness | Brightness adjustment | -1 — +1 |
+| contrast | Contrast adjustment | -1 — +1 |
+| saturation | Saturation adjustment | -1 — +1 |
+| hue | Hue rotation | -180 — +180 |
+| gamma | Gamma correction | 0 |.1 — 3.0
 
 ### 7. grayscale
 
@@ -180,8 +183,9 @@ The grayscale directive converts the material to black and white.
     </grayscale>
 ```
 
-Parameter	Description	Range
-intensity	Grayscale intensity	0 — 1
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| intensity | Grayscale intensity | 0 — 1 |
 
 ### 8. invert
 
@@ -193,8 +197,9 @@ The invert directive inverts the colors.
     </invert>
 ```
 
-Parameter	Description	Range
-intensity	Inversion intensity	0 — 1
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| intensity | Inversion intensity | 0 — 1 |
 
 ### 9. sepia
 
@@ -206,8 +211,9 @@ The sepia directive applies a sepia tone.
     </sepia>
 ```
 
-Parameter	Description	Range
-intensity	Sepia intensity	0 — 1
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| intensity | Sepia intensity | 0 — 1 |
 
 ### 10. blur
 
@@ -219,8 +225,9 @@ The blur directive applies a gaussian blur.
     </blur>
 ```
 
-Parameter	Description	Range
-radius	Blur radius	0 — 50
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| radius | Blur radius | 0 — 50 |
 
 ### 11. sharpen
 
@@ -232,8 +239,9 @@ The sharpen directive increases perceived sharpness.
     </sharpen>
 ```
 
-Parameter	Description	Range
-amount	Sharpening amount	0 — 5
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| amount | Sharpening amount | 0 — 5 |
 
 ### 12. rotate
 
@@ -247,8 +255,9 @@ The rotate directive rotates the material.
 
 Angles may be 90, 180, or 270 degrees.
 
-Parameter	Description	Range
-angle	Rotation angle	-180 — +180 degrees
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| angle | Rotation angle | -180 — +180 degrees |
 
 ### 13. flip
 
@@ -261,9 +270,10 @@ The flip directive mirrors the material horizontally and/or vertically.
     </flip>
 ```
 
-Parameter	Description	Values
-horizontal	Horizontal mirroring	true / false
-vertical	Vertical mirroring	true / false
+| Parameter | Description | Values |
+| :--- | :--- | :--- |
+| horizontal | Horizontal mirroring | true / false |
+| vertical | Vertical mirroring | true / false |
 
 ### 14. crop
 
@@ -280,11 +290,12 @@ Coordinates and sizes are expressed as fractions of the source dimensions.
     </crop>
 ```
 
-Parameter	Description	Range
-x	Left offset	0 — 1
-y	Top offset	0 — 1
-width	Crop width	0.1 — 1
-height	Crop height	0.1 — 1
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| x | Left offset | 0 — 1 |
+| y | Top offset | 0 — 1 |
+| width | Crop width | 0.1 — 1 |
+| height | Crop height | 0.1 — 1 |
 
 ### 15. resize
 
@@ -298,10 +309,11 @@ The resize directive changes the size of the material.
     </resize>
 ```
 
-Parameter	Description	Values
-width	Target width	160 — 3840 px
-height	Target height	120 — 2160 px
-mode	Fitting mode	fit, fill, stretch
+| Parameter | Description | Values |
+| :--- | :--- | :--- |
+| width | Target width | 160 — 3840 px |
+| height | Target height | 120 — 2160 px |
+| mode | Fitting mode | fit, fill, stretch |
 
 fit preserves the aspect ratio inside the target bounds.
 
@@ -321,8 +333,9 @@ The speed directive changes the playback speed.
     </speed>
 ```
 
-Parameter	Description	Range
-factor	Speed factor	0.25 — 4.0
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| factor | Speed factor | 0.25 — 4.0 |
 
 ### 17. fade
 
@@ -335,9 +348,10 @@ The fade directive applies fade in and fade out.
     </fade>
 ```
 
-Parameter	Description	Range
-in_duration	Fade-in duration	0 — 10 s
-out_duration	Fade-out duration	0 — 10 s
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| in_duration | Fade-in duration | 0 — 10 s |
+| out_duration | Fade-out duration | 0 — 10 s |
 
 ### 18. overlay
 
@@ -354,11 +368,12 @@ The x and y values position the overlay; they express the position_offsets seman
     </overlay>
 ```
 
-Parameter	Description	Range
-src	Asset identifier of the overlay resource	asset reference
-opacity	Overlay opacity	0 — 1
-x	Horizontal position	0 — 1 (1 = right edge)
-y	Vertical position	0 — 1 (1 = bottom edge)
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| src | Asset identifier of the overlay resource | asset reference |
+| opacity | Overlay opacity | 0 — 1 |
+| x | Horizontal position | 0 — 1 (1 = right edge) |
+| y | Vertical position | 0 — 1 (1 = bottom edge) |
 
 ### 19. chroma_key
 
@@ -373,9 +388,10 @@ It expresses the background_removal semantics.
     </chroma_key>
 ```
 
-Parameter	Description	Range
-similarity	Color similarity threshold	0 — 1
-color	Color to remove	#RRGGBB
+| Parameter | Description | Range |
+| :--- | :--- | :--- |
+| similarity | Color similarity threshold | 0 — 1 |
+| color | Color to remove | #RRGGBB |
 
 ### 20. text
 
@@ -394,13 +410,14 @@ It expresses the subtitle_style and caption_enable semantics.
     </text>
 ```
 
-Parameter	Description	Range
-content	Text content	text
-size	Font size	8 — 200
-color	Text color	#RRGGBB
-font	Font family	implementation-defined
-x	Horizontal position	0 — 1
-y	Vertical position	0 — 1
+| Parameter | Description | Range |
+| --- | --- | --- |
+| content | Text content | text |
+| size | Font size | 8 — 200 |
+| color | Text color | #RRGGBB |
+| font | Font family | implementation-defined |
+| x | Horizontal position | 0 — 1 |
+| y | Vertical position | 0 — 1 |
 
 ### 21. convert
 
@@ -414,10 +431,11 @@ The convert directive describes the requested output format.
     </convert>
 ```
 
-Parameter	Description	Allowed values
-format	Container format	mp4, webm, mov, avi
-codec	Video codec	h264, h265, vp9, av1
-quality	Encoding quality	low, medium, high
+| Parameter | Description | Allowed values |
+| --- | --- | --- |
+| format | Container format | mp4, webm, mov, avi |
+| codec | Video codec | h264, h265, vp9, av1 |
+| quality | Encoding quality | low, medium, high |
 
 ## 22. Application
 
