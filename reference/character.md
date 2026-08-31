@@ -27,7 +27,7 @@ Characters are declared inside the `<cast>` element.
 
 The `<cast>` element is optional for projects that do not require character definitions.
 
-See: reference/cast.md
+See: [`reference/cast.md`](cast.md)
 
 ## 2. Structure
 
@@ -363,8 +363,8 @@ Applications MAY support additional engines.
 
 Unknown engine identifiers SHOULD be preserved when an OVML document is read and written.
 
-See: reference/voice.md
-See: reference/tts.md
+See: [`reference/voice.md`](voice.md)
+See: [`reference/tts.md`](tts.md)
 
 ## 9. Timbre
 
@@ -494,7 +494,7 @@ Example:
 
 audioProcessorFile provides a portable reference when the preset is included in an OVMZ container.
 
-See: reference/audio-processing.md
+See: [`reference/audio-processing.md`](audio-processing.md)
 
 ## 14. Video Processing
 
@@ -516,7 +516,7 @@ Example:
         videoProcessorFile="presets/video/Cinematic.ovml" />
 ```
 
-See: reference/video-processing.md
+See: [`reference/video-processing.md`](video-processing.md)
 
 ## 15. Image Processing
 
@@ -538,7 +538,7 @@ Example:
         imageProcessorFile="presets/image/DarkFantasy.ovml" />
 ```
 
-See: reference/image-processing.md
+See: [`reference/image-processing.md`](image-processing.md)
 
 ## 16. Character References in Script
 
@@ -618,7 +618,7 @@ Scene participation references existing characters.
 
 It does not define new characters.
 
-See: reference/scene.md
+See: [`reference/scene.md`](scene.md)
 
 ## 18. Character Identity vs. Voice
 
@@ -720,11 +720,11 @@ engines, operating systems, and rendering environments.
 
 ## 22. Related Documents
 
-See: reference/cast.md
-See: reference/voice.md
-See: reference/emotions.md
-See: reference/tts.md
-See: reference/scene.md
-See: reference/audio-processing.md
-See: reference/video-processing.md
-See: reference/image-processing.md
+See: [`reference/cast.md`](cast.md)
+See: [`reference/voice.md`](voice.md)
+See: [`reference/emotions.md`](emotions.md)
+See: [`reference/tts.md`](tts.md)
+See: [`reference/scene.md`](scene.md)
+See: [`reference/audio-processing.md`](audio-processing.md)
+See: [`reference/video-processing.md`](video-processing.md)
+See: [`reference/image-processing.md`](image-processing.md)

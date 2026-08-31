@@ -165,7 +165,7 @@ The scene `mood` is a vocabulary value such as calm, tense, mysterious, romantic
 
 Per-character emotion describes an individual character's state.
 
-See: reference/enums.md
+See: [`reference/enums.md`](enums.md)
 
 ## 10. Validation
 
@@ -181,7 +181,7 @@ The validator does not determine whether a particular rendering of an emotion is
 
 ## 11. Related Documents
 
-See: reference/cast.md
-See: reference/enums.md
-See: reference/line.md
-See: reference/voice.md
+See: [`reference/cast.md`](cast.md)
+See: [`reference/enums.md`](enums.md)
+See: [`reference/line.md`](line.md)
+See: [`reference/voice.md`](voice.md)

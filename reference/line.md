@@ -809,7 +809,7 @@ The <p> provides the surrounding sequential context.
 The paragraph model — including narration and dialogue roles, character defaults, and sequential
 chaining — is defined in:
 
-reference/paragraph.md
+[`reference/paragraph.md`](paragraph.md)
 
 ## 17. Complete Example
 
@@ -846,7 +846,7 @@ A complete single-line example combining character, speech, and presentation att
 
 A complete multi-line paragraph example is defined in:
 
-reference/paragraph.md
+[`reference/paragraph.md`](paragraph.md)
 
 ## 18. Validation
 

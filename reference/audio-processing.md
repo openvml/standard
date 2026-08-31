@@ -517,7 +517,7 @@ A character MAY reference an audio-processing preset.
 
 The referenced preset is applied to the character's voice.
 
-See: reference/character.md
+See: [`reference/character.md`](character.md)
 
 With the `input` model, character-level processing uses input="character".
 
@@ -554,7 +554,7 @@ Inline directives apply only to that media element.
 
 With the `input` model, element-level processing uses input="track".
 
-See: reference/media.md
+See: [`reference/media.md`](media.md)
 
 ## 29. Scene-Level Declaration
 
@@ -563,7 +563,7 @@ A scene MAY provide context for processing preset selection.
 The scene provides context; it does not directly execute a preset unless an explicit processing
 declaration or character configuration specifies one.
 
-See: reference/scene.md
+See: [`reference/scene.md`](scene.md)
 
 ## 30. Layer-Specific Instantiation
 
@@ -601,10 +601,10 @@ Processing directives are declarative. The runtime interprets them.
 
 ## 32. Related Documents
 
-See: reference/media.md
-See: reference/character.md
-See: reference/cast.md
-See: reference/video-processing.md
-See: reference/image-processing.md
-See: ../presets/audio.md
-See: ../presets/README.md
+See: [`reference/media.md`](media.md)
+See: [`reference/character.md`](character.md)
+See: [`reference/cast.md`](cast.md)
+See: [`reference/video-processing.md`](video-processing.md)
+See: [`reference/image-processing.md`](image-processing.md)
+See: ../[`presets/audio.md`](../presets/audio.md)
+See: ../[`presets/README.md`](../presets/README.md)

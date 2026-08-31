@@ -220,7 +220,7 @@ The standard's three values describe the portable intent.
 Subtitle and caption content, for example, is normally composited as an overlay regardless of the
 renderer used.
 
-See: reference/subtitle.md
+See: [`reference/subtitle.md`](subtitle.md)
 
 ## 10. Validation
 
@@ -254,8 +254,8 @@ display systems while preserving their intended visual relationship.
 
 ## 12. Related Documents
 
-See: reference/media.md
-See: reference/subtitle.md
-See: reference/timing.md
-See: reference/scene.md
-See: concepts/timeline-and-blocks.md
+See: [`reference/media.md`](media.md)
+See: [`reference/subtitle.md`](subtitle.md)
+See: [`reference/timing.md`](timing.md)
+See: [`reference/scene.md`](scene.md)
+See: [`concepts/timeline-and-blocks.md`](../concepts/timeline-and-blocks.md)

@@ -387,7 +387,7 @@ scenes of a long project.
 
 The complete model is defined in:
 
-reference/world.md
+[`reference/world.md`](../reference/world.md)
 
 ## 13. Scene and Timeline
 
@@ -421,7 +421,7 @@ The scene provides their common structural context.
 
 The general timing model is defined in:
 
-concepts/timeline-and-blocks.md
+[`concepts/timeline-and-blocks.md`](timeline-and-blocks.md)
 
 ## 14. Scene and Dialogue
 
@@ -516,7 +516,7 @@ The <camera> element describes visual direction.
 
 Camera semantics are defined separately in:
 
-concepts/camera.md
+[`concepts/camera.md`](camera.md)
 
 The important architectural distinction is:
 

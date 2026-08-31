@@ -168,6 +168,6 @@ Visual processing lets OVML describe the intended look of its imagery.
 The runtime interprets the processing description and produces the imagery; the document preserves
 the source and the intent.
 
-See: presets/video.md
-See: presets/README.md
-See: concepts/media-layers.md
+See: [`presets/video.md`](../presets/video.md)
+See: [`presets/README.md`](../presets/README.md)
+See: [`concepts/media-layers.md`](media-layers.md)

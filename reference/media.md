@@ -303,7 +303,7 @@ The layer expresses the intended visual composition.
 The complete layer model, including layering semantics, ordering, and the overlay layer, is defined
 in:
 
-reference/layers.md
+[`reference/layers.md`](layers.md)
 
 ### 10. volume
 

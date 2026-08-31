@@ -124,7 +124,7 @@ It contains scenes and content blocks and provides a natural navigation point fo
 
 The complete chapter model, including chapter metadata, is defined in:
 
-reference/chapter.md
+[`reference/chapter.md`](chapter.md)
 
 ## 5. Scenes
 
@@ -161,7 +161,7 @@ situations.
 
 Scene semantics are defined in:
 
-reference/scene.md
+[`reference/scene.md`](scene.md)
 
 ## 6. Camera
 
@@ -187,8 +187,8 @@ Example:
 
 Camera semantics are defined in:
 
-reference/scene.md
-concepts/camera.md
+[`reference/scene.md`](scene.md)
+[`concepts/camera.md`](../concepts/camera.md)
 
 Camera instructions are declarative.
 
@@ -234,7 +234,7 @@ Alex
 
 The complete paragraph model, including narration and dialogue roles, is defined in:
 
-reference/paragraph.md
+[`reference/paragraph.md`](paragraph.md)
 
 ## 8. Parallel Content
 
@@ -314,7 +314,7 @@ Example:
 
 Media semantics are defined in:
 
-reference/media.md
+[`reference/media.md`](media.md)
 
 ## 10. Explicit Pauses
 
@@ -344,7 +344,7 @@ The <break> element does not represent silence as an audio asset.
 
 Its semantics are defined in:
 
-reference/break.md
+[`reference/break.md`](break.md)
 
 ## 11. Script Timing
 

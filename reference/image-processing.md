@@ -19,8 +19,8 @@ than temporal visual media.
 An image has no intrinsic playback duration. Its duration is determined by the media element and the
 surrounding timeline.
 
-See: reference/video-processing.md
-See: reference/assets.md
+See: [`reference/video-processing.md`](video-processing.md)
+See: [`reference/assets.md`](assets.md)
 
 ## 2. Structure
 
@@ -392,7 +392,7 @@ A character MAY reference an image-processing preset.
         imageProcessorFile="presets/image/DarkFantasy.ovml" />
 ```
 
-See: reference/character.md
+See: [`reference/character.md`](character.md)
 
 ## 22. Media and Block-Level Declaration
 
@@ -408,7 +408,7 @@ Processing may also be declared inline as child directives of the media element.
 
 Inline directives apply only to that media element.
 
-See: reference/media.md
+See: [`reference/media.md`](media.md)
 
 ## 23. Scene-Level Declaration
 
@@ -417,7 +417,7 @@ A scene MAY provide context for processing preset selection.
 The scene provides context; it does not directly execute a preset unless an explicit processing
 declaration or character configuration specifies one.
 
-See: reference/scene.md
+See: [`reference/scene.md`](scene.md)
 
 ## 24. Design Principle
 
@@ -440,9 +440,9 @@ Processing directives are declarative. The runtime interprets them.
 
 ## 25. Related Documents
 
-See: reference/video-processing.md
-See: reference/media.md
-See: reference/character.md
-See: reference/cast.md
-See: reference/audio-processing.md
-See: ../presets/README.md
+See: [`reference/video-processing.md`](video-processing.md)
+See: [`reference/media.md`](media.md)
+See: [`reference/character.md`](character.md)
+See: [`reference/cast.md`](cast.md)
+See: [`reference/audio-processing.md`](audio-processing.md)
+See: ../[`presets/README.md`](../presets/README.md)

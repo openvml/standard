@@ -71,7 +71,7 @@ Common subtitle resource formats include:
 
 Subtitles are one of the asset types recognized by OVML.
 
-See: reference/assets.md
+See: [`reference/assets.md`](assets.md)
 
 ## 4. Subtitles and Media
 
@@ -121,7 +121,7 @@ These preferences are hints to the Player.
 
 They do not require a particular subtitle rendering implementation.
 
-See: reference/meta.md
+See: [`reference/meta.md`](meta.md)
 
 ## 6. Subtitle vs. Text Blocks
 
@@ -174,8 +174,8 @@ The Player decides how they are rendered, formatted, and synchronized on the tar
 
 ## 10. Related Documents
 
-See: reference/meta.md
-See: reference/assets.md
-See: reference/media.md
-See: reference/line.md
-See: reference/layers.md
+See: [`reference/meta.md`](meta.md)
+See: [`reference/assets.md`](assets.md)
+See: [`reference/media.md`](media.md)
+See: [`reference/line.md`](line.md)
+See: [`reference/layers.md`](layers.md)

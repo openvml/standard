@@ -38,7 +38,7 @@ The `<character>` element is the unit of the cast.
 The full character reference — required and optional attributes, child elements, voice
 configuration, and processing preset references — is documented separately.
 
-See: reference/character.md
+See: [`reference/character.md`](character.md)
 
 ## 3. Character Grouping
 
@@ -63,7 +63,7 @@ The value of line/@char MUST correspond to an existing character/@id.
 
 The script may contain paragraphs with lines assigned to different characters.
 
-Example (detailed in reference/character.md):
+Example (detailed in [`reference/character.md`](character.md)):
 
 ```xml
     <p>
@@ -105,7 +105,7 @@ Scene participation references the characters of the cast.
 
 It does not define new characters.
 
-See: reference/scene.md
+See: [`reference/scene.md`](scene.md)
 
 ## 6. Pronunciation Control
 
@@ -122,7 +122,7 @@ Word-level pronunciation control is provided by the `<w>` element:
 The `<w>` element may set explicit stress, provide abbreviation aliases, supply a phonetic
 transcription, or ignore a word during synthesis.
 
-See: reference/voice.md
+See: [`reference/voice.md`](voice.md)
 
 ## 7. Processing Presets
 
@@ -139,14 +139,14 @@ Processing presets are referenced from character configuration:
         audioProcessorFile="presets/audio/WarmVoice.ovml" />
 ```
 
-The reference mechanism is documented in reference/character.md.
+The reference mechanism is documented in [`reference/character.md`](character.md).
 
 The processing element formats are documented in the processing references.
 
-See: reference/character.md
-See: reference/audio-processing.md
-See: reference/video-processing.md
-See: reference/image-processing.md
+See: [`reference/character.md`](character.md)
+See: [`reference/audio-processing.md`](audio-processing.md)
+See: [`reference/video-processing.md`](video-processing.md)
+See: [`reference/image-processing.md`](image-processing.md)
 
 ## 8. Design Principle
 
@@ -163,10 +163,10 @@ engines, operating systems, and rendering environments.
 
 ## 9. Related Documents
 
-See: reference/character.md
-See: reference/voice.md
-See: reference/emotions.md
-See: reference/scene.md
-See: reference/audio-processing.md
-See: reference/video-processing.md
-See: reference/image-processing.md
+See: [`reference/character.md`](character.md)
+See: [`reference/voice.md`](voice.md)
+See: [`reference/emotions.md`](emotions.md)
+See: [`reference/scene.md`](scene.md)
+See: [`reference/audio-processing.md`](audio-processing.md)
+See: [`reference/video-processing.md`](video-processing.md)
+See: [`reference/image-processing.md`](image-processing.md)

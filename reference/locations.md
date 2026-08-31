@@ -20,7 +20,7 @@ This keeps long-form projects consistent across many scenes and chapters: a loca
 in the canon remains the same location everywhere it is referenced.
 
 The mechanism is generic. The same world-canon section model serves a novel's locations, a lecture's
-terms, and a documentation set's definitions. See: reference/world.md
+terms, and a documentation set's definitions. See: [`reference/world.md`](world.md)
 
 ## 2. The Locations Section
 
@@ -246,7 +246,7 @@ Assistant a single stable record of where a story's action takes place.
 
 ## 13. Related Documents
 
-See: reference/world.md
-See: reference/scene.md
-See: reference/assets.md
-See: reference/document.md
+See: [`reference/world.md`](world.md)
+See: [`reference/scene.md`](scene.md)
+See: [`reference/assets.md`](assets.md)
+See: [`reference/document.md`](document.md)

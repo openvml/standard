@@ -190,6 +190,6 @@ The guiding principle is captured in a single line from the reference:
 OVML defines what should happen and when. The Player determines how that content is buffered,
 streamed, synthesized, decoded, rendered, and synchronized on the target platform.
 
-See: reference/document.md
-See: reference/validation.md
-See: reference/README.md
+See: [`reference/document.md`](../reference/document.md)
+See: [`reference/validation.md`](../reference/validation.md)
+See: [`reference/README.md`](../reference/README.md)

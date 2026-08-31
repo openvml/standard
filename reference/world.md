@@ -165,7 +165,7 @@ and `name`.
 
 The complete model for the locations section is defined in:
 
-reference/locations.md
+[`reference/locations.md`](locations.md)
 
 ## 7. Referencing a Canon Entity From a Scene
 
@@ -192,7 +192,7 @@ The `ref` value is the `id` of an entity declared in the corresponding section o
 
 The location-specific reference model is defined in:
 
-reference/locations.md
+[`reference/locations.md`](locations.md)
 
 The mechanism is identical for every section:
 
@@ -221,7 +221,7 @@ Variation never modifies the canon.
 
 Location-specific variation fields are defined in:
 
-reference/locations.md
+[`reference/locations.md`](locations.md)
 
 ## 9. Backward Compatibility
 
@@ -264,6 +264,6 @@ outside the standard.
 
 ## 12. Related Documents
 
-See: reference/locations.md
-See: reference/scene.md
-See: reference/document.md
+See: [`reference/locations.md`](locations.md)
+See: [`reference/scene.md`](scene.md)
+See: [`reference/document.md`](document.md)

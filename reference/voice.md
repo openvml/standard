@@ -156,7 +156,7 @@ Example:
 </line>
 ```
 
-See: reference/emotions.md
+See: [`reference/emotions.md`](emotions.md)
 
 ## 9. Intonation
 
@@ -174,7 +174,7 @@ Example:
 </line>
 ```
 
-See: reference/emotions.md
+See: [`reference/emotions.md`](emotions.md)
 
 ## 10. Pronunciation Control
 
@@ -312,7 +312,7 @@ These are runtime, provider, or creative concerns.
 
 ## 19. Related Documents
 
-See: reference/cast.md
-See: reference/emotions.md
-See: reference/line.md
-See: reference/tts.md
+See: [`reference/cast.md`](cast.md)
+See: [`reference/emotions.md`](emotions.md)
+See: [`reference/line.md`](line.md)
+See: [`reference/tts.md`](tts.md)

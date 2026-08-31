@@ -342,7 +342,7 @@ The scene provides their common structural context.
 
 The general timing model is defined in:
 
-reference/timing.md
+[`reference/timing.md`](timing.md)
 
 ## 10. Child Elements
 
@@ -398,7 +398,7 @@ A plain-text <location> without ref remains valid as a free-form description.
 
 The complete location model is defined in:
 
-reference/locations.md
+[`reference/locations.md`](locations.md)
 
 ## 12. Characters
 
@@ -417,7 +417,7 @@ Each <char> entry references a character id declared in the <cast> element.
 
 The emotional state may provide additional context for voice direction and AI-assisted rendering.
 
-See: reference/cast.md
+See: [`reference/cast.md`](cast.md)
 
 ## 13. Blocking
 
@@ -443,7 +443,7 @@ Blocking records intend and spatial relations rather than absolute coordinates:
 
 The complete blocking model is defined in:
 
-reference/blocking.md
+[`reference/blocking.md`](blocking.md)
 
 ## 14. Prompt
 
@@ -519,7 +519,7 @@ The Player determines how these instructions are composed by the rendering syste
 
 The full camera model is defined in:
 
-concepts/camera.md
+[`concepts/camera.md`](../concepts/camera.md)
 
 ## 16. Text and Media Content
 
@@ -555,13 +555,13 @@ This allows a single scene to describe a complete audiovisual composition.
 
 Text semantics are defined in:
 
-reference/line.md
-reference/paragraph.md
+[`reference/line.md`](line.md)
+[`reference/paragraph.md`](paragraph.md)
 
 Media semantics are defined in:
 
-reference/media.md
-reference/assets.md
+[`reference/media.md`](media.md)
+[`reference/assets.md`](assets.md)
 
 ## 17. Scene Transitions
 
@@ -872,15 +872,15 @@ multi-character audiobook, interactive game narrative, film dubbing project, or 
 
 ## 28. Related Documents
 
-See: reference/document.md
-See: reference/chapter.md
-See: reference/body.md
-See: reference/locations.md
-See: reference/blocking.md
-See: reference/cast.md
-See: reference/line.md
-See: reference/paragraph.md
-See: reference/media.md
-See: reference/timing.md
-See: concepts/camera.md
-See: concepts/scenes-and-world.md
+See: [`reference/document.md`](document.md)
+See: [`reference/chapter.md`](chapter.md)
+See: [`reference/body.md`](body.md)
+See: [`reference/locations.md`](locations.md)
+See: [`reference/blocking.md`](blocking.md)
+See: [`reference/cast.md`](cast.md)
+See: [`reference/line.md`](line.md)
+See: [`reference/paragraph.md`](paragraph.md)
+See: [`reference/media.md`](media.md)
+See: [`reference/timing.md`](timing.md)
+See: [`concepts/camera.md`](../concepts/camera.md)
+See: [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md)

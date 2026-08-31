@@ -195,7 +195,7 @@ The layer system lets an OVML author describe a visual composition without descr
 This separation allows the same media elements to be used by different renderers, platforms, and
 display systems while preserving their intended visual relationship.
 
-See: reference/media.md
-See: reference/layers.md
-See: concepts/camera.md
-See: concepts/timeline-and-blocks.md
+See: [`reference/media.md`](../reference/media.md)
+See: [`reference/layers.md`](../reference/layers.md)
+See: [`concepts/camera.md`](camera.md)
+See: [`concepts/timeline-and-blocks.md`](timeline-and-blocks.md)

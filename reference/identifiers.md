@@ -125,7 +125,7 @@ Characters are referenced by their `id` through the `char` attribute.
 
 The value of `char` MUST correspond to an existing character `id` in the `<cast>` element.
 
-See: reference/cast.md
+See: [`reference/cast.md`](cast.md)
 
 ## 7. Referencing World Entities
 
@@ -151,7 +151,7 @@ The mechanism is identical for every section:
 </scene>
 ```
 
-See: reference/world.md
+See: [`reference/world.md`](world.md)
 
 ## 8. The Uniform Section Rule
 
@@ -245,7 +245,7 @@ or another supported resource.
 
 This separation allows the resource location to change without changing the OVML script.
 
-See: reference/assets.md
+See: [`reference/assets.md`](assets.md)
 
 ## 12. Asset Identifiers in the Catalog
 
@@ -330,7 +330,7 @@ rewriting the creative content.
 
 ## 17. Related Documents
 
-See: reference/world.md
-See: reference/cast.md
-See: reference/assets.md
-See: reference/document.md
+See: [`reference/world.md`](world.md)
+See: [`reference/cast.md`](cast.md)
+See: [`reference/assets.md`](assets.md)
+See: [`reference/document.md`](document.md)

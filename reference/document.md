@@ -117,7 +117,7 @@ It describes the project and its general presentation preferences.
 
 See:
 
-reference/meta.md
+[`reference/meta.md`](meta.md)
 ### 5. <cast>
 
 The <cast> element contains the characters used by the project.
@@ -164,7 +164,7 @@ This avoids duplicating character information in every line.
 
 See:
 
-reference/cast.md
+[`reference/cast.md`](cast.md)
 ### 6. <assets>
 
 The <assets> element describes resources used by the project.
@@ -214,7 +214,7 @@ The script can then reference those resources by ID.
 
 See:
 
-reference/assets.md
+[`reference/assets.md`](assets.md)
 
 ### 7. <world>
 
@@ -317,7 +317,7 @@ section by the uniform rule above, from the document's structure alone.
 
 See:
 
-reference/world.md
+[`reference/world.md`](world.md)
 
 ### 8. <script>
 
@@ -367,7 +367,7 @@ Example:
 
 The complete chapter model is defined in:
 
-reference/chapter.md
+[`reference/chapter.md`](chapter.md)
 
 ### 10. <scene>
 
@@ -392,7 +392,7 @@ Example:
 The scene model — including its attributes, child elements, location references, camera direction,
 and scene boundaries — is defined in:
 
-reference/scene.md
+[`reference/scene.md`](scene.md)
 
 ### 11. <camera>
 
@@ -422,8 +422,8 @@ Example:
 
 The camera model is defined in:
 
-reference/scene.md
-concepts/camera.md
+[`reference/scene.md`](scene.md)
+[`concepts/camera.md`](../concepts/camera.md)
 
 ## 12. Text Content
 
@@ -602,8 +602,8 @@ The element is positioned at an absolute point on the project timeline.
 
 The complete timing model is described in:
 
-concepts/timeline-and-blocks.md
-reference/timing.md
+[`concepts/timeline-and-blocks.md`](../concepts/timeline-and-blocks.md)
+[`reference/timing.md`](timing.md)
 
 ## 17. Complete Hierarchy
 

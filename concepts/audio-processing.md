@@ -158,6 +158,6 @@ Audio processing lets OVML describe the intended character of a project's sound.
 The runtime interprets the processing description and produces the sound; the document preserves the
 source and the intent.
 
-See: presets/audio.md
-See: reference/tts.md
-See: concepts/characters-and-voices.md
+See: [`presets/audio.md`](../presets/audio.md)
+See: [`reference/tts.md`](../reference/tts.md)
+See: [`concepts/characters-and-voices.md`](characters-and-voices.md)

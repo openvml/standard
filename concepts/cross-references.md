@@ -158,6 +158,6 @@ This is the mechanism that lets scenes reference locations, lines reference char
 reference assets, and cameras reference targets — the cross-references that bind an OVML project
 together.
 
-See: reference/identifiers.md
-See: reference/world.md
-See: reference/cast.md
+See: [`reference/identifiers.md`](../reference/identifiers.md)
+See: [`reference/world.md`](../reference/world.md)
+See: [`reference/cast.md`](../reference/cast.md)

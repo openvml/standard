@@ -717,7 +717,7 @@ spec/
 
 The main specification is:
 
-spec/OVML-2.2.md
+[`spec/OVML-2.2.md`](spec/OVML-2.2.md)
 
 Additional documents describe individual parts of the format.
 

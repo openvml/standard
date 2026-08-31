@@ -162,7 +162,7 @@ A scene represents a continuous logical audiovisual context.
 
 Chapters provide the outer structure; scenes provide the internal dramatic and visual boundaries.
 
-See: reference/scene.md
+See: [`reference/scene.md`](scene.md)
 
 ## 5. Short Projects
 
@@ -227,7 +227,7 @@ OVML does not require a specific user-interface representation.
 
 The project-level document model describes <chapter> as the container between <script> and <scene>.
 
-See: reference/document.md
+See: [`reference/document.md`](document.md)
 
 ## 8. Validation
 
@@ -252,6 +252,6 @@ determines how that section is presented and navigated.
 
 ## 10. Related Documents
 
-See: reference/document.md
-See: reference/body.md
-See: reference/scene.md
+See: [`reference/document.md`](document.md)
+See: [`reference/body.md`](body.md)
+See: [`reference/scene.md`](scene.md)

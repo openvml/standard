@@ -696,7 +696,7 @@ Its contents still follow the OpenVML timing rules.
 
 Scene semantics are described separately in:
 
-concepts/scenes-and-world.md
+[`concepts/scenes-and-world.md`](scenes-and-world.md)
 
 ## 21. Timing and Camera
 
@@ -709,7 +709,7 @@ is implemented.
 
 Camera semantics are defined separately in:
 
-concepts/camera.md
+[`concepts/camera.md`](camera.md)
 
 ## 22. Timing Resolution
 

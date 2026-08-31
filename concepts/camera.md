@@ -312,7 +312,7 @@ elements.
 
 See:
 
-concepts/timeline-and-blocks.md
+[`concepts/timeline-and-blocks.md`](timeline-and-blocks.md)
 
 ## 13. Camera Start Time
 
