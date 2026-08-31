@@ -253,14 +253,15 @@ used.
 
 Authoring environments and implementations MAY support additional scene attributes.
 
-Attribute	Type	Description
-id	string	Unique scene identifier
-title	string	Display title of the scene
-time	enum	Time of day: morning, afternoon, evening, night
-weather	enum	Weather: clear, cloudy, rainy, foggy, snowy
-mood	enum	Mood: calm, tense, mysterious, romantic, dramatic
-duration	number	Maximum scene duration in seconds
-transition	enum	Transition to the next scene: fade, cut, dissolve, wipe
+| Attribute | Type | Description |
+| --------- | ---- | ----------- |
+| id | string | Unique scene identifier |
+| title | string | Display title of the scene |
+| time | enum | Time of day: morning, afternoon, evening, night |
+| weather | enum | Weather: clear, cloudy, rainy, foggy, snowy |
+| | mood | enum | Mood: calm, tense, mysterious, romantic, dramatic |
+| duration | number | Maximum scene duration in seconds |
+| transition | enum | Transition to the next scene: fade, cut, dissolve, wipe |
 
 Example:
 
@@ -272,11 +273,8 @@ Example:
     weather="foggy"
     mood="mysterious"
     color="#1a1a2e">
-```
 
     ...
-
-```xml
 </scene>
 ```
 
