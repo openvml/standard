@@ -376,9 +376,8 @@ This separation keeps `<meta>` independent from the project's actual audiovisual
 
 ## 14. Design Principle
 
-```xml
-<meta> describes the project.
-```
+`<meta>` describes the project.
+
 
 It does not describe how the project must be rendered.
 

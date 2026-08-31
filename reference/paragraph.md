@@ -129,17 +129,18 @@ If neither the line nor the paragraph specifies a char, the default is narrator.
 
 The following attributes may be applied to a `<p>` element.
 
-Attribute	Type	Default	Description
-char	string	narrator	Default character reference
-emotion	string	implementation-defined	Emotional or expressive direction
-rate	float	1.0	Speech rate
-pitch	float	1.0	Voice pitch
-volume	float	1.0	Requested loudness
-timbre	string	implementation-defined	Voice timbre hint
-emphasis	enum	implementation-defined	Emphasis scope (word, sentence, ...)
-emphasis_level	enum	implementation-defined	Emphasis strength (low, medium, high)
-intonation	enum	implementation-defined	Intonation direction (statement, question, ...)
-marker	string	implementation-defined	Navigation marker
+| Attribute | Type | Default | Description |
+| --------- | ----- | ------ | ----------- |
+| char | string | narrator | Default character reference |
+| emotion | string | implementation-defined | Emotional or expressive direction |
+| rate | float | 1.0 | Speech rate |
+| pitch | float | 1.0 | Voice pitch |
+| volume | float | 1.0 | Requested loudness |
+| timbre | string | implementation-defined | Voice timbre hint |
+| emphasis | enum | implementation-defined | Emphasis scope (word, sentence, ...) |
+| emphasis_level | enum	implementation-defined | Emphasis strength (low, medium, high) |
+| intonation | enum | implementation-defined | Intonation direction (statement, question, ...) |
+| marker | string | implementation-defined | Navigation marker |
 
 Example:
 
