@@ -591,22 +591,22 @@ described in section 7.
 A scene does not necessarily mean a physical place.
 
 For example:
-```text
-Scene 01 — Introduction
-Scene 02 — Main argument
-Scene 03 — Conclusion
 
-may be used in a presentation.
-```
+Scene 01 — Introduction  
+Scene 02 — Main argument  
+Scene 03 — Conclusion  
 
-Likewise:
-```text
-Scene 01 — Character introduction
-Scene 02 — Conflict
-Scene 03 — Resolution
+may be used in a presentation.  
 
-may be used in an audiobook.
-```
+
+Likewise:  
+
+Scene 01 — Character introduction  
+Scene 02 — Conflict  
+Scene 03 — Resolution  
+
+may be used in an audiobook.  
+
 
 The meaning of a scene is determined by the project context.
 
