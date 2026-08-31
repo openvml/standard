@@ -761,10 +761,10 @@ The timing says:
 
 The grid says:
 
-row 2
-column 4
-row span 2
-column span 2
+row 2  
+column 4  
+row span 2  
+column span 2  
 
 Therefore:
 
@@ -1133,32 +1133,32 @@ This is not a validation problem.
 
 The validator checks whether the timing declarations are structurally valid.
 
-For example:
+For example:  
 
-Is startTime a valid number?
-Is duration non-negative?
-Is startMode allowed?
-Is time valid for `<break>`?
+Is startTime a valid number?  
+Is duration non-negative?  
+Is startMode allowed?  
+Is time valid for `<break>`?  
 
-The Player handles runtime concerns:
-
-Can the asset be loaded?
-How long did TTS synthesis take?
-Can the media be decoded?
-How should overlapping streams be synchronized?
-How should the element be rendered?
-
-The validator does not predict runtime behavior.
+The Player handles runtime concerns:  
+  
+Can the asset be loaded?  
+How long did TTS synthesis take?  
+Can the media be decoded?  
+How should overlapping streams be synchronized?  
+How should the element be rendered?  
+  
+The validator does not predict runtime behavior.  
 
 ## 40. Timing Precision
 
 Time values expressed in seconds MAY contain fractional values.
 
-Examples:
+Examples:  
 
-startTime="2.5"
-duration="0.75"
-startDelay="1.25"
+startTime="2.5"  
+duration="0.75"  
+startDelay="1.25"  
 
 This allows sufficiently precise synchronization for:
 
@@ -1198,15 +1198,15 @@ These implementation details do not change the semantic timing model.
 
 A Player MAY expose runtime timing events.
 
-Examples include:
+Examples include:  
 
-PlaybackStarted
-ChapterChanged
-SceneChanged
-BlockChanged
-LineChanged
-MediaCue
-PlaybackCompleted
+PlaybackStarted  
+ChapterChanged  
+SceneChanged  
+BlockChanged  
+LineChanged  
+MediaCue  
+PlaybackCompleted  
 
 These events are runtime concepts.
 
@@ -1261,9 +1261,9 @@ The Player implements execution.
 
 The OVML timing model can be summarized as:
 
+```text
                          OVML
 
-```text
                   WHAT SHOULD EXIST
                          │
                          ▼
