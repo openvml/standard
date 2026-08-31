@@ -32,7 +32,7 @@ Example:
 </subtitle>
 ```
 
-Attributes:
+Attributes:  
 
 | Attribute | Type | Required | Description |
 | --------- | ---- | ---------------------- |
