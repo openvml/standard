@@ -139,14 +139,16 @@ These dimensions should not be confused.
 
 The timing model applies to different types of content.
 
-Element        Temporal    Visual        Audio         Layer
-`<line>`        yes         yes           yes           text/content
-`<img>`          yes         yes           no            background / foreground
-`<video>`        yes         yes           optionally    background / foreground
-`<audio>`        yes         no            yes           background / foreground
-`<break>`        yes         no            no            none
-`<camera>`       yes         indirectly    no            camera
-`transitions`    yes         yes           optionally    presentation
+
+| Element | Temporal | Visual | Audio | Layer |
+| :--- | :--- | :--- | :--- | :--- |
+| `<line>` | yes | yes | yes | text/content |
+| `<img>` | yes | yes | no | background / foreground |
+| `<video>` | yes | yes | optionally | background / foreground |
+| `<audio>` | yes | no | yes | background / foreground |
+| `<break>` | yes | no | no | none |
+| `<camera>` | yes | indirectly | no | camera |
+| `transitions` | yes | yes | optionally | presentation |
 
 
 Not every element uses every timing or spatial property.
