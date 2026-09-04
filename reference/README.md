@@ -96,7 +96,46 @@ Defines the `<character>` element, including:
 * backstory;
 * voice information;
 * pitch and rate;
-* optional processing preset references.
+* optional processing preset references;
+* **inventory** — items the character possesses, wears, or carries;
+* **condition** — physical conditions (wounds, injuries) with healing state;
+* **appearance detail** — structured visual traits for media generation.
+
+### Entity
+
+[`entity.md`](entity.md)
+
+Defines the conceptual **Entity** model — the common semantic framework for `character`, `object`, and `location`.
+
+* Entity identity (`id`, `name`);
+* Entity types: `character`, `object` (planned), `location`;
+* Common properties: identity, avatar (application-level), type-specific properties;
+* Scene participation and scene state;
+* Entity relationships and lifetime.
+
+### Avatar
+
+[`avatar.md`](avatar.md)
+
+Defines the **avatar** concept — an optional visual representation of an entity for identification in user interfaces and non-scene contexts.
+
+* Avatar vs appearance_detail vs thumbnail;
+* Syntax (conceptual, not in OVML 2.2 XSD);
+* Optionality and rendering;
+* Multiple representations.
+
+### Object
+
+[`object.md`](object.md)
+
+Defines the `<object>` entity type — distinct things or resources in the modeled world.
+
+**Note:** Not yet in OVML 2.2 XSD. Documented for future standardization.
+
+* Identity and appearance_detail;
+* Condition and state;
+* Scene participation (planned);
+* Relationships with characters and locations.
 
 ### Script
 
@@ -120,8 +159,9 @@ Defines the `<scene>` element and its attributes, including:
 * `atmosphere`;
 * `transition`.
 
-Scenes provide narrative and visual context for groups of content. The `<camera>` child element is
-documented here.
+The `<characters>` child lists participating characters. Each `<char>` entry can include an optional `state` attribute describing the character's physical state in this scene (posture, movement, activity, transport), overriding the character's base state.
+
+Scenes provide narrative and visual context for groups of content. The `<camera>` child element is documented here.
 
 ### Lines
 
@@ -195,7 +235,7 @@ media.
 
 [`blocking.md`](blocking.md)
 
-Defines the `<blocking>` element for semantic character relationships inside scenes.
+Defines the `<blocking>` element for semantic character relationships inside scenes. The `<character>` child entries can include an optional `state` attribute (posture, movement, activity, transport) alongside spatial attributes.
 
 ### Emotions
 

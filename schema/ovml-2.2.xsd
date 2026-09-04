@@ -134,6 +134,88 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="inventoryItemTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="clothing"/>
+            <xs:enumeration value="equipment"/>
+            <xs:enumeration value="object"/>
+            <xs:enumeration value="trace"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="inventoryItemStateType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="worn"/>
+            <xs:enumeration value="removed"/>
+            <xs:enumeration value="carried"/>
+            <xs:enumeration value="dropped"/>
+            <xs:enumeration value="damaged"/>
+            <xs:enumeration value="lost"/>
+            <xs:enumeration value="active"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="conditionStateType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="active"/>
+            <xs:enumeration value="healing"/>
+            <xs:enumeration value="healed"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="postureType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="standing"/>
+            <xs:enumeration value="sitting"/>
+            <xs:enumeration value="lying"/>
+            <xs:enumeration value="kneeling"/>
+            <xs:enumeration value="crouching"/>
+            <xs:enumeration value="leaning"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="movementType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="stationary"/>
+            <xs:enumeration value="walking"/>
+            <xs:enumeration value="running"/>
+            <xs:enumeration value="climbing"/>
+            <xs:enumeration value="swimming"/>
+            <xs:enumeration value="flying"/>
+            <xs:enumeration value="driving"/>
+            <xs:enumeration value="riding"/>
+            <xs:enumeration value="traveling"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="activityType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="reading"/>
+            <xs:enumeration value="writing"/>
+            <xs:enumeration value="talking"/>
+            <xs:enumeration value="eating"/>
+            <xs:enumeration value="sleeping"/>
+            <xs:enumeration value="fighting"/>
+            <xs:enumeration value="working"/>
+            <xs:enumeration value="observing"/>
+            <xs:enumeration value="operating"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="transportTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="car"/>
+            <xs:enumeration value="motorcycle"/>
+            <xs:enumeration value="bus"/>
+            <xs:enumeration value="truck"/>
+            <xs:enumeration value="train"/>
+            <xs:enumeration value="aircraft"/>
+            <xs:enumeration value="helicopter"/>
+            <xs:enumeration value="boat"/>
+            <xs:enumeration value="ship"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:simpleType name="secondsType">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="0"/>
@@ -605,6 +687,99 @@
         <xs:attributeGroup ref="forwardCompatAttrs"/>
     </xs:complexType>
 
+    <!-- Inventory item -->
+    <xs:complexType name="InventoryItemType">
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="type" type="inventoryItemTypeType" use="required"/>
+        <xs:attribute name="state" type="inventoryItemStateType" use="required"/>
+        <xs:attribute name="description" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- Inventory list -->
+    <xs:complexType name="InventoryType">
+        <xs:sequence>
+            <xs:element name="item" type="InventoryItemType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- Condition item -->
+    <xs:complexType name="ConditionItemType">
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="state" type="conditionStateType" use="required"/>
+        <xs:attribute name="description" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- Condition list -->
+    <xs:complexType name="ConditionType">
+        <xs:sequence>
+            <xs:element name="item" type="ConditionItemType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <!-- Structured appearance detail -->
+    <xs:complexType name="HairType">
+        <xs:attribute name="color" type="xs:string"/>
+        <xs:attribute name="length" type="xs:string"/>
+        <xs:attribute name="style" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="EyesType">
+        <xs:attribute name="color" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="TattooType">
+        <xs:attribute name="location" type="xs:string"/>
+        <xs:attribute name="description" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="BodyMarkType">
+        <xs:attribute name="location" type="xs:string"/>
+        <xs:attribute name="description" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="RitualMarkType">
+        <xs:attribute name="location" type="xs:string"/>
+        <xs:attribute name="description" type="xs:string"/>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
+    <xs:complexType name="AppearanceDetailType">
+        <xs:sequence>
+            <xs:element name="hair" type="HairType" minOccurs="0"/>
+            <xs:element name="eyes" type="EyesType" minOccurs="0"/>
+            <xs:element name="tattoos" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tattoo" type="TattooType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="body_marks" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="mark" type="BodyMarkType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ritual_marks" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="mark" type="RitualMarkType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attributeGroup ref="forwardCompatAttrs"/>
+    </xs:complexType>
+
     <xs:complexType name="VoiceType">
         <xs:attribute name="engine" type="xs:string"/>
         <xs:attribute name="id" type="xs:string"/>
@@ -628,6 +803,9 @@
                     </xs:choice>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="inventory" type="InventoryType" minOccurs="0"/>
+            <xs:element name="condition" type="ConditionType" minOccurs="0"/>
+            <xs:element name="appearance_detail" type="AppearanceDetailType" minOccurs="0"/>
         </xs:choice>
         <xs:attribute name="id" type="xs:ID" use="required"/>
         <xs:attribute name="name" type="xs:string"/>
@@ -1015,6 +1193,7 @@
         <xs:attribute name="reacts_to" type="xs:IDREF"/>
         <xs:attribute name="enters" type="xs:boolean"/>
         <xs:attribute name="exits" type="xs:boolean"/>
+        <xs:attribute name="state" type="xs:string"/>
         <xs:attributeGroup ref="forwardCompatAttrs"/>
     </xs:complexType>
 
@@ -1030,6 +1209,7 @@
     <xs:complexType name="SceneCharType">
         <xs:attribute name="ref" type="xs:IDREF"/>
         <xs:attribute name="emotion" type="xs:string"/>
+        <xs:attribute name="state" type="xs:string"/>
         <xs:attributeGroup ref="forwardCompatAttrs"/>
     </xs:complexType>
 

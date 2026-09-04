@@ -277,7 +277,34 @@ The Player may need to resolve sequential timing dynamically.
 
 This is not a validation problem.
 
-## 12. Conformance Summary
+## 12. Validation of Character State Model
+
+For the character state model (inventory, condition, appearance detail, per-scene state), a validator SHOULD verify:
+
+**Inventory (`<inventory><item>`):**
+- `item/@id` is present and unique within the character
+- `item/@type` contains an allowed value: `clothing`, `equipment`, `object`, `trace`
+- `item/@state` contains an allowed value: `worn`, `removed`, `carried`, `dropped`, `damaged`, `lost`, `active`
+
+**Condition (`<condition><item>`):**
+- `item/@id` is present and unique within the character
+- `item/@state` contains an allowed value: `active`, `healing`, `healed`
+
+**Appearance Detail (`<appearance_detail>`):**
+- Child elements (`hair`, `eyes`, `tattoos`, `body_marks`, `ritual_marks`) follow the defined structure
+- `tattoo` and `mark` elements have `location` and `description` attributes when present
+
+**Per-Scene State (`<characters><char state="...">` and `<blocking><character state="...">`):**
+- `state` attribute parses as semicolon-separated key=value pairs
+- Known keys: `posture`, `movement`, `activity`, `transport`
+- `posture` values: `standing`, `sitting`, `lying`, `kneeling`, `crouching`, `leaning`
+- `movement` values: `stationary`, `walking`, `running`, `climbing`, `swimming`, `flying`, `driving`, `riding`, `traveling`
+- `activity` values: `reading`, `writing`, `talking`, `eating`, `sleeping`, `fighting`, `working`, `observing`, `operating`
+- `transport` format: `transport={type=...,make=...,model=...,color=...}` with `type` ∈ `car`, `motorcycle`, `bus`, `truck`, `train`, `aircraft`, `helicopter`, `boat`, `ship`
+
+The validator does not enforce narrative continuity of state across scenes (e.g., an item remaining `worn` until explicitly changed). Continuity is an authoring/semantic concern.
+
+## 13. Conformance Summary
 
 An implementation should distinguish three concepts:
 
@@ -299,7 +326,7 @@ The standard describes the second.
 
 The Player owns the third.
 
-## 13. Related Documents
+## 14. Related Documents
 
 1. [`concepts/scenes-and-world.md`](../concepts/scenes-and-world.md)
 2. [`reference/identifiers.md`](identifiers.md)

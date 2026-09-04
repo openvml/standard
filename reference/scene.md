@@ -406,14 +406,25 @@ Example:
 
 ```xml
 <characters>
-    <char ref="hero" emotion="thoughtful" />
-    <char ref="heroine" emotion="curious" />
+    <char ref="hero" emotion="thoughtful" state="posture=standing;movement=stationary;activity=observing" />
+    <char ref="heroine" emotion="curious" state="posture=sitting;activity=reading" />
 </characters>
 ```
 
 Each `<char>` entry references a character id declared in the `<cast>` element.
 
-The emotional state may provide additional context for voice direction and AI-assisted rendering.
+The optional `state` attribute describes the character's physical state in this specific scene, overriding or supplementing the character's base state (defined in `<character>` via `<inventory>`, `<condition>`, or implicitly). The format is a semicolon-separated list of key=value pairs:
+
+| Key | Description | Example Values |
+|-----|-------------|----------------|
+| `posture` | Body posture | standing, sitting, lying, kneeling, crouching, leaning |
+| `movement` | Movement type | stationary, walking, running, climbing, swimming, flying, driving, riding, traveling |
+| `activity` | Current activity | reading, writing, talking, eating, sleeping, fighting, working, observing, operating |
+| `transport` | Vehicle/transport (JSON-like) | `transport={type=car,make=Ford,model=Mustang,color=red}` |
+
+A per-scene `state` applies only within that scene. The character's base state persists across scenes unless overridden.
+
+The `emotion` attribute provides additional context for voice direction and AI-assisted rendering.
 
 1. [`reference/cast.md`](cast.md)
 
@@ -426,8 +437,8 @@ Example:
 
 ```xml
 <blocking>
-    <character ref="anna" position="left" look_at="ivan" enters="true" />
-    <character ref="ivan" position="right" addresses="anna" />
+    <character ref="anna" position="left" look_at="ivan" enters="true" state="posture=standing;movement=walking;activity=operating" />
+    <character ref="ivan" position="right" addresses="anna" state="posture=sitting;activity=reading" />
 </blocking>
 ```
 
@@ -438,6 +449,8 @@ Blocking records intend and spatial relations rather than absolute coordinates:
 - who addresses whom;
 - who reacts to whom;
 - who enters or exits the scene.
+
+The optional `state` attribute on `<character>` (same format as in `<characters><char>`) records the character's physical state at this blocking moment. It is orthogonal to spatial attributes (`position`, `look_at`, etc.) — a character can have both a position and a posture/activity.
 
 The complete blocking model is defined in:
 

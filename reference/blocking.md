@@ -40,14 +40,16 @@ Example:
 <scene id="ch1_office" time="evening" mood="dramatic">
 
     <blocking>
-        <character ref="anna" position="left" look_at="ivan" enters="true"/>
-        <character ref="ivan" position="right" addresses="anna"/>
+        <character ref="anna" position="left" look_at="ivan" enters="true" state="posture=standing;movement=walking;activity=operating"/>
+        <character ref="ivan" position="right" addresses="anna" state="posture=sitting;activity=reading"/>
     </blocking>
 
 </scene>
 ```
 
 Each `<character>` entry references a character declared in the `<cast>` element by its `id`.
+
+The optional `state` attribute records the character's physical state at this blocking moment. It uses the same format as `<characters><char state="...">` — semicolon-separated key=value pairs for `posture`, `movement`, `activity`, and `transport`. The `state` attribute is orthogonal to spatial attributes (`position`, `look_at`, etc.) — a character can have both a position and a posture/activity.
 
 ## 3. Attributes
 
@@ -59,6 +61,7 @@ addresses	string	charId of the character this character addresses speech to
 reacts_to	string	charId of the character this character reacts to
 enters	boolean	Whether the character enters the scene
 exits	boolean	Whether the character exits the scene
+state	string	Physical state: semicolon-separated key=value pairs (posture, movement, activity, transport)
 
 ## 4. ref
 
@@ -128,18 +131,38 @@ Both attributes are booleans.
 
 A character may be marked as entering, exiting, or neither.
 
-## 10. Example: Blocking
+## 10. state
+
+The `state` attribute records the character's physical state at this blocking moment.
+
+Format: semicolon-separated key=value pairs.
+
+Keys:
+- `posture`: standing, sitting, lying, kneeling, crouching, leaning
+- `movement`: stationary, walking, running, climbing, swimming, flying, driving, riding, traveling
+- `activity`: reading, writing, talking, eating, sleeping, fighting, working, observing, operating
+- `transport`: transport={type=...,make=...,model=...,color=...} (type: car, motorcycle, bus, truck, train, aircraft, helicopter, boat, ship)
+
+Example:
+
+```xml
+<character ref="anna" position="left" state="posture=standing;movement=walking;activity=operating"/>
+```
+
+The `state` attribute is orthogonal to spatial attributes (`position`, `look_at`, etc.) — a character can have both a position and a posture/activity.
+
+## 11. Example: Blocking
 
 ```xml
 <scene id="ch1_office" time="evening" mood="dramatic">
     <location>Офис, неоновая подсветка</location>
     <characters>
-        <char ref="anna"/>
-        <char ref="ivan"/>
+        <char ref="anna" state="posture=standing;movement=stationary;activity=observing"/>
+        <char ref="ivan" state="posture=sitting;activity=reading"/>
     </characters>
     <blocking>
-        <character ref="anna" position="left" look_at="ivan" enters="true"/>
-        <character ref="ivan" position="right" addresses="anna"/>
+        <character ref="anna" position="left" look_at="ivan" enters="true" state="posture=standing;movement=walking;activity=operating"/>
+        <character ref="ivan" position="right" addresses="anna" state="posture=sitting;activity=reading"/>
     </blocking>
     <prompt>S neon lights, dramatic lighting, two people facing each other</prompt>
 

@@ -1,5 +1,5 @@
 > **OpenVML — Open Voice Markup Language**
-> 
+>
 > An open, declarative format for describing voice-driven audiovisual content, including dialogue,
 > narration, scenes, media, timing, and synchronization.
 
@@ -14,20 +14,27 @@ The `<character>` element defines a character or named voice used by an OVML pro
 A character represents a named entity that may be referenced by script content through the `char`
 attribute of a `<line>` element.
 
+**A character is an Entity type.** See [`entity.md`](entity.md) for the conceptual entity model.
+
 A character may contain:
 
-- identity information;
+- identity information (`id`, `name`);
 - aliases;
 - descriptive character information;
 - voice configuration;
 - voice characteristics;
-- processing preset references.
+- processing preset references;
+- inventory (items the character possesses);
+- condition (physical conditions, wounds);
+- appearance_detail (structured visual traits for media generation);
+- state (per-scene physical state).
 
 Characters are declared inside the `<cast>` element.
 
 The `<cast>` element is optional for projects that do not require character definitions.
 
 1. [`reference/cast.md`](cast.md)
+2. [`reference/entity.md`](entity.md)
 
 ## 2. Structure
 
@@ -540,7 +547,145 @@ Example:
 
 1. [`reference/image-processing.md`](image-processing.md)
 
-## 16. Character References in Script
+## 16. Inventory
+
+A character MAY contain an `<inventory>` element listing items the character possesses, wears, or carries.
+
+The `<inventory>` element contains zero or more `<item>` children.
+
+Each `<item>` has the following attributes:
+
+Attribute	Type	Required	Description
+id	ID	yes	Unique item identifier within the document
+type	enum	yes	Category of the item
+state	enum	yes	Current state of the item
+description	string	no	Free-text description of the item
+
+Allowed values for `type`:
+
+Value	Description
+clothing	Garments, armor, accessories worn on the body
+equipment	Tools, weapons, devices carried or used
+object	General physical objects (books, props, etc.)
+trace	Residual traces (footprints, scent, magical residue)
+
+Allowed values for `state`:
+
+Value	Description
+worn	Currently worn or equipped on the body
+removed	Previously worn, now removed
+carried	Carried but not worn (in bag, hand, pocket)
+dropped	Left behind in the scene
+damaged	Damaged or broken
+lost	Lost or missing
+active	Active/operational (for equipment)
+
+Example:
+
+```xml
+<character
+    id="alex"
+    name="Alex">
+
+    <inventory>
+        <item id="item_1" type="clothing" state="worn" description="Leather jacket, worn at shoulders"/>
+        <item id="item_2" type="equipment" state="carried" description="Backpack with supplies"/>
+        <item id="item_3" type="object" state="dropped" description="Letter dropped in Chapter 3"/>
+        <item id="item_4" type="trace" state="active" description="Magical ward on wrist"/>
+    </inventory>
+
+</character>
+```
+
+Inventory is persistent unless the narrative changes it. An item with `state="worn"` remains worn until a later scene changes it to `removed`, `dropped`, etc. Authoring tools and AI-assisted workflows SHOULD track inventory continuity across scenes.
+
+## 17. Condition
+
+A character MAY contain a `<condition>` element listing physical conditions affecting the character (wounds, injuries, illnesses, temporary states).
+
+The `<condition>` element contains zero or more `<item>` children.
+
+Each `<item>` has the following attributes:
+
+Attribute	Type	Required	Description
+id	ID	yes	Unique condition identifier within the document
+state	enum	yes	Current state of the condition
+description	string	no	Free-text description of the condition
+
+Allowed values for `state`:
+
+Value	Description
+active	Currently affecting the character
+healing	Condition is improving, treatment in progress
+healed	Condition resolved, may leave permanent marks
+
+Example:
+
+```xml
+<character
+    id="alex"
+    name="Alex">
+
+    <condition>
+        <item id="wound_1" state="active" description="Gunshot wound to left shoulder, bandaged"/>
+        <item id="bruise_1" state="healing" description="Bruised ribs from fall"/>
+        <item id="scar_1" state="healed" description="Old scar on right forearm"/>
+    </condition>
+
+</character>
+```
+
+Conditions are narrative state. A condition with `state="active"` persists until changed to `healing` or `healed`. When `healed`, the condition may leave a permanent mark (which can be recorded in `appearance_detail`).
+
+## 18. Structured Appearance Detail
+
+A character MAY contain an `<appearance_detail>` element providing structured visual description for media generation (image/video synthesis).
+
+Unlike the free-text `appearance` attribute, `appearance_detail` breaks down visual traits into structured fields that generative models can consume directly.
+
+Structure:
+
+```xml
+<character
+    id="alex"
+    name="Alex">
+
+    <appearance_detail>
+        <hair color="dark brown" length="shoulder" style="wavy, slightly messy"/>
+        <eyes color="hazel"/>
+        <tattoos>
+            <tattoo location="left forearm" description="Dragon coiled around a sword"/>
+            <tattoo location="right shoulder blade" description="Small compass rose"/>
+        </tattoos>
+        <body_marks>
+            <mark location="left knee" description="Surgical scar from childhood injury"/>
+        </body_marks>
+        <ritual_marks>
+            <mark location="wrist" description="Faint glowing sigil, visible when using magic"/>
+        </ritual_marks>
+    </appearance_detail>
+
+</character>
+```
+
+Child elements:
+
+| Element | Attributes | Description |
+|---------|------------|-------------|
+| `<hair>` | `color`, `length`, `style` | Hair color, length, and style description |
+| `<eyes>` | `color` | Eye color |
+| `<tattoos>` | — | Container for `<tattoo>` elements |
+| `<tattoo>` | `location`, `description` | Tattoo placement and visual description |
+| `<body_marks>` | — | Container for `<mark>` elements (scars, birthmarks, etc.) |
+| `<mark>` (in body_marks) | `location`, `description` | Physical mark on the body |
+| `<ritual_marks>` | — | Container for `<mark>` elements (magical, ceremonial marks) |
+| `<mark>` (in ritual_marks) | `location`, `description` | Ritual/supernatural mark |
+
+All attributes are optional. Omit elements for unknown traits — do not fabricate.
+
+The structured appearance is intended for AI-assisted media generation pipelines. A Player MAY ignore this information during playback.
+
+## 19. Character References in Script
 
 Characters are referenced by their id.
 
@@ -604,15 +749,26 @@ A scene MAY list the characters participating in that scene.
 Each `<char>` entry references a character id declared in the `<cast>` element:
 
 ```xml
-    <scene>
+<scene>
 
-        <characters>
-            <char ref="vestfal" emotion="thoughtful" />
-            <char ref="narrator" emotion="neutral" />
-        </characters>
+    <characters>
+        <char ref="vestfal" emotion="thoughtful" state="posture=standing;movement=stationary;activity=observing" />
+        <char ref="narrator" emotion="neutral" />
+    </characters>
 
-    </scene>
+</scene>
 ```
+
+The optional `state` attribute describes the character's physical state in this specific scene, overriding or supplementing the character's base state. The format is a semicolon-separated list of key=value pairs:
+
+| Key | Description | Example Values |
+|-----|-------------|----------------|
+| `posture` | Body posture | standing, sitting, lying, kneeling, crouching, leaning |
+| `movement` | Movement type | stationary, walking, running, climbing, swimming, flying, driving, riding, traveling |
+| `activity` | Current activity | reading, writing, talking, eating, sleeping, fighting, working, observing, operating |
+| `transport` | Vehicle/transport (JSON-like) | `transport={type=car,make=Ford,model=Mustang,color=red}` |
+
+A per-scene `state` applies only within that scene. The character's base state (defined in `<character><inventory>`, `<condition>`, or implicitly) persists across scenes unless overridden.
 
 Scene participation references existing characters.
 

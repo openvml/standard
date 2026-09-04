@@ -339,14 +339,18 @@ A scene can contain visual and narrative information such as:
    color="#1a1a2e"
    atmosphere="warm sunset, silence, tranquility">
 
-   ...
+    <characters>
+        <char ref="alex" state="posture=standing;activity=observing" />
+    </characters>
 
 </scene>
 ```
 
-The color attribute can be used as a visual hint for UI presentation and processing presets.
+The `color` attribute can be used as a visual hint for UI presentation and processing presets.
 
-The atmosphere attribute provides a semantic description of the scene.
+The `atmosphere` attribute provides a semantic description of the scene.
+
+The `<characters>` element lists characters participating in the scene. Each `<char>` entry can include an optional `state` attribute describing the character's physical state in this specific scene (posture, movement, activity, transport), overriding the character's base state.
 
 This information can be used by authoring tools and AI-assisted workflows to help select:
 
@@ -422,7 +426,10 @@ A character can contain information about:
 - speech rate;
 - audio processing;
 - video processing;
-- image processing.
+- image processing;
+- **inventory** — items the character possesses, wears, or carries (clothing, equipment, objects, traces);
+- **condition** — physical conditions (wounds, injuries) with healing state;
+- **appearance detail** — structured visual traits (hair, eyes, tattoos, body marks, ritual marks) for media generation.
 
 The standard does not require one specific TTS engine.
 
@@ -727,30 +734,34 @@ Recommended reading order for the reference (normative element/attribute definit
 2. [`reference/meta.md`](reference/meta.md) — metadata and presentation preferences
 3. [`reference/cast.md`](reference/cast.md) — `<cast>` container
 4. [`reference/character.md`](reference/character.md) — `<character>` element
-5. [`reference/body.md`](reference/body.md) — `<script>` content model
-6. [`reference/chapter.md`](reference/chapter.md) — `<chapter>` element
-7. [`reference/scene.md`](reference/scene.md) — `<scene>` and `<camera>` elements
-8. [`reference/line.md`](reference/line.md) — `<line>` element
-9. [`reference/paragraph.md`](reference/paragraph.md) — `<p>` element
-10. [`reference/media.md`](reference/media.md) — `<video>`, `<audio>`, `<img>`
-11. [`reference/subtitle.md`](reference/subtitle.md) — `<subtitle>` element
-12. [`reference/assets.md`](reference/assets.md) — asset passports and `assetRef`
-13. [`reference/world.md`](reference/world.md) — `<world>` container
-14. [`reference/locations.md`](reference/locations.md) — `<locations>` and `<location>` entities
-15. [`reference/break.md`](reference/break.md) — `<break>` element
-16. [`reference/timing.md`](reference/timing.md) — temporal model
-17. [`reference/layers.md`](reference/layers.md) — layer system
-18. [`reference/blocking.md`](reference/blocking.md) — semantic character relationships
-19. [`reference/emotions.md`](reference/emotions.md) — emotion/intonation vocabularies
-20. [`reference/transitions.md`](reference/transitions.md) — transition types
-21. [`reference/audio-processing.md`](reference/audio-processing.md) — `<audio_processing>`
-22. [`reference/video-processing.md`](reference/video-processing.md) — `<video_processing>`
-23. [`reference/image-processing.md`](reference/image-processing.md) — `<image_processing>`
-24. [`reference/tts.md`](reference/tts.md) — TTS engine/voice resolution
-25. [`reference/voice.md`](reference/voice.md) — voice attributes and SSML controls
-26. [`reference/identifiers.md`](reference/identifiers.md) — ID/reference system
-27. [`reference/enums.md`](reference/enums.md) — consolidated enum vocabularies
-28. [`reference/validation.md`](reference/validation.md) — conformance and XSD
+5. [`reference/entity.md`](reference/entity.md) — Entity conceptual model
+6. [`reference/avatar.md`](reference/avatar.md) — Avatar concept (application-level)
+7. [`reference/object.md`](reference/object.md) — `<object>` entity (planned)
+8. [`reference/body.md`](reference/body.md) — `<script>` content model
+9. [`reference/chapter.md`](reference/chapter.md) — `<chapter>` element
+10. [`reference/scene.md`](reference/scene.md) — `<scene>` and `<camera>` elements
+11. [`reference/line.md`](reference/line.md) — `<line>` element
+12. [`reference/paragraph.md`](reference/paragraph.md) — `<p>` element
+13. [`reference/media.md`](reference/media.md) — `<video>`, `<audio>`, `<img>`
+14. [`reference/subtitle.md`](reference/subtitle.md) — `<subtitle>` element
+15. [`reference/assets.md`](reference/assets.md) — asset passports and `assetRef`
+16. [`reference/world.md`](reference/world.md) — `<world>` container
+17. [`reference/locations.md`](reference/locations.md) — `<locations>` section
+18. [`reference/location.md`](reference/location.md) — `<location>` entity model
+19. [`reference/break.md`](reference/break.md) — `<break>` element
+20. [`reference/timing.md`](reference/timing.md) — temporal model
+21. [`reference/layers.md`](reference/layers.md) — layer system
+22. [`reference/blocking.md`](reference/blocking.md) — semantic character relationships
+23. [`reference/emotions.md`](reference/emotions.md) — emotion/intonation vocabularies
+24. [`reference/transitions.md`](reference/transitions.md) — transition types
+25. [`reference/audio-processing.md`](reference/audio-processing.md) — `<audio_processing>`
+26. [`reference/video-processing.md`](reference/video-processing.md) — `<video_processing>`
+27. [`reference/image-processing.md`](reference/image-processing.md) — `<image_processing>`
+28. [`reference/tts.md`](reference/tts.md) — TTS engine/voice resolution
+29. [`reference/voice.md`](reference/voice.md) — voice attributes and SSML controls
+30. [`reference/identifiers.md`](reference/identifiers.md) — ID/reference system
+31. [`reference/enums.md`](reference/enums.md) — consolidated enum vocabularies
+32. [`reference/validation.md`](reference/validation.md) — conformance and XSD
 
 Conceptual background is in the [`concepts/`](concepts/) section.
 
